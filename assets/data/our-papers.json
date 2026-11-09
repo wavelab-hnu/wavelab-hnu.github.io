@@ -47,7 +47,11 @@
     "year": 2026,
     "doi": "10.1016/j.compag.2026.112451",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2026-kivi-et-decomposition.webp",
+      "caption": "Workflow of the study: weather inputs from the CIMIS stations are screened for multicollinearity and useful lags, split into components by univariate and multivariate decomposition, filtered by K-best feature selection, and used to build standalone, hybrid and stacked-ensemble models for forecasting reference evapotranspiration.",
+      "credit": "Figure 2 from Kivi et al. (2026), Computers and Electronics in Agriculture. © 2026 Elsevier B.V. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Decomposing all weather inputs together (multivariate MVMD) gave better evapotranspiration forecasts than decomposing each variable separately, and combining the three hybrid models in a stacking ensemble cut forecast errors by about 35–42% compared with a plain XGBoost model.",
     "background": "Reference evapotranspiration (ETo) is the amount of water the atmosphere can draw from a well-watered crop surface, and forecasts of it guide irrigation scheduling and water allocation. Daily ETo records are noisy and change with seasons and weather, so models trained on raw data often miss part of the signal. Signal decomposition splits each series into simpler components first; univariate methods treat each weather variable separately, whereas multivariate methods split them jointly and keep their shared rhythms. Until this study, the two approaches had not been compared under the same conditions.",
     "approach": "The authors used daily data from 2015 to 2025 at three CIMIS weather stations in California representing arid (King City-Oasis Rd.), semi-arid (McArthur) and sub-humid (Sanel Valley) climates. After a multicollinearity check, five inputs were kept (maximum and minimum temperature, maximum and minimum relative humidity, and solar radiation) with a 5-day lag window. Six standalone models were compared, and XGBoost was chosen as the base learner. It was then combined with two univariate decompositions (TVF-EMD and VGNMD) and one multivariate decomposition (MVMD), with K-best feature selection, to forecast ETo 1, 3, 7 and 10 days ahead. A ridge-regression stacking ensemble merged the three hybrid models, and data were split chronologically into 75% training and 25% testing.",
@@ -148,7 +152,11 @@
     "year": 2026,
     "doi": "10.1016/j.gr.2025.06.022",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2026-lee-polsar-flood-detection.webp",
+      "caption": "The five-step flood-mapping framework: 100 polarimetric features are extracted from UAVSAR radar data and screened for redundancy, the most informative ones are ranked with DT-RFE, and a convolutional neural network trained on flood and non-flood samples maps the inundated area and is evaluated.",
+      "credit": "Figure 3 from Lee et al. (2026), Gondwana Research. © 2025 International Association for Gondwana Research, published by Elsevier B.V. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Extracting 100 scattering features from NASA's airborne radar, keeping the most informative ones, and feeding them to a convolutional neural network mapped Hurricane Florence flooding with about 97% accuracy, far better than raw radar data or simple thresholding.",
     "background": "Accurate flood maps are the foundation of flood hazard, vulnerability and risk assessments, and they guide rescue and recovery. Polarimetric radar (PolSAR) records how surfaces scatter radar waves in several polarizations, which can reveal water even under vegetation, but most of this information is rarely used. The authors asked whether extracting and selecting many PolSAR features could make deep-learning flood detection more reliable.",
     "approach": "The study area was a NASA UAVSAR flight path along the Lumber River in southeastern North Carolina, flown repeatedly after Hurricane Florence in September 2018. From the airborne L-band quad-polarization data, the authors computed 100 features using 18 PolSAR decomposition methods, removed redundant ones with a variance inflation factor test (leaving 49), and ranked them with decision tree–recursive feature elimination (DT-RFE). Flood and non-flood samples (about 222,000 pixels) were drawn from Planet true-color and UAVSAR false-color images for 18 September and split 80:20 for training and testing a convolutional neural network (CNN). The model was then checked on four later dates, compared with a CNN using raw radar data, the Otsu thresholding method and an FT-Transformer model, and finally applied to Hurricane Harvey flooding in Texas (2017).",
@@ -181,7 +189,11 @@
     "year": 2025,
     "doi": "10.1016/j.scitotenv.2025.180591",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2025-lee-dry-wet-transitions.webp",
+      "caption": "Overview of the study: climatic (SPEI) and soil-moisture indices are merged into a single dry-wet index, extreme dry and wet spells are identified at each grid cell, transitions between them are grouped by timescale and by type, and their frequency, trends and dependence are analysed across East Asia.",
+      "credit": "Graphical abstract from Lee et al. (2025), Science of The Total Environment. © 2025 Elsevier B.V. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Rapid swings between dry and wet spells have become more likely across more than 80% of East Asia since 1970, and the rise is tied to dry and wet extremes becoming more strongly linked rather than to chance.",
     "background": "A sudden switch from drought to heavy rain, or the reverse, can be more damaging than either extreme alone: drought-hardened soils increase runoff when rain returns, and reservoir operators must balance flood control against water storage. These \"hydroclimatic swing events\" (HSEs) are even harder to manage when another dry or wet spell came just before, forming a chain. Such chains had received little study, especially in East Asia.",
     "approach": "The study used ERA5-Land reanalysis data for East Asia from 1951 to 2020. The authors built a standardized dry-wet index (SDWI) that merges a climatic drought index (SPEI) and a soil-moisture index (SSMI) without assuming a statistical distribution. Dry spells (below the 10th percentile) and wet spells (above the 90th) were identified, and transitions between them within 1, 3 or 12 months were counted, along with chains preceded by an earlier spell (dry-dry-wet, dry-wet-dry, wet-dry-wet and wet-wet-dry). Trends in 5-year event counts were tested with the Mann-Kendall test, and a likelihood multiplication factor (LMF) compared how strongly dry and wet spells depended on each other in 1951–1985 versus 1986–2020.",
@@ -214,7 +226,11 @@
     "year": 2025,
     "doi": "10.1007/s00704-025-05793-5",
     "license": "Publisher license (Springer Nature, exclusive licence)",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2025-saleem-indus-extremes.webp",
+      "caption": "The study's three-step workflow: observed station data and ten CMIP6 climate models are collected for twelve Upper Indus stations, the data are normalised and split into training (1985–2005) and testing (2006–2014) periods, and ANN and CNN models downscale the GCMs. The five best models are then projected to 2026–2085 under SSP2-4.5 and SSP5-8.5 for trend and climate-extreme analysis.",
+      "credit": "Figure 2 from Saleem et al. (2025), Theoretical and Applied Climatology. © 2025 The Author(s), under exclusive licence to Springer-Verlag GmbH Austria, part of Springer Nature. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Neural-network downscaling of CMIP6 climate models points to consistent warming and stronger temperature extremes across Pakistan's glacier-fed Upper Indus Basin, while future rainfall stays highly uncertain from model to model.",
     "background": "The Upper Indus Basin in northern Pakistan is fed by glaciers and snow, and its rivers supply water for millions of people downstream. Global climate models (GCMs) are too coarse to describe what will happen at individual mountain weather stations, and observations in this steep, high terrain are sparse. Reliable local projections of heat and rainfall extremes are needed to plan for floods, droughts and water shortages.",
     "approach": "The authors trained two machine-learning models, artificial neural networks (ANNs) and convolutional neural networks (CNNs), to translate daily precipitation and maximum/minimum temperature from ten CMIP6 GCMs into observed values at twelve Pakistan Meteorological Department stations, grouped into high-, medium- and low-elevation zones. Data from 1985–2005 were used for training and 2006–2014 for testing, and the five GCMs that downscaled best were kept. Projections were made for a near term (2026–2055) and a long term (2056–2085) under the SSP2-4.5 and SSP5-8.5 scenarios. Trends were tested with the modified Mann–Kendall test, and twelve extreme indices (for example Rx1day, R95p, SU25 and TXx) were calculated with RClimdex.",
@@ -246,7 +262,11 @@
     "year": 2025,
     "doi": "10.12989/scs.2025.56.6.539",
     "license": "Publisher license (© Techno-Press)",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2025-hwang-raindrop-sounds-cnn.webp",
+      "caption": "Rainfall estimated from raindrop sounds (red) for the independent test event of 29 August 2023, compared with the optical disdrometer (grey) and a weighing rain gauge (green): (a) rainfall intensity, with the heaviest part enlarged, and (b) accumulated rainfall. The acoustic estimate tracks the bursts well but falls a little short at the highest intensities.",
+      "credit": "Figure 6 from Hwang et al. (2025), Steel and Composite Structures. © 2025 Techno-Press, Ltd. Reproduced with the authors' reuse rights."
+    },
     "tldr": "A cheap microphone in a plastic box, combined with a two-branch convolutional neural network, can estimate rainfall intensity from the sound of raindrops with accuracy comparable to camera- and microwave-based methods.",
     "background": "Heavy, very local downpours are becoming more frequent in Korea, but rain gauges are spread too thinly to capture them and weather radar is expensive and measures rain high above the ground. Low-cost sensors could fill the gaps in observation networks. Earlier work on rain sounds mostly sorted rain into a few broad classes; turning sound into an actual rainfall rate (mm/h) had rarely been attempted.",
     "approach": "The team placed a Raspberry Pi and a condenser microphone inside a waterproof plastic enclosure at Chung-Ang University in Seoul and recorded four rain events between August and September 2023. Recordings were cut into 10-second clips and matched with an optical disdrometer (OTT PARSIVEL²) installed within 10 m. Each clip was turned into two images: a standard STFT spectrogram, which resolves high frequencies well, and a mel-spectrogram, which resolves low frequencies well. A dual-stream CNN learned from both images together; it was trained on a balanced set of 1,998 clips (no rain, weak, moderate and heavy rain) from three events and tested on a separate event on 29 August 2023.",
@@ -279,14 +299,18 @@
     "year": 2025,
     "doi": "10.1016/j.pce.2025.104035",
     "license": "Publisher license (Elsevier)",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2025-saleem-indus-streamflow.webp",
+      "caption": "Projected mean streamflow (with 95% confidence intervals) and its percentage change from the 1985–2014 baseline for five CMIP6 climate models, under SSP2-4.5 and SSP5-8.5 in the early (2026–2055) and late (2056–2085) periods; panels (a–b) use artificial neural networks and (c–d) convolutional neural networks.",
+      "credit": "Figure 10 from Saleem et al. (2025), Physics and Chemistry of the Earth, Parts A/B/C. © 2025 Elsevier Ltd. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Neural networks driven by downscaled CMIP6 climate projections suggest that the Indus River above Tarbela Dam will carry more water in 2026–2085 than in 1985–2014, especially in spring and summer.",
     "background": "The Upper Indus Basin supplies nearly half of Pakistan's surface water and over 80% of its hydropower, and most of its flow comes from snow and glacier melt. That makes the river very sensitive to a warming climate. Physically based hydrological models need many inputs that are scarce in these high mountains, so the authors tested whether machine learning could project future flow instead.",
     "approach": "In a first step, artificial neural networks (ANNs) and convolutional neural networks (CNNs) downscaled daily precipitation and temperature from ten CMIP6 climate models to twelve weather stations, and the five best models were kept. In a second step, separate ANN and CNN models were trained to link observed daily station weather (1985–2014) to river flow at the Bisham Qila gauge, the last station before Tarbela Dam. The downscaled future climate was then fed into these models to project flow for 2026–2055 and 2056–2085 under the SSP2-4.5 and SSP5-8.5 scenarios, at daily, monthly, seasonal and annual scales.",
     "findings": [
       "The five GCMs kept for projection were MIROC6, CNRM-CM6-1, CNRM-ESM2-1, CanESM5 and IPSL-CM6A-LR, each reaching R² and KGE of about 0.89–0.93 in downscaling tests.",
       "For streamflow, both networks reproduced observed flow well (testing R² 0.86–0.87, KGE 0.89–0.90); the CNN had lower bias (PBIAS −0.4% vs 4.9%) and, unlike the ANN, showed no overfitting in the daily projections.",
-      "CNN projections showed higher mean flow than the 1985–2014 baseline for all five GCMs in both periods, with larger increases under SSP2-4.5 than SSP5-8.5.",
+      "CNN projections showed higher mean flow than the 1985–2014 baseline for every GCM, scenario and period except CanESM5 under SSP5-8.5 in 2056–2085 (no change), with larger increases under SSP2-4.5 than SSP5-8.5.",
       "CNRM-ESM2-1 gave the largest increases: 84% and 97% under SSP2-4.5, and 59% and 91% under SSP5-8.5, for the early and late periods.",
       "Monthly flow rose from January to September but fell from October to December, and the strongest seasonal increases were in spring (MAM) and summer (JJA)."
     ],
@@ -348,7 +372,11 @@
     "year": 2024,
     "doi": "10.12989/scs.2024.53.6.749",
     "license": "Publisher license (© Techno-Press)",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2024-lee-rational-formula.webp",
+      "caption": "Outflow hydrographs from the modified rational formula without storage (dashed, a trapezoid) and with a storage reservoir added (solid) for the same rainfall (grey bar), when the concentration time is (a) shorter or (b) longer than the rainfall duration. Storage delays and lowers the peak, which the classic formula misses. (In the figure, MRM and MRMS correspond to MRF and MRFS in the text.)",
+      "credit": "Figure 1 from Lee et al. (2024), Steel and Composite Structures. © 2024 Techno-Press, Ltd. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Because the classic rational formula ignores how a basin temporarily stores water, it can greatly overestimate design peak flow; adding a simple storage reservoir brings it close to the widely used Clark model.",
     "background": "The rational formula, introduced in 1851, is still one of the most common tools for sizing drains, culverts and small flood-control structures. It and its modified form (MRF) assume that runoff leaves the basin without being held back, so they ignore the storage effect of channels and floodplains. Guidelines on how large a basin can be for the formula to work vary widely and lack a theoretical basis.",
     "approach": "The authors added a linear reservoir at the basin outlet, as in the Clark unit hydrograph, and derived closed-form equations for the peak time and peak flow of this storage-aware formula (MRFS). The strength of storage was expressed by the Russell coefficient, the ratio of the storage coefficient to the concentration time. MRF, MRFS and the Clark model in HEC-HMS were compared on artificial basins (concentration times of 0.1–2.0 h, 200,000 combinations of basin size and Russell coefficient) and on 16 Korean dam basins managed by K-water, using 100-year design rainfall that was either uniform or distributed in time with the Huff method (Clark-Uniform and Clark-Huff).",
@@ -417,7 +445,11 @@
     "year": 2024,
     "doi": "10.1007/s00477-024-02844-7",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2024-cha-rainfall-scenarios.webp",
+      "caption": "Two observed heavy storms in the Seoul area (blue, top) and the best-matching 10-minute rainfall scenarios generated from first-order rainfall transition probabilities (red) under three levels of constraints (green bars): Case 1 fixes only the start, end, total and duration, Case 2 also fixes the first peak, and Case 3 adds the second peak. The more features are fixed, the closer the scenario follows the real storm.",
+      "credit": "Figure 9 from Cha et al. (2024), Stochastic Environmental Research and Risk Assessment. © 2024 The Author(s), under exclusive licence to Springer-Verlag GmbH Germany, part of Springer Nature. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Minute-by-minute rain records from the Seoul metropolitan area can be turned into transition probabilities that generate realistic storm scenarios, especially when key features such as the storm peaks are fixed in advance.",
     "background": "Short, intense downpours are becoming a bigger threat to Korean cities; in August 2022 Seoul recorded 141.5 mm in one hour, well above its 200-year design rainfall of 114.0 mm. Most rainfall generators are built on hourly or 5-minute data, which can hide how rain actually rises and falls within a storm. Korea has long kept 1-minute tipping-bucket records, which makes it possible to describe storm timing in much finer detail.",
     "approach": "The authors used 1-minute rain gauge data from 2000 to 2022 in Seoul and Gyeonggi Province, keeping 70 of 90 stations after a quality check. They split the records into independent rainstorm events using a 6-hour dry gap, a minimum duration of 1 hour and a 0.5 mm threshold, and grouped events by the Korea Meteorological Administration intensity classes. From these events they computed a new statistic, the rainfall transition probability (RTP): the chance of a given 1-minute rain amount following one (first-order) or two (second-order) previous amounts, in the spirit of a Markov chain. The RTPs were then used to generate 200 storm scenarios, summed to 10-minute steps, for each of the five heaviest 6–12-hour events, with three levels of constraints (total amount and duration; plus the first peak; plus the second peak). Scenarios were compared with the observed storms using cosine similarity, MAE, RMSE and R².",
@@ -487,7 +519,11 @@
     "year": 2024,
     "doi": "10.1016/j.eswa.2024.124962",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2024-osmani-wavelet-drought.webp",
+      "caption": "Study design: monthly rainfall at five stations in north-western Bangladesh is decomposed with MODWT (three filter families) or TQWT, arranged into three lagged input sets (WD1–WD3), and fed to Gaussian process regression and support vector machine models that forecast SPEI-12 and SPEI-18 6 to 24 months ahead.",
+      "credit": "Figure 2 from Osmani et al. (2024), Expert Systems with Applications. © 2024 Elsevier Ltd. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Breaking monthly rainfall into frequency components with a tunable Q-factor wavelet transform, then feeding them to Gaussian process regression, gave the most reliable drought forecasts up to two years ahead in north-western Bangladesh.",
     "background": "Droughts hit farming hardest, and north-western Bangladesh, a key rice-growing area, has suffered repeated droughts that cut harvests. Forecasting droughts many months ahead would give farmers and water managers time to prepare, but drought indices change irregularly and are hard to predict from raw data. Earlier drought studies in Bangladesh had not tried long lead times.",
     "approach": "The authors used monthly rainfall and temperature from five stations (Bogra, Dinajpur, Ishurdi, Rajshahi and Rangpur) for 1964–2019 and computed the standardized precipitation evapotranspiration index (SPEI) at 12- and 18-month scales. Monthly rainfall was split into components with the tunable Q-factor wavelet transform (TQWT) and with the maximal overlap discrete wavelet transform (MODWT) using three filter families (Fejér–Korovkin, Daubechies and Coiflet). The components, with up to six monthly lags, were fed to four machine learning models (two Gaussian process regression kernels and two support vector machine kernels) to forecast SPEI 6, 12, 18 and 24 months ahead. Performance was judged with MAE, RMSE, R² and Willmott's index.",
@@ -557,7 +593,11 @@
     "year": 2024,
     "doi": "10.1016/j.engappai.2024.108744",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2024-lee-hybrid-et.webp",
+      "caption": "Research framework: lagged weather inputs chosen by cross-correlation analysis are decomposed together with MVMD, filtered by K-best feature selection, and used to train CFNN, ELM and BRT models that forecast evapotranspiration 1, 3, 7 and 10 days ahead; the dashed red path shows the standalone models that skip this preprocessing.",
+      "credit": "Figure 2 from Lee et al. (2024), Engineering Applications of Artificial Intelligence. © 2024 Elsevier Ltd. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Decomposing weather inputs together with multivariate variational mode decomposition and keeping only the most useful parts lifted 1- to 10-day evapotranspiration forecasts in California to 'very good' accuracy.",
     "background": "Reference evapotranspiration (ETo) measures how much water crops lose to the air, and daily forecasts of it guide irrigation scheduling and water allocation. ETo depends on several interacting weather variables and behaves non-linearly, so single machine learning models struggle, especially several days ahead. Earlier decomposition methods usually split each input one at a time, missing the links between variables.",
     "approach": "The study used 20 years (2003–2022) of daily data from 12 California Irrigation Management Information System stations, one per climate region, split into training (2003–2017) and testing (2018–2022) periods. Cross-correlation and partial cross-correlation analysis selected seven inputs (solar radiation, maximum, minimum and average temperature, dew point, vapour pressure and average relative humidity) with lags of up to three days. In the hybrid models, multivariate variational mode decomposition (MVMD) split all inputs together into eight modes plus a residual (252 features), and K-Best selection kept 176 of them. Three learners (cascade forward neural network, extreme learning machine and bagging regression tree) were run with and without this preprocessing for 1-, 3-, 7- and 10-day-ahead forecasts, and judged mainly by NSE, RMSE and U95.",
@@ -627,7 +667,11 @@
     "year": 2024,
     "doi": "10.1016/j.jhydrol.2024.131156",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2024-lee-hydraulic-geometry.webp",
+      "caption": "Peak velocity, depth and width at gauging stations plotted against peak discharge for one storm in each basin (log scales): width and depth grow with discharge as the river moves downstream, while peak velocity stays almost flat.",
+      "credit": "Figure 3 from Lee and Yoo (2024), Journal of Hydrology. © 2024 Elsevier B.V. Reproduced with the authors' reuse rights."
+    },
     "tldr": "As a river grows downstream during a storm, its channel gets wider and deeper but the peak flow speed barely changes, which supports the 'constant velocity' assumption used in many flood models.",
     "background": "As a river collects more water downstream, its channel tends to get wider and deeper, and the water may speed up. These patterns are described by 'downstream hydraulic geometry' – simple power laws that tie discharge to velocity, width, depth, slope and roughness. Many rainfall–runoff models assume that the flow velocity stays about the same throughout a basin during one storm, but this assumption has rarely been checked against storm-time measurements.",
     "approach": "The authors review two classic theoretical routes – Leopold and Langbein's entropy-based analysis (building on Leopold and Maddock, 1953) and Huang and Nanson's (2000) maximum-sediment-transport approach – and propose a third that combines the continuity equation, Manning's equation and the Du Boys sediment equation. They then use field measurements from two Korean dam basins without upstream dams: 21 gauging stations in the Chungju Dam basin and 8 in the Namgang Dam basin, with 16 storm events in each. For each storm the peak velocity, width and depth were extracted, a t-test checked whether peak velocity changes with distance downstream, and power laws were fitted against discharge and compared with theory and with studies worldwide.",
@@ -1162,7 +1206,11 @@
     "year": 2019,
     "doi": "10.1007/s11629-018-4984-4",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2019-yoo-flash-flood-warning.webp",
+      "caption": "Range of the flash flood guidance (warning rainfall threshold) across the 18 parameter combinations, relative to the current system, for 30 small mountain basins in Gyeonggi Province and rainfall durations of (a) 10 and (b) 30 minutes. Most arrows span roughly −50% to +50%; crosses mark the values built from field measurements at the four surveyed basins (red boxes).",
+      "credit": "Figure 10 from Yoo et al. (2019), Journal of Mountain Science. © 2019 Science Press, Institute of Mountain Hazards and Environment, CAS and Springer-Verlag GmbH Germany, part of Springer Nature. Reproduced with the authors' reuse rights."
+    },
     "tldr": "The rainfall threshold used to issue flash-flood warnings in Korea's small mountain basins can shift by roughly ±50% depending on how a few key parameters are estimated, and the river channel width at the warning point is the biggest source of that uncertainty.",
     "background": "Flash floods in small, steep mountain valleys rise very quickly and leave little time to react. Korea's flash flood warning system for mountainous regions (FFWS_MR) covers 300 small basins, many of them summer tourist spots, and issues a warning when forecast rainfall exceeds the flash flood guidance (FFG) — the rainfall needed to make the stream reach a danger level. All of these sites are ungauged, so the FFG is built from map- and formula-based estimates, and the system fell out of use partly because it warned too often.",
     "approach": "The authors retraced the three steps used to compute the FFG: a threshold flow at the basin outlet (water depth 0.5 m or velocity 3 m/s), the matching effective rainfall from a GIUH-based NRCS unit hydrograph, and the total rainfall via the NRCS curve-number method. For the three most influential parameters — channel width, characteristic flow velocity and curve number — they compared the current system's choices with alternative empirical equations and a revised curve-number classification, giving 18 combinations. These were applied to 30 basins in Gyeonggi Province for 10- and 30-minute rainfall durations, and four pilot basins were field-surveyed to measure the actual channel and basin conditions.",
@@ -1336,7 +1384,11 @@
     "year": 2017,
     "doi": "10.2166/ws.2017.008",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2017-yoo-dam-storage.webp",
+      "caption": "Storage–outflow data of Hwacheon Dam fitted with (a) linear, (b) exponential, (c) logarithmic and (d) power models, using only the points above the restricted water level (filled circles). The exponential model gives the best fit (R² = 0.9927), while the logarithmic and power curves bend away from the data.",
+      "credit": "Figure 3 from Yoo et al. (2017), Water Science and Technology: Water Supply. © 2017 IWA Publishing. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Of three nonlinear models for how a reservoir's storage relates to its outflow, only an exponential model gives a usable storage coefficient, and for four Han River dams this coefficient (6.1–42.8 h) is best explained by flood-control volume divided by channel length.",
     "background": "A dam reduces floods by temporarily storing part of the flood and releasing it more slowly. This storage effect can be summarised by a storage coefficient, but real reservoirs do not behave linearly, because storage grows much faster than outflow as the water rises. Without a suitable nonlinear model, the only way to judge a dam's flood-control ability has been to simulate its operation for each inflow.",
     "approach": "The authors compared three nonlinear storage–outflow relations — power, logarithmic and a newly proposed exponential function — with the linear reservoir model. For each, they solved the continuity equation for an instantaneous inflow to get the reservoir's impulse response, and defined the storage coefficient from the outflow and its rate of change at the inflection point. The models were fitted to storage–outflow curves of the four Han River dams with flood-control capacity (Chungju, Soyanggang, Hwacheon and Hoengseong), using the flood-control zone above the restricted water level. The resulting storage coefficients were then compared with basin and reservoir characteristics.",
@@ -1367,7 +1419,11 @@
     "year": 2017,
     "doi": "10.1061/(ASCE)HE.1943-5584.0001507",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2017-yoo-muskingum.webp",
+      "caption": "Flood routing of the 2004 Daecheong Dam release experiment on the Geum River for three reaches: (a) Daecheong Dam–Kumnam, (b) Kumnam–Gongju and (c) Daecheong Dam–Gongju. Hydrographs routed with parameters from the proposed gauge-free method (dash-dot) are almost identical to those using parameters fitted graphically from observations (dashed), and both follow the measured outflow (circles).",
+      "credit": "Figure 9 from Yoo et al. (2017), Journal of Hydrologic Engineering. © 2017 American Society of Civil Engineers. Reproduced with the authors' reuse rights."
+    },
     "tldr": "The parameters of the widely used Muskingum flood-routing model can be set without any flow measurements, using the concentration time and storage coefficient at the two ends of a river reach, and they route floods about as well as parameters fitted to observed data.",
     "background": "The Muskingum model is one of the most popular tools for tracking how a flood wave moves and flattens as it travels down a river reach, and it is widely used in Korea. Its two parameters — the storage coefficient K and the weighting factor x — are normally fitted from measured inflow and outflow hydrographs, so the model is hard to apply on reaches without gauges. A way to set the parameters from basin characteristics would extend it to ungauged rivers.",
     "approach": "Using hydrograph moments, the authors first showed that K equals the flood's travel time through the reach and that x must lie between 0 and 0.5. Solving the model's continuity equation for an instantaneous inflow, they wrote its impulse response as a weighted mix of a linear reservoir (pure storage) and a Dirac delta function (pure translation). From this they derived simple formulas giving x and K from the concentration time and storage coefficient of the reach, which can be taken as the differences between empirical-formula values at the reach outlet and inlet. The method was tested on a 2004 dam-release experiment from Daecheong Dam, with flows measured 36.39 km and a further 17.27 km downstream in the Geum River.",
@@ -1398,7 +1454,11 @@
     "year": 2017,
     "doi": "10.17663/JWR.2017.19.1.016",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2017-song-nk-hydrology.webp",
+      "caption": "Simulated annual evapotranspiration ratios, 1983–2013, for three major South Korean basins (left) and two North Korean basins (right). The South Korean basins move together, whereas the Cheongcheon River basin in the North drops sharply after the mid-1990s, when its forest cover was lost.",
+      "credit": "Figure 13 from Song et al. (2017), Journal of Wetlands Research. © 2017 Korean Wetlands Society. Reproduced with the authors' reuse rights."
+    },
     "tldr": "A 30-year land surface model simulation suggests that the water cycles of South and North Korea have drifted apart since the 1990s, consistent with large-scale deforestation in the North.",
     "background": "North Korea has suffered heavy losses from floods and droughts, and widespread forest loss after its economic collapse in the 1990s is often blamed for making these disasters worse. Testing this is hard because almost no hydrological data from North Korea are available: streamflow records are lacking and only 27 weather stations report through the WMO. Large-scale land surface models driven by global soil, vegetation and weather data offer a way around this gap.",
     "approach": "The authors ran the VIC (Variable Infiltration Capacity) land surface model over the whole Korean Peninsula for 1981–2013, using daily weather from 45 South Korean and 27 North Korean WMO stations. Soil parameters came from the FAO global soil map, reclassified to USDA soil classes. To capture vegetation change, three different land cover maps were used for successive periods: NASA (1981–1992), University of Maryland (1993–2002) and ESA CCI (2003–2013). The parameters were checked against observed runoff in the Chungju Dam and Soyang River basins, and runoff, soil moisture and evapotranspiration were then compared between the two Koreas and between major basins in each.",
@@ -1430,7 +1490,11 @@
     "year": 2017,
     "doi": "10.9798/KOSHAM.2017.17.1.253",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2017-na-storm-tracking.webp",
+      "caption": "How the proposed correction works: the gauge-to-radar (G/R) ratio is measured at 9 AM over area A′, where the storm is located, and then applied to the 2-hour-ahead forecast for target area A at 11 AM, when the storm has moved there.",
+      "credit": "Figure 3 from Na et al. (2017), Journal of the Korean Society of Hazard Mitigation. © 2017 Korean Society of Hazard Mitigation. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Correcting radar rainfall forecasts with a bias factor measured where the storm was two hours earlier, found by tracking the storm backward in time, gives far more realistic forecasts than measuring the factor at the warning site itself.",
     "background": "Flash flood warnings in Korea rely on very short-range radar rainfall forecasts (MAPLE), which are adjusted with a G/R ratio: the ratio of rain-gauge rainfall to radar-estimated rainfall. In the current system this ratio is computed at the warning site and then applied to the forecast for that same site. But before a fast-moving convective storm arrives, there is often little rain at the site, so the ratio can be wildly over- or underestimated, or impossible to compute at all.",
     "approach": "The authors proposed estimating the G/R ratio where the incoming storm is located now, and then applying it to the forecast for the target area. To find that location, they tracked the storm backward in time using the pattern correlation coefficient between radar rainfall fields (20 × 20 km window, 60 km search radius, assuming a storm speed of about 30 km/h). The method was tested on a 20 × 20 km area around Yangpyeong and Gapyeong in Gyeonggi Province, which includes a designated flash-flood risk zone, for five convective storms in July–August 2016, using 2-hour MAPLE forecasts and five rain gauges.",
@@ -1461,7 +1525,11 @@
     "year": 2017,
     "doi": "10.9798/KOSHAM.2017.17.1.287",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2017-ro-regionalization.webp",
+      "caption": "K-means clustering of the 30 flash-flood risk districts, plotted on the study basins: circles are cluster 1 (warning range below about 410 mm), triangles cluster 2 (410–1,000 mm) and the cross cluster 3 (Jangheung, above 1,000 mm). Cluster 1 districts lie mostly in the north.",
+      "credit": "Figure 4 from Ro et al. (2017), Journal of the Korean Society of Hazard Mitigation. © 2017 Korean Society of Hazard Mitigation. Reproduced with the authors' reuse rights."
+    },
     "tldr": "Combining factor, cluster and regression analysis for 30 small flash-flood-prone basins in Gyeonggi-do groups them into three types and identifies stream network ratios as the basin traits most tied to uncertainty in flash flood warning thresholds.",
     "background": "Effective flash flood warnings need to reflect local conditions: the same rainfall can cause very different damage depending on a basin's shape, slope, soil and stream network. Grouping basins that behave alike, known as regionalization, helps transfer knowledge to ungauged places and tailor warnings. However, with many basin characteristics to consider, it is hard to group basins sensibly and to tell which characteristics matter most.",
     "approach": "The study used 30 small flash-flood risk districts in Gyeonggi-do and nearby Gangwon-do. For each it compiled 11 basin characteristics (field-measured channel width, channel length, area, mean width, shape factor, channel and basin slopes, stream length, area and bifurcation ratios, and curve number) plus the 'range of flash flood warning', the difference between rainfall thresholds from existing and newly built data, used as a measure of warning uncertainty. Factor analysis reduced the characteristics to a few common factors; Ward's hierarchical clustering chose the number of groups and K-means clustering assigned basins to them; multiple regression then linked the factors to the warning range.",
@@ -1528,7 +1596,11 @@
     "year": 2016,
     "doi": "10.9798/KOSHAM.2016.16.1.265",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2016-cho-cmip5-cseof.webp",
+      "caption": "Taylor diagram comparing the first CSEOF of annual precipitation from ten CMIP5 models with GPCP observations: higher pattern correlation (angle) and lower normalized error (distance from the origin) mean better performance. NorESM1-M (filled circle) scores best, and CSIRO-Mk3.6.0 (filled square) worst.",
+      "credit": "Figure 5 from Cho et al. (2016), Journal of the Korean Society of Hazard Mitigation. © 2016 Korean Society of Hazard Mitigation. Reproduced with the authors' reuse rights."
+    },
     "tldr": "By comparing the dominant spatial patterns of global annual precipitation, the study ranks ten CMIP5 climate models and finds NorESM1-M and NCAR-CAM5 closest to satellite-gauge observations.",
     "background": "Climate change studies depend on global climate models (GCMs), but the many models in the CMIP5 project give noticeably different results, so choosing reliable ones matters. Many evaluations simply compare raw values or basic statistics, which struggle with the complex, non-linear variability of global climate fields. Pattern-based methods that extract the main modes of variability offer a more informative comparison.",
     "approach": "The authors took annual precipitation from ten CMIP5 GCMs under the RCP8.5 scenario and compared it with the GPCP v2.2 observed precipitation dataset for 2006–2014, the period when both overlap. They applied cyclostationary empirical orthogonal function (CSEOF) analysis to each dataset to extract its main spatial patterns, matching grid sizes between models and observations. Each model's leading pattern was compared with the observed one using pattern correlation (similarity) and normalized root mean square error (NRMSE), summarised on a Taylor diagram.",
@@ -1559,7 +1631,11 @@
     "year": 2015,
     "doi": "10.17663/JWR.2015.17.1.101",
     "license": "Publisher license",
-    "figure": null,
+    "figure": {
+      "src": "assets/img/study/our-2015-yoo-rain-garden.webp",
+      "caption": "Design of the test rain garden in Haman: (a) plan view with three roof-runoff inlets, a central drainage well and the collecting well; (b, c) cross-sections showing the planted soil and gravel layers through which water infiltrates (blue arrows) and the overflow outlet to the collecting well. Dimensions in mm.",
+      "credit": "Figure 2 from Yoo et al. (2015), Journal of Wetlands Research. © 2015 Korean Wetlands Society. Reproduced with the authors' reuse rights."
+    },
     "tldr": "A field-tested rain garden in Haman, Korea, soaked up about 90% of ten years of roof runoff in simulations and could offset an impervious area roughly 30 times its own surface.",
     "background": "As cities pave over land, rain that once soaked into the soil runs off quickly, raising flood peaks and disturbing the local water balance. Low Impact Development (LID) tackles this at the source, and rain gardens, shallow planted hollows that collect and infiltrate runoff, are one of its cheapest tools. To size them properly, their real infiltration performance needs to be measured and evaluated.",
     "approach": "The authors studied a rain garden (about 2 m by 8.5 m, 13.35 m² surface) that receives roof runoff from a building at a relocated military housing site in Haman County. A field test in October 2014 supplied controlled inflows while water levels and pipe outflow were recorded; hydraulic conductivity was estimated with the falling-head method. A simple one-dimensional tank model with Darcy-law infiltration and Manning-equation outflow was built and checked against the observations. It was then run with 10-minute rainfall from a nearby weather station for June–November 2014 and for 2004–2013, using a quarter, half or all of the 208 m² roof, and applied to annual maximum storms to back-calculate SCS curve numbers (CN).",

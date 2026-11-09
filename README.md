@@ -37,7 +37,8 @@
 수정 후 `python tools/study_tool.py check`로 형식을 확인할 수 있습니다.
 
 Study 안의 **Our Papers** 탭(`study.html#our`)은 연구실 논문(국제 31편 + 국내 15편) 요약이며 `assets/data/our-papers.json`에 있습니다.
-같은 형식이고(`id`는 `our-`로 시작, `date` 없음), 그림은 CC 라이선스 논문에만 있습니다(`assets/img/study/our-*.webp`).
+같은 형식이고(`id`는 `our-`로 시작, `date` 없음), 그림은 `assets/img/study/our-*.webp`입니다.
+CC 논문은 라이선스대로, 구독형 논문은 저자 재사용 권한으로 저자 PDF에서 잘라 넣고 출판사 저작권을 표시했습니다.
 새 논문이 나오면 같은 형식으로 항목을 추가하면 됩니다(자동 일일 작업은 이 파일을 건드리지 않습니다).
 
 ## 방문자 수 (모든 페이지 하단)

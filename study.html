@@ -117,7 +117,7 @@
                lead: "One open-access paper a day on hydrology, AI forecasting, rainfall sensing and Earth observation — summarized, with a key figure and its DOI.",
                sort: (a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id), when: (p) => p.date, whenHead: "Date" },
       our:   { label: "Our Papers", file: "assets/data/our-papers.json", hash: "our",
-               lead: "Our own journal papers, explained in plain language. Figures are shown for open-access papers.",
+               lead: "Our own journal papers, explained in plain language — each with a key figure and its DOI.",
                sort: (a, b) => (b.year - a.year) || 0, when: (p) => String(p.year), whenHead: "Year" }
     };
     const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
