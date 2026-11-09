@@ -52,9 +52,32 @@
           <a href="mailto:${L.email}">${L.email}</a><br>
           Tel. ${L.phone}<br>
           <a href="${L.scholar}" target="_blank" rel="noopener">Google Scholar</a> · <a href="${L.linkedin}" target="_blank" rel="noopener">LinkedIn</a><br>
-          © ${new Date().getFullYear()} ${L.name}
+          © ${new Date().getFullYear()} ${L.name}<br>
+          <span class="visits" hidden></span>
         </div>
       </div>`;
+    showVisits(footer.querySelector(".visits"));
+  }
+
+  /* ---------- Visitor counter (Supabase, see README) ----------
+     Counts once per browser session; local previews are never counted.
+     Stays hidden if the counter can't be loaded. */
+  async function showVisits(el) {
+    const SB = { url: "https://tswbamaqvdrfdzdhduzw.supabase.co", key: "sb_publishable_EbQnnaA75q0XcK2DDLEw_g_TV9b45Sy" };
+    const local = location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+    let first = true;
+    try { first = !sessionStorage.getItem("wave-visited"); sessionStorage.setItem("wave-visited", "1"); } catch (e) {}
+    try {
+      const r = await fetch(`${SB.url}/rest/v1/rpc/visit`, {
+        method: "POST",
+        headers: { apikey: SB.key, "Content-Type": "application/json" },
+        body: JSON.stringify({ do_count: first && !local })
+      });
+      if (!r.ok) return;
+      const v = await r.json();
+      el.textContent = `Visitors · Today ${Number(v.today).toLocaleString("en")} · Total ${Number(v.total).toLocaleString("en")}`;
+      el.hidden = false;
+    } catch (e) {}
   }
 
   /* ---------- Helpers ---------- */

@@ -232,3 +232,5 @@ section { padding: 64px 0; }
 .site-footer a { color: var(--sky); }
 .footer-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .footer-inner strong { color: #fff; }
+.visits { display: inline-block; margin-top: 6px; font-size: .8rem; opacity: .7; font-variant-numeric: tabular-nums; }
+.visits[hidden] { display: none; }

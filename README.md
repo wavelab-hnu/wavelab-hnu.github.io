@@ -24,6 +24,13 @@
 방문자는 기록을 **보기·추가**만 할 수 있고, 수정·삭제는 Supabase 화면(Table Editor)에서만 가능합니다.
 이상한 기록은 Supabase → Table Editor → `rain10_scores`에서 해당 줄을 지우면 됩니다.
 
+## 방문자 수 (모든 페이지 하단)
+
+같은 Supabase 프로젝트의 `site_visits` 표에 날짜별(한국 시간)로 저장됩니다.
+한 사람이 브라우저를 켜둔 동안 여러 페이지를 봐도 1번만 셉니다. 내 컴퓨터에서 미리보기할 때는 세지 않습니다.
+방문자는 `visit` 함수로 숫자를 올리고 읽기만 할 수 있습니다. 숫자를 고치려면 Table Editor → `site_visits`에서 수정합니다.
+처음 설정에 쓴 SQL은 `supabase/site_visits.sql`에 있습니다.
+
 ## 미리보기
 
 `index.html`을 더블클릭하면 브라우저에서 바로 열립니다.
