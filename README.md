@@ -13,6 +13,7 @@
 | 뉴스 추가 | `data.js` → `NEWS` 맨 위에 추가 |
 | 과제 추가 | `data.js` → `PROJECTS` |
 | 연구실 호수 | `data.js` → `LAB.office` |
+| Links 탭 사이트 링크 | `data.js` → `LINKS` (해당 섹션 `items`에 한 줄 추가) |
 | 연구 분야 설명 | `research.html` |
 | 교수 약력 | `people.html` |
 

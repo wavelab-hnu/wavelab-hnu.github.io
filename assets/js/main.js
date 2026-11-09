@@ -8,6 +8,7 @@
     ["publications.html", "Publications"],
     ["news.html", "News"],
     ["contact.html", "Contact"],
+    ["links.html", "Links"],
     ["play.html", "Fun Zone"]
   ];
   const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
@@ -140,6 +141,33 @@
           <h4>${p.title}<span class="status ${p.ongoing ? "on" : "done"}">${p.ongoing ? "Ongoing" : "Completed"}</span></h4>
           <p>${p.funder}${p.period ? " · " + p.period : ""}</p>
         </div>`).join("");
+    },
+
+    links(el) {
+      const groups = window.LINKS || [];
+      const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+      const ext = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
+      el.innerHTML = `
+        <nav class="link-jump" aria-label="Jump to section">
+          ${groups.map((g) => `<a class="tag" href="#${slug(g.group)}">${g.group}</a>`).join("")}
+        </nav>
+        ${groups.map((g) => `
+          <div class="link-group" id="${slug(g.group)}">
+            <h2>${g.group}</h2>
+            ${g.sections.map((s) => `
+              <div class="link-sub">
+                <h3>${s.title}</h3>
+                <div class="link-grid">
+                  ${s.items.map((it) => `
+                    <a class="link-card" href="${it.url}" target="_blank" rel="noopener">
+                      <strong>${it.name}${ext}</strong>
+                      ${it.desc ? `<span class="desc">${it.desc}</span>` : ""}
+                      <span class="host">${host(it.url)}</span>
+                    </a>`).join("")}
+                </div>
+              </div>`).join("")}
+          </div>`).join("")}`;
     },
 
     members(el) {

@@ -146,3 +146,95 @@ window.PUBS = [
   { type: "patent", year: 2025, authors: "Jun, C., Baik, J., Lee, J., Byun, J., Hwang, S., & Sung, J.", title: "Method for providing rainfall information using a moving unit equipped with a vibration sensor", venue: "Korean Patent No. 10-2750951" },
   { type: "patent", year: 2024, authors: "Jun, C., Baik, J., Lee, J., Byun, J., Hwang, S., & Sung, J.", title: "System and method for classifying real-time rainfall intensity based on rainfall acoustic frequency analysis", venue: "Korean Patent No. 10-2692441" }
 ];
+
+/* =========================================================
+   Links page (links.html)
+   - group > sections > items { name, url, desc }
+   - 새 링크는 해당 섹션의 items에 한 줄 추가하면 됩니다.
+   ========================================================= */
+window.LINKS = [
+  {
+    group: "Water Resources",
+    sections: [
+      { title: "Korea · Water Data & Flood Forecasting", items: [
+        { name: "WAMIS", url: "https://www.wamis.go.kr", desc: "National water resources information system — stage, rainfall, dams" },
+        { name: "Han River Flood Control Office", url: "https://www.hrfco.go.kr", desc: "Real-time flood forecasts and hydrological data" },
+        { name: "Geum River Flood Control Office", url: "https://www.geumriver.go.kr", desc: "Flood forecasting for the Geum River basin (Daejeon)" },
+        { name: "Nakdong River Flood Control Office", url: "https://www.nakdongriver.go.kr", desc: "Flood forecasting for the Nakdong River basin" },
+        { name: "Yeongsan River Flood Control Office", url: "https://www.yeongsanriver.go.kr", desc: "Flood forecasting for the Yeongsan & Seomjin basins" },
+        { name: "Flood Risk Map Information System", url: "https://www.floodmap.go.kr", desc: "National flood inundation risk maps" },
+        { name: "Korea Institute of Hydrological Survey", url: "https://www.kihs.re.kr", desc: "National hydrological surveys and discharge data" },
+        { name: "My Water", url: "https://www.water.or.kr", desc: "Integrated water information portal" },
+        { name: "Water Environment Information System", url: "https://water.nier.go.kr", desc: "Water quality monitoring data (NIER)" },
+        { name: "National Drought Information Portal", url: "https://www.drought.go.kr", desc: "Drought monitoring and outlooks" }
+      ]},
+      { title: "Korea · Weather & Climate", items: [
+        { name: "KMA Weather Nuri", url: "https://www.weather.go.kr/w/index.do", desc: "Korea Meteorological Administration forecasts and observations" },
+        { name: "KMA Open MET Data Portal", url: "https://data.kma.go.kr", desc: "Historical meteorological data downloads" },
+        { name: "KMA API Hub", url: "https://apihub.kma.go.kr", desc: "Programmatic access to KMA data" },
+        { name: "National Meteorological Satellite Center", url: "https://nmsc.kma.go.kr", desc: "GK-2A satellite imagery and products" }
+      ]},
+      { title: "Korea · Agencies & Institutes", items: [
+        { name: "Ministry of Climate, Energy and Environment", url: "https://www.mcee.go.kr", desc: "National climate, environment, and water policy" },
+        { name: "K-water", url: "https://www.kwater.or.kr", desc: "Korea Water Resources Corporation" },
+        { name: "KICT", url: "https://www.kict.re.kr", desc: "Korea Institute of Civil Engineering and Building Technology" },
+        { name: "Public Data Portal", url: "https://www.data.go.kr", desc: "Korean government open data and APIs" }
+      ]},
+      { title: "Global Data & Remote Sensing", items: [
+        { name: "NASA Earthdata", url: "https://www.earthdata.nasa.gov", desc: "Gateway to NASA Earth observation data" },
+        { name: "NASA GPM", url: "https://gpm.nasa.gov", desc: "Global satellite precipitation (IMERG)" },
+        { name: "Copernicus Climate Data Store", url: "https://cds.climate.copernicus.eu", desc: "ERA5 reanalysis and climate datasets" },
+        { name: "Copernicus Browser", url: "https://browser.dataspace.copernicus.eu", desc: "Browse and download Sentinel imagery" },
+        { name: "USGS EarthExplorer", url: "https://earthexplorer.usgs.gov", desc: "Landsat and other satellite imagery" },
+        { name: "Google Earth Engine", url: "https://earthengine.google.com", desc: "Cloud platform for geospatial analysis" },
+        { name: "NOAA NCEI", url: "https://www.ncei.noaa.gov", desc: "Global climate and weather archives" },
+        { name: "GloFAS", url: "https://global-flood.emergency.copernicus.eu", desc: "Copernicus Global Flood Awareness System" },
+        { name: "GRDC", url: "https://grdc.bafg.de", desc: "Global Runoff Data Centre — river discharge" },
+        { name: "HydroSHEDS", url: "https://www.hydrosheds.org", desc: "Global river networks and watersheds" },
+        { name: "CHIRPS", url: "https://www.chc.ucsb.edu/data/chirps", desc: "Quasi-global gauge–satellite rainfall dataset" }
+      ]},
+      { title: "International Organizations", items: [
+        { name: "WMO", url: "https://wmo.int", desc: "World Meteorological Organization" },
+        { name: "UNESCO IHP", url: "https://www.unesco.org/en/ihp", desc: "Intergovernmental Hydrological Programme" },
+        { name: "USGS Water Resources", url: "https://www.usgs.gov/mission-areas/water-resources", desc: "U.S. water science and data" },
+        { name: "CUAHSI", url: "https://www.cuahsi.org", desc: "Hydrologic science consortium and data services" }
+      ]},
+      { title: "Academic Societies", items: [
+        { name: "Korea Water Resources Association", url: "https://www.kwra.or.kr", desc: "KWRA" },
+        { name: "Korean Society of Civil Engineers", url: "https://www.ksce.or.kr", desc: "KSCE" },
+        { name: "Korean Society of Hazard Mitigation", url: "https://www.kosham.or.kr", desc: "KOSHAM" }
+      ]}
+    ]
+  },
+  {
+    group: "Hannam University",
+    sections: [
+      { title: "University & Department", items: [
+        { name: "Hannam University", url: "https://www.hnu.kr", desc: "University homepage (Korean)" },
+        { name: "Hannam University (English)", url: "https://int.hnu.kr/eng/", desc: "English homepage" },
+        { name: "College of Engineering", url: "https://eng.hannam.ac.kr", desc: "College homepage" },
+        { name: "Dept. of Civil & Environmental Engineering", url: "https://civil.hannam.ac.kr", desc: "Department homepage" },
+        { name: "Graduate School", url: "https://gra.hannam.ac.kr", desc: "Graduate programs and admissions" },
+        { name: "Admissions", url: "https://ibsi.hannam.ac.kr", desc: "Undergraduate admissions" },
+        { name: "Industry-Academic Cooperation Foundation", url: "https://sanhak.hannam.ac.kr", desc: "Research and industry cooperation" }
+      ]},
+      { title: "Campus Services", items: [
+        { name: "Central Library", url: "https://hanul.hannam.ac.kr", desc: "Books, journals, and databases" },
+        { name: "MY-PORTAL", url: "https://my.hnu.kr", desc: "Student & faculty portal (login)" },
+        { name: "HI-CLASS", url: "https://hiclass.hannam.ac.kr", desc: "E-learning system (login)" },
+        { name: "HI-STORY", url: "https://hi.hannam.ac.kr", desc: "Extracurricular & career programs (login)" },
+        { name: "Academic Calendar", url: "https://www.hnu.kr/kor/guide/guide_01_1.html", desc: "Semester schedule" },
+        { name: "Academic Notices", url: "https://www.hnu.kr/kor/guide/guide_02.html", desc: "Academic announcements" },
+        { name: "Center for Teaching & Learning", url: "https://ctl.hannam.ac.kr", desc: "Teaching and learning support" },
+        { name: "Career Center", url: "https://job.hnu.kr", desc: "Jobs and career support" },
+        { name: "Dormitory", url: "https://dormi.hannam.ac.kr", desc: "Student housing" }
+      ]},
+      { title: "Visiting Campus", items: [
+        { name: "Directions", url: "https://www.hnu.kr/kor/about/about_11_1.html", desc: "How to get to Hannam University" },
+        { name: "Campus Map", url: "https://www.hannam.ac.kr/data/building.html", desc: "Buildings on campus" },
+        { name: "Commuter Bus", url: "https://www.hnu.kr/kor/about/about_11_2.html", desc: "Shuttle and commuter bus routes" },
+        { name: "Campus Phone Directory", url: "https://www.hnu.kr/kor/about/about_07_2.html", desc: "Department and office phone numbers" }
+      ]}
+    ]
+  }
+];
