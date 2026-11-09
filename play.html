@@ -456,9 +456,9 @@
       const y0 = Math.min(start.y, y), y1 = Math.max(start.y, y);
       Object.assign(rectEl.style, { display: "block", left: x0 - r.left + "px", top: y0 - r.top + "px", width: x1 - x0 + "px", height: y1 - y0 + "px" });
       const cw = r.width / cols, ch = r.height / rows;
-      // A drop is picked when the box reaches at least a quarter into its cell (in both directions).
+      // A drop is picked when the box covers its center (reaches half-way into its cell, both directions).
       // A thin box (e.g. a sideways drag along one row) picks the row/column it sits in.
-      const REACH = 0.25;
+      const REACH = 0.5;
       const span = (a, b, n) => { // a, b in cell units
         const out = [];
         for (let k = 0; k < n; k++) if (Math.min(b, k + 1) - Math.max(a, k) >= REACH) out.push(k);
