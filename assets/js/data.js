@@ -6,7 +6,7 @@
 
 window.LAB = {
   name: "WAVE Lab",
-  fullName: "Water Analytics, Vision & Earth Observation Laboratory",
+  fullName: "Water Analytics for Variability & Extremes Laboratory",
   nameKo: "지능형 수자원 연구실",
   dept: "Department of Civil and Environmental Engineering",
   deptKo: "한남대학교 건설환경공학과",
