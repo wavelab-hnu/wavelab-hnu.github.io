@@ -197,7 +197,7 @@
           ${p.background ? `<h3>Background</h3><p class="body">${esc(p.background)}</p>` : ""}
           ${p.approach ? `<h3>Approach</h3><p class="body">${esc(p.approach)}</p>` : ""}
           ${(p.findings || []).length ? `<h3>Key findings</h3><ul class="findings">${p.findings.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
-          ${p.relevance ? `<h3>Why it matters for WAVE Lab</h3><p class="body">${esc(p.relevance)}</p>` : ""}
+          ${p.relevance ? `<h3>Why it matters to us</h3><p class="body">${esc(p.relevance)}</p>` : ""}
           ${(p.keywords || []).length ? `<div class="tags kw">${p.keywords.map((k) => `<span class="tag">${esc(k)}</span>`).join("")}</div>` : ""}
           <nav class="post-nav">
             ${older ? `<a href="#${encodeURIComponent(older.id)}"><small>← Previous</small>${esc(older.title)}</a>` : "<span></span>"}

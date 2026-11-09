@@ -25,7 +25,7 @@
       "Model structure matters most, followed by the streamflow transformation used in calibration; the KGE formulation and weights matter less.",
       "Skill is lowest in semi-arid, high-mountain and flashy catchments, pointing to weak representation of soil-moisture and near-surface processes."
     ],
-    "relevance": "This ties directly to our work on compound dry–wet transitions and flood estimation in ungauged basins. When we calibrate models for Korean catchments, we should report event-based scores such as CSI for droughts, floods and transitions alongside KGE — especially for the spring-drought-to-monsoon-flood switches typical of Korea.",
+    "relevance": "Flood warnings, drought plans and climate-impact studies all lean on hydrological models, so a model that looks good on average but misses the extremes can give false confidence exactly when it matters. In Korea, dry springs that switch into heavy monsoon floods are a familiar pattern, and this kind of transition is where the paper finds models weakest. For anyone building or using such models — students, researchers or water managers — the lesson is simple: check the extremes and the switches between them directly, not just the overall score.",
     "keywords": ["Drought-to-flood transition", "Rainfall–runoff models", "Model evaluation", "Critical Success Index", "CAMELS"]
   }
 ]

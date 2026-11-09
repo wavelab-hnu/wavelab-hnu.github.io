@@ -43,7 +43,7 @@ Goal: add **one** paper note per day to the Study tab of the WAVE Lab site
      "background": "<2–4 sentences: the problem and why it matters>",
      "approach": "<3–5 sentences: data, study area, methods>",
      "findings": ["<3–5 bullet points with concrete results>"],
-     "relevance": "<2–3 sentences: why this matters for WAVE Lab's research (Korean hydrology, monsoon floods/droughts, ungauged basins, CCTV/acoustic rainfall sensing, SAR flood mapping, AI forecasting)>",
+     "relevance": "<2–4 sentences, shown as \"Why it matters to us\": why this matters to a broad audience — students, researchers, engineers, water managers and the public. Connect it to everyday life and society (floods, droughts, water supply, safety, climate change), Korea's situation where it fits (monsoon, typhoons, dry springs, small/ungauged basins), and what readers can take from it. Do not write it only about our lab.>",
      "keywords": ["3–6 short keywords"]
    }
    ```
