@@ -127,7 +127,7 @@
 
     <section class="game-section">
       <div class="container game-wrap">
-        <h2 class="game-title" style="margin-bottom:.2em">Cloudburst 🌧️</h2>
+        <h2 class="game-title" style="margin-bottom:.2em">Make It Rain 🌧️</h2>
         <p class="lead game-lead" style="margin-bottom:18px">Box in raindrops that add up to exactly <b>10</b> and burst them. How many can you clear in 2 minutes?</p>
 
         <div class="game-area" id="game-area">
@@ -148,7 +148,7 @@
             <div class="board" id="board"></div>
             <div class="overlay" id="overlay">
               <div>
-                <h2 id="ov-title">Cloudburst</h2>
+                <h2 id="ov-title">Make It Rain</h2>
                 <p id="ov-text">Drag a box so the numbers inside add up to 10.</p>
                 <div class="big" id="ov-score" hidden></div>
                 <div id="submit-box" hidden>
@@ -564,7 +564,7 @@
     nickEl.addEventListener("keydown", (e) => { if (e.key === "Enter") submitScore(); });
 
     function resetOverlay() {
-      document.getElementById("ov-title").textContent = "Cloudburst";
+      document.getElementById("ov-title").textContent = "Make It Rain";
       document.getElementById("ov-text").textContent = "Drag a box so the numbers inside add up to 10.";
       document.getElementById("ov-score").hidden = true;
       document.getElementById("submit-box").hidden = true;
