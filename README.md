@@ -28,6 +28,14 @@
 게임 배경음악과 효과음은 모두 이 게임용으로 새로 만든 것이며, 음악 파일 없이 `play.html` 코드가 직접 연주합니다(8비트 오락실 스타일).
 멜로디는 `play.html`의 `BARS` 목록(한 마디에 8칸: 음 이름, `-` 늘이기, `.` 쉼표)에서 고칠 수 있습니다.
 
+## Study 탭 (매일 논문 한 편)
+
+`study.html`은 `assets/data/study.json`의 글을 게시판 형태로 보여줍니다(그림은 `assets/img/study/`).
+매일 자동으로 논문 한 편을 골라 요약해 올리며, 절차는 `tools/STUDY_ROUTINE.md`에 있습니다.
+그림을 쓸 수 있도록 CC BY / CC BY-SA 오픈액세스 논문만 고르고, 그림 아래에 출처를 표시합니다.
+글을 지우려면 `study.json`에서 해당 항목을, `assets/img/study/`에서 같은 이름의 그림을 지우면 됩니다.
+수정 후 `python tools/study_tool.py check`로 형식을 확인할 수 있습니다.
+
 ## 방문자 수 (모든 페이지 하단)
 
 같은 Supabase 프로젝트의 `site_visits` 표에 날짜별(한국 시간)로 저장됩니다.

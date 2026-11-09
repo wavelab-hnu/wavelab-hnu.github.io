@@ -1,0 +1,31 @@
+[
+  {
+    "id": "2026-11-09",
+    "date": "2026-11-09",
+    "theme": "Hydrology",
+    "title": "How well do hydrological models simulate streamflow extremes and drought-to-flood transitions?",
+    "authors": "Muñoz-Castro, E., Anderson, B. J., Astagneau, P. C., Swain, D. L., Mendoza, P. A., Brunner, M. I.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "30",
+    "pages": "825–848",
+    "year": 2026,
+    "doi": "10.5194/hess-30-825-2026",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-09.webp",
+      "caption": "Detected droughts (red shading), floods (blue) and the time between them: a rapid drought-to-flood transition in the Biobío River, Chile (a), and a seasonal one in the Dischma River, Switzerland (b).",
+      "credit": "Figure 3 from Muñoz-Castro et al. (2026), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "A model with a high KGE can still miss floods and drought-to-flood switches — extremes need to be checked on their own.",
+    "background": "A drought that suddenly flips into a flood can do more damage than either extreme alone: dry soils, low reservoirs and drought-mode operations leave little room to respond. Hydrological models are the main tool for studying such transitions, but they are usually calibrated and judged with aggregate scores such as the Kling–Gupta efficiency (KGE), which say little about how well individual extreme events are reproduced.",
+    "approach": "The authors calibrated four conceptual rainfall–runoff models (GR4J, GR5J, GR6J and TUW) in 63 catchments in Chile and Switzerland, trying several calibration set-ups: KGE variants, streamflow transformations and component weights. Droughts and floods were picked out with thresholds, a transition was defined as a drought followed by a flood within a set window (rapid: under 14 days; seasonal: under 90 days), and detection skill was scored with the Critical Success Index (CSI). ANOVA and correlation analysis then separated the effects of model structure, calibration choices and catchment attributes.",
+    "findings": [
+      "A high KGE does not guarantee good event detection: median CSI was around 0.5 for droughts but only about 0.2–0.3 for floods and for transitions.",
+      "Droughts are captured better than floods, rapid (under 14-day) transitions are the hardest, and skill depends mainly on getting the timing right.",
+      "Model structure matters most, followed by the streamflow transformation used in calibration; the KGE formulation and weights matter less.",
+      "Skill is lowest in semi-arid, high-mountain and flashy catchments, pointing to weak representation of soil-moisture and near-surface processes."
+    ],
+    "relevance": "This ties directly to our work on compound dry–wet transitions and flood estimation in ungauged basins. When we calibrate models for Korean catchments, we should report event-based scores such as CSI for droughts, floods and transitions alongside KGE — especially for the spring-drought-to-monsoon-flood switches typical of Korea.",
+    "keywords": ["Drought-to-flood transition", "Rainfall–runoff models", "Model evaluation", "Critical Success Index", "CAMELS"]
+  }
+]

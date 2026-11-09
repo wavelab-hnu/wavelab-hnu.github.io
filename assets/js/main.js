@@ -7,6 +7,7 @@
     ["people.html", "People"],
     ["publications.html", "Publications"],
     ["news.html", "News"],
+    ["study.html", "Study"],
     ["contact.html", "Contact"],
     ["links.html", "Links"],
     ["play.html", "Fun Zone"]

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study | WAVE Lab</title>
+  <meta name="description" content="Daily paper notes from WAVE Lab — one open-access paper a day on hydrology, AI forecasting, rainfall sensing, and Earth observation.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611110100">
+  <style>
+    .study-tools { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
+    .study-count { color: var(--muted); font-size: .9rem; margin-left: auto; }
+
+    /* Board (list) */
+    .board-list { border-top: 2px solid var(--navy); }
+    .board-head, .board-row { display: grid; grid-template-columns: 52px 112px 1fr 150px 104px; gap: 14px; align-items: center; }
+    .board-head { padding: 10px 6px; font-size: .82rem; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--line); text-align: center; }
+    .board-head span:nth-child(3) { text-align: left; }
+    .board-row { padding: 12px 6px; border-bottom: 1px solid var(--line); color: inherit; }
+    .board-row:hover { background: var(--bg-soft); text-decoration: none; }
+    .board-row .no, .board-row .dt { text-align: center; color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }
+    .board-row .th { text-align: center; }
+    .thumb { display: block; width: 112px; height: 72px; border-radius: 8px; border: 1px solid var(--line); background: #fff center / contain no-repeat; }
+    .board-row .tt { min-width: 0; }
+    .board-row .tt strong { display: block; color: var(--navy); font-weight: 700; line-height: 1.35;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .board-row .tt span { display: block; margin-top: 3px; font-size: .86rem; color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .theme { display: inline-block; font-size: .74rem; font-weight: 700; padding: 3px 9px; border-radius: 6px; background: var(--teal-light); color: var(--navy-2); white-space: nowrap; }
+    .pager { display: flex; justify-content: center; gap: 6px; margin-top: 22px; flex-wrap: wrap; }
+    .pager button { min-width: 36px; height: 36px; border: 1px solid var(--line); background: #fff; border-radius: 8px; font: inherit; cursor: pointer; }
+    .pager button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    /* Post (detail) */
+    .post { max-width: 860px; margin: 0 auto; }
+    .back { display: inline-block; margin-bottom: 18px; font-weight: 600; }
+    .post-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; color: var(--muted); font-size: .9rem; }
+    .post h2 { font-size: 1.6rem; line-height: 1.3; margin: 10px 0 8px; color: var(--navy); }
+    .post .authors { color: var(--ink); margin: 0 0 2px; }
+    .post .venue { color: var(--muted); font-style: italic; margin: 0; }
+    .post .doi-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 22px; }
+    .post .doi-row .btn { padding: 8px 16px; font-size: .88rem; }
+    .doi-text { font-family: ui-monospace, Consolas, monospace; font-size: .85rem; color: var(--muted); align-self: center; word-break: break-all; }
+    .tldr { background: var(--teal-light); border-left: 4px solid var(--teal); border-radius: 8px; padding: 14px 18px; font-weight: 600; color: var(--navy); margin: 0 0 22px; }
+    .fig { margin: 0 0 26px; border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .fig img { display: block; width: 100%; height: auto; border-radius: 6px; cursor: zoom-in; }
+    .fig figcaption { font-size: .88rem; color: var(--ink); margin-top: 10px; }
+    .fig .credit { display: block; color: var(--muted); font-size: .8rem; margin-top: 4px; }
+    .post h3 { font-size: 1.1rem; color: var(--teal); margin: 24px 0 8px; }
+    .post p.body { margin: 0; }
+    .post ul.findings { margin: 0; padding-left: 1.2em; }
+    .post ul.findings li { margin-bottom: 6px; }
+    .post .kw { margin-top: 24px; }
+    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .post-nav a { display: block; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; color: var(--navy); font-size: .9rem; }
+    .post-nav a:hover { background: var(--bg-soft); text-decoration: none; }
+    .post-nav small { display: block; color: var(--muted); font-size: .78rem; }
+    .post-nav .next { text-align: right; }
+
+    @media (max-width: 760px) {
+      .board-head { display: none; }
+      .board-row { grid-template-columns: 88px 1fr; grid-template-areas: "th tt" "th meta"; gap: 4px 12px; padding: 12px 2px; }
+      .board-row .no { display: none; }
+      .board-row .thw { grid-area: th; }
+      .board-row .tt { grid-area: tt; }
+      .board-row .th, .board-row .dt { display: none; }
+      .board-row .meta { grid-area: meta; display: flex !important; gap: 8px; align-items: center; font-size: .8rem; color: var(--muted); }
+      .thumb { width: 88px; height: 60px; }
+      .post h2 { font-size: 1.3rem; }
+      .post-nav { grid-template-columns: 1fr; }
+      .post-nav .next { text-align: left; }
+      .study-count { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Study</span>
+        <h1>Daily Paper Notes</h1>
+        <p>One open-access paper a day — summarized, with a key figure and its DOI</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container" id="study">
+        <p class="empty">Loading…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/data.js?v=202611110100"></script>
+  <script src="assets/js/main.js?v=202611110100"></script>
+  <script>
+  (function () {
+    const root = document.getElementById("study");
+    const THEMES = ["All", "Hydrology", "AI Forecasting", "Vision & Sensing", "Earth Observation"];
+    const PER_PAGE = 15;
+    const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    const safeSrc = (s) => (/^assets\/img\/study\/[\w.-]+$/.test(s || "") ? s : "");
+    const ext = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="vertical-align:-2px"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
+
+    let posts = [], theme = "All", query = "", page = 1;
+
+    fetch("assets/data/study.json", { cache: "no-cache" })
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then((list) => {
+        posts = list.slice().sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+        route();
+      })
+      .catch(() => { root.innerHTML = `<p class="empty">Couldn't load the paper notes. Please try again later.</p>`; });
+
+    window.addEventListener("hashchange", () => { route(); window.scrollTo({ top: 0, behavior: "instant" }); });
+
+    function route() {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const i = posts.findIndex((p) => p.id === id);
+      if (i >= 0) showPost(i); else showBoard();
+    }
+
+    /* ---------- Board ---------- */
+    function showBoard() {
+      document.title = "Study | WAVE Lab";
+      root.innerHTML = `
+        <div class="study-tools">
+          <div class="tabs" role="tablist">
+            ${THEMES.map((t) => `<button class="tab${t === theme ? " active" : ""}" data-theme="${esc(t)}">${esc(t)}</button>`).join("")}
+          </div>
+          <input class="search" type="search" placeholder="Search title, authors, journal, keywords…" aria-label="Search paper notes" value="${esc(query)}">
+          <span class="study-count"></span>
+        </div>
+        <div class="board-list">
+          <div class="board-head"><span>No.</span><span>Figure</span><span>Paper</span><span>Theme</span><span>Date</span></div>
+          <div class="rows"></div>
+        </div>
+        <div class="pager"></div>`;
+      root.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => { theme = b.dataset.theme; page = 1; showBoard(); }));
+      const search = root.querySelector(".search");
+      search.addEventListener("input", () => { query = search.value; page = 1; drawRows(); });
+      drawRows();
+    }
+
+    function drawRows() {
+      const q = query.trim().toLowerCase();
+      const shown = posts.filter((p) => (theme === "All" || p.theme === theme) &&
+        (!q || [p.title, p.authors, p.journal, (p.keywords || []).join(" "), p.tldr].join(" ").toLowerCase().includes(q)));
+      const pages = Math.max(1, Math.ceil(shown.length / PER_PAGE));
+      page = Math.min(page, pages);
+      root.querySelector(".study-count").textContent = `${shown.length} paper${shown.length === 1 ? "" : "s"}`;
+      const rows = root.querySelector(".rows");
+      if (!shown.length) { rows.innerHTML = `<p class="empty" style="text-align:center">${posts.length ? "No matching papers." : "The first note is coming soon."}</p>`; }
+      else rows.innerHTML = shown.slice((page - 1) * PER_PAGE, page * PER_PAGE).map((p) => {
+        const no = posts.length - posts.indexOf(p);
+        const src = safeSrc(p.figure && p.figure.src);
+        return `
+          <a class="board-row" href="#${encodeURIComponent(p.id)}">
+            <span class="no">${no}</span>
+            <span class="thw"><span class="thumb" style="${src ? `background-image:url('${src}')` : ""}"></span></span>
+            <span class="tt"><strong>${esc(p.title)}</strong><span>${esc(p.journal)} · ${esc(p.year)}</span></span>
+            <span class="th"><span class="theme">${esc(p.theme)}</span></span>
+            <span class="dt">${esc(p.date)}</span>
+            <span class="meta" style="display:none"><span class="theme">${esc(p.theme)}</span>${esc(p.date)}</span>
+          </a>`;
+      }).join("");
+      const pager = root.querySelector(".pager");
+      pager.innerHTML = pages > 1 ? Array.from({ length: pages }, (_, k) => `<button class="${k + 1 === page ? "on" : ""}">${k + 1}</button>`).join("") : "";
+      pager.querySelectorAll("button").forEach((b, k) => b.addEventListener("click", () => { page = k + 1; drawRows(); root.scrollIntoView({ block: "start" }); }));
+    }
+
+    /* ---------- Post ---------- */
+    function showPost(i) {
+      const p = posts[i], newer = posts[i - 1], older = posts[i + 1];
+      const src = safeSrc(p.figure && p.figure.src);
+      const doi = String(p.doi || "").trim();
+      document.title = `${p.title} | Study | WAVE Lab`;
+      root.innerHTML = `
+        <article class="post">
+          <a class="back" href="#">← All papers</a>
+          <div class="post-meta"><span class="theme">${esc(p.theme)}</span><span>${esc(p.date)}</span><span>No. ${posts.length - i}</span></div>
+          <h2>${esc(p.title)}</h2>
+          <p class="authors">${esc(p.authors)}</p>
+          <p class="venue">${esc(p.journal)}${p.volume ? ", " + esc(p.volume) : ""}${p.pages ? ", " + esc(p.pages) : ""} (${esc(p.year)})</p>
+          <div class="doi-row">
+            ${doi ? `<a class="btn btn-primary" href="https://doi.org/${esc(doi)}" target="_blank" rel="noopener">DOI ${ext}</a><span class="doi-text">doi:${esc(doi)}</span>` : ""}
+          </div>
+          ${p.tldr ? `<p class="tldr">${esc(p.tldr)}</p>` : ""}
+          ${src ? `
+          <figure class="fig">
+            <a href="${src}" target="_blank" rel="noopener"><img src="${src}" alt="${esc(p.figure.caption || "Figure from the paper")}" loading="lazy"></a>
+            <figcaption>${esc(p.figure.caption)}<span class="credit">${esc(p.figure.credit)}</span></figcaption>
+          </figure>` : ""}
+          ${p.background ? `<h3>Background</h3><p class="body">${esc(p.background)}</p>` : ""}
+          ${p.approach ? `<h3>Approach</h3><p class="body">${esc(p.approach)}</p>` : ""}
+          ${(p.findings || []).length ? `<h3>Key findings</h3><ul class="findings">${p.findings.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
+          ${p.relevance ? `<h3>Why it matters for WAVE Lab</h3><p class="body">${esc(p.relevance)}</p>` : ""}
+          ${(p.keywords || []).length ? `<div class="tags kw">${p.keywords.map((k) => `<span class="tag">${esc(k)}</span>`).join("")}</div>` : ""}
+          <nav class="post-nav">
+            ${older ? `<a href="#${encodeURIComponent(older.id)}"><small>← Previous</small>${esc(older.title)}</a>` : "<span></span>"}
+            ${newer ? `<a class="next" href="#${encodeURIComponent(newer.id)}"><small>Next →</small>${esc(newer.title)}</a>` : "<span></span>"}
+          </nav>
+        </article>`;
+    }
+  })();
+  </script>
+</body>
+</html>

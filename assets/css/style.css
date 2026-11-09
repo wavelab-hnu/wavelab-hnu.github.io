@@ -66,7 +66,7 @@ section { padding: 64px 0; }
 .nav-toggle {
   display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--navy);
 }
-@media (max-width: 860px) {
+@media (max-width: 1000px) { /* 9 menu items: switch to the menu button before they wrap */
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute; top: 68px; left: 0; right: 0;
