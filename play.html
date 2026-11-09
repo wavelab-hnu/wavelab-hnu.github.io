@@ -48,8 +48,26 @@
     .cell.sel .drop { transform: rotate(45deg) scale(1.1); filter: brightness(1.15); }
     .cell.sel.ten .drop { background: radial-gradient(circle at 35% 35%, #ffeeb5 0%, #f5b83d 55%, #c97f05 100%); }
     .light .cell.sel.ten .drop span { color: #4a2c00; }
-    .cell.pop .drop { transform: rotate(45deg) scale(1.5); opacity: 0; }
+    /* Burst: squeeze, flash gold-white, then blow apart */
+    .cell.pop .drop { background: radial-gradient(circle at 35% 35%, #fff6d6 0%, #f5b83d 55%, #c97f05 100%);
+      animation: burst .3s cubic-bezier(.3,.6,.4,1) forwards; }
+    .cell.pop .drop span { opacity: 0; transition: opacity .08s; }
+    @keyframes burst {
+      0%   { transform: rotate(45deg) scale(1.1); opacity: 1; filter: brightness(1.15); }
+      30%  { transform: rotate(45deg) scale(.8);  opacity: 1; filter: brightness(1.6); }
+      100% { transform: rotate(45deg) scale(1.7); opacity: 0; filter: brightness(2); }
+    }
     .cell.gone .drop { visibility: hidden; } /* not "empty": the site stylesheet already styles .empty */
+
+    /* Splash layer: flying droplets, ripple rings, floating "+N" */
+    .fx { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
+    .fx i { position: absolute; left: 0; top: 0; display: block; pointer-events: none; will-change: transform, opacity; font-style: normal; }
+    .fx .bead { border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d9f4ff 0%, #4fb8de 45%, #1572b0 100%); }
+    .light .fx .bead { background: radial-gradient(circle at 35% 35%, #ffffff 0%, #c9ecf6 50%, #6fbfd8 100%); }
+    .fx .bead { box-shadow: 0 1px 2px rgba(11,37,64,.25); }
+    .fx .ring { border-radius: 50%; border: 3px solid rgba(21,114,176,.8); box-shadow: 0 0 8px rgba(79,184,222,.6), inset 0 0 6px rgba(79,184,222,.5); }
+    .fx .plus { font-weight: 900; color: #ffd36b; line-height: 1; white-space: nowrap;
+      text-shadow: 0 0 3px #5a3500, 0 0 3px #5a3500, 0 2px 4px rgba(0,0,0,.35); }
 
     .sel-rect { position: absolute; border: 2px solid var(--teal); background: rgba(14,138,156,.10); border-radius: 6px; pointer-events: none; display: none; }
     .sel-rect.ten { border-color: #d48a10; background: rgba(245,184,61,.15); }
@@ -67,6 +85,23 @@
     .submit-row input { padding: 10px 14px; border-radius: 99px; border: 0; font: inherit; font-size: 16px; width: 190px; max-width: 100%; }
     .submit-row button { margin-top: 0 !important; }
     .submit-msg { min-height: 1.4em; font-size: .9rem; margin-top: 6px; color: var(--sky); }
+
+    /* Results screen: huge score, small Top 5 underneath */
+    .overlay { overflow-y: auto; }
+    .overlay.result h2 { font-size: 1rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 0; }
+    .overlay.result .big { font-size: clamp(4.5rem, 15vw, 8rem); font-weight: 900; line-height: 1; margin: 6px 0 2px;
+      font-variant-numeric: tabular-nums; text-shadow: 0 0 28px rgba(79,184,222,.55); }
+    .overlay.result #ov-text { font-size: .95rem; margin-bottom: 14px; }
+    .mini-rank { width: min(270px, 100%); margin: 14px auto 0; padding: 8px 10px; border-radius: 12px;
+      background: rgba(255,255,255,.08); text-align: left; font-size: .85rem; }
+    .mini-rank .mini-head { text-align: center; font-size: .78rem; font-weight: 700; color: rgba(255,255,255,.7); margin-bottom: 4px; }
+    .mini-rank ol { list-style: none; margin: 0; padding: 0; }
+    .mini-rank li { display: grid; grid-template-columns: 22px 1fr auto; gap: 6px; padding: 3px 6px; border-radius: 6px; }
+    .mini-rank .rk { text-align: center; font-weight: 800; color: rgba(255,255,255,.5); }
+    .mini-rank li:nth-child(1) .rk { color: #f2c94c; } .mini-rank li:nth-child(2) .rk { color: #c7cfd6; } .mini-rank li:nth-child(3) .rk { color: #d39060; }
+    .mini-rank .nm { color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .mini-rank .sc { font-weight: 800; color: var(--sky); font-variant-numeric: tabular-nums; }
+    .mini-rank li.me { background: rgba(255,211,107,.22); }
 
     .ranking { list-style: none; margin: 0; padding: 0; }
     .ranking li { display: grid; grid-template-columns: 40px 1fr auto; gap: 8px; align-items: center; padding: 10px 4px; border-bottom: 1px solid var(--line); }
@@ -149,14 +184,18 @@
             <div class="overlay" id="overlay">
               <div>
                 <h2 id="ov-title">Make It Rain</h2>
-                <p id="ov-text">Drag a box so the numbers inside add up to 10.</p>
                 <div class="big" id="ov-score" hidden></div>
+                <p id="ov-text">Drag a box so the numbers inside add up to 10.</p>
                 <div id="submit-box" hidden>
                   <div class="submit-row">
                     <input id="nick" maxlength="12" placeholder="Nickname (max 12)" autocomplete="off" enterkeyhint="done">
                     <button class="btn btn-primary" id="submit">Submit</button>
                   </div>
                   <div class="submit-msg" id="submit-msg"></div>
+                </div>
+                <div class="mini-rank" id="mini-rank" hidden>
+                  <div class="mini-head">🏆 Top 5</div>
+                  <ol id="mini-list"></ol>
                 </div>
                 <button class="btn btn-primary" id="start">Start</button>
                 <button class="btn fs-only" id="ov-close">Close</button>
@@ -229,26 +268,30 @@
       return entry;
     }
 
-    const rankEl = document.getElementById("ranking");
+    const rankEl = document.getElementById("ranking");   // Top 10 card below the game
+    const miniEl = document.getElementById("mini-list"); // Top 5 on the results screen
+    const note = (ol, mark, text) => { ol.innerHTML = `<li><span class="rk">${mark}</span><span class="nm" style="opacity:.7">${text}</span><span></span></li>`; };
+    function fillRank(ol, list, highlight) {
+      ol.innerHTML = "";
+      if (!list.length) return note(ol, "-", "No records yet — be the first!");
+      list.forEach((e, i) => {
+        const li = document.createElement("li");
+        const rk = document.createElement("span"); rk.className = "rk"; rk.textContent = i + 1;
+        const nm = document.createElement("span"); nm.className = "nm"; nm.textContent = e.nickname; // textContent: no HTML injection
+        const sc = document.createElement("span"); sc.className = "sc"; sc.textContent = e.score;
+        li.append(rk, nm, sc);
+        if (highlight && e.nickname === highlight.nickname && e.score === highlight.score && e.created_at === highlight.created_at) li.classList.add("me");
+        ol.appendChild(li);
+      });
+    }
     async function renderTop(highlight) {
       try {
         const list = await fetchTop();
-        rankEl.innerHTML = "";
-        if (!list.length) {
-          rankEl.innerHTML = `<li><span class="rk">-</span><span class="nm" style="color:var(--muted)">No records yet — be the first!</span><span></span></li>`;
-          return;
-        }
-        list.forEach((e, i) => {
-          const li = document.createElement("li");
-          const rk = document.createElement("span"); rk.className = "rk"; rk.textContent = i + 1;
-          const nm = document.createElement("span"); nm.className = "nm"; nm.textContent = e.nickname; // textContent: no HTML injection
-          const sc = document.createElement("span"); sc.className = "sc"; sc.textContent = e.score;
-          li.append(rk, nm, sc);
-          if (highlight && e.nickname === highlight.nickname && e.score === highlight.score && e.created_at === highlight.created_at) li.classList.add("me");
-          rankEl.appendChild(li);
-        });
+        fillRank(rankEl, list, highlight);
+        fillRank(miniEl, list.slice(0, 5), highlight);
       } catch (err) {
-        rankEl.innerHTML = `<li><span class="rk">!</span><span class="nm" style="color:var(--muted)">Couldn't load the ranking.</span><span></span></li>`;
+        note(rankEl, "!", "Couldn't load the ranking.");
+        note(miniEl, "!", "Couldn't load the ranking.");
       }
     }
     document.getElementById("rank-note").textContent = shared ? "Scores from all players." : "Showing scores saved in this browser only.";
@@ -423,7 +466,8 @@
       }
       rectEl = document.createElement("div"); rectEl.className = "sel-rect";
       badgeEl = document.createElement("div"); badgeEl.className = "sum-badge";
-      boardEl.append(rectEl, badgeEl);
+      fxEl = document.createElement("div"); fxEl.className = "fx";
+      boardEl.append(rectEl, badgeEl, fxEl);
       fitBoard();
     }
 
@@ -470,16 +514,71 @@
       } else badgeEl.style.display = "none";
     }
 
+    /* ---------- Splash effect ---------- */
+    let fxEl = null;
+    const calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function fxPiece(cls, x, y, d) {
+      const el = document.createElement("i");
+      el.className = cls;
+      if (d) { el.style.width = el.style.height = d + "px"; }
+      el.style.transform = `translate(${x}px, ${y}px)`;
+      fxEl.appendChild(el);
+      return el;
+    }
+    function splash(idxs) {
+      if (!fxEl || !fxEl.animate) return;
+      const size = cells[0].offsetWidth;
+      const beads = idxs.length > 6 ? 4 : 7; // fewer per drop on big combos
+      let sx = 0, sy = 0;
+      idxs.forEach((i, k) => {
+        const c = cells[i];
+        const cx = c.offsetLeft + c.offsetWidth / 2, cy = c.offsetTop + c.offsetHeight / 2;
+        sx += cx; sy += cy;
+        if (calm) return;
+        // ripple ring
+        const rd = size * 0.6, ring = fxPiece("ring", cx - rd / 2, cy - rd / 2, rd);
+        ring.animate([
+          { transform: `translate(${cx - rd / 2}px, ${cy - rd / 2}px) scale(.3)`, opacity: .9 },
+          { transform: `translate(${cx - rd / 2}px, ${cy - rd / 2}px) scale(2.1)`, opacity: 0 }
+        ], { duration: 450, delay: k * 20, easing: "cubic-bezier(.2,.7,.3,1)", fill: "backwards" }).onfinish = () => ring.remove();
+        // droplets flying out and falling
+        for (let j = 0; j < beads; j++) {
+          const a = (j / beads) * Math.PI * 2 + Math.random() * 0.7;
+          const dist = size * (0.55 + Math.random() * 0.75);
+          const dx = Math.cos(a) * dist, dy = Math.sin(a) * dist - size * 0.35;
+          const d = size * (0.14 + Math.random() * 0.14), x = cx - d / 2, y = cy - d / 2;
+          const b = fxPiece("bead", x, y, d);
+          b.animate([
+            { transform: `translate(${x}px, ${y}px) scale(1)`, opacity: 1 },
+            { transform: `translate(${x + dx}px, ${y + dy}px) scale(.9)`, opacity: 1, offset: .5 },
+            { transform: `translate(${x + dx * 1.2}px, ${y + dy + size * 0.9}px) scale(.35)`, opacity: 0 }
+          ], { duration: 520 + Math.random() * 220, delay: k * 20, easing: "cubic-bezier(.25,.6,.45,1)", fill: "backwards" }).onfinish = () => b.remove();
+        }
+      });
+      // floating "+N" over the middle of the cleared drops
+      const n = idxs.length, p = fxPiece("plus", 0, 0);
+      p.textContent = "+" + n;
+      p.style.fontSize = Math.max(16, Math.round(size * (0.55 + Math.min(n, 8) * 0.05))) + "px";
+      const px = sx / n - p.offsetWidth / 2, py = sy / n - p.offsetHeight / 2, rise = calm ? 0 : size * 1.1;
+      p.animate([
+        { transform: `translate(${px}px, ${py}px) scale(.6)`, opacity: 0 },
+        { transform: `translate(${px}px, ${py - rise * 0.35}px) scale(1.15)`, opacity: 1, offset: .2 },
+        { transform: `translate(${px}px, ${py - rise * 0.7}px) scale(1)`, opacity: 1, offset: .65 },
+        { transform: `translate(${px}px, ${py - rise}px) scale(1)`, opacity: 0 }
+      ], { duration: 850, easing: "ease-out" }).onfinish = () => p.remove();
+    }
+
     function commit() {
       const sum = selected.reduce((s, i) => s + grid[i], 0);
       if (sum === 10) {
         popSound(selected.length);
+        splash(selected);
         selected.forEach((i) => {
           grid[i] = 0;
           const c = cells[i];
           c.classList.remove("sel", "ten");
           c.classList.add("pop");
-          setTimeout(() => { c.classList.remove("pop"); c.classList.add("gone"); }, 250);
+          setTimeout(() => { c.classList.remove("pop"); c.classList.add("gone"); }, 300);
         });
         score += selected.length;
         scoreEl.textContent = score;
@@ -524,11 +623,15 @@
     function finish() {
       clearInterval(timer); playing = false; start = null; clearSel(); bgmStop();
       document.body.classList.remove("playing");
+      overlay.classList.add("result");
       document.getElementById("ov-title").textContent = "Time's up!";
-      document.getElementById("ov-text").textContent = "Raindrops collected";
-      const s = document.getElementById("ov-score"); s.hidden = false; s.textContent = score;
+      document.getElementById("ov-text").textContent = "raindrops collected";
+      const s = document.getElementById("ov-score"); s.hidden = false;
+      countUp(s, score);
       submitted = false; msgEl.textContent = ""; submitBtn.disabled = false;
       document.getElementById("submit-box").hidden = score <= 0;
+      document.getElementById("mini-rank").hidden = false;
+      renderTop(); // fresh Top 5 for the results screen
       document.getElementById("start").textContent = "Play again";
       overlay.hidden = false;
       // don't pop up the phone keyboard automatically
@@ -553,7 +656,21 @@
     submitBtn.addEventListener("click", submitScore);
     nickEl.addEventListener("keydown", (e) => { if (e.key === "Enter") submitScore(); });
 
+    // Score rolls up from 0 on the results screen
+    function countUp(el, to) {
+      if (calm || to <= 0) { el.textContent = to; return; }
+      const t0 = performance.now(), dur = Math.min(1400, 500 + to * 12);
+      (function step(now) {
+        const k = Math.min(1, (now - t0) / dur);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+      setTimeout(() => { el.textContent = to; }, dur + 100); // make sure it lands on the final score
+    }
+
     function resetOverlay() {
+      overlay.classList.remove("result");
+      document.getElementById("mini-rank").hidden = true;
       document.getElementById("ov-title").textContent = "Make It Rain";
       document.getElementById("ov-text").textContent = "Drag a box so the numbers inside add up to 10.";
       document.getElementById("ov-score").hidden = true;
