@@ -186,7 +186,7 @@ section { padding: 64px 0; }
   background: linear-gradient(160deg, var(--navy-2), var(--teal)); color: #fff;
   display: grid; place-items: center; font-size: 3rem; font-weight: 700;
 }
-.avatar.sm { aspect-ratio: 1; font-size: 1.6rem; border-radius: 50%; width: 88px; margin-bottom: 12px; }
+.avatar.sm { aspect-ratio: 1; font-size: 1.6rem; border-radius: 50%; width: 120px; margin-bottom: 12px; }
 .pi-role { color: var(--teal); font-weight: 600; margin-bottom: .2em; }
 .pi-meta { color: var(--muted); font-size: .95rem; }
 .timeline { list-style: none; margin: 0; padding: 0; }

@@ -25,7 +25,9 @@ window.LAB = {
    photo: "assets/img/people/파일명.jpg" (없으면 이니셜 표시)
 */
 window.MEMBERS = [
-  // { name: "홍길동", nameEn: "Gildong Hong", role: "Undergraduate Researcher", since: "2026", email: "", interests: "SAR flood detection", photo: "" },
+  // { name: "홍길동", nameEn: "Gildong Hong", role: "Undergraduate Researcher", since: "2026", program: "B.S. Student (entered 2023)", email: "", interests: "SAR flood detection", photo: "" },
+  { name: "장태검", nameEn: "Taegeom Jang", role: "Undergraduate Researcher", since: "2026", program: "B.S. Student (entered 2023)", photo: "assets/img/people/taegeom-jang.webp" },
+  { name: "정우영", nameEn: "Wooyoung Jung", role: "Undergraduate Researcher", since: "2026", program: "B.S. Student (entered 2023)", photo: "assets/img/people/wooyoung-jung.webp" },
 ];
 
 /* ---------------- 뉴스 ---------------- */

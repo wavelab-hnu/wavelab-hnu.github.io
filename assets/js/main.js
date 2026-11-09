@@ -185,6 +185,7 @@
           ${m.photo ? `<img class="avatar sm" src="${m.photo}" alt="${m.name}">` : `<div class="avatar sm">${initials(m.nameEn || m.name)}</div>`}
           <h4>${m.nameEn || m.name}</h4>
           <p style="color:var(--teal);font-weight:600">${m.role}${m.since ? " · " + m.since + "~" : ""}</p>
+          ${m.program ? `<p>${m.program}</p>` : ""}
           ${m.interests ? `<p>${m.interests}</p>` : ""}
           ${m.email ? `<p><a href="mailto:${m.email}">${m.email}</a></p>` : ""}
         </div>`).join("")}</div>`;
