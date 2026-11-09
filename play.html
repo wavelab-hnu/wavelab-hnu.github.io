@@ -341,27 +341,29 @@
 
     /* ---------- BGM: original 8-bit "bubble arcade" loop ----------
        Composed for this game and played live with Web Audio (no audio file).
-       C major, 150 BPM, 16 bars ≈ 26 s: pulse-wave lead with a little echo,
-       quiet arpeggio, bouncy triangle bass, and noise drums. */
-    const BPM = 150, STEP = 60 / BPM / 2; // one slot = an eighth note
+       C major, 168 BPM with a bouncy swing, 16 bars ≈ 23 s: short, hoppy pulse-wave lead
+       with a glockenspiel sparkle and a little echo, quiet arpeggio, oom-pah bass, light drums,
+       and a "blub" bubble every few bars. */
+    const BPM = 168, STEP = 60 / BPM / 2; // one slot = an eighth note
+    const SWING = STEP * 0.18;            // off-beats land a little late → bouncy feel
     // [chord, lead]: 8 slots per bar — a note, "-" to hold the previous note, "." for a rest
     const BARS = [
-      ["C",  "C5 E5 G5 . E5 G5 C6 ."],
-      ["Am", "B5 A5 E5 . C5 E5 A5 ."],
-      ["F",  "A5 G5 F5 . A5 - C6 ."],
-      ["G",  "B5 - A5 G5 D5 . G5 ."],
-      ["C",  "C5 E5 G5 . E5 G5 C6 ."],
-      ["Am", "D6 C6 A5 . E5 . A5 C6"],
-      ["F",  "C6 . A5 F5 G5 . A5 ."],
-      ["G",  "G5 - - . D5 E5 F5 G5"],
-      ["F",  "A5 . A5 G5 A5 . C6 ."],
-      ["G",  "B5 . B5 A5 B5 . D6 ."],
-      ["Em", "E6 - D6 B5 G5 . B5 ."],
-      ["Am", "C6 - B5 A5 E5 . A5 ."],
-      ["Dm", "F5 A5 D6 . A5 F5 D5 ."],
-      ["G",  "G5 B5 D6 . B5 G5 D5 ."],
-      ["C",  "E5 G5 C6 . G5 E5 C6 E6"],
-      ["G",  "D6 - - . B5 . G5 ."]
+      ["C",  "G5 G5 E5 G5 C6 . G5 ."],
+      ["Am", "A5 A5 E5 A5 C6 . A5 ."],
+      ["F",  "F5 A5 C6 A5 G5 F5 E5 ."],
+      ["G",  "D5 E5 F5 G5 B5 . G5 ."],
+      ["C",  "G5 G5 E5 G5 C6 . E6 ."],
+      ["Am", "D6 C6 B5 A5 E5 . C6 ."],
+      ["F",  "A5 . F5 A5 G5 . E5 D5"],
+      ["G",  "D5 - . . G5 A5 B5 C6"],
+      ["F",  "A5 . F5 A5 C6 . A5 ."],
+      ["G",  "B5 . G5 B5 D6 . B5 ."],
+      ["Em", "E6 D6 B5 G5 E5 G5 B5 ."],
+      ["Am", "C6 B5 A5 E5 C5 E5 A5 ."],
+      ["Dm", "F5 F5 A5 F5 D6 . A5 ."],
+      ["G",  "G5 G5 B5 G5 D6 . B5 ."],
+      ["C",  "C6 . G5 E5 G5 C6 E6 ."],
+      ["G",  "D6 - B5 . G5 . . ."]
     ];
     const CHORDS = { C: ["C3", "C4", "E4", "G4"], Am: ["A2", "A3", "C4", "E4"], F: ["F2", "F3", "A3", "C4"],
                      G: ["G2", "G3", "B3", "D4"], Em: ["E2", "E3", "G3", "B3"], Dm: ["D2", "D3", "F3", "A3"] };
@@ -405,23 +407,36 @@
       g.gain.setValueAtTime(snare ? 0.16 : 0.05, t); g.gain.exponentialRampToValueAtTime(0.0001, t + len);
       n.connect(f).connect(g).connect(bgmGain); n.start(t); n.stop(t + len + 0.01);
     }
+    // "blub": a soft rising sine, like a bubble floating up
+    function blub(t, from) {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = "sine";
+      o.frequency.setValueAtTime(from, t); o.frequency.exponentialRampToValueAtTime(from * 2.4, t + 0.09);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.09, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.11);
+      o.connect(g).connect(bgmGain); o.start(t); o.stop(t + 0.12);
+    }
     function scheduleStep(i, t) {
       const bar = Math.floor(i / 8), s = i % 8, ch = CHORDS[BARS[bar][0]];
-      // lead: hold for the following "-" slots
+      if (s % 2 === 1) t += SWING;
+      // lead: short and hoppy; held notes ("-") ring a bit longer
       const tok = LEAD[i];
       if (tok !== "." && tok !== "-") {
         let len = 1; while (LEAD[(i + len) % SLOTS] === "-") len++;
-        playNote(N(tok), t, STEP * len * 0.92, 0.25, 0.085, leadBus);
+        const f = N(tok), dur = len === 1 ? STEP * 0.55 : STEP * len * 0.9;
+        playNote(f, t, dur, 0.25, 0.08, leadBus);
+        playNote(f * 2, t, Math.min(dur, STEP * 0.5), "triangle", 0.035, bgmGain); // glockenspiel sparkle
       }
       // arpeggio: chord tones an octave up, every slot, very quiet
-      playNote(N(ch[1 + (i % 3)]) * 2, t, STEP * 0.45, 0.125, 0.028, bgmGain);
-      // bass: root / octave bounce
-      const bass = { 0: ch[0], 2: ch[1], 4: ch[0], 5: ch[0], 6: ch[1] }[s];
-      if (bass) playNote(N(bass), t, STEP * 0.8, "triangle", 0.22, bgmGain);
-      // drums (little snare fill at the end of the loop)
+      playNote(N(ch[1 + (i % 3)]) * 2, t, STEP * 0.4, 0.125, 0.024, bgmGain);
+      // bass: oom-pah (root on the beat, octave on the off-beat)
+      const bass = { 0: ch[0], 2: ch[1], 4: ch[0], 6: ch[1] }[s];
+      if (bass) playNote(N(bass), t, STEP * 0.6, "triangle", 0.22, bgmGain);
+      // drums: light kick + snare, off-beat hats, a little fill at the end of the loop
       if (s === 0 || s === 4) drum("kick", t);
-      if (s === 2 || s === 6 || (bar === BARS.length - 1 && s === 7)) drum("snare", t);
+      if (s === 2 || s === 6 || (bar === BARS.length - 1 && (s === 5 || s === 7))) drum("snare", t);
       if (s % 2 === 1) drum("hat", t);
+      // bubbles floating up at the end of every 4th bar
+      if (bar % 4 === 3 && s === 7) { blub(t, 520); blub(t + STEP * 0.5, 700); }
     }
     function bgmStart(fromTop) {
       if (bgmOn || !opts.bgm || !audio()) return;
