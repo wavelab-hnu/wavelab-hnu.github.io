@@ -423,18 +423,10 @@
       boardEl.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
       boardEl.innerHTML = "";
       cells = [];
-      // Deal numbers in pairs that make 10 (1·9, 2·8, 3·7, 4·6, 5·5), then shuffle.
-      // Every number still shows up about 1/9 of the time, but partners are balanced
-      // (as many 1s as 9s, etc.) and the board total is always a multiple of 10.
-      grid = [];
-      for (let p = 0; p < (cols * rows) / 2; p++) {
-        const n = 1 + Math.floor(Math.random() * 9);
-        grid.push(n, 10 - n);
-      }
-      for (let i = grid.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [grid[i], grid[j]] = [grid[j], grid[i]];
-      }
+      // Each number is random 1–9, but the board total is always a multiple of 10
+      do {
+        grid = Array.from({ length: cols * rows }, () => 1 + Math.floor(Math.random() * 9));
+      } while (grid.reduce((s, n) => s + n, 0) % 10 !== 0);
       for (let i = 0; i < cols * rows; i++) {
         const n = grid[i];
         const c = document.createElement("div");
