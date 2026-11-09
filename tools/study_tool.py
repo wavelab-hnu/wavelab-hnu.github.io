@@ -15,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "assets" / "data" / "study.json"
+OUR = ROOT / "assets" / "data" / "our-papers.json"  # "Our Papers" tab (figure optional, no date)
 IMG = ROOT / "assets" / "img" / "study"
 THEMES = {"Hydrology", "AI Forecasting", "Vision & Sensing", "Earth Observation"}
 OK_LICENSES = ("creativecommons.org/licenses/by/", "creativecommons.org/licenses/by-sa/")
@@ -63,30 +64,40 @@ def fig(url, pid):
 
 
 def check():
-    posts = json.loads(DATA.read_text(encoding="utf-8"))
+    bad = check_file(DATA, our=False)
+    if OUR.is_file():
+        bad += check_file(OUR, our=True)
+    sys.exit(1 if bad else 0)
+
+
+def check_file(path, our):
+    posts = json.loads(path.read_text(encoding="utf-8"))
     errs, ids, dois = [], set(), set()
-    need = ["id", "date", "theme", "title", "authors", "journal", "year", "doi", "license", "figure",
+    need = ["id", "theme", "title", "authors", "journal", "year", "license",
             "tldr", "background", "approach", "findings", "relevance", "keywords"]
+    if not our:
+        need += ["date", "doi", "figure"]
     for i, p in enumerate(posts):
         tag = p.get("id", f"#{i}")
         errs += [f"{tag}: missing {k}" for k in need if not p.get(k)]
         if p.get("id") in ids: errs.append(f"{tag}: duplicate id")
         ids.add(p.get("id"))
         d = str(p.get("doi", "")).lower()
-        if d in dois: errs.append(f"{tag}: duplicate DOI {d}")
+        if d and d in dois: errs.append(f"{tag}: duplicate DOI {d}")
         dois.add(d)
-        if not re.fullmatch(r"10\.\d{4,9}/\S+", d): errs.append(f"{tag}: odd DOI {d}")
-        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(p.get("date", ""))): errs.append(f"{tag}: bad date")
+        if (d or not our) and not re.fullmatch(r"10\.\d{4,9}/\S+", d): errs.append(f"{tag}: odd DOI {d}")
+        if our and not str(p.get("id", "")).startswith("our-"): errs.append(f"{tag}: id must start with our-")
+        if not our and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(p.get("date", ""))): errs.append(f"{tag}: bad date")
         if p.get("theme") not in THEMES: errs.append(f"{tag}: theme must be one of {sorted(THEMES)}")
         f = p.get("figure") or {}
         for k in ("src", "caption", "credit"):
-            if not f.get(k): errs.append(f"{tag}: figure.{k} missing")
+            if (f or not our) and not f.get(k): errs.append(f"{tag}: figure.{k} missing")
         if f.get("src") and not (ROOT / f["src"]).is_file(): errs.append(f"{tag}: figure file not found {f['src']}")
         if f.get("src") and not re.fullmatch(r"assets/img/study/[\w.-]+", f["src"]): errs.append(f"{tag}: figure.src must be in assets/img/study/")
         if not isinstance(p.get("findings"), list): errs.append(f"{tag}: findings must be a list")
-    print(f"{len(posts)} posts, {len(errs)} problems")
+    print(f"{path.name}: {len(posts)} posts, {len(errs)} problems")
     for e in errs: print(" -", e)
-    sys.exit(1 if errs else 0)
+    return len(errs)
 
 
 if __name__ == "__main__":

@@ -4,11 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Study | WAVE Lab</title>
-  <meta name="description" content="Daily paper notes from WAVE Lab — one open-access paper a day on hydrology, AI forecasting, rainfall sensing, and Earth observation.">
+  <meta name="description" content="Paper notes from WAVE Lab — one open-access paper a day, plus plain-language summaries of our own publications.">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="assets/css/style.css?v=202611110100">
   <style>
+    /* Collection switch: Daily Papers / Our Papers */
+    .coll { display: flex; gap: 0; border-bottom: 2px solid var(--line); margin-bottom: 20px; }
+    .coll a { white-space: nowrap; padding: 10px 18px; margin-bottom: -2px; border-bottom: 3px solid transparent; font-weight: 700; color: var(--muted); }
+    .coll a:hover { color: var(--navy); text-decoration: none; }
+    .coll a.on { color: var(--teal); border-bottom-color: var(--teal); }
+    .coll-lead { color: var(--muted); font-size: .92rem; margin: -6px 0 16px; }
+
     .study-tools { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
     .study-count { color: var(--muted); font-size: .9rem; margin-left: auto; }
 
@@ -22,6 +29,7 @@
     .board-row .no, .board-row .dt { text-align: center; color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }
     .board-row .th { text-align: center; }
     .thumb { display: block; width: 112px; height: 72px; border-radius: 8px; border: 1px solid var(--line); background: #fff center / contain no-repeat; }
+    .thumb.none { background: var(--teal-light) url("assets/img/logo.svg") center / 30px no-repeat; opacity: .75; }
     .board-row .tt { min-width: 0; }
     .board-row .tt strong { display: block; color: var(--navy); font-weight: 700; line-height: 1.35;
       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -38,6 +46,7 @@
     .post-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; color: var(--muted); font-size: .9rem; }
     .post h2 { font-size: 1.6rem; line-height: 1.3; margin: 10px 0 8px; color: var(--navy); }
     .post .authors { color: var(--ink); margin: 0 0 2px; }
+    .post .authors b { color: var(--teal); }
     .post .venue { color: var(--muted); font-style: italic; margin: 0; }
     .post .doi-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 22px; }
     .post .doi-row .btn { padding: 8px 16px; font-size: .88rem; }
@@ -71,6 +80,7 @@
       .post-nav { grid-template-columns: 1fr; }
       .post-nav .next { text-align: left; }
       .study-count { margin-left: 0; }
+      .coll a { padding: 10px 12px; }
     }
   </style>
 </head>
@@ -81,8 +91,8 @@
     <section class="page-hero">
       <div class="container">
         <span class="eyebrow">Study</span>
-        <h1>Daily Paper Notes</h1>
-        <p>One open-access paper a day — summarized, with a key figure and its DOI</p>
+        <h1>Paper Notes</h1>
+        <p>A new open-access paper every day, plus plain-language summaries of our own publications</p>
       </div>
     </section>
 
@@ -101,89 +111,119 @@
     const root = document.getElementById("study");
     const THEMES = ["All", "Hydrology", "AI Forecasting", "Vision & Sensing", "Earth Observation"];
     const PER_PAGE = 15;
+    // Two collections share the same board/post layout
+    const COLL = {
+      daily: { label: "Daily Papers", file: "assets/data/study.json", hash: "",
+               lead: "One open-access paper a day on hydrology, AI forecasting, rainfall sensing and Earth observation — summarized, with a key figure and its DOI.",
+               sort: (a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id), when: (p) => p.date, whenHead: "Date" },
+      our:   { label: "Our Papers", file: "assets/data/our-papers.json", hash: "our",
+               lead: "Our own journal papers, explained in plain language. Figures are shown for open-access papers.",
+               sort: (a, b) => (b.year - a.year) || 0, when: (p) => String(p.year), whenHead: "Year" }
+    };
     const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
     const safeSrc = (s) => (/^assets\/img\/study\/[\w.-]+$/.test(s || "") ? s : "");
+    const boldPI = (s) => s.replace(/Lee, J\.\*?(?!\s?[A-Z]\.)/g, (m) => `<b>${m}</b>`); // PI's name (applied after escaping)
     const ext = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="vertical-align:-2px"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
 
-    let posts = [], theme = "All", query = "", page = 1;
+    const data = {};      // collection key -> sorted posts (loaded on demand)
+    const state = { daily: { theme: "All", query: "", page: 1 }, our: { theme: "All", query: "", page: 1 } };
 
-    fetch("assets/data/study.json", { cache: "no-cache" })
-      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then((list) => {
-        posts = list.slice().sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
-        route();
-      })
-      .catch(() => { root.innerHTML = `<p class="empty">Couldn't load the paper notes. Please try again later.</p>`; });
-
-    window.addEventListener("hashchange", () => { route(); window.scrollTo({ top: 0, behavior: "instant" }); });
-
-    function route() {
-      const id = decodeURIComponent(location.hash.slice(1));
-      const i = posts.findIndex((p) => p.id === id);
-      if (i >= 0) showPost(i); else showBoard();
+    function load(key) {
+      if (data[key]) return Promise.resolve(data[key]);
+      return fetch(COLL[key].file, { cache: "no-cache" })
+        .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then((list) => {
+          // stable sort keeps the file's order within a year
+          data[key] = list.map((p, i) => [p, i]).sort((a, b) => COLL[key].sort(a[0], b[0]) || a[1] - b[1]).map((x) => x[0]);
+          return data[key];
+        });
     }
 
+    window.addEventListener("hashchange", () => { route(); window.scrollTo({ top: 0, behavior: "instant" }); });
+    route();
+
+    function route() {
+      const h = decodeURIComponent(location.hash.slice(1));
+      const key = h === "our" || h.startsWith("our-") ? "our" : "daily";
+      load(key).then((posts) => {
+        const i = posts.findIndex((p) => p.id === h);
+        if (i >= 0) showPost(key, i); else showBoard(key);
+      }).catch(() => { root.innerHTML = collTabs(key) + `<p class="empty">Couldn't load the paper notes. Please try again later.</p>`; });
+    }
+
+    const collTabs = (key) => `
+      <nav class="coll" aria-label="Collections">
+        ${Object.keys(COLL).map((k) => `<a href="#${COLL[k].hash}" class="${k === key ? "on" : ""}">${COLL[k].label}</a>`).join("")}
+      </nav>`;
+
     /* ---------- Board ---------- */
-    function showBoard() {
-      document.title = "Study | WAVE Lab";
+    function showBoard(key) {
+      const st = state[key], c = COLL[key];
+      document.title = `${c.label} | Study | WAVE Lab`;
       root.innerHTML = `
+        ${collTabs(key)}
+        <p class="coll-lead">${c.lead}</p>
         <div class="study-tools">
           <div class="tabs" role="tablist">
-            ${THEMES.map((t) => `<button class="tab${t === theme ? " active" : ""}" data-theme="${esc(t)}">${esc(t)}</button>`).join("")}
+            ${THEMES.map((t) => `<button class="tab${t === st.theme ? " active" : ""}" data-theme="${esc(t)}">${esc(t)}</button>`).join("")}
           </div>
-          <input class="search" type="search" placeholder="Search title, authors, journal, keywords…" aria-label="Search paper notes" value="${esc(query)}">
+          <input class="search" type="search" placeholder="Search title, authors, journal, keywords…" aria-label="Search paper notes" value="${esc(st.query)}">
           <span class="study-count"></span>
         </div>
         <div class="board-list">
-          <div class="board-head"><span>No.</span><span>Figure</span><span>Paper</span><span>Theme</span><span>Date</span></div>
+          <div class="board-head"><span>No.</span><span>Figure</span><span>Paper</span><span>Theme</span><span>${c.whenHead}</span></div>
           <div class="rows"></div>
         </div>
         <div class="pager"></div>`;
-      root.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => { theme = b.dataset.theme; page = 1; showBoard(); }));
+      root.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => { st.theme = b.dataset.theme; st.page = 1; showBoard(key); }));
       const search = root.querySelector(".search");
-      search.addEventListener("input", () => { query = search.value; page = 1; drawRows(); });
-      drawRows();
+      search.addEventListener("input", () => { st.query = search.value; st.page = 1; drawRows(key); });
+      drawRows(key);
     }
 
-    function drawRows() {
-      const q = query.trim().toLowerCase();
-      const shown = posts.filter((p) => (theme === "All" || p.theme === theme) &&
+    function drawRows(key) {
+      const posts = data[key], st = state[key], c = COLL[key];
+      const q = st.query.trim().toLowerCase();
+      const shown = posts.filter((p) => (st.theme === "All" || p.theme === st.theme) &&
         (!q || [p.title, p.authors, p.journal, (p.keywords || []).join(" "), p.tldr].join(" ").toLowerCase().includes(q)));
       const pages = Math.max(1, Math.ceil(shown.length / PER_PAGE));
-      page = Math.min(page, pages);
+      st.page = Math.min(st.page, pages);
       root.querySelector(".study-count").textContent = `${shown.length} paper${shown.length === 1 ? "" : "s"}`;
       const rows = root.querySelector(".rows");
       if (!shown.length) { rows.innerHTML = `<p class="empty" style="text-align:center">${posts.length ? "No matching papers." : "The first note is coming soon."}</p>`; }
-      else rows.innerHTML = shown.slice((page - 1) * PER_PAGE, page * PER_PAGE).map((p) => {
+      else rows.innerHTML = shown.slice((st.page - 1) * PER_PAGE, st.page * PER_PAGE).map((p) => {
         const no = posts.length - posts.indexOf(p);
         const src = safeSrc(p.figure && p.figure.src);
         return `
           <a class="board-row" href="#${encodeURIComponent(p.id)}">
             <span class="no">${no}</span>
-            <span class="thw"><span class="thumb" style="${src ? `background-image:url('${src}')` : ""}"></span></span>
+            <span class="thw"><span class="thumb${src ? "" : " none"}" style="${src ? `background-image:url('${src}')` : ""}"></span></span>
             <span class="tt"><strong>${esc(p.title)}</strong><span>${esc(p.journal)} · ${esc(p.year)}</span></span>
             <span class="th"><span class="theme">${esc(p.theme)}</span></span>
-            <span class="dt">${esc(p.date)}</span>
-            <span class="meta" style="display:none"><span class="theme">${esc(p.theme)}</span>${esc(p.date)}</span>
+            <span class="dt">${esc(c.when(p))}</span>
+            <span class="meta" style="display:none"><span class="theme">${esc(p.theme)}</span>${esc(c.when(p))}</span>
           </a>`;
       }).join("");
       const pager = root.querySelector(".pager");
-      pager.innerHTML = pages > 1 ? Array.from({ length: pages }, (_, k) => `<button class="${k + 1 === page ? "on" : ""}">${k + 1}</button>`).join("") : "";
-      pager.querySelectorAll("button").forEach((b, k) => b.addEventListener("click", () => { page = k + 1; drawRows(); root.scrollIntoView({ block: "start" }); }));
+      pager.innerHTML = pages > 1 ? Array.from({ length: pages }, (_, k) => `<button class="${k + 1 === st.page ? "on" : ""}">${k + 1}</button>`).join("") : "";
+      pager.querySelectorAll("button").forEach((b, k) => b.addEventListener("click", () => { st.page = k + 1; drawRows(key); root.scrollIntoView({ block: "start" }); }));
     }
 
     /* ---------- Post ---------- */
-    function showPost(i) {
+    function showPost(key, i) {
+      const posts = data[key], c = COLL[key];
       const p = posts[i], newer = posts[i - 1], older = posts[i + 1];
       const src = safeSrc(p.figure && p.figure.src);
       const doi = String(p.doi || "").trim();
+      const authors = key === "our" ? boldPI(esc(p.authors)) : esc(p.authors);
       document.title = `${p.title} | Study | WAVE Lab`;
       root.innerHTML = `
+        ${collTabs(key)}
         <article class="post">
-          <a class="back" href="#">← All papers</a>
-          <div class="post-meta"><span class="theme">${esc(p.theme)}</span><span>${esc(p.date)}</span><span>No. ${posts.length - i}</span></div>
+          <a class="back" href="#${c.hash}">← All ${c.label.toLowerCase()}</a>
+          <div class="post-meta"><span class="theme">${esc(p.theme)}</span><span>${esc(c.when(p))}</span><span>No. ${posts.length - i}</span></div>
           <h2>${esc(p.title)}</h2>
-          <p class="authors">${esc(p.authors)}</p>
+          <p class="authors">${authors}</p>
           <p class="venue">${esc(p.journal)}${p.volume ? ", " + esc(p.volume) : ""}${p.pages ? ", " + esc(p.pages) : ""} (${esc(p.year)})</p>
           <div class="doi-row">
             ${doi ? `<a class="btn btn-primary" href="https://doi.org/${esc(doi)}" target="_blank" rel="noopener">DOI ${ext}</a><span class="doi-text">doi:${esc(doi)}</span>` : ""}
@@ -199,6 +239,7 @@
           ${(p.findings || []).length ? `<h3>Key findings</h3><ul class="findings">${p.findings.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
           ${p.relevance ? `<h3>Why it matters to us</h3><p class="body">${esc(p.relevance)}</p>` : ""}
           ${(p.keywords || []).length ? `<div class="tags kw">${p.keywords.map((k) => `<span class="tag">${esc(k)}</span>`).join("")}</div>` : ""}
+          ${p.source === "abstract only" ? `<p class="rank-note" style="color:var(--muted);font-size:.85rem;margin-top:14px">This summary is based on the paper's abstract.</p>` : ""}
           <nav class="post-nav">
             ${older ? `<a href="#${encodeURIComponent(older.id)}"><small>← Previous</small>${esc(older.title)}</a>` : "<span></span>"}
             ${newer ? `<a class="next" href="#${encodeURIComponent(newer.id)}"><small>Next →</small>${esc(newer.title)}</a>` : "<span></span>"}
