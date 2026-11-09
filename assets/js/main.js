@@ -147,6 +147,9 @@
       const groups = window.LINKS || [];
       const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+      // Site icon from data.js; the first letter shows if there is none or it fails to load
+      const icon = (it) => `<span class="link-ico"><b>${it.name.trim()[0]}</b>${it.icon
+        ? `<img src="${it.icon}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}</span>`;
       const ext = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
       el.innerHTML = `
         <nav class="link-jump" aria-label="Jump to section">
@@ -161,7 +164,7 @@
                 <div class="link-grid">
                   ${s.items.map((it) => `
                     <a class="link-card" href="${it.url}" target="_blank" rel="noopener">
-                      <strong>${it.name}${ext}</strong>
+                      <strong>${icon(it)}<span class="nm">${it.name}</span>${ext}</strong>
                       ${it.desc ? `<span class="desc">${it.desc}</span>` : ""}
                       <span class="host">${host(it.url)}</span>
                     </a>`).join("")}
