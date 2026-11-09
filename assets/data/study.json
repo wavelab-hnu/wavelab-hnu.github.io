@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-10",
+    "date": "2026-11-10",
+    "theme": "AI Forecasting",
+    "title": "Short-term drought forecasting in Iran using multi-source machine learning: an assessment of autoregressive, teleconnection-driven, and hybrid paradigms",
+    "authors": "Jian, J., Mahmoudi, P., Jafari, P., Ghaemi, A., Yang, J., Firoozi, F.",
+    "journal": "Natural Hazards and Earth System Sciences",
+    "volume": "26",
+    "pages": "4407–4427",
+    "year": 2026,
+    "doi": "10.5194/nhess-26-4407-2026",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-10.webp",
+      "caption": "Workflow of the study: monthly rainfall is turned into the SPI drought index, combined with climate-index inputs under three scenarios, and fed to nine machine- and deep-learning models whose 1–3-month forecasts are scored with R², MSE and MAE.",
+      "credit": "Figure 3 from Jian et al. (2026), Natural Hazards and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "For month-ahead drought forecasts in Iran, there is no single best recipe: mixing a station's own drought history with global climate indices works best in dry inland areas, while either source alone wins in certain coastal or local climates.",
+    "background": "Drought forecasters usually pick one of two kinds of inputs: the recent history of the drought index itself (its 'memory'), or large-scale climate signals such as ENSO or the NAO that steer rainfall from far away. Each approach has worked in local case studies, but nobody had compared them, and their combination, side by side across a large and climatically diverse country. Iran, which ranges from hyper-arid deserts to very wet Caspian coasts, is a natural test bed for that question.",
+    "approach": "The authors used 30 years (1993–2022) of quality-checked monthly rainfall from 96 synoptic stations and computed the Standardized Precipitation Index (SPI). They built three input scenarios: S1 used 19 global teleconnection indices lagged 1–3 months; S2 used past SPI values with memory lengths of 3, 6, 9 or 12 months; S3 combined the climate indices with 3 or 6 months of SPI history. Nine algorithms, from linear regression and KNN to Random Forest, gradient boosting, XGBoost, Bayesian ridge regression and LSTM, forecast SPI 1, 2 and 3 months ahead and were scored with R², MSE and MAE. They also repeated runs 20 times at two contrasting stations to check how stable each model was.",
+    "findings": [
+      "With climate indices alone (S1), Random Forest was the most reliable model, and in the northwest, Caspian coast and western Zagros it explained up to about half of the SPI variance one month ahead (R² of 0.57 at Anzali), but skill dropped sharply at 2–3 months.",
+      "With drought history alone (S2), longer memory helped: feeding 12 months of past SPI gave the best results, and LSTM was the top model in this setting.",
+      "The hybrid setting (S3) won across much of the arid and semi-arid central plateau; at Isfahan it reached R² = 0.65 with MSE = 0.36, beating both single-source options.",
+      "Some places preferred a single source: climate indices worked best at Chabahar (R² = 0.49) and Anzali, while drought history alone was best at Ahvaz (R² = 0.55), and each station's winning setup rarely changed at longer lead times.",
+      "Across 20 repeated runs, Random Forest gave the most consistent scores, while LSTM and the polynomial SVM varied more from run to run."
+    ],
+    "relevance": "Drought early warning is only useful if forecasts are trustworthy where people actually live and farm, and this study shows that the best forecasting setup can change from one region to the next. Korea faces a similar mix of influences, with monsoon rainfall, typhoons and dry springs shaped by both local persistence and large-scale signals like ENSO, so a 'one model for the whole country' approach may leave some basins poorly served. A practical lesson for students and water managers is to test several input designs and keep a simple, stable model such as Random Forest as a strong baseline before turning to more complex deep learning.",
+    "keywords": ["drought forecasting", "SPI", "teleconnections", "random forest", "LSTM", "Iran"]
+  },
+  {
     "id": "2026-11-09",
     "date": "2026-11-09",
     "theme": "Hydrology",
