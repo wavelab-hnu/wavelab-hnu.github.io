@@ -206,26 +206,35 @@ window.LINKS = [
       { title: "Academic Societies", items: [
         { name: "Korea Water Resources Association", url: "https://www.kwra.or.kr", icon: "https://www.kwra.or.kr/media/site_settings/admin_login_logo/favicon.png", desc: "KWRA" },
         { name: "Korean Society of Civil Engineers", url: "https://www.ksce.or.kr", icon: "https://www.ksce.or.kr/images/favicon.ico", desc: "KSCE" },
-        { name: "Korean Society of Hazard Mitigation", url: "https://www.kosham.or.kr", icon: "https://www.kosham.or.kr/custom/104/images/favicon.png", desc: "KOSHAM" }
+        { name: "Korean Society of Hazard Mitigation", url: "https://www.kosham.or.kr", icon: "https://www.kosham.or.kr/custom/104/images/favicon.png", desc: "KOSHAM" },
+        { name: "Korean Society of Remote Sensing", url: "https://www.ksrs.or.kr", icon: "https://www.ksrs.or.kr/favicon.ico", desc: "KSRS" },
+        { name: "GeoAI Data Society", url: "https://www.gaidas.org", icon: "https://www.gaidas.org/image/icon/favicon.ico", desc: "GAIDAS · publisher of GEO DATA" },
+        { name: "Korean Wetlands Society", url: "https://www.kwetland.or.kr", icon: "https://www.kwetland.or.kr/images/common/favicon.png", desc: "Journal of Wetlands Research" }
       ]}
     ]
   },
   {
     group: "Hannam University",
     sections: [
+      { title: "Quick Access", items: [
+        { name: "MY-PORTAL", url: "https://my.hnu.kr", icon: HNU, desc: "Student & faculty portal (login)" },
+        { name: "Groupware", url: "https://we.hnu.kr", icon: "https://we.hnu.kr/favicon.png", desc: "Faculty & staff groupware (login)" },
+        { name: "HI-CLASS", url: "https://hiclass.hannam.ac.kr", icon: "https://hiclass.hannam.ac.kr/learningx/images/main/favicon.ico", desc: "E-learning system (login)" },
+        { name: "Industry-Academic Cooperation Foundation", url: "https://sanhak.hannam.ac.kr", icon: "https://sanhak.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Research and industry cooperation" },
+        // App link: Google Play by default, App Store on iPhone/iPad (urlIOS)
+        { name: "Hey Young Campus", url: "https://play.google.com/store/apps/details?id=com.shinhan.heyoung", urlIOS: "https://apps.apple.com/kr/app/id1605688685",
+          icon: "https://play-lh.googleusercontent.com/0ZVxpJR_hft8D5UE9gGNsG1q3UyBcaHMRDwatcY7OdAeE999ICcXdhoHa0SBysOdjH4nsQJPpw6O8qzeveHf3Q=s128", desc: "Mobile student ID & campus app (Shinhan Bank)" }
+      ]},
       { title: "University & Department", items: [
         { name: "Hannam University", url: "https://www.hnu.kr", icon: HNU, desc: "University homepage (Korean)" },
         { name: "Hannam University (English)", url: "https://int.hnu.kr/eng/", icon: HNU, desc: "English homepage" },
         { name: "College of Engineering", url: "https://eng.hannam.ac.kr", icon: "https://eng.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon-180x180.png", desc: "College homepage" },
         { name: "Dept. of Civil & Environmental Engineering", url: "https://civil.hannam.ac.kr", icon: "https://i0.wp.com/civil.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon.png?fit=180%2C180&ssl=1", desc: "Department homepage" },
         { name: "Graduate School", url: "https://gra.hannam.ac.kr", icon: HNU, desc: "Graduate programs and admissions" },
-        { name: "Admissions", url: "https://ibsi.hannam.ac.kr", icon: "https://ibsi.hannam.ac.kr/adms5/images/renew_2022/favicon-96x96.png", desc: "Undergraduate admissions" },
-        { name: "Industry-Academic Cooperation Foundation", url: "https://sanhak.hannam.ac.kr", icon: "https://sanhak.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Research and industry cooperation" }
+        { name: "Admissions", url: "https://ibsi.hannam.ac.kr", icon: "https://ibsi.hannam.ac.kr/adms5/images/renew_2022/favicon-96x96.png", desc: "Undergraduate admissions" }
       ]},
       { title: "Campus Services", items: [
         { name: "Central Library", url: "https://hanul.hannam.ac.kr", icon: "https://hanul.hannam.ac.kr/image/apple-touch-icon.png", desc: "Books, journals, and databases" },
-        { name: "MY-PORTAL", url: "https://my.hnu.kr", icon: HNU, desc: "Student & faculty portal (login)" },
-        { name: "HI-CLASS", url: "https://hiclass.hannam.ac.kr", icon: "https://hiclass.hannam.ac.kr/learningx/images/main/favicon.ico", desc: "E-learning system (login)" },
         { name: "HI-STORY", url: "https://hi.hannam.ac.kr", icon: "https://hi.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Extracurricular & career programs (login)" },
         { name: "Academic Calendar", url: "https://www.hnu.kr/kor/guide/guide_01_1.html", icon: HNU, desc: "Semester schedule" },
         { name: "Academic Notices", url: "https://www.hnu.kr/kor/guide/guide_02.html", icon: HNU, desc: "Academic announcements" },
