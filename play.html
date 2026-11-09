@@ -49,7 +49,7 @@
     .cell.sel.ten .drop { background: radial-gradient(circle at 35% 35%, #ffeeb5 0%, #f5b83d 55%, #c97f05 100%); }
     .light .cell.sel.ten .drop span { color: #4a2c00; }
     .cell.pop .drop { transform: rotate(45deg) scale(1.5); opacity: 0; }
-    .cell.empty .drop { visibility: hidden; }
+    .cell.gone .drop { visibility: hidden; } /* not "empty": the site stylesheet already styles .empty */
 
     .sel-rect { position: absolute; border: 2px solid var(--teal); background: rgba(14,138,156,.10); border-radius: 6px; pointer-events: none; display: none; }
     .sel-rect.ten { border-color: #d48a10; background: rgba(245,184,61,.15); }
@@ -493,7 +493,7 @@
           const c = cells[i];
           c.classList.remove("sel", "ten");
           c.classList.add("pop");
-          setTimeout(() => { c.classList.remove("pop"); c.classList.add("empty"); }, 250);
+          setTimeout(() => { c.classList.remove("pop"); c.classList.add("gone"); }, 250);
         });
         score += selected.length;
         scoreEl.textContent = score;
