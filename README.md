@@ -25,6 +25,9 @@
 방문자는 기록을 **보기·추가**만 할 수 있고, 수정·삭제는 Supabase 화면(Table Editor)에서만 가능합니다.
 이상한 기록은 Supabase → Table Editor → `rain10_scores`에서 해당 줄을 지우면 됩니다.
 
+게임 배경음악은 `assets/audio/make-it-rain-bgm.mp3`입니다. 원본은 lnplusmusic의 무료 곡(Pixabay, `lnplusmusic-background-music-628850.mp3`)이고, 128kbps로 줄여 넣었습니다.
+바꾸려면 같은 이름의 mp3 파일로 교체하면 됩니다. 효과음(물방울 터지는 소리)은 파일 없이 코드로 만듭니다.
+
 ## 방문자 수 (모든 페이지 하단)
 
 같은 Supabase 프로젝트의 `site_visits` 표에 날짜별(한국 시간)로 저장됩니다.

@@ -254,7 +254,7 @@
     document.getElementById("rank-note").textContent = shared ? "Scores from all players." : "Showing scores saved in this browser only.";
     renderTop();
 
-    /* ---------- Sound (Web Audio, all synthesized — no audio files) ---------- */
+    /* ---------- Sound (Web Audio: synthesized effects + an mp3 BGM) ---------- */
     let ac = null, master = null;
     function audio() {
       if (!ac) {
@@ -292,52 +292,38 @@
       n.connect(f).connect(ng).connect(master); n.start(t + 0.02); n.stop(t + 0.14);
     }
 
-    // Original looping chiptune (C major pentatonic, 140 BPM, 4 bars)
-    const N = (name) => { const m = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 }; return 440 * Math.pow(2, (m[name[0]] + (+name.slice(1) + 1) * 12 - 69) / 12); };
-    const LEAD = ["E5","G5","A5","G5","E5","D5","C5","D5",  "E5","E5","G5","E5","D5","C5","A4",null,
-                  "C5","D5","E5","G5","A5","G5","E5","G5",  "A5","C6","A5","G5","E5","D5","C5",null];
-    const BASS_ROOTS = ["C3","A2","F2","G2"];
-    const STEP = 60 / 140 / 2; // eighth note
-    let bgmOn = false, nextTime = 0, step = 0, schedTimer = null, bgmGain = null;
-
-    function tone(freq, t, dur, type, vol, dest) {
-      const o = ac.createOscillator(), g = ac.createGain();
-      o.type = type; o.frequency.value = freq;
-      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-      o.connect(g).connect(dest); o.start(t); o.stop(t + dur + 0.02);
-    }
-    function scheduleStep(i, t) {
-      const lead = LEAD[i % 32];
-      if (lead) tone(N(lead), t, STEP * 0.9, "square", 0.05, bgmGain);
-      const root = N(BASS_ROOTS[Math.floor(i / 8) % 4]);
-      tone(i % 2 ? root * 2 : root, t, STEP * 0.8, "triangle", 0.16, bgmGain);
-      if (i % 4 === 0) { // soft kick
-        const o = ac.createOscillator(), g = ac.createGain();
-        o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.12);
-        g.gain.setValueAtTime(0.35, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
-        o.connect(g).connect(bgmGain); o.start(t); o.stop(t + 0.16);
-      }
-      if (i % 2 === 1) { // hi-hat on off-beats
-        const n = noise(), f = ac.createBiquadFilter(), g = ac.createGain();
-        f.type = "highpass"; f.frequency.value = 7000;
-        g.gain.setValueAtTime(0.06, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.04);
-        n.connect(f).connect(g).connect(bgmGain); n.start(t); n.stop(t + 0.05);
-      }
-    }
-    function bgmStart() {
-      if (bgmOn || !opts.bgm || !audio()) return;
+    // Background music: free track by lnplusmusic (Pixabay), looped.
+    // Played through Web Audio so the volume also works on iPhone.
+    const BGM_VOL = 0.35;
+    const bgmEl = new Audio("assets/audio/make-it-rain-bgm.mp3");
+    bgmEl.loop = true; bgmEl.preload = "auto";
+    let bgmOn = false, bgmGain = null, bgmWired = false, bgmFade = null;
+    function bgmStart(fromTop) {
+      if (bgmOn || !opts.bgm) return;
       bgmOn = true;
-      bgmGain = ac.createGain(); bgmGain.gain.value = 0.55; bgmGain.connect(master);
-      nextTime = ac.currentTime + 0.05; step = 0;
-      schedTimer = setInterval(() => {
-        while (nextTime < ac.currentTime + 0.15) { scheduleStep(step, nextTime); nextTime += STEP; step++; }
-      }, 30);
+      if (!bgmWired && audio()) {
+        bgmWired = true;
+        try {
+          const src = ac.createMediaElementSource(bgmEl);
+          bgmGain = ac.createGain(); src.connect(bgmGain).connect(master);
+        } catch (e) { bgmGain = null; }
+      }
+      audio(); // wake the audio engine if the phone suspended it
+      clearTimeout(bgmFade);
+      if (bgmGain) { bgmGain.gain.cancelScheduledValues(ac.currentTime); bgmGain.gain.setValueAtTime(BGM_VOL, ac.currentTime); }
+      else bgmEl.volume = BGM_VOL;
+      if (fromTop) bgmEl.currentTime = 0;
+      const p = bgmEl.play();
+      if (p && p.catch) p.catch(() => { bgmOn = false; });
     }
     function bgmStop() {
       if (!bgmOn) return;
-      bgmOn = false; clearInterval(schedTimer);
-      const g = bgmGain; g.gain.setTargetAtTime(0.0001, ac.currentTime, 0.05);
-      setTimeout(() => g.disconnect(), 400);
+      bgmOn = false;
+      if (bgmGain) {
+        bgmGain.gain.setTargetAtTime(0.0001, ac.currentTime, 0.05); // short fade-out
+        clearTimeout(bgmFade);
+        bgmFade = setTimeout(() => { if (!bgmOn) bgmEl.pause(); }, 300);
+      } else bgmEl.pause();
     }
     // Pause music when the tab/app goes to the background (phones)
     document.addEventListener("visibilitychange", () => {
@@ -599,7 +585,7 @@
       barEl.classList.remove("low"); barEl.firstElementChild.style.width = "100%";
       overlay.hidden = true;
       timer = setInterval(tick, 1000);
-      bgmStart(); // started from a tap/click, so browsers allow audio
+      bgmStart(true); // from the top; started from a tap/click, so browsers allow audio
       // on larger screens, bring the whole game area into view
       if (!fsMode) {
         const top = gameArea.getBoundingClientRect().top + window.scrollY - 76;
