@@ -305,25 +305,38 @@
       const s = ac.createBufferSource(); s.buffer = noiseBuf; return s;
     }
 
-    // Water-drop "bloop": fast rising sine + tiny splash
+    // Arcade-style bubble pop (original): a crisp "pop" click, an 8-bit "bloop" sweeping up,
+    // and a little sparkle on top. Bigger combos pop higher.
     function popSound(count) {
       if (!opts.sfx) return;
       if (navigator.vibrate) { try { navigator.vibrate(12); } catch (e) {} }
       if (!audio()) return;
       const t = ac.currentTime;
-      const base = 520 + Math.min(count, 8) * 45 + Math.random() * 40;
-      const o = ac.createOscillator(), g = ac.createGain();
-      o.type = "sine";
+      const base = 300 + Math.min(count, 8) * 45 + Math.random() * 30;
+      // 1) pop: very short bright noise burst
+      const n = noise(), hp = ac.createBiquadFilter(), ng = ac.createGain();
+      hp.type = "highpass"; hp.frequency.value = 1800;
+      ng.gain.setValueAtTime(0.32, t); ng.gain.exponentialRampToValueAtTime(0.0001, t + 0.035);
+      n.connect(hp).connect(ng).connect(master); n.start(t); n.stop(t + 0.04);
+      // 2) bloop: square wave sweeping up fast, softened a little
+      const o = ac.createOscillator(), lp = ac.createBiquadFilter(), g = ac.createGain();
+      o.type = "square";
       o.frequency.setValueAtTime(base, t);
-      o.frequency.exponentialRampToValueAtTime(base * 2.6, t + 0.09);
+      o.frequency.exponentialRampToValueAtTime(base * 3.2, t + 0.07);
+      lp.type = "lowpass"; lp.frequency.value = 3800;
       g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(0.5, t + 0.01);
-      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
-      o.connect(g).connect(master); o.start(t); o.stop(t + 0.18);
-      const n = noise(), f = ac.createBiquadFilter(), ng = ac.createGain();
-      f.type = "bandpass"; f.frequency.value = 3200; f.Q.value = 1.2;
-      ng.gain.setValueAtTime(0.18, t + 0.02); ng.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-      n.connect(f).connect(ng).connect(master); n.start(t + 0.02); n.stop(t + 0.14);
+      g.gain.exponentialRampToValueAtTime(0.16, t + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+      o.connect(lp).connect(g).connect(master); o.start(t); o.stop(t + 0.13);
+      // 3) sparkle: two quick high blips
+      [0.07, 0.11].forEach((d, j) => {
+        const s = ac.createOscillator(), sg = ac.createGain();
+        s.type = "triangle"; s.frequency.value = base * (4 + j * 1.5);
+        sg.gain.setValueAtTime(0.0001, t + d);
+        sg.gain.exponentialRampToValueAtTime(0.12, t + d + 0.005);
+        sg.gain.exponentialRampToValueAtTime(0.0001, t + d + 0.05);
+        s.connect(sg).connect(master); s.start(t + d); s.stop(t + d + 0.06);
+      });
     }
 
     // Background music: free track by lnplusmusic (Pixabay), looped.
