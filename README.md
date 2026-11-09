@@ -25,8 +25,8 @@
 방문자는 기록을 **보기·추가**만 할 수 있고, 수정·삭제는 Supabase 화면(Table Editor)에서만 가능합니다.
 이상한 기록은 Supabase → Table Editor → `rain10_scores`에서 해당 줄을 지우면 됩니다.
 
-게임 배경음악은 `assets/audio/make-it-rain-bgm.mp3`입니다. 원본은 lnplusmusic의 무료 곡(Pixabay, `lnplusmusic-background-music-628850.mp3`)이고, 128kbps로 줄여 넣었습니다.
-바꾸려면 같은 이름의 mp3 파일로 교체하면 됩니다. 효과음(물방울 터지는 소리)은 파일 없이 코드로 만듭니다.
+게임 배경음악과 효과음은 모두 이 게임용으로 새로 만든 것이며, 음악 파일 없이 `play.html` 코드가 직접 연주합니다(8비트 오락실 스타일).
+멜로디는 `play.html`의 `BARS` 목록(한 마디에 8칸: 음 이름, `-` 늘이기, `.` 쉼표)에서 고칠 수 있습니다.
 
 ## 방문자 수 (모든 페이지 하단)
 
