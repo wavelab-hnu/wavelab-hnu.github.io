@@ -423,10 +423,18 @@
       boardEl.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
       boardEl.innerHTML = "";
       cells = [];
-      // Each number is random 1–9, but the board total is always a multiple of 10
-      do {
-        grid = Array.from({ length: cols * rows }, () => 1 + Math.floor(Math.random() * 9));
-      } while (grid.reduce((s, n) => s + n, 0) % 10 !== 0);
+      // Deal numbers in pairs that make 10 (1·9, 2·8, 3·7, 4·6, 5·5), then shuffle.
+      // Every number still shows up about 1/9 of the time, but partners are balanced
+      // (as many 1s as 9s, etc.) and the board total is always a multiple of 10.
+      grid = [];
+      for (let p = 0; p < (cols * rows) / 2; p++) {
+        const n = 1 + Math.floor(Math.random() * 9);
+        grid.push(n, 10 - n);
+      }
+      for (let i = grid.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [grid[i], grid[j]] = [grid[j], grid[i]];
+      }
       for (let i = 0; i < cols * rows; i++) {
         const n = grid[i];
         const c = document.createElement("div");
@@ -456,15 +464,19 @@
       const y0 = Math.min(start.y, y), y1 = Math.max(start.y, y);
       Object.assign(rectEl.style, { display: "block", left: x0 - r.left + "px", top: y0 - r.top + "px", width: x1 - x0 + "px", height: y1 - y0 + "px" });
       const cw = r.width / cols, ch = r.height / rows;
+      // A drop is picked when the box reaches at least a quarter into its cell (in both directions).
+      // A thin box (e.g. a sideways drag along one row) picks the row/column it sits in.
+      const REACH = 0.25;
+      const span = (a, b, n) => { // a, b in cell units
+        const out = [];
+        for (let k = 0; k < n; k++) if (Math.min(b, k + 1) - Math.max(a, k) >= REACH) out.push(k);
+        if (!out.length) out.push(Math.min(n - 1, Math.max(0, Math.floor((a + b) / 2))));
+        return out;
+      };
+      const ys = span((y0 - r.top) / ch, (y1 - r.top) / ch, rows);
+      const xs = span((x0 - r.left) / cw, (x1 - r.left) / cw, cols);
       const next = [];
-      for (let yy = 0; yy < rows; yy++) {
-        for (let xx = 0; xx < cols; xx++) {
-          const i = yy * cols + xx;
-          if (!grid[i]) continue;
-          const mx = r.left + (xx + 0.5) * cw, my = r.top + (yy + 0.5) * ch;
-          if (mx >= x0 && mx <= x1 && my >= y0 && my <= y1) next.push(i);
-        }
-      }
+      ys.forEach((yy) => xs.forEach((xx) => { const i = yy * cols + xx; if (grid[i]) next.push(i); }));
       selected.forEach((i) => cells[i].classList.remove("sel", "ten"));
       selected = next;
       const sum = selected.reduce((s, i) => s + grid[i], 0);
