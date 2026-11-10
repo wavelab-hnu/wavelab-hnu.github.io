@@ -19,6 +19,16 @@
 
 사진은 `assets/img/people/` 폴더에 넣고 경로를 `photo: "assets/img/people/파일명.jpg"`처럼 적으면 됩니다.
 
+## 한국어 버전 (English | 한국어)
+
+기본은 영어이고, 오른쪽 위 **English | 한국어**를 누르면 같은 페이지가 한국어로 바뀝니다(선택은 브라우저에 기억됨).
+주소 뒤에 `?lang=ko`를 붙이면 바로 한국어로 열립니다(예: `https://wavelab-hnu.github.io/?lang=ko`).
+
+- 페이지 글: 영어 태그에 `data-ko="한국어"`를 붙이면 한국어 모드에서 그 글로 바뀝니다.
+  한쪽 언어에서만 보일 문단은 `data-only="en"` / `data-only="ko"`를 붙입니다.
+- `data.js`: 항목에 `textKo`, `titleKo`, `nameKo`, `descKo`, `roleKo` 처럼 이름 뒤에 `Ko`를 붙인 칸을 추가하면 한국어 모드에서 그 값을 씁니다(없으면 영어 그대로).
+- 논문 제목·논문 요약(Study)은 영어 그대로 둡니다.
+
 ## 미니게임 랭킹 (Fun Zone 탭)
 
 `play.html`의 Make It Rain 게임(구 Rain 10, 물방울 170개) 랭킹은 Supabase 프로젝트 `wavelab`의 `rain10_scores` 표에 저장됩니다.

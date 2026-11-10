@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("wave-lang");document.documentElement.lang=l==="ko"?"ko":"en"}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research | WAVE Lab</title>
+  <title data-ko="연구 | WAVE Lab">Research | WAVE Lab</title>
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611110200">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611120100">
 </head>
 <body>
   <header id="site-header"></header>
@@ -14,9 +15,9 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Research</span>
-        <h1>Research Areas</h1>
-        <p>From raindrops to river basins — observing and forecasting water with data, AI, and satellites.</p>
+        <span data-ko="연구" class="eyebrow">Research</span>
+        <h1 data-ko="연구 분야">Research Areas</h1>
+        <p data-ko="빗방울에서 유역까지 — 데이터, AI, 위성으로 물을 관측하고 예측합니다.">From raindrops to river basins — observing and forecasting water with data, AI, and satellites.</p>
       </div>
     </section>
 
@@ -25,73 +26,73 @@
         <div class="research-block">
           <div>
             <div class="research-num">01 · WATER ANALYTICS</div>
-            <h2>Hydrologic Modeling &amp; Extremes</h2>
-            <p class="lead">Hydrological modeling · Design rainfall · Floods &amp; droughts</p>
+            <h2 data-ko="수문 모형과 극한 수문">Hydrologic Modeling &amp; Extremes</h2>
+            <p data-ko="수문 모형 · 설계강우 · 홍수와 가뭄" class="lead">Hydrological modeling · Design rainfall · Floods &amp; droughts</p>
           </div>
           <div>
-            <p>We build and calibrate hydrological models for flood design and risk assessment, with special attention to basins where observations are scarce, and we analyze how climate change is reshaping hydrologic extremes.</p>
+            <p data-ko="홍수 설계와 위험도 평가를 위한 수문 모형을 구축하고 보정합니다. 특히 관측 자료가 부족한 유역에 주목하며, 기후변화가 극한 수문 현상을 어떻게 바꾸고 있는지 분석합니다.">We build and calibrate hydrological models for flood design and risk assessment, with special attention to basins where observations are scarce, and we analyze how climate change is reshaping hydrologic extremes.</p>
             <ul>
-              <li>Hydrological modeling and parameter estimation in ungauged basins</li>
-              <li>Design rainfall, peak discharge, and probable maximum flood (Clark unit hydrograph, storage effect)</li>
-              <li>Climate change and extreme events — floods, droughts, compound dry–wet transitions</li>
-              <li>Stochastic and statistical analysis; time–frequency analysis with wavelet transform</li>
-              <li>Spatiotemporal variability of hydrometeorological and environmental variables</li>
+              <li data-ko="미계측 유역의 수문 모형 구축과 매개변수 추정">Hydrological modeling and parameter estimation in ungauged basins</li>
+              <li data-ko="설계강우, 첨두유량, 가능최대홍수량 (Clark 단위도, 저류 효과)">Design rainfall, peak discharge, and probable maximum flood (Clark unit hydrograph, storage effect)</li>
+              <li data-ko="기후변화와 극한 사상 — 홍수, 가뭄, 복합 건습 전환">Climate change and extreme events — floods, droughts, compound dry–wet transitions</li>
+              <li data-ko="추계학적·통계적 분석, 웨이블릿 변환을 이용한 시간–주파수 분석">Stochastic and statistical analysis; time–frequency analysis with wavelet transform</li>
+              <li data-ko="수문기상·환경 변수의 시공간 변동성">Spatiotemporal variability of hydrometeorological and environmental variables</li>
             </ul>
-            <div class="tags"><span class="tag">Unit Hydrograph</span><span class="tag">Wavelet</span><span class="tag">Frequency Analysis</span><span class="tag">Climate Extremes</span></div>
+            <div data-ko="&lt;span class=&quot;tag&quot;&gt;단위도&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;웨이블릿&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;빈도해석&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;기후 극한&lt;/span&gt;" class="tags"><span class="tag">Unit Hydrograph</span><span class="tag">Wavelet</span><span class="tag">Frequency Analysis</span><span class="tag">Climate Extremes</span></div>
           </div>
         </div>
 
         <div class="research-block">
           <div>
             <div class="research-num">02 · AI FORECASTING</div>
-            <h2>Machine Learning for Water</h2>
-            <p class="lead">AI-driven hydrometeorological forecasting</p>
+            <h2 data-ko="물 문제를 위한 머신러닝">Machine Learning for Water</h2>
+            <p data-ko="AI 기반 수문기상 예측" class="lead">AI-driven hydrometeorological forecasting</p>
           </div>
           <div>
-            <p>We develop hybrid machine learning frameworks that pair signal decomposition and feature selection with deep learning to forecast key water variables more accurately.</p>
+            <p data-ko="신호 분해와 변수 선택을 딥러닝과 결합한 하이브리드 머신러닝 기법을 개발해 주요 수문 변수를 더 정확하게 예측합니다.">We develop hybrid machine learning frameworks that pair signal decomposition and feature selection with deep learning to forecast key water variables more accurately.</p>
             <ul>
-              <li>Reference evapotranspiration and rainfall forecasting for sustainable agriculture</li>
-              <li>Drought forecasting with wavelet-based preprocessing (TQWT, MODWT)</li>
-              <li>Wastewater treatment plant inflow forecasting</li>
-              <li>Streamflow and climate projections under CMIP6 scenarios</li>
+              <li data-ko="지속 가능한 농업을 위한 기준 증발산량 및 강우 예측">Reference evapotranspiration and rainfall forecasting for sustainable agriculture</li>
+              <li data-ko="웨이블릿 전처리(TQWT, MODWT)를 이용한 가뭄 예측">Drought forecasting with wavelet-based preprocessing (TQWT, MODWT)</li>
+              <li data-ko="하수처리장 유입량 예측">Wastewater treatment plant inflow forecasting</li>
+              <li data-ko="CMIP6 시나리오 기반 하천유량 및 기후 전망">Streamflow and climate projections under CMIP6 scenarios</li>
             </ul>
-            <div class="tags"><span class="tag">Hybrid ML</span><span class="tag">Signal Decomposition</span><span class="tag">Feature Selection</span><span class="tag">Deep Learning</span></div>
+            <div data-ko="&lt;span class=&quot;tag&quot;&gt;하이브리드 ML&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;신호 분해&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;변수 선택&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;딥러닝&lt;/span&gt;" class="tags"><span class="tag">Hybrid ML</span><span class="tag">Signal Decomposition</span><span class="tag">Feature Selection</span><span class="tag">Deep Learning</span></div>
           </div>
         </div>
 
         <div class="research-block">
           <div>
             <div class="research-num">03 · VISION &amp; SENSING</div>
-            <h2>Seeing and Hearing the Rain</h2>
-            <p class="lead">Image- and sound-based rainfall observation</p>
+            <h2 data-ko="비를 보고, 비를 듣다">Seeing and Hearing the Rain</h2>
+            <p data-ko="영상·음향 기반 강우 관측" class="lead">Image- and sound-based rainfall observation</p>
           </div>
           <div>
-            <p>We turn everyday sensors into rain gauges. Surveillance cameras, infrared imaging, and raindrop sounds recorded by low-cost IoT devices can provide dense, real-time rainfall information where conventional gauges are sparse.</p>
+            <p data-ko="일상의 센서를 우량계로 바꿉니다. CCTV, 적외선 영상, 저가 IoT 기기로 녹음한 빗소리를 활용하면 우량계가 부족한 곳에서도 촘촘한 실시간 강우 정보를 얻을 수 있습니다.">We turn everyday sensors into rain gauges. Surveillance cameras, infrared imaging, and raindrop sounds recorded by low-cost IoT devices can provide dense, real-time rainfall information where conventional gauges are sparse.</p>
             <ul>
-              <li>Rainfall intensity and raindrop size distribution from CCTV and infrared cameras, including night-time conditions</li>
-              <li>Rain-streak extraction and rainfall image databases built in a climatic environment chamber</li>
-              <li>Acoustic rainfall estimation with CNNs on spectrograms; vibration-sensor rainfall information</li>
-              <li>Citizen-science rainfall observation with low-cost IoT sensors</li>
+              <li data-ko="CCTV·적외선 카메라를 이용한 강우강도와 우적 크기 분포 산정 (야간 포함)">Rainfall intensity and raindrop size distribution from CCTV and infrared cameras, including night-time conditions</li>
+              <li data-ko="빗줄기 추출과 기후환경 챔버에서 구축한 강우 영상 데이터베이스">Rain-streak extraction and rainfall image databases built in a climatic environment chamber</li>
+              <li data-ko="스펙트로그램 기반 CNN 음향 강우 추정, 진동 센서를 이용한 강우 정보">Acoustic rainfall estimation with CNNs on spectrograms; vibration-sensor rainfall information</li>
+              <li data-ko="저가 IoT 센서를 활용한 시민 참여형 강우 관측">Citizen-science rainfall observation with low-cost IoT sensors</li>
             </ul>
-            <div class="tags"><span class="tag">Computer Vision</span><span class="tag">Optical Physics</span><span class="tag">Acoustics</span><span class="tag">IoT</span><span class="tag">5 Patents</span></div>
+            <div data-ko="&lt;span class=&quot;tag&quot;&gt;컴퓨터 비전&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;광학&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;음향&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;IoT&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;특허 5건&lt;/span&gt;" class="tags"><span class="tag">Computer Vision</span><span class="tag">Optical Physics</span><span class="tag">Acoustics</span><span class="tag">IoT</span><span class="tag">5 Patents</span></div>
           </div>
         </div>
 
         <div class="research-block">
           <div>
             <div class="research-num">04 · EARTH OBSERVATION</div>
-            <h2>Satellites for Floods &amp; Disasters</h2>
-            <p class="lead">Satellite-based disaster detection</p>
+            <h2 data-ko="위성으로 보는 홍수와 재난">Satellites for Floods &amp; Disasters</h2>
+            <p data-ko="위성 기반 재난 탐지" class="lead">Satellite-based disaster detection</p>
           </div>
           <div>
-            <p>We use satellite data — especially Synthetic Aperture Radar, which sees through clouds and at night — to map floods and monitor disaster risk, and satellite reanalysis products to characterize rainfall across the Korean Peninsula.</p>
+            <p data-ko="구름을 뚫고 밤에도 관측하는 합성개구레이더(SAR) 등 위성 자료로 홍수를 지도화하고 재난 위험을 감시하며, 위성·재분석 자료로 한반도의 강우 특성을 분석합니다.">We use satellite data — especially Synthetic Aperture Radar, which sees through clouds and at night — to map floods and monitor disaster risk, and satellite reanalysis products to characterize rainfall across the Korean Peninsula.</p>
             <ul>
-              <li>Flood detection and mapping using PolSAR decompositions and deep learning (C-band, ALOS-2)</li>
-              <li>Satellite image analysis for disaster detection and infrastructure risk monitoring</li>
-              <li>Grid-based precipitation quantiles from satellite/reanalysis data (ERA5-Land)</li>
-              <li>Satellite land surface temperature and snow-disaster susceptibility mapping</li>
+              <li data-ko="PolSAR 분해와 딥러닝을 이용한 홍수 탐지 및 지도화 (C-band, ALOS-2)">Flood detection and mapping using PolSAR decompositions and deep learning (C-band, ALOS-2)</li>
+              <li data-ko="재난 탐지와 기반시설 위험 모니터링을 위한 위성영상 분석">Satellite image analysis for disaster detection and infrastructure risk monitoring</li>
+              <li data-ko="위성·재분석 자료(ERA5-Land) 기반 격자형 확률강수량">Grid-based precipitation quantiles from satellite/reanalysis data (ERA5-Land)</li>
+              <li data-ko="위성 지표면 온도 분석과 대설 재해 취약지역 지도화">Satellite land surface temperature and snow-disaster susceptibility mapping</li>
             </ul>
-            <div class="tags"><span class="tag">Remote Sensing</span><span class="tag">SAR / PolSAR</span><span class="tag">Deep Learning</span><span class="tag">Satellite Data</span><span class="tag">Disaster Monitoring</span></div>
+            <div data-ko="&lt;span class=&quot;tag&quot;&gt;원격탐사&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;SAR / PolSAR&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;딥러닝&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;위성 자료&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;재난 모니터링&lt;/span&gt;" class="tags"><span class="tag">Remote Sensing</span><span class="tag">SAR / PolSAR</span><span class="tag">Deep Learning</span><span class="tag">Satellite Data</span><span class="tag">Disaster Monitoring</span></div>
           </div>
         </div>
       </div>
@@ -100,11 +101,11 @@
     <section class="section-soft">
       <div class="container grid grid-2" style="gap:48px">
         <div>
-          <h2>Ongoing Projects</h2>
+          <h2 data-ko="진행 중인 과제">Ongoing Projects</h2>
           <div data-render="projects" data-mode="ongoing"></div>
         </div>
         <div>
-          <h2>Previous Projects</h2>
+          <h2 data-ko="수행 완료 과제">Previous Projects</h2>
           <div data-render="projects" data-mode="past"></div>
         </div>
       </div>
@@ -112,7 +113,7 @@
   </main>
 
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611110200"></script>
-  <script src="assets/js/main.js?v=202611110200"></script>
+  <script src="assets/js/data.js?v=202611120100"></script>
+  <script src="assets/js/main.js?v=202611120100"></script>
 </body>
 </html>

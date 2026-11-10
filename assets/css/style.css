@@ -56,7 +56,17 @@ section { padding: 64px 0; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-text strong { font-size: 1.05rem; letter-spacing: .02em; }
 .brand-text span { font-size: .72rem; color: var(--muted); }
-.nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav-links { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; }
+.nav-right { display: flex; align-items: center; gap: 4px; }
+/* Language switch (English | 한국어) */
+.lang-switch { display: flex; align-items: center; gap: 2px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--line); font-size: .82rem; white-space: nowrap; }
+.lang-switch a { padding: 4px 6px; border-radius: 6px; color: var(--muted); font-weight: 600; }
+.lang-switch a:hover { color: var(--navy); background: var(--bg-soft); text-decoration: none; }
+.lang-switch a.on { color: var(--teal); }
+.lang-switch span { color: var(--line); }
+/* Blocks shown in one language only (the <head> script sets <html lang> early) */
+html[lang="ko"] [data-only="en"], html:not([lang="ko"]) [data-only="ko"] { display: none !important; }
+.name-sub { margin: -2px 0 4px; font-size: .85rem; color: var(--muted); }
 .nav-links a {
   display: block; padding: 8px 14px; border-radius: 8px; color: var(--ink);
   font-weight: 500; font-size: .95rem;
@@ -66,8 +76,9 @@ section { padding: 64px 0; }
 .nav-toggle {
   display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--navy);
 }
-@media (max-width: 1000px) { /* 9 menu items: switch to the menu button before they wrap */
+@media (max-width: 1120px) { /* 9 menu items + language switch: use the menu button before they wrap */
   .nav-toggle { display: block; }
+  .lang-switch { border-left: 0; padding-left: 0; margin-left: 0; }
   .nav-links {
     display: none; position: absolute; top: 68px; left: 0; right: 0;
     flex-direction: column; background: #fff; border-bottom: 1px solid var(--line);

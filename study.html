@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("wave-lang");document.documentElement.lang=l==="ko"?"ko":"en"}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Study | WAVE Lab</title>
+  <title data-ko="스터디 | WAVE Lab">Study | WAVE Lab</title>
   <meta name="description" content="Paper notes from WAVE Lab — one open-access paper a day, plus plain-language summaries of our own publications.">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611110200">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611120100">
   <style>
     /* Collection switch: Daily Papers / Our Papers */
     .coll { display: flex; gap: 0; border-bottom: 2px solid var(--line); margin-bottom: 20px; }
@@ -90,9 +91,9 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Study</span>
-        <h1>Paper Notes</h1>
-        <p>A new open-access paper every day, plus plain-language summaries of our own publications</p>
+        <span data-ko="스터디" class="eyebrow">Study</span>
+        <h1 data-ko="논문 노트">Paper Notes</h1>
+        <p data-ko="매일 한 편씩 소개하는 오픈액세스 논문과, 우리 연구실 논문을 쉽게 풀어 쓴 요약">A new open-access paper every day, plus plain-language summaries of our own publications</p>
       </div>
     </section>
 
@@ -104,21 +105,25 @@
   </main>
 
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611110200"></script>
-  <script src="assets/js/main.js?v=202611110200"></script>
+  <script src="assets/js/data.js?v=202611120100"></script>
+  <script src="assets/js/main.js?v=202611120100"></script>
   <script>
   (function () {
     const root = document.getElementById("study");
+    const T = (window.WAVE && window.WAVE.t) || ((en) => en);   // English / Korean UI text (summaries stay in English)
+    const KO = !!(window.WAVE && window.WAVE.ko);
     const THEMES = ["All", "Hydrology", "AI Forecasting", "Vision & Sensing", "Earth Observation"];
+    const THEME_KO = { All: "전체", Hydrology: "수문", "AI Forecasting": "AI 예측", "Vision & Sensing": "영상·음향 센싱", "Earth Observation": "위성 관측" };
+    const themeName = (x) => T(x, THEME_KO[x]);
     const PER_PAGE = 15;
     // Two collections share the same board/post layout
     const COLL = {
-      daily: { label: "Daily Papers", file: "assets/data/study.json", hash: "",
-               lead: "One open-access paper a day on hydrology, AI forecasting, rainfall sensing and Earth observation — summarized, with a key figure and its DOI.",
-               sort: (a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id), when: (p) => p.date, whenHead: "Date" },
-      our:   { label: "Our Papers", file: "assets/data/our-papers.json", hash: "our",
-               lead: "Our own journal papers, explained in plain language — each with a key figure and its DOI.",
-               sort: (a, b) => (b.year - a.year) || 0, when: (p) => String(p.year), whenHead: "Year" }
+      daily: { label: T("Daily Papers", "오늘의 논문"), file: "assets/data/study.json", hash: "",
+               lead: T("One open-access paper a day on hydrology, AI forecasting, rainfall sensing and Earth observation — summarized, with a key figure and its DOI.", "수문, AI 예측, 강우 센싱, 위성 관측 분야의 오픈액세스 논문을 매일 한 편씩 핵심 그림, DOI와 함께 요약합니다. 요약은 영어로 제공됩니다."),
+               sort: (a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id), when: (p) => p.date, whenHead: T("Date", "날짜") },
+      our:   { label: T("Our Papers", "우리 연구실 논문"), file: "assets/data/our-papers.json", hash: "our",
+               lead: T("Our own journal papers, explained in plain language — each with a key figure and its DOI.", "우리 연구실 논문을 핵심 그림, DOI와 함께 쉽게 풀어 소개합니다. 요약은 영어로 제공됩니다."),
+               sort: (a, b) => (b.year - a.year) || 0, when: (p) => String(p.year), whenHead: T("Year", "연도") }
     };
     const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
     const safeSrc = (s) => (/^assets\/img\/study\/[\w.-]+$/.test(s || "") ? s : "");
@@ -148,30 +153,30 @@
       load(key).then((posts) => {
         const i = posts.findIndex((p) => p.id === h);
         if (i >= 0) showPost(key, i); else showBoard(key);
-      }).catch(() => { root.innerHTML = collTabs(key) + `<p class="empty">Couldn't load the paper notes. Please try again later.</p>`; });
+      }).catch(() => { root.innerHTML = collTabs(key) + `<p class="empty">${T("Couldn't load the paper notes. Please try again later.", "논문 노트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.")}</p>`; });
     }
 
     const collTabs = (key) => `
-      <nav class="coll" aria-label="Collections">
+      <nav class="coll" aria-label="${T("Collections", "분류")}">
         ${Object.keys(COLL).map((k) => `<a href="#${COLL[k].hash}" class="${k === key ? "on" : ""}">${COLL[k].label}</a>`).join("")}
       </nav>`;
 
     /* ---------- Board ---------- */
     function showBoard(key) {
       const st = state[key], c = COLL[key];
-      document.title = `${c.label} | Study | WAVE Lab`;
+      document.title = `${c.label} | ${T("Study", "스터디")} | WAVE Lab`;
       root.innerHTML = `
         ${collTabs(key)}
         <p class="coll-lead">${c.lead}</p>
         <div class="study-tools">
           <div class="tabs" role="tablist">
-            ${THEMES.map((t) => `<button class="tab${t === st.theme ? " active" : ""}" data-theme="${esc(t)}">${esc(t)}</button>`).join("")}
+            ${THEMES.map((t) => `<button class="tab${t === st.theme ? " active" : ""}" data-theme="${esc(t)}">${esc(themeName(t))}</button>`).join("")}
           </div>
-          <input class="search" type="search" placeholder="Search title, authors, journal, keywords…" aria-label="Search paper notes" value="${esc(st.query)}">
+          <input class="search" type="search" placeholder="${T("Search title, authors, journal, keywords…", "제목, 저자, 학술지, 키워드 검색…")}" aria-label="${T("Search paper notes", "논문 노트 검색")}" value="${esc(st.query)}">
           <span class="study-count"></span>
         </div>
         <div class="board-list">
-          <div class="board-head"><span>No.</span><span>Figure</span><span>Paper</span><span>Theme</span><span>${c.whenHead}</span></div>
+          <div class="board-head"><span>${T("No.", "번호")}</span><span>${T("Figure", "그림")}</span><span>${T("Paper", "논문")}</span><span>${T("Theme", "주제")}</span><span>${c.whenHead}</span></div>
           <div class="rows"></div>
         </div>
         <div class="pager"></div>`;
@@ -188,9 +193,9 @@
         (!q || [p.title, p.authors, p.journal, (p.keywords || []).join(" "), p.tldr].join(" ").toLowerCase().includes(q)));
       const pages = Math.max(1, Math.ceil(shown.length / PER_PAGE));
       st.page = Math.min(st.page, pages);
-      root.querySelector(".study-count").textContent = `${shown.length} paper${shown.length === 1 ? "" : "s"}`;
+      root.querySelector(".study-count").textContent = T(`${shown.length} paper${shown.length === 1 ? "" : "s"}`, `${shown.length}편`);
       const rows = root.querySelector(".rows");
-      if (!shown.length) { rows.innerHTML = `<p class="empty" style="text-align:center">${posts.length ? "No matching papers." : "The first note is coming soon."}</p>`; }
+      if (!shown.length) { rows.innerHTML = `<p class="empty" style="text-align:center">${posts.length ? T("No matching papers.", "조건에 맞는 논문이 없습니다.") : T("The first note is coming soon.", "첫 글을 준비 중입니다.")}</p>`; }
       else rows.innerHTML = shown.slice((st.page - 1) * PER_PAGE, st.page * PER_PAGE).map((p) => {
         const no = posts.length - posts.indexOf(p);
         const src = safeSrc(p.figure && p.figure.src);
@@ -199,9 +204,9 @@
             <span class="no">${no}</span>
             <span class="thw"><span class="thumb${src ? "" : " none"}" style="${src ? `background-image:url('${src}')` : ""}"></span></span>
             <span class="tt"><strong>${esc(p.title)}</strong><span>${esc(p.journal)} · ${esc(p.year)}</span></span>
-            <span class="th"><span class="theme">${esc(p.theme)}</span></span>
+            <span class="th"><span class="theme">${esc(themeName(p.theme))}</span></span>
             <span class="dt">${esc(c.when(p))}</span>
-            <span class="meta" style="display:none"><span class="theme">${esc(p.theme)}</span>${esc(c.when(p))}</span>
+            <span class="meta" style="display:none"><span class="theme">${esc(themeName(p.theme))}</span>${esc(c.when(p))}</span>
           </a>`;
       }).join("");
       const pager = root.querySelector(".pager");
@@ -216,12 +221,12 @@
       const src = safeSrc(p.figure && p.figure.src);
       const doi = String(p.doi || "").trim();
       const authors = key === "our" ? boldPI(esc(p.authors)) : esc(p.authors);
-      document.title = `${p.title} | Study | WAVE Lab`;
+      document.title = `${p.title} | ${T("Study", "스터디")} | WAVE Lab`;
       root.innerHTML = `
         ${collTabs(key)}
         <article class="post">
-          <a class="back" href="#${c.hash}">← All ${c.label.toLowerCase()}</a>
-          <div class="post-meta"><span class="theme">${esc(p.theme)}</span><span>${esc(c.when(p))}</span><span>No. ${posts.length - i}</span></div>
+          <a class="back" href="#${c.hash}">← ${T("All " + c.label.toLowerCase(), c.label + " 목록")}</a>
+          <div class="post-meta"><span class="theme">${esc(themeName(p.theme))}</span><span>${esc(c.when(p))}</span><span>${T("No.", "번호")} ${posts.length - i}</span></div>
           <h2>${esc(p.title)}</h2>
           <p class="authors">${authors}</p>
           <p class="venue">${esc(p.journal)}${p.volume ? ", " + esc(p.volume) : ""}${p.pages ? ", " + esc(p.pages) : ""} (${esc(p.year)})</p>
@@ -234,15 +239,15 @@
             <a href="${src}" target="_blank" rel="noopener"><img src="${src}" alt="${esc(p.figure.caption || "Figure from the paper")}" loading="lazy"></a>
             <figcaption>${esc(p.figure.caption)}<span class="credit">${esc(p.figure.credit)}</span></figcaption>
           </figure>` : ""}
-          ${p.background ? `<h3>Background</h3><p class="body">${esc(p.background)}</p>` : ""}
-          ${p.approach ? `<h3>Approach</h3><p class="body">${esc(p.approach)}</p>` : ""}
-          ${(p.findings || []).length ? `<h3>Key findings</h3><ul class="findings">${p.findings.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
-          ${p.relevance ? `<h3>Why it matters to us</h3><p class="body">${esc(p.relevance)}</p>` : ""}
+          ${p.background ? `<h3>${T("Background", "연구 배경")}</h3><p class="body">${esc(p.background)}</p>` : ""}
+          ${p.approach ? `<h3>${T("Approach", "연구 방법")}</h3><p class="body">${esc(p.approach)}</p>` : ""}
+          ${(p.findings || []).length ? `<h3>${T("Key findings", "주요 결과")}</h3><ul class="findings">${p.findings.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>` : ""}
+          ${p.relevance ? `<h3>${T("Why it matters to us", "왜 우리에게 중요한가")}</h3><p class="body">${esc(p.relevance)}</p>` : ""}
           ${(p.keywords || []).length ? `<div class="tags kw">${p.keywords.map((k) => `<span class="tag">${esc(k)}</span>`).join("")}</div>` : ""}
-          ${p.source === "abstract only" ? `<p class="rank-note" style="color:var(--muted);font-size:.85rem;margin-top:14px">This summary is based on the paper's abstract.</p>` : ""}
+          ${p.source === "abstract only" ? `<p class="rank-note" style="color:var(--muted);font-size:.85rem;margin-top:14px">${T("This summary is based on the paper's abstract.", "이 요약은 논문 초록을 바탕으로 작성했습니다.")}</p>` : ""}
           <nav class="post-nav">
-            ${older ? `<a href="#${encodeURIComponent(older.id)}"><small>← Previous</small>${esc(older.title)}</a>` : "<span></span>"}
-            ${newer ? `<a class="next" href="#${encodeURIComponent(newer.id)}"><small>Next →</small>${esc(newer.title)}</a>` : "<span></span>"}
+            ${older ? `<a href="#${encodeURIComponent(older.id)}"><small>← ${T("Previous", "이전 글")}</small>${esc(older.title)}</a>` : "<span></span>"}
+            ${newer ? `<a class="next" href="#${encodeURIComponent(newer.id)}"><small>${T("Next", "다음 글")} →</small>${esc(newer.title)}</a>` : "<span></span>"}
           </nav>
         </article>`;
     }

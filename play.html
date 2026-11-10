@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script>try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("wave-lang");document.documentElement.lang=l==="ko"?"ko":"en"}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Fun Zone | WAVE Lab</title>
+  <title data-ko="쉬어가기 | WAVE Lab">Fun Zone | WAVE Lab</title>
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611110200">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611120100">
   <style>
     .game-wrap { max-width: 980px; margin: 0 auto; }
     .game-area { scroll-margin-top: 76px; }
@@ -150,28 +151,28 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Fun Zone</span>
-        <h1>Mini Games</h1>
-        <p>Take a short break between experiments with our mini games.</p>
+        <span data-ko="쉬어가기" class="eyebrow">Fun Zone</span>
+        <h1 data-ko="미니 게임">Mini Games</h1>
+        <p data-ko="연구하다 잠깐 쉬어 가세요. 미니 게임을 즐길 수 있습니다.">Take a short break between experiments with our mini games.</p>
       </div>
     </section>
 
     <section class="game-section">
       <div class="container game-wrap">
         <h2 class="game-title" style="margin-bottom:.2em">Make It Rain 🌧️</h2>
-        <p class="lead game-lead" style="margin-bottom:18px">Box in raindrops that add up to exactly <b>10</b> and burst them. How many can you clear in 2 minutes?</p>
+        <p data-ko="합이 정확히 &lt;b&gt;10&lt;/b&gt;이 되도록 물방울을 상자로 묶어 터뜨리세요. 2분 동안 몇 개나 터뜨릴 수 있을까요?" class="lead game-lead" style="margin-bottom:18px">Box in raindrops that add up to exactly <b>10</b> and burst them. How many can you clear in 2 minutes?</p>
 
         <div class="game-area" id="game-area">
           <div class="hud" id="hud">
             <div class="score">💧 <span id="score">0</span></div>
             <div class="meta">⏱ <span id="time">120</span>s</div>
-            <button class="btn btn-outline" id="restart">Restart</button>
-            <button class="btn btn-outline fs-only" id="exit-fs" aria-label="Close game">✕</button>
+            <button data-ko="다시 시작" class="btn btn-outline" id="restart">Restart</button>
+            <button class="btn btn-outline fs-only" id="exit-fs" aria-label="Close game / 게임 닫기">✕</button>
           </div>
           <div class="options" id="options">
             <label class="opt"><input type="checkbox" id="opt-bgm" checked> 🎵 BGM</label>
-            <label class="opt"><input type="checkbox" id="opt-sfx" checked> 🔊 Sound</label>
-            <label class="opt"><input type="checkbox" id="opt-light"> 🎨 Light colors</label>
+            <label data-ko="&lt;input type=&quot;checkbox&quot; id=&quot;opt-sfx&quot; checked&gt; 🔊 효과음" class="opt"><input type="checkbox" id="opt-sfx" checked> 🔊 Sound</label>
+            <label data-ko="&lt;input type=&quot;checkbox&quot; id=&quot;opt-light&quot;&gt; 🎨 밝은 색" class="opt"><input type="checkbox" id="opt-light"> 🎨 Light colors</label>
           </div>
           <div class="timebar" id="timebar"><div></div></div>
 
@@ -181,36 +182,37 @@
               <div>
                 <h2 id="ov-title">Make It Rain</h2>
                 <div class="big" id="ov-score" hidden></div>
-                <p id="ov-text">Drag a box so the numbers inside add up to 10.</p>
+                <p data-ko="안의 숫자 합이 10이 되도록 상자를 그리세요." id="ov-text">Drag a box so the numbers inside add up to 10.</p>
                 <div id="submit-box" hidden>
                   <div class="submit-row">
-                    <input id="nick" maxlength="12" placeholder="Nickname (max 12)" autocomplete="off" enterkeyhint="done">
-                    <button class="btn btn-primary" id="submit">Submit</button>
+                    <input id="nick" maxlength="12" placeholder="Nickname (max 12)" data-ko-placeholder="닉네임 (최대 12자)" autocomplete="off" enterkeyhint="done">
+                    <button data-ko="등록" class="btn btn-primary" id="submit">Submit</button>
                   </div>
                   <div class="submit-msg" id="submit-msg"></div>
                 </div>
                 <div class="mini-rank" id="mini-rank">
                   <div class="mini-head">🏆 Top 5</div>
-                  <ol id="mini-list"><li><span class="rk">-</span><span class="nm" style="opacity:.7">Loading…</span><span></span></li></ol>
+                  <ol id="mini-list"><li><span class="rk">-</span><span data-ko="불러오는 중…" class="nm" style="opacity:.7">Loading…</span><span></span></li></ol>
                 </div>
                 <div class="ov-btns">
-                  <button class="btn btn-primary" id="start">▶ Start</button>
-                  <button class="btn fs-only" id="ov-close">Close</button>
+                  <button data-ko="▶ 시작" class="btn btn-primary" id="start">▶ Start</button>
+                  <button data-ko="닫기" class="btn fs-only" id="ov-close">Close</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <p class="rules">How to play · Drag a rectangle over the drops. If the numbers inside add up to exactly 10, they are collected. Each drop = 1 point.</p>
+        <p data-ko="게임 방법 · 물방울 위로 사각형을 드래그하세요. 안의 숫자 합이 정확히 10이면 물방울이 터집니다. 물방울 1개 = 1점." class="rules">How to play · Drag a rectangle over the drops. If the numbers inside add up to exactly 10, they are collected. Each drop = 1 point.</p>
       </div>
     </section>
   </main>
 
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611110200"></script>
-  <script src="assets/js/main.js?v=202611110200"></script>
+  <script src="assets/js/data.js?v=202611120100"></script>
+  <script src="assets/js/main.js?v=202611120100"></script>
   <script>
   (function () {
+    const T = (window.WAVE && window.WAVE.t) || ((en) => en); // English / Korean text
     const TIME = 120; // same as the classic 2-minute round
 
     /* ---------- Leaderboard storage ----------
@@ -264,7 +266,7 @@
     const note = (ol, mark, text) => { ol.innerHTML = `<li><span class="rk">${mark}</span><span class="nm" style="opacity:.7">${text}</span><span></span></li>`; };
     function fillRank(ol, list, highlight) {
       ol.innerHTML = "";
-      if (!list.length) return note(ol, "-", "No records yet — be the first!");
+      if (!list.length) return note(ol, "-", T("No records yet — be the first!", "아직 기록이 없어요. 첫 기록에 도전하세요!"));
       list.forEach((e, i) => {
         const li = document.createElement("li");
         const rk = document.createElement("span"); rk.className = "rk"; rk.textContent = i + 1;
@@ -282,7 +284,7 @@
         fillRank(miniEl, list, highlight);
         return list;
       } catch (err) {
-        note(miniEl, "!", "Couldn't load the ranking.");
+        note(miniEl, "!", T("Couldn't load the ranking.", "순위를 불러오지 못했습니다."));
         return null;
       }
     }
@@ -717,14 +719,14 @@
       clearInterval(timer); playing = false; start = null; clearSel(); bgmStop();
       document.body.classList.remove("playing");
       overlay.classList.add("result");
-      document.getElementById("ov-title").textContent = "Time's up!";
-      document.getElementById("ov-text").textContent = "raindrops collected";
+      document.getElementById("ov-title").textContent = T("Time's up!", "시간 종료!");
+      document.getElementById("ov-text").textContent = T("raindrops collected", "개의 물방울을 모았어요");
       const s = document.getElementById("ov-score"); s.hidden = false;
       countUp(s, score);
       submitted = false; msgEl.textContent = ""; submitBtn.disabled = false;
       const box = document.getElementById("submit-box");
       box.hidden = true;
-      document.getElementById("start").textContent = "▶ Play again";
+      document.getElementById("start").textContent = T("▶ Play again", "▶ 다시 하기");
       overlay.hidden = false;
       // Ask for a name only if this score makes the Top 5 (a tie with 5th place doesn't)
       const round = gameNo, mine = score;
@@ -733,7 +735,7 @@
         const makesIt = !top || top.length < 5 || mine > top[top.length - 1].score;
         if (!makesIt) return;
         box.hidden = false;
-        msgEl.textContent = "🎉 You made the Top 5! Enter your name.";
+        msgEl.textContent = T("🎉 You made the Top 5! Enter your name.", "🎉 Top 5에 들었어요! 이름을 남겨 주세요.");
         // don't pop up the phone keyboard automatically
         if (!isNarrow()) setTimeout(() => nickEl.focus(), 50);
       });
@@ -742,16 +744,16 @@
     async function submitScore() {
       if (submitted) return;
       const nick = nickEl.value.replace(/[<>]/g, "").trim().slice(0, 12);
-      if (!nick) { msgEl.textContent = "Please enter a nickname."; nickEl.focus(); return; }
-      submitBtn.disabled = true; msgEl.textContent = "Submitting…";
+      if (!nick) { msgEl.textContent = T("Please enter a nickname.", "닉네임을 입력해 주세요."); nickEl.focus(); return; }
+      submitBtn.disabled = true; msgEl.textContent = T("Submitting…", "등록 중…");
       try {
         const entry = await addScore(nick, score);
         submitted = true; store.set("rain10-nick", nick);
         nickEl.blur();
-        msgEl.textContent = "Saved!";
+        msgEl.textContent = T("Saved!", "등록했어요!");
         renderTop(entry);
       } catch (e) {
-        submitBtn.disabled = false; msgEl.textContent = "Couldn't save your score. Please try again.";
+        submitBtn.disabled = false; msgEl.textContent = T("Couldn't save your score. Please try again.", "점수를 저장하지 못했습니다. 다시 시도해 주세요.");
       }
     }
     submitBtn.addEventListener("click", submitScore);
@@ -772,10 +774,10 @@
     function resetOverlay() {
       overlay.classList.remove("result");
       document.getElementById("ov-title").textContent = "Make It Rain";
-      document.getElementById("ov-text").textContent = "Drag a box so the numbers inside add up to 10.";
+      document.getElementById("ov-text").textContent = T("Drag a box so the numbers inside add up to 10.", "안의 숫자 합이 10이 되도록 상자를 그리세요.");
       document.getElementById("ov-score").hidden = true;
       document.getElementById("submit-box").hidden = true;
-      document.getElementById("start").textContent = "▶ Start";
+      document.getElementById("start").textContent = T("▶ Start", "▶ 시작");
       overlay.hidden = false;
       renderTop();
     }

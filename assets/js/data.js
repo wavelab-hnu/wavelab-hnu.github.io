@@ -17,7 +17,8 @@ window.LAB = {
   addressKo: "대전광역시 대덕구 한남로 70 한남대학교 (34430)",
   scholar: "https://scholar.google.co.kr/citations?user=mrKgYBsAAAAJ&hl=en",
   linkedin: "https://www.linkedin.com/in/jinwook213",
-  office: "Room 6, 10th Floor, College of Engineering Building"
+  office: "Room 6, 10th Floor, College of Engineering Building",
+  officeKo: "공과대학 10층 6호"
 };
 
 /* ---------------- 구성원 ----------------
@@ -25,36 +26,36 @@ window.LAB = {
    photo: "assets/img/people/파일명.jpg" (없으면 이니셜 표시)
 */
 window.MEMBERS = [
-  // { name: "홍길동", nameEn: "Gildong Hong", role: "Undergraduate Researcher", since: "2026", program: "B.S. Student (entered 2023)", email: "", interests: "SAR flood detection", photo: "" },
-  { name: "장태검", nameEn: "Taegeom Jang", role: "Undergraduate Researcher", since: "2026", program: "B.S. Student (entered 2023)", photo: "assets/img/people/taegeom-jang.webp" },
-  { name: "정우영", nameEn: "Wooyoung Jung", role: "Undergraduate Researcher", since: "2026", program: "B.S. Student (entered 2023)", photo: "assets/img/people/wooyoung-jung.webp" },
+  // { name: "홍길동", nameEn: "Gildong Hong", role: "Undergraduate Researcher", roleKo: "학부연구생", since: "2026", program: "B.S. Student (entered 2023)", email: "", interests: "SAR flood detection", photo: "" },
+  { name: "장태검", nameEn: "Taegeom Jang", role: "Undergraduate Researcher", roleKo: "학부연구생", since: "2026", program: "B.S. Student (entered 2023)", programKo: "학부생 (2023학번)", photo: "assets/img/people/taegeom-jang.webp" },
+  { name: "정우영", nameEn: "Wooyoung Jung", role: "Undergraduate Researcher", roleKo: "학부연구생", since: "2026", program: "B.S. Student (entered 2023)", programKo: "학부생 (2023학번)", photo: "assets/img/people/wooyoung-jung.webp" },
 ];
 
 /* ---------------- 뉴스 ---------------- */
 window.NEWS = [
-  { date: "2026", cat: "Patent", text: "Korean patent registered (No. 10-2989545): <i>System and method for distinguishing rainfall and snowfall using CCTV images</i>." },
-  { date: "2026.06", cat: "Project", text: "New projects launched: UNESCO IHP ecohydrology demonstration-site guidelines, and core satellite image analysis technologies for disaster detection (Ministry of Education)." },
-  { date: "2026.05", cat: "Award", text: "Best Paper Award at the 2026 Korea Water Resources Association Conference — <i>Flood detection using polarimetric decomposition and machine learning with ALOS-2 PolSAR</i>." },
-  { date: "2026.04", cat: "Conference", text: "Presented PolSAR-based flood detection for infrastructure risk monitoring at the Korea Institute for Structural Maintenance and Inspection conference (Busan)." },
-  { date: "2026.03", cat: "Lab", text: "WAVE Lab opens at the Department of Civil and Environmental Engineering, Hannam University. Prof. Jinwook Lee joins as Assistant Professor." },
-  { date: "2026", cat: "Paper", text: "Paper published in <i>Geoscience Frontiers</i>: Enhancing flood mapping precision through C-band PolSAR decompositions and feature-optimized deep learning." },
-  { date: "2026", cat: "Paper", text: "Paper published in <i>Journal of Hydrology: Regional Studies</i>: Hybrid machine learning framework for hourly wastewater inflow forecasting in Oahu, Hawaii." },
-  { date: "2025", cat: "Paper", text: "Paper published in <i>Science of The Total Environment</i>: Observed intensification of temporally compound dry–wet transitions across East Asia." }
+  { date: "2026", cat: "Patent", text: "Korean patent registered (No. 10-2989545): <i>System and method for distinguishing rainfall and snowfall using CCTV images</i>.", textKo: "국내 특허 등록 (제10-2989545호): <i>CCTV 영상을 이용한 강우와 강설 판별 시스템 및 방법</i>." },
+  { date: "2026.06", cat: "Project", text: "New projects launched: UNESCO IHP ecohydrology demonstration-site guidelines, and core satellite image analysis technologies for disaster detection (Ministry of Education).", textKo: "신규 과제 착수: 유네스코 IHP 생태수문 시범지역 운영 지침 개발 연구, 재난 탐지를 위한 위성영상 분석 핵심기술 개발(교육부)." },
+  { date: "2026.05", cat: "Award", text: "Best Paper Award at the 2026 Korea Water Resources Association Conference — <i>Flood detection using polarimetric decomposition and machine learning with ALOS-2 PolSAR</i>.", textKo: "2026 한국수자원학회 학술발표회 우수논문상 수상 — <i>ALOS-2 PolSAR 편파 분해와 머신러닝을 이용한 홍수 탐지</i>." },
+  { date: "2026.04", cat: "Conference", text: "Presented PolSAR-based flood detection for infrastructure risk monitoring at the Korea Institute for Structural Maintenance and Inspection conference (Busan).", textKo: "한국구조물진단유지관리공학회 학술대회(부산)에서 기반시설 위험 모니터링을 위한 PolSAR 기반 홍수 탐지 연구를 발표했습니다." },
+  { date: "2026.03", cat: "Lab", text: "WAVE Lab opens at the Department of Civil and Environmental Engineering, Hannam University. Prof. Jinwook Lee joins as Assistant Professor.", textKo: "한남대학교 건설환경공학과에 WAVE Lab(지능형 수자원 연구실)이 문을 열었습니다. 이진욱 교수가 조교수로 부임했습니다." },
+  { date: "2026", cat: "Paper", text: "Paper published in <i>Geoscience Frontiers</i>: Enhancing flood mapping precision through C-band PolSAR decompositions and feature-optimized deep learning.", textKo: "<i>Geoscience Frontiers</i> 논문 게재: Enhancing flood mapping precision through C-band PolSAR decompositions and feature-optimized deep learning." },
+  { date: "2026", cat: "Paper", text: "Paper published in <i>Journal of Hydrology: Regional Studies</i>: Hybrid machine learning framework for hourly wastewater inflow forecasting in Oahu, Hawaii.", textKo: "<i>Journal of Hydrology: Regional Studies</i> 논문 게재: 하와이 오아후 하수처리장의 시간 단위 유입량 예측을 위한 하이브리드 머신러닝 기법." },
+  { date: "2025", cat: "Paper", text: "Paper published in <i>Science of The Total Environment</i>: Observed intensification of temporally compound dry–wet transitions across East Asia.", textKo: "<i>Science of The Total Environment</i> 논문 게재: 동아시아에서 관측된 복합 건습 전환의 심화." }
 ];
 
 /* ---------------- 연구 과제 ---------------- */
 window.PROJECTS = [
-  { title: "Action and Advisory Research for Developing Operational Guidelines for UNESCO Ecohydrology Demonstration Sites in Korea", funder: "Korean National Committee for UNESCO IHP", period: "2026.06 – Present", ongoing: true },
-  { title: "Development of Core Satellite Image Analysis Technologies for Disaster Detection", funder: "Ministry of Education, Republic of Korea", period: "2026.06 – Present", ongoing: true },
-  { title: "Hybrid-NDT Development Global Basic Research Center for Concrete Durability Performance Evaluation", funder: "National Research Foundation of Korea", period: "2026.04 – Present", ongoing: true },
-  { title: "Enhancing Flood Detection and Mapping by Using PolSAR, Metaheuristic, and Deep Learning Algorithms", funder: "National Science Foundation (NASA RII Track-4)", period: "", ongoing: false },
-  { title: "Forecasting Evapotranspiration and Rainfall for Water Resources Conservation and Sustainable Agriculture", funder: "United States Department of Agriculture", period: "", ongoing: false },
-  { title: "Development of AI-based Rainfall Estimation Model Using Multisensor (Principal Investigator)", funder: "Ministry of Education", period: "", ongoing: false },
-  { title: "Research on CCTV Image-based Precipitation Estimation Method (I) & (II)", funder: "Korea Meteorological Institute", period: "", ongoing: false },
-  { title: "Development of Rainfall Scenarios Considering Temporal Characteristics of Independent Rainfall Events", funder: "Korea Institute of Civil Engineering and Building Technology (KICT)", period: "2023.10 – 2023.12", ongoing: false },
-  { title: "Study on the Construction and Validation of Standard/Raw CCTV Rainfall & Snowfall Video Datasets", funder: "Korea Conformity Laboratories (KCL)", period: "2022.11 – 2023.02", ongoing: false },
-  { title: "Construction of Rainfall Video Database Under Various Conditions Using CCTV", funder: "Korea Conformity Laboratories (KCL)", period: "2021.10 – 2021.12", ongoing: false },
-  { title: "Construction and Analysis of Calibration Instrument Data for Rainfall Radar", funder: "Korea Institute of Civil Engineering and Building Technology (KICT)", period: "2021.10 – 2021.12", ongoing: false }
+  { title: "Action and Advisory Research for Developing Operational Guidelines for UNESCO Ecohydrology Demonstration Sites in Korea", titleKo: "국내 유네스코 생태수문 시범지역 운영 지침 개발을 위한 실행 및 자문 연구", funder: "Korean National Committee for UNESCO IHP", funderKo: "유네스코 IHP 한국위원회", period: "2026.06 – Present", ongoing: true },
+  { title: "Development of Core Satellite Image Analysis Technologies for Disaster Detection", titleKo: "재난 탐지를 위한 위성영상 분석 핵심기술 개발", funder: "Ministry of Education, Republic of Korea", funderKo: "교육부", period: "2026.06 – Present", ongoing: true },
+  { title: "Hybrid-NDT Development Global Basic Research Center for Concrete Durability Performance Evaluation", titleKo: "콘크리트 내구성능 평가를 위한 Hybrid-NDT 개발 글로벌 기초연구센터", funder: "National Research Foundation of Korea", funderKo: "한국연구재단", period: "2026.04 – Present", ongoing: true },
+  { title: "Enhancing Flood Detection and Mapping by Using PolSAR, Metaheuristic, and Deep Learning Algorithms", titleKo: "PolSAR, 메타휴리스틱, 딥러닝 알고리즘을 이용한 홍수 탐지 및 지도화 고도화", funder: "National Science Foundation (NASA RII Track-4)", funderKo: "미국 국립과학재단 (NSF, NASA RII Track-4)", period: "", ongoing: false },
+  { title: "Forecasting Evapotranspiration and Rainfall for Water Resources Conservation and Sustainable Agriculture", titleKo: "수자원 보전과 지속 가능한 농업을 위한 증발산 및 강우 예측", funder: "United States Department of Agriculture", funderKo: "미국 농무부 (USDA)", period: "", ongoing: false },
+  { title: "Development of AI-based Rainfall Estimation Model Using Multisensor (Principal Investigator)", titleKo: "다중센서를 이용한 AI 기반 강우 추정 모델 개발 (연구책임자)", funder: "Ministry of Education", funderKo: "교육부", period: "", ongoing: false },
+  { title: "Research on CCTV Image-based Precipitation Estimation Method (I) & (II)", titleKo: "CCTV 영상 기반 강수량 산정 기법 연구 (I), (II)", funder: "Korea Meteorological Institute", period: "", ongoing: false },
+  { title: "Development of Rainfall Scenarios Considering Temporal Characteristics of Independent Rainfall Events", titleKo: "독립 호우사상의 시간적 특성을 고려한 강우 시나리오 개발", funder: "Korea Institute of Civil Engineering and Building Technology (KICT)", funderKo: "한국건설기술연구원 (KICT)", period: "2023.10 – 2023.12", ongoing: false },
+  { title: "Study on the Construction and Validation of Standard/Raw CCTV Rainfall & Snowfall Video Datasets", titleKo: "CCTV 강우·강설 표준/원시 영상 데이터셋 구축 및 검증 연구", funder: "Korea Conformity Laboratories (KCL)", funderKo: "한국건설생활환경시험연구원 (KCL)", period: "2022.11 – 2023.02", ongoing: false },
+  { title: "Construction of Rainfall Video Database Under Various Conditions Using CCTV", titleKo: "CCTV를 활용한 다양한 조건의 강우 영상 데이터베이스 구축", funder: "Korea Conformity Laboratories (KCL)", funderKo: "한국건설생활환경시험연구원 (KCL)", period: "2021.10 – 2021.12", ongoing: false },
+  { title: "Construction and Analysis of Calibration Instrument Data for Rainfall Radar", titleKo: "강우레이더 검교정 장비 자료 구축 및 분석", funder: "Korea Institute of Civil Engineering and Building Technology (KICT)", funderKo: "한국건설기술연구원 (KICT)", period: "2021.10 – 2021.12", ongoing: false }
 ];
 
 /* ---------------- 논문 ----------------
@@ -160,95 +161,96 @@ const KMA = "https://www.weather.go.kr/w/logo_mark.png";      // Korea Meteorolo
 const HNU = "https://gra.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon-180x180.png"; // Hannam University emblem
 window.LINKS = [
   {
-    group: "Water Resources",
+    group: "Water Resources", groupKo: "수자원",
     sections: [
-      { title: "Korea · Water Data & Flood Forecasting", items: [
-        { name: "WAMIS", url: "https://www.wamis.go.kr", icon: GOV, desc: "National water resources information system — stage, rainfall, dams" },
-        { name: "Han River Flood Control Office", url: "https://www.hrfco.go.kr", icon: GOV, desc: "Real-time flood forecasts and hydrological data" },
-        { name: "Geum River Flood Control Office", url: "https://www.geumriver.go.kr", icon: GOV, desc: "Flood forecasting for the Geum River basin (Daejeon)" },
-        { name: "Nakdong River Flood Control Office", url: "https://www.nakdongriver.go.kr", icon: GOV, desc: "Flood forecasting for the Nakdong River basin" },
-        { name: "Yeongsan River Flood Control Office", url: "https://www.yeongsanriver.go.kr", icon: "https://www.yeongsanriver.go.kr/_KOR/img/favicon.ico", desc: "Flood forecasting for the Yeongsan & Seomjin basins" },
-        { name: "Flood Risk Map Information System", url: "https://www.floodmap.go.kr", icon: "https://www.floodmap.go.kr/img/favicon_180.png", desc: "National flood inundation risk maps" },
-        { name: "Korea Institute of Hydrological Survey", url: "https://www.kihs.re.kr", icon: "https://www.kihs.re.kr/resources/img/reset/favicon.png", desc: "National hydrological surveys and discharge data" },
-        { name: "My Water", url: "https://www.water.or.kr", icon: "https://www.water.or.kr/site/kor/pbs/images/common/favicon_apple-icon.png", desc: "Integrated water information portal" },
-        { name: "Water Environment Information System", url: "https://water.nier.go.kr", icon: GOV, desc: "Water quality monitoring data (NIER)" },
-        { name: "National Drought Information Portal", url: "https://www.drought.go.kr", icon: "https://www.drought.go.kr/favicon.ico", desc: "Drought monitoring and outlooks" }
+      { title: "Korea · Water Data & Flood Forecasting", titleKo: "국내 · 수자원 데이터와 홍수 예보", items: [
+        { name: "WAMIS", nameKo: "국가수자원관리종합정보시스템 (WAMIS)", url: "https://www.wamis.go.kr", icon: GOV, desc: "National water resources information system — stage, rainfall, dams", descKo: "수위, 강우, 댐 등 국가 수자원 정보" },
+        { name: "Han River Flood Control Office", nameKo: "한강홍수통제소", url: "https://www.hrfco.go.kr", icon: GOV, desc: "Real-time flood forecasts and hydrological data", descKo: "실시간 홍수예보와 수문 자료" },
+        { name: "Geum River Flood Control Office", nameKo: "금강홍수통제소", url: "https://www.geumriver.go.kr", icon: GOV, desc: "Flood forecasting for the Geum River basin (Daejeon)", descKo: "금강 유역 홍수예보 (대전)" },
+        { name: "Nakdong River Flood Control Office", nameKo: "낙동강홍수통제소", url: "https://www.nakdongriver.go.kr", icon: GOV, desc: "Flood forecasting for the Nakdong River basin", descKo: "낙동강 유역 홍수예보" },
+        { name: "Yeongsan River Flood Control Office", nameKo: "영산강홍수통제소", url: "https://www.yeongsanriver.go.kr", icon: "https://www.yeongsanriver.go.kr/_KOR/img/favicon.ico", desc: "Flood forecasting for the Yeongsan & Seomjin basins", descKo: "영산강·섬진강 유역 홍수예보" },
+        { name: "Flood Risk Map Information System", nameKo: "홍수위험지도 정보시스템", url: "https://www.floodmap.go.kr", icon: "https://www.floodmap.go.kr/img/favicon_180.png", desc: "National flood inundation risk maps", descKo: "전국 홍수 범람 위험지도" },
+        { name: "Korea Institute of Hydrological Survey", nameKo: "한국수자원조사기술원", url: "https://www.kihs.re.kr", icon: "https://www.kihs.re.kr/resources/img/reset/favicon.png", desc: "National hydrological surveys and discharge data", descKo: "국가 수문조사와 유량 자료" },
+        { name: "My Water", nameKo: "물정보포털 (My Water)", url: "https://www.water.or.kr", icon: "https://www.water.or.kr/site/kor/pbs/images/common/favicon_apple-icon.png", desc: "Integrated water information portal", descKo: "통합 물 정보 포털" },
+        { name: "Water Environment Information System", nameKo: "물환경정보시스템", url: "https://water.nier.go.kr", icon: GOV, desc: "Water quality monitoring data (NIER)", descKo: "수질 측정 자료 (국립환경과학원)" },
+        { name: "National Drought Information Portal", nameKo: "국가가뭄정보포털", url: "https://www.drought.go.kr", icon: "https://www.drought.go.kr/favicon.ico", desc: "Drought monitoring and outlooks", descKo: "가뭄 감시와 전망" }
       ]},
-      { title: "Korea · Weather & Climate", items: [
-        { name: "KMA Weather Nuri", url: "https://www.weather.go.kr/w/index.do", icon: KMA, desc: "Korea Meteorological Administration forecasts and observations" },
-        { name: "KMA Open MET Data Portal", url: "https://data.kma.go.kr", icon: "https://data.kma.go.kr/favicon.ico", desc: "Historical meteorological data downloads" },
-        { name: "KMA API Hub", url: "https://apihub.kma.go.kr", icon: KMA, desc: "Programmatic access to KMA data" },
-        { name: "National Meteorological Satellite Center", url: "https://nmsc.kma.go.kr", icon: KMA, desc: "GK-2A satellite imagery and products" }
+      { title: "Korea · Weather & Climate", titleKo: "국내 · 기상과 기후", items: [
+        { name: "KMA Weather Nuri", nameKo: "기상청 날씨누리", url: "https://www.weather.go.kr/w/index.do", icon: KMA, desc: "Korea Meteorological Administration forecasts and observations", descKo: "기상청 예보와 관측 정보" },
+        { name: "KMA Open MET Data Portal", nameKo: "기상자료개방포털", url: "https://data.kma.go.kr", icon: "https://data.kma.go.kr/favicon.ico", desc: "Historical meteorological data downloads", descKo: "과거 기상 자료 내려받기" },
+        { name: "KMA API Hub", nameKo: "기상청 API허브", url: "https://apihub.kma.go.kr", icon: KMA, desc: "Programmatic access to KMA data", descKo: "기상청 자료를 API로 이용" },
+        { name: "National Meteorological Satellite Center", nameKo: "국가기상위성센터", url: "https://nmsc.kma.go.kr", icon: KMA, desc: "GK-2A satellite imagery and products", descKo: "천리안위성 2A호 영상과 산출물" }
       ]},
-      { title: "Korea · Agencies & Institutes", items: [
-        { name: "Ministry of Climate, Energy and Environment", url: "https://www.mcee.go.kr", icon: GOV, desc: "National climate, environment, and water policy" },
-        { name: "K-water", url: "https://www.kwater.or.kr", icon: "https://www.kwater.or.kr/web/images/comm/iphone_favicon.png", desc: "Korea Water Resources Corporation" },
-        { name: "KICT", url: "https://www.kict.re.kr", desc: "Korea Institute of Civil Engineering and Building Technology" },
-        { name: "Public Data Portal", url: "https://www.data.go.kr", icon: "https://www.data.go.kr/common/img/favicon/favicon_192.png", desc: "Korean government open data and APIs" }
+      { title: "Korea · Agencies & Institutes", titleKo: "국내 · 정부·공공기관", items: [
+        { name: "Ministry of Climate, Energy and Environment", nameKo: "기후에너지환경부", url: "https://www.mcee.go.kr", icon: GOV, desc: "National climate, environment, and water policy", descKo: "기후·환경·물 정책" },
+        { name: "K-water", url: "https://www.kwater.or.kr", icon: "https://www.kwater.or.kr/web/images/comm/iphone_favicon.png", desc: "Korea Water Resources Corporation", descKo: "한국수자원공사" },
+        { name: "KICT", nameKo: "한국건설기술연구원 (KICT)", url: "https://www.kict.re.kr", desc: "Korea Institute of Civil Engineering and Building Technology", descKo: "건설·수자원 분야 정부출연연구기관" },
+        { name: "Public Data Portal", nameKo: "공공데이터포털", url: "https://www.data.go.kr", icon: "https://www.data.go.kr/common/img/favicon/favicon_192.png", desc: "Korean government open data and APIs", descKo: "정부 공공데이터와 오픈 API" },
+        { name: "Disaster & Safety Data Platform", nameKo: "재난안전데이터공유플랫폼", url: "https://www.safetydata.go.kr", icon: "https://www.safetydata.go.kr/img/favicon.ico", desc: "Open disaster and safety data from the Ministry of the Interior and Safety", descKo: "행정안전부의 재난·안전 공공데이터" }
       ]},
-      { title: "Global Data & Remote Sensing", items: [
-        { name: "NASA Earthdata", url: "https://www.earthdata.nasa.gov", icon: "https://www.earthdata.nasa.gov/themes/custom/project/hds_earthdata/favicon.ico", desc: "Gateway to NASA Earth observation data" },
-        { name: "NASA GPM", url: "https://gpm.nasa.gov", icon: "https://gpm.nasa.gov/themes/custom/pmm_bs/favicon.ico", desc: "Global satellite precipitation (IMERG)" },
-        { name: "Copernicus Climate Data Store", url: "https://cds.climate.copernicus.eu", icon: "https://cds.climate.copernicus.eu/_next/static/media/favicon.fa94f50f.ico", desc: "ERA5 reanalysis and climate datasets" },
-        { name: "Copernicus Browser", url: "https://browser.dataspace.copernicus.eu", icon: "https://browser.dataspace.copernicus.eu/apple-touch-icon.png", desc: "Browse and download Sentinel imagery" },
-        { name: "USGS EarthExplorer", url: "https://earthexplorer.usgs.gov", icon: "https://ims.cr.usgs.gov/lib/web/explorer_favicon.ico", desc: "Landsat and other satellite imagery" },
-        { name: "Google Earth Engine", url: "https://earthengine.google.com", icon: "https://earthengine.google.com/static/images/earth_engine_icon.png", desc: "Cloud platform for geospatial analysis" },
-        { name: "NOAA NCEI", url: "https://www.ncei.noaa.gov", icon: "https://www.ncei.noaa.gov/themes/custom/ncei/favicon.ico", desc: "Global climate and weather archives" },
-        { name: "GloFAS", url: "https://global-flood.emergency.copernicus.eu", icon: "https://www.google.com/s2/favicons?domain=global-flood.emergency.copernicus.eu&sz=64", desc: "Copernicus Global Flood Awareness System" },
-        { name: "GRDC", url: "https://grdc.bafg.de", icon: "https://grdc.bafg.de/images/logos/GRDC4C_Neu_100.svg", desc: "Global Runoff Data Centre — river discharge" },
-        { name: "HydroSHEDS", url: "https://www.hydrosheds.org", icon: "https://cdn.prod.website-files.com/602eb43d42a3b5553a4f134c/6244be3431f13d6742fc25a5_Favicon-256.png", desc: "Global river networks and watersheds" },
-        { name: "CHIRPS", url: "https://www.chc.ucsb.edu/data/chirps", icon: "https://www.chc.ucsb.edu/sites/default/themes/at_lsit/images/department/ucsb_favicon.ico", desc: "Quasi-global gauge–satellite rainfall dataset" }
+      { title: "Global Data & Remote Sensing", titleKo: "해외 데이터와 원격탐사", items: [
+        { name: "NASA Earthdata", url: "https://www.earthdata.nasa.gov", icon: "https://www.earthdata.nasa.gov/themes/custom/project/hds_earthdata/favicon.ico", desc: "Gateway to NASA Earth observation data", descKo: "NASA 지구관측 자료 통합 포털" },
+        { name: "NASA GPM", url: "https://gpm.nasa.gov", icon: "https://gpm.nasa.gov/themes/custom/pmm_bs/favicon.ico", desc: "Global satellite precipitation (IMERG)", descKo: "전지구 위성 강수 자료 (IMERG)" },
+        { name: "Copernicus Climate Data Store", url: "https://cds.climate.copernicus.eu", icon: "https://cds.climate.copernicus.eu/_next/static/media/favicon.fa94f50f.ico", desc: "ERA5 reanalysis and climate datasets", descKo: "ERA5 재분석 자료와 기후 데이터" },
+        { name: "Copernicus Browser", url: "https://browser.dataspace.copernicus.eu", icon: "https://browser.dataspace.copernicus.eu/apple-touch-icon.png", desc: "Browse and download Sentinel imagery", descKo: "Sentinel 위성영상 조회와 다운로드" },
+        { name: "USGS EarthExplorer", url: "https://earthexplorer.usgs.gov", icon: "https://ims.cr.usgs.gov/lib/web/explorer_favicon.ico", desc: "Landsat and other satellite imagery", descKo: "Landsat 등 위성영상 검색과 다운로드" },
+        { name: "Google Earth Engine", url: "https://earthengine.google.com", icon: "https://earthengine.google.com/static/images/earth_engine_icon.png", desc: "Cloud platform for geospatial analysis", descKo: "클라우드 기반 공간분석 플랫폼" },
+        { name: "NOAA NCEI", url: "https://www.ncei.noaa.gov", icon: "https://www.ncei.noaa.gov/themes/custom/ncei/favicon.ico", desc: "Global climate and weather archives", descKo: "전지구 기후·기상 자료 보관소" },
+        { name: "GloFAS", url: "https://global-flood.emergency.copernicus.eu", icon: "https://www.google.com/s2/favicons?domain=global-flood.emergency.copernicus.eu&sz=64", desc: "Copernicus Global Flood Awareness System", descKo: "코페르니쿠스 전지구 홍수 인지 시스템" },
+        { name: "GRDC", url: "https://grdc.bafg.de", icon: "https://grdc.bafg.de/images/logos/GRDC4C_Neu_100.svg", desc: "Global Runoff Data Centre — river discharge", descKo: "전지구 하천 유량 자료 센터" },
+        { name: "HydroSHEDS", url: "https://www.hydrosheds.org", icon: "https://cdn.prod.website-files.com/602eb43d42a3b5553a4f134c/6244be3431f13d6742fc25a5_Favicon-256.png", desc: "Global river networks and watersheds", descKo: "전지구 하천망과 유역 자료" },
+        { name: "CHIRPS", url: "https://www.chc.ucsb.edu/data/chirps", icon: "https://www.chc.ucsb.edu/sites/default/themes/at_lsit/images/department/ucsb_favicon.ico", desc: "Quasi-global gauge–satellite rainfall dataset", descKo: "관측소와 위성을 결합한 준전지구 강우 자료" }
       ]},
-      { title: "International Organizations", items: [
-        { name: "WMO", url: "https://wmo.int", icon: "https://wmo.int/themes/custom/server_theme/dist/images/favicons/apple-touch-icon.png", desc: "World Meteorological Organization" },
-        { name: "UNESCO IHP", url: "https://www.unesco.org/en/ihp", icon: "https://www.unesco.org/themes/custom/bunesco8/icon.svg", desc: "Intergovernmental Hydrological Programme" },
-        { name: "USGS Water Resources", url: "https://www.usgs.gov/mission-areas/water-resources", icon: "https://www.usgs.gov/themes/custom/usgs_tantalum/favicon.ico", desc: "U.S. water science and data" },
-        { name: "CUAHSI", url: "https://www.cuahsi.org", icon: "https://www.cuahsi.org/images/favicon.png", desc: "Hydrologic science consortium and data services" }
+      { title: "International Organizations", titleKo: "국제기구", items: [
+        { name: "WMO", url: "https://wmo.int", icon: "https://wmo.int/themes/custom/server_theme/dist/images/favicons/apple-touch-icon.png", desc: "World Meteorological Organization", descKo: "세계기상기구" },
+        { name: "UNESCO IHP", url: "https://www.unesco.org/en/ihp", icon: "https://www.unesco.org/themes/custom/bunesco8/icon.svg", desc: "Intergovernmental Hydrological Programme", descKo: "유네스코 정부간 수문프로그램" },
+        { name: "USGS Water Resources", url: "https://www.usgs.gov/mission-areas/water-resources", icon: "https://www.usgs.gov/themes/custom/usgs_tantalum/favicon.ico", desc: "U.S. water science and data", descKo: "미국 지질조사국의 수자원 과학과 자료" },
+        { name: "CUAHSI", url: "https://www.cuahsi.org", icon: "https://www.cuahsi.org/images/favicon.png", desc: "Hydrologic science consortium and data services", descKo: "미국 수문과학 컨소시엄과 자료 서비스" }
       ]},
-      { title: "Academic Societies", items: [
-        { name: "Korea Water Resources Association", url: "https://www.kwra.or.kr", icon: "https://www.kwra.or.kr/media/site_settings/admin_login_logo/favicon.png", desc: "KWRA" },
-        { name: "Korean Society of Civil Engineers", url: "https://www.ksce.or.kr", icon: "https://www.ksce.or.kr/images/favicon.ico", desc: "KSCE" },
-        { name: "Korean Society of Hazard Mitigation", url: "https://www.kosham.or.kr", icon: "https://www.kosham.or.kr/custom/104/images/favicon.png", desc: "KOSHAM" },
-        { name: "Korean Society of Remote Sensing", url: "https://www.ksrs.or.kr", icon: "https://www.ksrs.or.kr/favicon.ico", desc: "KSRS" },
-        { name: "GeoAI Data Society", url: "https://www.gaidas.org", icon: "https://www.gaidas.org/image/icon/favicon.ico", desc: "GAIDAS · publisher of GEO DATA" },
-        { name: "Korean Wetlands Society", url: "https://www.kwetland.or.kr", icon: "https://www.kwetland.or.kr/images/common/favicon.png", desc: "Journal of Wetlands Research" }
+      { title: "Academic Societies", titleKo: "학회", items: [
+        { name: "Korea Water Resources Association", nameKo: "한국수자원학회", url: "https://www.kwra.or.kr", icon: "https://www.kwra.or.kr/media/site_settings/admin_login_logo/favicon.png", desc: "KWRA", descKo: "KWRA" },
+        { name: "Korean Society of Civil Engineers", nameKo: "대한토목학회", url: "https://www.ksce.or.kr", icon: "https://www.ksce.or.kr/images/favicon.ico", desc: "KSCE", descKo: "KSCE" },
+        { name: "Korean Society of Hazard Mitigation", nameKo: "한국방재학회", url: "https://www.kosham.or.kr", icon: "https://www.kosham.or.kr/custom/104/images/favicon.png", desc: "KOSHAM", descKo: "KOSHAM" },
+        { name: "Korean Society of Remote Sensing", nameKo: "대한원격탐사학회", url: "https://www.ksrs.or.kr", icon: "https://www.ksrs.or.kr/favicon.ico", desc: "KSRS", descKo: "KSRS" },
+        { name: "GeoAI Data Society", url: "https://www.gaidas.org", icon: "https://www.gaidas.org/image/icon/favicon.ico", desc: "GAIDAS · publisher of GEO DATA", descKo: "GAIDAS · GEO DATA 학술지 발행" },
+        { name: "Korean Wetlands Society", nameKo: "한국습지학회", url: "https://www.kwetland.or.kr", icon: "https://www.kwetland.or.kr/images/common/favicon.png", desc: "Journal of Wetlands Research", descKo: "한국습지학회지 발행" }
       ]}
     ]
   },
   {
-    group: "Hannam University",
+    group: "Hannam University", groupKo: "한남대학교",
     sections: [
-      { title: "Quick Access", items: [
-        { name: "MY-PORTAL", url: "https://my.hnu.kr", icon: HNU, desc: "Student & faculty portal (login)" },
-        { name: "Groupware", url: "https://we.hnu.kr", icon: "https://we.hnu.kr/favicon.png", desc: "Faculty & staff groupware (login)" },
-        { name: "HI-CLASS", url: "https://hiclass.hannam.ac.kr", icon: "https://hiclass.hannam.ac.kr/learningx/images/main/favicon.ico", desc: "E-learning system (login)" },
-        { name: "Industry-Academic Cooperation Foundation", url: "https://sanhak.hannam.ac.kr", icon: "https://sanhak.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Research and industry cooperation" },
+      { title: "Quick Access", titleKo: "바로가기", items: [
+        { name: "MY-PORTAL", nameKo: "MY-PORTAL (학교 포털)", url: "https://my.hnu.kr", icon: HNU, desc: "Student & faculty portal (login)", descKo: "학생·교직원 포털 (로그인)" },
+        { name: "Groupware", nameKo: "그룹웨어", url: "https://we.hnu.kr", icon: "https://we.hnu.kr/favicon.png", desc: "Faculty & staff groupware (login)", descKo: "교직원 그룹웨어 (로그인)" },
+        { name: "HI-CLASS", url: "https://hiclass.hannam.ac.kr", icon: "https://hiclass.hannam.ac.kr/learningx/images/main/favicon.ico", desc: "E-learning system (login)", descKo: "이러닝 시스템 (로그인)" },
+        { name: "Industry-Academic Cooperation Foundation", nameKo: "산학협력단", url: "https://sanhak.hannam.ac.kr", icon: "https://sanhak.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Research and industry cooperation", descKo: "연구 및 산학협력 지원" },
         // App link: Google Play by default, App Store on iPhone/iPad (urlIOS)
-        { name: "Hey Young Campus", url: "https://play.google.com/store/apps/details?id=com.shinhan.heyoung", urlIOS: "https://apps.apple.com/kr/app/id1605688685",
-          icon: "https://play-lh.googleusercontent.com/0ZVxpJR_hft8D5UE9gGNsG1q3UyBcaHMRDwatcY7OdAeE999ICcXdhoHa0SBysOdjH4nsQJPpw6O8qzeveHf3Q=s128", desc: "Mobile student ID & campus app (Shinhan Bank)" }
+        { name: "Hey Young Campus", nameKo: "헤이영 캠퍼스", url: "https://play.google.com/store/apps/details?id=com.shinhan.heyoung", urlIOS: "https://apps.apple.com/kr/app/id1605688685",
+          icon: "https://play-lh.googleusercontent.com/0ZVxpJR_hft8D5UE9gGNsG1q3UyBcaHMRDwatcY7OdAeE999ICcXdhoHa0SBysOdjH4nsQJPpw6O8qzeveHf3Q=s128", desc: "Mobile student ID & campus app (Shinhan Bank)", descKo: "모바일 학생증·캠퍼스 앱 (신한은행)" }
       ]},
-      { title: "University & Department", items: [
-        { name: "Hannam University", url: "https://www.hnu.kr", icon: HNU, desc: "University homepage (Korean)" },
-        { name: "Hannam University (English)", url: "https://int.hnu.kr/eng/", icon: HNU, desc: "English homepage" },
-        { name: "College of Engineering", url: "https://eng.hannam.ac.kr", icon: "https://eng.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon-180x180.png", desc: "College homepage" },
-        { name: "Dept. of Civil & Environmental Engineering", url: "https://civil.hannam.ac.kr", icon: "https://i0.wp.com/civil.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon.png?fit=180%2C180&ssl=1", desc: "Department homepage" },
-        { name: "Graduate School", url: "https://gra.hannam.ac.kr", icon: HNU, desc: "Graduate programs and admissions" },
-        { name: "Admissions", url: "https://ibsi.hannam.ac.kr", icon: "https://ibsi.hannam.ac.kr/adms5/images/renew_2022/favicon-96x96.png", desc: "Undergraduate admissions" }
+      { title: "University & Department", titleKo: "대학 및 학과", items: [
+        { name: "Hannam University", nameKo: "한남대학교", url: "https://www.hnu.kr", icon: HNU, desc: "University homepage (Korean)", descKo: "대학 홈페이지" },
+        { name: "Hannam University (English)", nameKo: "한남대학교 (영문)", url: "https://int.hnu.kr/eng/", icon: HNU, desc: "English homepage", descKo: "영문 홈페이지" },
+        { name: "College of Engineering", nameKo: "공과대학", url: "https://eng.hannam.ac.kr", icon: "https://eng.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon-180x180.png", desc: "College homepage", descKo: "단과대학 홈페이지" },
+        { name: "Dept. of Civil & Environmental Engineering", nameKo: "건설환경공학과", url: "https://civil.hannam.ac.kr", icon: "https://i0.wp.com/civil.hannam.ac.kr/wp-content/uploads/2020/07/cropped-icon.png?fit=180%2C180&ssl=1", desc: "Department homepage", descKo: "학과 홈페이지" },
+        { name: "Graduate School", nameKo: "대학원", url: "https://gra.hannam.ac.kr", icon: HNU, desc: "Graduate programs and admissions", descKo: "대학원 과정과 입학 안내" },
+        { name: "Admissions", nameKo: "입학처", url: "https://ibsi.hannam.ac.kr", icon: "https://ibsi.hannam.ac.kr/adms5/images/renew_2022/favicon-96x96.png", desc: "Undergraduate admissions", descKo: "학부 입학 안내" }
       ]},
-      { title: "Campus Services", items: [
-        { name: "Central Library", url: "https://hanul.hannam.ac.kr", icon: "https://hanul.hannam.ac.kr/image/apple-touch-icon.png", desc: "Books, journals, and databases" },
-        { name: "HI-STORY", url: "https://hi.hannam.ac.kr", icon: "https://hi.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Extracurricular & career programs (login)" },
-        { name: "Academic Calendar", url: "https://www.hnu.kr/kor/guide/guide_01_1.html", icon: HNU, desc: "Semester schedule" },
-        { name: "Academic Notices", url: "https://www.hnu.kr/kor/guide/guide_02.html", icon: HNU, desc: "Academic announcements" },
-        { name: "Center for Teaching & Learning", url: "https://ctl.hannam.ac.kr", icon: HNU, desc: "Teaching and learning support" },
-        { name: "Career Center", url: "https://job.hnu.kr", icon: HNU, desc: "Jobs and career support" },
-        { name: "Dormitory", url: "https://dormi.hannam.ac.kr", icon: HNU, desc: "Student housing" }
+      { title: "Campus Services", titleKo: "캠퍼스 서비스", items: [
+        { name: "Central Library", nameKo: "중앙도서관", url: "https://hanul.hannam.ac.kr", icon: "https://hanul.hannam.ac.kr/image/apple-touch-icon.png", desc: "Books, journals, and databases", descKo: "도서, 학술지, 데이터베이스" },
+        { name: "HI-STORY", url: "https://hi.hannam.ac.kr", icon: "https://hi.hannam.ac.kr/static_root/images/common/favicon.png", desc: "Extracurricular & career programs (login)", descKo: "비교과·진로 프로그램 (로그인)" },
+        { name: "Academic Calendar", nameKo: "학사일정", url: "https://www.hnu.kr/kor/guide/guide_01_1.html", icon: HNU, desc: "Semester schedule", descKo: "학기별 학사 일정" },
+        { name: "Academic Notices", nameKo: "학사공지", url: "https://www.hnu.kr/kor/guide/guide_02.html", icon: HNU, desc: "Academic announcements", descKo: "학사 공지사항" },
+        { name: "Center for Teaching & Learning", nameKo: "교수학습개발센터", url: "https://ctl.hannam.ac.kr", icon: HNU, desc: "Teaching and learning support", descKo: "교수·학습 지원" },
+        { name: "Career Center", nameKo: "취업·진로 지원", url: "https://job.hnu.kr", icon: HNU, desc: "Jobs and career support", descKo: "채용 정보와 진로 지원" },
+        { name: "Dormitory", nameKo: "생활관", url: "https://dormi.hannam.ac.kr", icon: HNU, desc: "Student housing", descKo: "학생 기숙사" }
       ]},
-      { title: "Visiting Campus", items: [
-        { name: "Directions", url: "https://www.hnu.kr/kor/about/about_11_1.html", icon: HNU, desc: "How to get to Hannam University" },
-        { name: "Campus Map", url: "https://www.hannam.ac.kr/data/building.html", icon: HNU, desc: "Buildings on campus" },
-        { name: "Commuter Bus", url: "https://www.hnu.kr/kor/about/about_11_2.html", icon: HNU, desc: "Shuttle and commuter bus routes" },
-        { name: "Campus Phone Directory", url: "https://www.hnu.kr/kor/about/about_07_2.html", icon: HNU, desc: "Department and office phone numbers" }
+      { title: "Visiting Campus", titleKo: "캠퍼스 방문", items: [
+        { name: "Directions", nameKo: "오시는 길", url: "https://www.hnu.kr/kor/about/about_11_1.html", icon: HNU, desc: "How to get to Hannam University", descKo: "한남대학교 찾아오는 길" },
+        { name: "Campus Map", nameKo: "캠퍼스 맵", url: "https://www.hannam.ac.kr/data/building.html", icon: HNU, desc: "Buildings on campus", descKo: "캠퍼스 건물 안내" },
+        { name: "Commuter Bus", nameKo: "통학버스", url: "https://www.hnu.kr/kor/about/about_11_2.html", icon: HNU, desc: "Shuttle and commuter bus routes", descKo: "셔틀·통학버스 노선" },
+        { name: "Campus Phone Directory", nameKo: "교내 전화번호", url: "https://www.hnu.kr/kor/about/about_07_2.html", icon: HNU, desc: "Department and office phone numbers", descKo: "부서별 전화번호 안내" }
       ]}
     ]
   }
