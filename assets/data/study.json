@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-11",
+    "date": "2026-11-11",
+    "theme": "Vision & Sensing",
+    "title": "Improving flood detection with large-scale dashboard camera data",
+    "authors": "Franchi, M., Garg, N., Ju, W., Pierson, E.",
+    "journal": "Nature Communications",
+    "volume": "17",
+    "pages": "9208",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-75938-1",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-11.webp",
+      "caption": "The BayFlood pipeline as stacked map layers: raw dashcam images across New York City are labelled flooded or not flooded by a vision-language model, checked against external flood data (sensors, 311 reports, stormwater maps), and combined into a flood estimate for every Census tract.",
+      "credit": "Figure 1 from Franchi et al. (2026), Nature Communications, CC BY 4.0."
+    },
+    "tldr": "Ordinary dashboard-camera photos, read by an off-the-shelf vision-language model and combined with a spatial Bayesian model, can map street flooding across a whole city and reveal flooded neighbourhoods that sensors and resident reports miss.",
+    "background": "Cities usually learn where streets flood from three sources: fixed flood sensors, resident complaints (such as New York's 311 line) and physics-based stormwater maps. Sensors are too few to cover every street, complaints depend on who chooses to report, and stormwater maps assume rainfall that does not match any real storm. Dashcams on commercial and ride-share cars photograph streets continuously, but training a flood detector normally needs a large labelled dataset, which is hard to build because flooded images are rare.",
+    "approach": "The authors used about 1.44 million dashcam images supplied by the company Nexar, mainly 926,212 daytime images from New York City during the 29 September 2023 storm, plus three other storm days in New York and the San Francisco Bay Area. Each image was classified without any task-specific training by the open-source vision-language model Cambrian-1-13B, which was asked whether the street showed more than a foot of standing water. One thousand of the classified images were checked by hand, and a spatial Bayesian model then combined the model labels, these human checks and nearby-tract information to estimate the fraction of flooded images in each Census tract. The resulting map was compared with 311 reports, FloodNet sensor locations, stormwater accumulation zones, catch basins and elevation.",
+    "findings": [
+      "Only 0.2% of the New York images were classified as flooded; 65.8% of those were truly flooded, while just 0.6% of images classified as dry actually showed flooding, so a 'flooded' label made flooding about 110 times more likely.",
+      "The zero-shot model beat other open-source vision-language models, a fine-tuned ResNet and GPT-4o-mini, and kept strong signal on the other storm days and in San Francisco.",
+      "Tracts the method flagged as high risk were 1.9 times likelier to have a FloodNet sensor and 1.3 times likelier to have a 311 flood report, and their minimum elevation was 2.0 times lower, even though the model was not given these data.",
+      "About 1.05 million New Yorkers (12% of the city) live in high-risk tracts; 100,150 of them live where none of the existing methods (sensors, 311 or stormwater maps) indicated flood risk.",
+      "After accounting for estimated flooding, wealthier tracts and those with more White residents and fewer Hispanic residents were more likely to file 311 reports, and the authors used the maps to suggest 25 new sensor sites to the FloodNet team."
+    ],
+    "relevance": "Urban flash floods, like those in Seoul's low-lying districts during intense monsoon downpours, often hit streets long before any gauge or official report notices them. This study shows that cameras already moving through the city, such as dashcams, CCTV or delivery vehicles, can act as a dense flood-monitoring network without costly labelling, and it reminds us that complaint-based data can under-represent vulnerable neighbourhoods. For students and engineers it is a practical template for combining AI image classification with simple statistics and a small amount of human checking; for city managers it points to fairer ways to choose where sensors and drainage upgrades go.",
+    "keywords": ["urban flooding", "dashcam imagery", "vision-language model", "Bayesian spatial model", "flood sensors", "New York City"]
+  },
+  {
     "id": "2026-11-10",
     "date": "2026-11-10",
     "theme": "AI Forecasting",
