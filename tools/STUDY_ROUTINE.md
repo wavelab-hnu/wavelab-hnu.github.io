@@ -19,15 +19,26 @@ Goal: add **one** paper note per day to the Study tab of the WAVE Lab site
    - AI Forecasting: machine/deep learning for rainfall, streamflow, drought, evapotranspiration or water-quality forecasting; hybrid models with signal decomposition; CMIP6 projections.
    - Vision & Sensing: rainfall or flood sensing from cameras/CCTV, images, video, acoustics, IoT or citizen science; computer vision for hydrology.
    - Earth Observation: satellite/SAR flood mapping, remote sensing of precipitation, soil moisture or disasters, reanalysis products.
-4. **Find a paper.**
-   - Peer-reviewed journal article, published in the **last 24 months**, from a reputable journal (e.g. HESS, NHESS, WRR, J. Hydrology, Remote Sensing, Water, Scientific Reports, Nature Communications, ERL, Frontiers). Avoid predatory or unknown journals.
-   - Open access under **CC BY or CC BY-SA** only. Search Crossref, e.g.
-     `https://api.crossref.org/works?query=<words>&filter=from-pub-date:<2 years ago>,type:journal-article,has-license:true&rows=20&select=DOI,title,container-title,license,published`
-     (the `prefix:10.5194` filter = Copernicus, `prefix:10.3390` = MDPI are easy to read).
-   - The DOI must **not** already be in `study.json`.
-   - Confirm with `python tools/study_tool.py crossref <doi>` — it must print `"cc_by_ok": true`. Use its title/authors/journal/volume/pages/year as the metadata (fix capitalisation of names if needed).
-5. **Read it.** Open the article page (WebFetch on `https://doi.org/<doi>` or the publisher URL) and read the abstract, methods, results and conclusions. Write everything **in your own words** — no copied sentences. Every number you mention must come from the paper. Do not invent results. If you can't read enough of the paper to summarise it reliably, pick another paper.
-6. **Figure.** Find the article's figure images on the publisher page (e.g. Copernicus `...-f03-web.png`, MDPI `.../article_deploy/html/images/...-g001.png`). Choose the one figure that best explains the study (a method overview or the main result; avoid plain location maps unless nothing better). Save it with
+4. **Find a paper — top-tier journals first.**
+   - The journal list with tiers is `JOURNALS` in `tools/study_tool.py`.
+     **Tier 1** (e.g. Nature, Science, Nature Water/Climate Change/Geoscience/Communications, Science Advances, PNAS,
+     Communications Earth & Environment, Water Resources Research, GRL, Earth's Future, HESS, Remote Sensing of Environment,
+     ISPRS J. Photogramm. Remote Sens., IEEE TGRS, Journal of Hydrology, Water Research, ERL, BAMS, J. Hydrometeorology).
+     **Tier 2** is only a fallback (e.g. NHESS, ESSD, GMD, AMT, JGR-Atmospheres, Weather and Climate Extremes, J. Hydrol. Reg. Stud.,
+     Advances in Water Resources, Hydrological Processes, STOTEN, Scientific Reports).
+     Journals not on the list (MDPI, Frontiers, Hindawi, unknown journals …) are **never** used.
+   - Search tier 1 with the theme's keywords (try several phrasings, e.g. 3–5 searches):
+     `python tools/study_tool.py search "<keywords>" 1`  (last 24 months; add a third argument `36` to widen to 36 months).
+     It lists only CC BY / CC BY-SA articles that aren't posted yet. Prefer research articles with a clear take-away
+     (not editorials, corrections or very narrow technical notes), and among good options prefer Nature/Science-family,
+     WRR, GRL, HESS, RSE.
+   - Only if no suitable tier-1 paper fits the theme after a real search, try tier 2 (`... search "<keywords>" 2`).
+     If still nothing fits, you may pick a tier-1 paper from a neighbouring theme instead of going lower.
+   - Confirm with `python tools/study_tool.py crossref <doi>` — it must print `"cc_by_ok": true` and a `"journal_tier"` of 1
+     (or 2 for the fallback); it exits with an error otherwise. Use its title/authors/journal/volume/pages/year as the
+     metadata (fix capitalisation of names if needed).
+5. **Read it.** Open the article page (WebFetch on `https://doi.org/<doi>` or the publisher URL; if a publisher blocks automated fetching, use the built-in browser, or the open full text on Europe PMC `https://europepmc.org/search?query=DOI:<doi>` — never try to solve a CAPTCHA) and read the abstract, methods, results and conclusions. Write everything **in your own words** — no copied sentences. Every number you mention must come from the paper. Do not invent results. If you can't read enough of the paper to summarise it reliably, pick another paper.
+6. **Figure.** Find the article's figure images on the publisher page (e.g. Copernicus `...-f03-web.png`; Nature/Springer `media.springernature.com/full/springer-static/image/...`; AGU/Wiley `agupubs.onlinelibrary.wiley.com/cms/asset/...`; Elsevier open access `ars.els-cdn.com/content/image/1-s2.0-<PII>-gr1_lrg.jpg`; IEEE `ieeexplore.ieee.org/mediastore/...`). Choose the one figure that best explains the study (a method overview or the main result; avoid plain location maps unless nothing better). Save it with
    `python tools/study_tool.py fig <image-url> <id>`
    then look at the saved `assets/img/study/<id>.webp` to make sure it is the right, readable figure.
 7. **Write the entry** and insert it at the **top** of `study.json` (keep valid JSON, UTF-8, 2-space indent):
