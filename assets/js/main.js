@@ -3,7 +3,7 @@
   const L = window.LAB;
 
   /* ---------- Language: English by default, Korean on request ----------
-     ?lang=ko / ?lang=en in the URL, or the choice saved from the header switch.
+     ?lang=ko / ?lang=en in the URL, or the choice saved from the in-page switch (<div data-lang-switch>).
      Static text: put the Korean version in a data-ko="…" attribute (innerHTML is swapped),
      data-ko-placeholder for inputs, and data-only="en" / "ko" to show a block in one language only.
      Data in data.js: an optional <field>Ko next to a field (e.g. text / textKo) is used in Korean.
@@ -63,9 +63,6 @@
           ${NAV.map(([href, en, ko]) => `<li><a href="${href}" class="${href === here ? "active" : ""}">${t(en, ko)}</a></li>`).join("")}
         </ul>
         <div class="nav-right">
-          ${KO_HERE ? `<div class="lang-switch" role="group" aria-label="Language">
-            <a href="#" data-lang="en" class="${KO ? "" : "on"}" lang="en" ${KO ? "" : 'aria-current="true"'}>English</a><span aria-hidden="true">|</span><a href="#" data-lang="ko" class="${KO ? "on" : ""}" lang="ko" ${KO ? 'aria-current="true"' : ""}>한국어</a>
-          </div>` : ""}
           <button class="nav-toggle" aria-label="${t("Open menu", "메뉴 열기")}" aria-expanded="false">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
           </button>
@@ -77,11 +74,20 @@
       const open = links.classList.toggle("open");
       btn.setAttribute("aria-expanded", open);
     });
-    header.querySelectorAll(".lang-switch a").forEach((a) => a.addEventListener("click", (e) => {
+  }
+
+  /* ---------- Language switch: inside the page (an element with data-lang-switch), only where Korean is offered ---------- */
+  document.querySelectorAll("[data-lang-switch]").forEach((slot) => {
+    if (!KO_HERE) { slot.remove(); return; }
+    slot.className = "lang-switch";
+    slot.setAttribute("role", "group");
+    slot.setAttribute("aria-label", t("Language", "언어"));
+    slot.innerHTML = `<a href="#" data-lang="en" class="${KO ? "" : "on"}" lang="en" ${KO ? "" : 'aria-current="true"'}>English</a><a href="#" data-lang="ko" class="${KO ? "on" : ""}" lang="ko" ${KO ? 'aria-current="true"' : ""}>한국어</a>`;
+    slot.querySelectorAll("a").forEach((a) => a.addEventListener("click", (e) => {
       e.preventDefault();
       if (a.dataset.lang !== LANG) setLang(a.dataset.lang);
     }));
-  }
+  });
 
   /* ---------- Footer ---------- */
   const footer = document.getElementById("site-footer");
