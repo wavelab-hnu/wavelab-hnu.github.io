@@ -121,25 +121,31 @@
     "year": 2026,
     "doi": "10.1007/s11069-025-07761-8",
     "license": "Publisher license",
-    "figure": null,
-    "tldr": "A new clustering method that tunes itself to pack as many past snow disasters as possible into the fewest map clusters shows that Korea's east coast, a belt from the central-west coast inland, and Jeju Island are most exposed to snow disasters.",
-    "background": "Heavy snow can collapse roofs, block roads and disrupt economies, and climate change may alter where such events strike. Disaster agencies need to know which areas are most vulnerable, but pinpointing them objectively is difficult. Many existing approaches rely on subjective weights for the factors involved.",
-    "approach": "The authors proposed the Maximum Disaster Spatial Density (MDSD) method and applied it to South Korea on a 1 km grid. Each cell was described by eight features: the mean and standard deviation of precipitation, temperature and a satellite snow index (NDSI), plus elevation and building counts. K-means clustering grouped the cells, and an optimization loop repeatedly adjusted the weight of each feature to maximize the density of recorded snow disasters within the top-ranked clusters.",
+    "figure": {
+      "src": "assets/img/study/our-2026-kim-snow-disaster.webp",
+      "caption": "Snow disaster-prone map of South Korea from the MDSD method: the country is split into 30 clusters, coloured by the density of recorded snow damage from decile 1 (lowest, dark blue) to 10 (highest, red), using feature weights optimized for the top 5 clusters.",
+      "credit": "Figure 9 from Kim et al. (2026), Natural Hazards. © The Author(s), under exclusive licence to Springer Nature B.V. 2026. Reproduced with the authors' reuse rights."
+    },
+    "tldr": "By letting ten years of real snow-damage records decide how much each weather, snow-cover, terrain and building factor should count, a new mapping method shows that Jeju Island, the southern coast, the northwestern region and parts of the east coast of Korea are most prone to snow disasters, while snowy but sparsely built mountains are not.",
+    "background": "Heavy snow collapses greenhouses and roofs, blocks roads and costs economies dearly, and South Korea suffered a run of damaging snowfalls between 2004 and 2012. Maps of snow-prone areas help agencies spend limited budgets where they are needed and avoid 'blind spots' where damage happens outside the mapped zones. Yet most mapping methods set the importance of each factor by expert judgement (for example AHP or Delphi surveys) or by statistical models, rather than by checking against where disasters actually happened.",
+    "approach": "The authors built a 1 km grid over South Korea for the winter months (November–March) of 2009–2018 with eight features: the mean and standard deviation of daily precipitation from a radar–gauge product, of hourly temperature interpolated from 657 stations, and of the MODIS snow index NDSI (192 low-cloud scenes), plus elevation and the number of buildings (about 15 million in total). They geocoded 65,598 snow-damage records from the national disaster management system (Ministry of the Interior and Safety). In their Maximum Disaster Spatial Density (MDSD) method, weighted K-means splits the country into 30 clusters, and particle swarm optimization repeatedly adjusts the eight feature weights to maximize the damage density of the top 5, 10 or 20 clusters. The optimization was run 20 times to test how stable the maps were.",
     "findings": [
-      "The eastern coastline, a belt running from the central-west coast toward the inland centre, and Jeju Island were identified as most vulnerable to snow disasters.",
-      "Clusters with higher mean and variability of precipitation and temperature were more prone to snow disasters.",
-      "Vulnerability was highest where winter precipitation exceeded 69 mm, regardless of temperature, and where snow cover lasted longer (higher NDSI).",
-      "Precipitation and temperature were the most important factors, followed by NDSI, while elevation and building counts mattered less."
+      "The most snow-prone areas were most of Jeju Island (except its central highlands), inland areas along the southern coast, the northwestern region and parts of the east coast, where heavy, wet snow meets dense buildings.",
+      "Inland Gangwon and other high mountains ranked low despite frequent snowfall, because few people and buildings are exposed there.",
+      "The top clusters had high and variable winter precipitation and relatively mild temperatures; all of them received at least about 368 mm over November–March (about 2.4 mm a day).",
+      "Across the 20 runs, precipitation (mean and variability) and building density received the largest weights, followed by temperature, while NDSI and elevation mattered little.",
+      "The hot spots stayed broadly the same across all runs, and choosing the top 5, 10 or 20 clusters gives maps suited to emergency response, medium-term planning or long-term mitigation."
     ],
-    "relevance": "Snowstorms regularly cause greenhouse and roof collapses, traffic chaos and economic losses in Korea. A map of the most snow-prone areas helps local governments decide where to pre-position snow-removal equipment, strengthen building standards and focus warnings. Because the method lets managers choose how many clusters to target, it can serve both narrow high-risk planning and broader regional preparedness.",
+    "relevance": "Snowstorms in Korea regularly flatten greenhouses and roofs and paralyse traffic, so knowing where damage concentrates helps local governments pre-position snow-removal equipment, tighten building standards and focus warnings. The study also makes a point that applies to any hazard map: risk depends on how many people and structures are exposed, not only on how much snow falls. The authors note that most damage hits farm greenhouses, which building data do not fully capture, so better greenhouse maps would sharpen the results; the same method can be used for floods or other hazards with good damage records.",
     "keywords": [
       "snow disaster",
-      "vulnerability mapping",
-      "K-means clustering",
-      "optimization",
+      "disaster-prone mapping",
+      "weighted K-means",
+      "particle swarm optimization",
+      "MODIS NDSI",
       "South Korea"
     ],
-    "source": "abstract only"
+    "source": "full text"
   },
   {
     "id": "our-2026-lee-polsar-flood-detection",
