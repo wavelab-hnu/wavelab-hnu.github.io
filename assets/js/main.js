@@ -6,8 +6,14 @@
      ?lang=ko / ?lang=en in the URL, or the choice saved from the header switch.
      Static text: put the Korean version in a data-ko="…" attribute (innerHTML is swapped),
      data-ko-placeholder for inputs, and data-only="en" / "ko" to show a block in one language only.
-     Data in data.js: an optional <field>Ko next to a field (e.g. text / textKo) is used in Korean. */
+     Data in data.js: an optional <field>Ko next to a field (e.g. text / textKo) is used in Korean.
+     For now Korean is offered only on the pages in KO_PAGES; every other page stays English
+     and shows no switch. Add page names here to open the Korean version on more pages. */
+  const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const KO_PAGES = ["links.html"];
+  const KO_HERE = KO_PAGES.includes(here.endsWith(".html") ? here : here + ".html");
   const LANG = (() => {
+    if (!KO_HERE) return "en";
     let q = null;
     try { q = new URLSearchParams(location.search).get("lang"); } catch (e) {}
     if (q === "en" || q === "ko") { try { localStorage.setItem("wave-lang", q); } catch (e) {} return q; }
@@ -42,7 +48,6 @@
     ["links.html", "Links", "링크"],
     ["play.html", "Fun Zone", "쉬어가기"]
   ];
-  const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
   /* ---------- Header ---------- */
   const header = document.getElementById("site-header");
@@ -58,9 +63,9 @@
           ${NAV.map(([href, en, ko]) => `<li><a href="${href}" class="${href === here ? "active" : ""}">${t(en, ko)}</a></li>`).join("")}
         </ul>
         <div class="nav-right">
-          <div class="lang-switch" role="group" aria-label="Language">
+          ${KO_HERE ? `<div class="lang-switch" role="group" aria-label="Language">
             <a href="#" data-lang="en" class="${KO ? "" : "on"}" lang="en" ${KO ? "" : 'aria-current="true"'}>English</a><span aria-hidden="true">|</span><a href="#" data-lang="ko" class="${KO ? "on" : ""}" lang="ko" ${KO ? 'aria-current="true"' : ""}>한국어</a>
-          </div>
+          </div>` : ""}
           <button class="nav-toggle" aria-label="${t("Open menu", "메뉴 열기")}" aria-expanded="false">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
           </button>

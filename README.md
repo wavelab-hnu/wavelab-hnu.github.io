@@ -1,6 +1,6 @@
 # WAVE Lab 홈페이지
 
-한남대학교 건설환경공학과 지능형 수자원 연구실 (Water Analytics for Variability & Extremes Laboratory)
+한남대학교 건설환경공학과 지능형 수자원 연구실 (WAVE Lab: Water Analytics for Variability with Earth Observation)
 
 ## 내용 수정하기
 
