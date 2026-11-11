@@ -143,6 +143,37 @@
     html.fs-lock, html.fs-lock body { overflow: hidden; overscroll-behavior: none; }
     #exit-fs { margin-left: 0; width: 38px; height: 38px; padding: 0; justify-content: center; align-items: center; border-radius: 50%; font-size: 1.1rem; }
     #ov-close { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.55); margin-left: 8px; }
+    .game-area.fs { padding-left: calc(10px + env(safe-area-inset-left)); padding-right: calc(10px + env(safe-area-inset-right)); }
+
+    /* Phone held sideways: controls in a narrow column on the left, the 17×10 board fills the rest */
+    .game-area.fs.land { display: grid; grid-template-columns: 150px minmax(0, 1fr); grid-template-rows: auto auto auto 1fr;
+      column-gap: 12px; align-content: stretch;
+      padding-top: calc(8px + env(safe-area-inset-top)); padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
+    .game-area.fs.land > .hud, .game-area.fs.land > .options, .game-area.fs.land > .timebar { grid-column: 1; }
+    .game-area.fs.land .board-shell { grid-column: 2; grid-row: 1 / -1; align-self: center; margin: 0 auto; padding: 6px; border-radius: 12px; }
+    .game-area.fs.land .board { gap: 1px; }
+    .game-area.fs.land .hud { gap: 6px 8px; margin-bottom: 8px; }
+    .game-area.fs.land .hud .score { font-size: 1.3rem; min-width: 0; }
+    .game-area.fs.land .hud .meta { margin-left: auto; }
+    .game-area.fs.land #restart { margin-left: 0; flex: 1; padding: 6px 8px; font-size: .85rem; }
+    .game-area.fs.land .options { flex-direction: column; align-items: stretch; gap: 5px; margin-bottom: 10px; }
+    .game-area.fs.land .opt { font-size: .8rem; padding: 4px 10px; min-width: 0; }
+    .game-area.fs.land .opt.vol { gap: 4px; padding: 4px 8px; }
+    .game-area.fs.land .opt.vol input[type="range"] { width: 0; flex: 1; min-width: 0; }
+    .game-area.fs.land .overlay { padding: 4px 8px; }
+    .game-area.fs.land .overlay h2 { font-size: 1.2rem; }
+    .game-area.fs.land .overlay.result h2 { font-size: .8rem; }
+    .game-area.fs.land .overlay.result .big { font-size: 2.6rem; }
+    .game-area.fs.land .overlay.result #ov-text { font-size: .85rem; margin-bottom: 4px; }
+    .game-area.fs.land .submit-row input { padding: 7px 12px; }
+    .game-area.fs.land .submit-row .btn { padding-top: 7px; padding-bottom: 7px; }
+    .game-area.fs.land .submit-msg { font-size: .8rem; margin-top: 3px; }
+    .game-area.fs.land .ranks { gap: 6px; margin-top: 6px; }
+    .game-area.fs.land .mini-rank { padding: 4px 6px; font-size: .78rem; line-height: 1.25; }
+    .game-area.fs.land .mini-rank li { padding-top: 1px; padding-bottom: 1px; }
+    .game-area.fs.land .ov-btns { margin-top: 6px; }
+    .game-area.fs.land .ov-btns .btn { padding-top: 7px; padding-bottom: 7px; }
+    .game-area.fs.land #start { padding: 7px 28px; }
 
     /* ---------- Phones ---------- */
     @media (max-width: 600px) {
@@ -556,7 +587,24 @@
     let rectEl, badgeEl, start = null, selected = [], submitted = false;
 
     const isNarrow = () => gameArea.clientWidth < 600;
-    const isPhone = () => window.innerWidth < 600;
+    const coarse = !!(window.matchMedia && matchMedia("(pointer: coarse)").matches);
+    // Phones in either direction: narrow screen, or a touch screen whose short side is small (phone held sideways)
+    const isPhone = () => window.innerWidth < 600 || (coarse && Math.min(window.innerWidth, window.innerHeight) < 600);
+    // On touch devices ask the screen itself (the on-screen keyboard shrinks the page and would look "sideways")
+    function isLandscape() {
+      if (coarse) {
+        const o = screen.orientation;
+        if (o && o.type) return o.type.indexOf("landscape") === 0;
+        if (typeof window.orientation === "number") return Math.abs(window.orientation) === 90;
+      }
+      return window.innerWidth > window.innerHeight;
+    }
+    function orientAngle() {
+      const o = screen.orientation;
+      if (o && typeof o.angle === "number") return o.angle;
+      if (typeof window.orientation === "number") return (window.orientation + 360) % 360;
+      return null;
+    }
 
     /* Full-screen mode: on phones the game covers the whole screen like its own window */
     let fsMode = false;
@@ -564,6 +612,7 @@
       if (fsMode) return;
       fsMode = true;
       gameArea.classList.add("fs");
+      gameArea.classList.toggle("land", isLandscape());
       document.documentElement.classList.add("fs-lock");
       const el = document.documentElement; // hides the browser bars where supported (Android)
       if (el.requestFullscreen && !document.fullscreenElement) el.requestFullscreen({ navigationUI: "hide" }).catch(() => {});
@@ -571,10 +620,40 @@
     function exitFs() {
       if (!fsMode) return;
       fsMode = false;
-      gameArea.classList.remove("fs");
+      gameArea.classList.remove("fs", "land");
       document.documentElement.classList.remove("fs-lock");
       if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(() => {});
+      syncLayout();
       fitBoard();
+    }
+
+    // Board shape: wide 17×10 on big screens and phones held sideways, upright 10×17 otherwise
+    const wideBoard = () => fsMode ? isLandscape() : !isNarrow();
+
+    // Turn the board a quarter turn, keeping every drop (and the score) — used when the phone is rotated mid-game
+    function rotateBoard(ccw) {
+      start = null; clearSel();
+      const R = rows, C = cols, g = new Array(R * C), cs = new Array(R * C);
+      for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) {
+        const nr = ccw ? C - 1 - c : c, nc = ccw ? r : R - 1 - r;
+        g[nr * R + nc] = grid[r * C + c];
+        cs[nr * R + nc] = cells[r * C + c];
+      }
+      grid = g; cells = cs; cols = R; rows = C;
+      boardEl.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
+      cells.forEach((c) => boardEl.insertBefore(c, rectEl));
+    }
+
+    let lastAngle = orientAngle();
+    function syncLayout() {
+      gameArea.classList.toggle("land", fsMode && isLandscape());
+      const a = orientAngle();
+      if (cols && wideBoard() !== cols > rows) {
+        // turn the drops the same way the phone turned, so they stay where they were in your hand
+        const ccw = (a != null && lastAngle != null && a !== lastAngle) ? (a - lastAngle + 360) % 360 === 90 : wideBoard();
+        rotateBoard(ccw);
+      }
+      lastAngle = a;
     }
     gameArea.addEventListener("touchmove", (e) => { if (fsMode && e.target.tagName !== "INPUT") e.preventDefault(); }, { passive: false });
 
@@ -582,7 +661,19 @@
     function fitBoard() {
       if (!cols) return;
       shell.style.maxWidth = "";
-      const above = document.getElementById("hud").offsetHeight + document.getElementById("options").offsetHeight + barEl.offsetHeight + 34;
+      const hudEl = document.getElementById("hud");
+      if (fsMode && gameArea.classList.contains("land")) {
+        // sideways phone: the board gets the full height and everything right of the control column
+        const cs = getComputedStyle(gameArea), pad = 12;
+        const availH = gameArea.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - pad;
+        const availW = gameArea.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)
+          - hudEl.offsetWidth - parseFloat(cs.columnGap || 0) - pad;
+        const cell = Math.min(availW / cols, availH / rows);
+        shell.style.maxWidth = Math.floor(cell * cols + pad) + "px";
+        boardEl.style.setProperty("--fs", Math.max(14, Math.round(boardEl.clientWidth / cols * 0.46)) + "px");
+        return;
+      }
+      const above = hudEl.offsetHeight + document.getElementById("options").offsetHeight + barEl.offsetHeight + 34;
       const pad = isNarrow() ? 12 : 20;
       let availH;
       if (fsMode) {
@@ -591,6 +682,8 @@
       } else {
         const vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
         availH = vh - 76 - above - pad - 8;
+        // sideways phone before the game starts: don't squeeze the board into the short screen, let the page scroll
+        if (isPhone() && !isNarrow()) availH = Math.max(availH, vh - 16);
       }
       const availW = gameArea.clientWidth - pad - (fsMode ? 20 : 0);
       const cell = Math.min(availW / cols, availH / rows);
@@ -598,12 +691,22 @@
       const cw = boardEl.clientWidth / cols;
       boardEl.style.setProperty("--fs", Math.max(14, Math.round(cw * (isNarrow() ? 0.48 : 0.42))) + "px");
     }
-    // Refit on rotation/resize — but not while the results screen is up (the phone keyboard would shrink it)
-    window.addEventListener("resize", () => { if (!fsMode || playing) fitBoard(); });
+    // Refit on rotation/resize — but not on a plain resize while the results screen is up (the phone keyboard would shrink it)
+    let lastLand = isLandscape();
+    function onResize() {
+      const land = isLandscape(), turned = land !== lastLand;
+      lastLand = land;
+      if (turned || !fsMode || playing) { syncLayout(); fitBoard(); }
+    }
+    window.addEventListener("resize", onResize);
+    // some phones report the new size a moment after the turn
+    const afterTurn = () => setTimeout(() => { lastLand = !isLandscape(); onResize(); }, 350);
+    if (screen.orientation && screen.orientation.addEventListener) screen.orientation.addEventListener("change", afterTurn);
+    else window.addEventListener("orientationchange", afterTurn);
 
     function build() {
-      // 170 drops like the classic apple game: 17×10, turned upright (10×17) on phones
-      if (isNarrow()) { cols = 10; rows = 17; } else { cols = 17; rows = 10; }
+      // 170 drops like the classic apple game: 17×10, turned upright (10×17) on phones held upright
+      if (wideBoard()) { cols = 17; rows = 10; } else { cols = 10; rows = 17; }
       boardEl.style.gridTemplateColumns = `repeat(${cols}, minmax(0, 1fr))`;
       boardEl.innerHTML = "";
       cells = [];
@@ -823,7 +926,7 @@
         box.hidden = false;
         msgEl.textContent = T("🎉 You made today's Top 5! Enter your name.", "🎉 오늘의 Top 5에 들었어요! 이름을 남겨 주세요.");
         // don't pop up the phone keyboard automatically
-        if (!isNarrow()) setTimeout(() => nickEl.focus(), 50);
+        if (!isPhone()) setTimeout(() => nickEl.focus(), 50);
       });
     }
 
