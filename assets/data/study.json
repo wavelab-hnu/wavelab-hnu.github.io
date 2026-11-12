@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-12",
+    "date": "2026-11-12",
+    "theme": "Earth Observation",
+    "title": "Snow or rain? hybrid AI deciphers surface precipitation phase from satellite observations",
+    "authors": "Yang, C., Li, H., Zhu, R., Wang, Y., Zhang, F., Gu, M., Jiang, G. M., Zhang, R., Tang, X.",
+    "journal": "Nature Communications",
+    "volume": "17",
+    "pages": "2813",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-69487-w",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-12.webp",
+      "caption": "How RePPIC-Net works: atmospheric profiles from the FuXi AI weather model feed a wet-bulb temperature step that decides rain or snow, while geostationary satellite images (observed, or extrapolated by the DaYu-FY model for nowcasting) feed a deep network that estimates intensity; the two are merged into a 0.05°, 15-minute rain/snow map.",
+      "credit": "Figure 7 from Yang et al. (2026), Nature Communications, CC BY 4.0."
+    },
+    "tldr": "By pairing a fast AI weather model with geostationary satellite images, RePPIC-Net maps whether it is raining or snowing, and how hard, within about two minutes instead of the roughly four-hour wait of current satellite products.",
+    "background": "Whether precipitation reaches the ground as rain or snow decides whether a storm brings floods, blizzards, icy roads or avalanche danger, and the switch between the two can happen within hours. Ground gauges are sparse exactly where this matters most, in mountains and cold high-latitude regions, and they undercatch snow in wind. Satellite products such as GPM IMERG do separate rain from snow, but they arrive at least about four hours late and at coarser resolution, which is too slow for warnings.",
+    "approach": "The authors built a hybrid system with two branches. For phase, 12-hour forecasts of temperature and humidity profiles from the AI weather model FuXi are interpolated to the terrain height and turned into wet-bulb temperature, which gives a probability of liquid precipitation using the same formula as IMERG. For intensity, a UNet first detects where it is precipitating and a ResUNet then estimates the rate from 15-minute infrared images of China's Fengyun-4B satellite, cloud-cluster features and FuXi fields, trained against GPM spaceborne radar from June 2022 to September 2023. Feeding in satellite images extrapolated by a transformer model (DaYu-FY) turns the system into a 1–3 hour nowcast. It was tested over two winters (October–March 2023–24 and 2024–25) against more than 2,000 weather stations in China and compared with GPM IMERG-Late and the official Fengyun-4B product.",
+    "findings": [
+      "For light-to-moderate precipitation (0.1–5 mm/h), the combined detection-and-phase score (CSI-PD) for snowfall was 0.1574 versus 0.1001 for IMERG-Late, about 57% better; for rainfall it was 0.3147 versus 0.3064.",
+      "Over all precipitation, rain identification was similar to IMERG (CSI 0.85 vs. 0.83), while snow identification was slightly lower (0.69 vs. 0.71) because of false alarms at some stations; both products struggled with snow in southern China and during October and March transition months.",
+      "In a November 2023 cold-wave blizzard over northeast China, RePPIC-Net had the lowest intensity error (RMSE 1.65 mm/h) and a snowfall CSI-PD of 0.64 against 0.39 for IMERG.",
+      "With forecast satellite images as input, skill dropped only slightly over 1–3 hours (rain CSI-PD 0.29 to 0.27; snow 0.15 to 0.14), and the whole chain runs in about two minutes on one GPU.",
+      "Across the satellite's full disk, it reduced snowfall RMSE by 58% relative to the official Fengyun-4B product (0.19 vs. 0.46), though it still has regional biases near Antarctica and over oceans."
+    ],
+    "relevance": "Korea's winters bring sudden heavy snow on the east coast and in mountain areas, and a storm that falls as rain in one valley can be snow a few hundred metres higher, which matters for road safety, roof collapse, avalanches and how quickly water runs off into rivers. This study shows that combining geostationary satellite images (like those from Korea's GK-2A) with fast AI weather models can give phase-aware precipitation maps in near real time, even where ground stations are scarce. It is also an honest reminder that snow in complex terrain and during season transitions remains hard, so such products should complement, not replace, ground observations and forecaster judgement.",
+    "keywords": ["precipitation phase", "rain-snow discrimination", "geostationary satellite", "Fengyun-4B", "AI weather model", "nowcasting"]
+  },
+  {
     "id": "2026-11-11",
     "date": "2026-11-11",
     "theme": "Vision & Sensing",
