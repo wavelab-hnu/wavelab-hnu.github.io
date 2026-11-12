@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-13",
+    "date": "2026-11-13",
+    "theme": "Hydrology",
+    "title": "Observed Increase in the Spatial Extent of Extreme Precipitation Events Attributed to Anthropogenic Climate Change",
+    "authors": "Zhang, Y., Liang, K., Liu, C.",
+    "journal": "Water Resources Research",
+    "volume": "62",
+    "pages": "e2025WR042257",
+    "year": 2026,
+    "doi": "10.1029/2025WR042257",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-13.webp",
+      "caption": "Global land trends in the size of large extreme-rain events from 1982 to 2019 in three precipitation datasets: yearly anomalies of accumulated area (a) and projected area (b), and the trends broken down by continent (c, e) and by country (d, f), where blue marks growing and red marks shrinking footprints.",
+      "credit": "Figure 2 from Zhang et al. (2026), Water Resources Research, CC BY 4.0."
+    },
+    "tldr": "Large extreme-rain events over the world's land have been covering more ground since the early 1980s, and climate model experiments point to greenhouse-gas warming as the main reason.",
+    "background": "Most studies of extreme precipitation ask whether storms are getting more intense or more frequent, but how much area a single event covers also decides how bad the damage is: a widespread storm can flood several river basins at once and overwhelm emergency response. Earlier work on event size was mostly regional and gave conflicting answers, partly because each study used different data and definitions. A consistent global picture, and an explanation of what drives any change, was missing.",
+    "approach": "The authors used three daily gridded precipitation datasets at 0.5° (CPC_Global, GPCC and the GSWP3-W5E5 reanalysis) for global land from 1982 to 2019. A grid-day counts as extreme when rain exceeds that cell's 95th percentile of wet days, and extreme cells that touch in space or on neighbouring days are linked into one event using a 3D (longitude–latitude–time) 26-connectivity method, similar to labelling connected objects in an image. They kept only large events (at least 100,000 km² of accumulated area and at least 2 days) and measured each event's 'accumulated area' (area counted once for every extreme day) and 'projected area' (its footprint on the map). Trends were estimated with Theil–Sen slopes and Mann–Kendall tests, and 11 CMIP6 models run with all forcings, natural forcing only, greenhouse gases only and aerosols only were compared to attribute the change.",
+    "findings": [
+      "Roughly 1,000 large events per year were found (about 34,000–39,000 in total per dataset), and their average size grew in all three datasets: accumulated area by about 1,033–1,542 km² per year (0.32–0.43% per year) and projected area by about 840–1,237 km² per year (0.33–0.43% per year), all significant at p < 0.01.",
+      "Growth was consistent across datasets in South America, Oceania, Europe and Asia, with the strongest national increases in Brazil, China, Russia, Ukraine and Venezuela; only a few countries, such as Canada, Germany and Tanzania, showed shrinking events.",
+      "All 11 climate models reproduced an upward trend under historical forcing, while runs with only natural forcing (sun and volcanoes) showed almost no change, so the increase is attributed to human influence.",
+      "Greenhouse gases alone enlarged events (about 883 km² per year in accumulated area), while aerosols pushed the other way (about −167 km² per year), so the warming effect clearly dominates.",
+      "Accumulated area grew faster than projected area, suggesting events are becoming both wider and longer-lasting; the result held when thresholds were changed (90th percentile, ≥3 days, ≥50,000 km²) and when the period was cut to 1982–2014."
+    ],
+    "relevance": "Flood design and warnings often treat heavy rain as a local, one-catchment problem, but this study shows that the footprint of extreme rain is itself growing, which raises the chance of several rivers flooding at the same time and stretching emergency services, insurance and reservoir operations across a whole region. Asia is one of the continents with the clearest increases (China among the strongest national trends), and Korea's monsoon fronts and typhoons are exactly the kind of large systems that can soak many basins at once. For students and engineers, the 3D connected-event idea is a simple, reusable way to look at storms as objects in space and time rather than as point rainfall totals.",
+    "keywords": ["extreme precipitation", "spatial extent", "climate change attribution", "CMIP6 DAMIP", "event tracking", "flood risk"]
+  },
+  {
     "id": "2026-11-12",
     "date": "2026-11-12",
     "theme": "Earth Observation",
