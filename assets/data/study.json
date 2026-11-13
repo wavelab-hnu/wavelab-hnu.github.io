@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-14",
+    "date": "2026-11-14",
+    "theme": "AI Forecasting",
+    "title": "The ability of LSTM to model snowmelt versus rainfall generated floods",
+    "authors": "Bakke, S. J., Barna, D. M., Engeland, K., Kolberg, S. A., Nordeide, S.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "30",
+    "pages": "6207-6233",
+    "year": 2026,
+    "doi": "10.5194/hess-30-6207-2026",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-14.webp",
+      "caption": "How often the simulated flood peak lands on the right day for snowmelt, mixed and rainfall floods, for the LSTM (a) and the operational HBV model (b). Green is the correct day; grey shades are peaks that come too early, purple shades too late.",
+      "credit": "Figure 5 from Bakke et al. (2026), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "A single LSTM trained on 200 Norwegian catchments simulated flood peaks better than the operational HBV model, but snowmelt floods remain much harder to time than rainfall floods for both models.",
+    "background": "Flood models are usually scored on all floods lumped together, yet in cold regions a spring snowmelt flood and an autumn rainstorm flood are driven by very different processes and weather histories. A model can look good overall while doing poorly on one flood type. Few deep learning studies have checked LSTM skill separately for each flood-generating process, which matters for national forecasting services that face both.",
+    "approach": "The Norwegian Water Resources and Energy Directorate (NVE) trained one LSTM (NeuralHydrology, 270-day input sequences) on 200 near-natural catchments using daily precipitation and temperature from the 1 km SeNorge grid plus 21 static catchment attributes. Both the LSTM and the operational semi-distributed HBV model were trained or calibrated on 2009–2024 and evaluated on the unseen 1994–2009 period in 103 catchments. Floods were picked as independent peaks above the 98th percentile and labelled snowmelt, rainfall or mixed depending on whether more than two-thirds of the input water came from melt or rain. Peak timing, peak magnitude error, false alarm rate and probability of detection were compared for each flood type.",
+    "findings": [
+      "Overall the LSTM reached an average NSE of 0.84 (HBV 0.76) and had a higher NSE in 99 of 103 catchments.",
+      "The LSTM put the peak on the correct day for 77% of rainfall floods, 67% of mixed floods and only 50% of snowmelt floods; HBV was 14–16 percentage points lower for every type, mostly because its peaks came too early.",
+      "Peak-magnitude skill was similar across flood types: close to half of LSTM peaks were within ±20%, versus about 36–38% for HBV, and both models tended to underestimate peaks.",
+      "Per catchment, the LSTM beat HBV on timing in 84% (snowmelt) and 78% (rainfall) of catchments, with the largest gains where HBV performed worst.",
+      "A remaining weakness is that the LSTM underestimates flow variability in most catchments (82%)."
+    ],
+    "relevance": "Deep learning models are moving from research papers into national flood warning services, and this study shows how to test them honestly: separately for each kind of flood rather than with one average score. The finding that snowmelt peaks are hard to time even for a strong LSTM is a useful reminder that a good overall score can hide weak spots. In Korea most floods come from monsoon rain and typhoons rather than snowmelt, but the same idea applies: models should be checked separately on convective downpours, typhoon rain and long rainy-season events before they are trusted for warnings, especially in small basins.",
+    "keywords": ["LSTM", "flood peaks", "snowmelt floods", "HBV", "Norway", "model evaluation"]
+  },
+  {
     "id": "2026-11-13",
     "date": "2026-11-13",
     "theme": "Hydrology",
