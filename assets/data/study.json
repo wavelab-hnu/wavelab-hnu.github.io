@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-15",
+    "date": "2026-11-15",
+    "theme": "Vision & Sensing",
+    "title": "Rainfall intensity estimations based on degradation characteristics of images taken with commercial cameras",
+    "authors": "Kanazawa, A., Uchida, T.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "29",
+    "pages": "3165-3202",
+    "year": 2025,
+    "doi": "10.5194/hess-29-3165-2025",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-15.webp",
+      "caption": "Workflow of the method: image patches are processed with the dark channel prior to get transmission, scene depth comes from camera settings and topography, and the two together give an extinction coefficient that is converted into rainfall intensity.",
+      "credit": "Figure 4 from Kanazawa and Uchida (2025), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "Rain makes distant scenery look hazier in a camera image, and by measuring how much the background fades with distance, ordinary outdoor cameras can give a physically based estimate of rainfall intensity without any training data.",
+    "background": "Rain gauges are sparse, especially in mountains, and radar or satellite products struggle to resolve rainfall at the scale of a small watershed. Meanwhile, surveillance and monitoring cameras are everywhere. Most camera-based rainfall methods so far rely on spotting raindrop streaks or on machine-learning models that need large labelled datasets. This study asks whether the overall 'washing out' of a background scene during rain can be turned into a rainfall estimate using physics instead.",
+    "approach": "The authors combined a standard image-dehazing technique (the dark channel prior) with atmospheric extinction theory, assuming a Marshall–Palmer raindrop size distribution. This yields equations linking image transmission, rainfall intensity and the distance to the background (scene depth), which can be inverted to estimate rainfall. They tested it with three low-cost interval cameras (one image per minute) on the banks of the Omu River in a mountainous watershed in Yamanashi, Japan, over 235 days from April to December 2021, against a 1-minute tipping-bucket gauge. Each image was split into 64 patches, and the scene depth of each patch was taken from a 5 m digital elevation model.",
+    "findings": [
+      "As the theory predicts, image transmission dropped exponentially with both rainfall intensity and distance to the background.",
+      "For backgrounds farther than about 100 m, the derived extinction coefficients agreed with earlier studies; for closer backgrounds they were overestimated, with or without rain.",
+      "Rainfall errors depended strongly on the chosen background: restricting to patches beyond 100 m cut the median error to roughly 41–97% across the three cameras, whereas using all patches gave much larger errors.",
+      "The best-performing patches were vegetated slopes about 130–200 m away, and with them the method tracked short-term ups and downs in rainfall.",
+      "The method needs only a single daytime image plus scene depth and runs in under a minute per image, but it cannot yet separate fog from rain, does not work at night, and is sensitive to dew or raindrops on the lens."
+    ],
+    "relevance": "Flash floods in small mountain and urban catchments often happen where there is no rain gauge close enough to warn people in time. Cities, roads and rivers in Korea are already covered by CCTV, so a physics-based method that reads rainfall from existing cameras could add thousands of 'free' rain sensors during monsoon and typhoon storms. The study is also an honest reminder that camera rainfall is still rough: choosing the right background matters a lot, and fog and night-time remain open problems that students can work on.",
+    "keywords": ["camera rainfall", "image degradation", "dark channel prior", "extinction coefficient", "low-cost sensing"]
+  },
+  {
     "id": "2026-11-14",
     "date": "2026-11-14",
     "theme": "AI Forecasting",
