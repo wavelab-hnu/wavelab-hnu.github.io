@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-16",
+    "date": "2026-11-16",
+    "theme": "Earth Observation",
+    "title": "Advancing Near-Real-Time Flood Inundation Mapping in Australia",
+    "authors": "Hou, J., Sharples, W., Tarpanelli, A., Renzullo, L., Woldemeskel, F., Carrara, E.",
+    "journal": "Water Resources Research",
+    "volume": "62",
+    "pages": "e2025WR040640",
+    "year": 2026,
+    "doi": "10.1029/2025WR040640",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-16.webp",
+      "caption": "One flooded river reach in the Hawkesbury-Nepean Valley seen by different sources: Sentinel-2 true colour and NDWI with cloud mask (a, b), Sentinel-1 VV and VH radar backscatter (c, d), the Copernicus GloFAS GFM flood map (e) and the Landsat-based DEA Water Observations (f), compared with the LiDAR elevation model (g) and the study's 5 m flood depth map (h). Clouds, riverbank trees and data gaps leave holes in (a–f) that the terrain-based approach fills in.",
+      "credit": "Figure 7 from Hou et al. (2026), Water Resources Research, CC BY 4.0."
+    },
+    "tldr": "By converting a water level, whether measured at a gauge, simulated by a model or inferred from a satellite image, into flood extent and depth on 1 m airborne LiDAR terrain, Australia can get detailed 5 m flood maps in near real time even when clouds or missing gauges leave gaps.",
+    "background": "Flooding causes about a fifth of natural-hazard deaths in Australia, and the 2022 floods alone cost around 5 billion dollars. During an event, managers need to know quickly where the water is and how deep it is. Gauges only give point measurements and can fail or be missing, optical satellites are blinded by the clouds that come with heavy rain, radar has its own problems with trees and buildings, and large-scale models are uncalibrated in many places. No single source is enough on its own.",
+    "approach": "The authors built a cloud-based workflow that pulls live gauge water levels through the Bureau of Meteorology's data API, daily runoff from the national AWRA-L water balance model routed with the CaMa-Flood river model, and Sentinel-1, Sentinel-2 and Landsat imagery from Google Earth Engine and Digital Earth Australia. All three paths end in the same step: a Height Above Nearest Drainage (HAND) map built from 1 m airborne LiDAR and corrected with national river and historical water datasets, which turns a water level into a 5 m map of flood extent and depth. For satellite images, they search for the water level whose HAND footprint best matches the raw satellite flood map, which fills areas hidden by cloud, trees or missing data. Model uncertainty was handled with 100 ensemble runs varying channel width and Manning roughness, giving probabilistic maps. The system was tested on seven flood-prone catchments in Queensland and New South Wales, and checked against commercial ICEYE flood maps where they were available.",
+    "findings": [
+      "For the December 2023 floods after Tropical Cyclone Jasper, gauge-based maps agreed best with the ICEYE benchmark (critical success index 0.81–0.85), and Sentinel-1 maps scored 0.80–0.81 in the two rivers where radar caught the flood.",
+      "Model-based maps worked well in some rivers (CSI 0.81–0.85 in the Daintree and Mulgrave) but failed in the Barron (0.14), where no satellite image was available to fill the gap either.",
+      "Optical satellites saw nothing useful in the four Queensland rivers because of heavy cloud, so cloud-penetrating radar and the model were the only alternatives to gauges.",
+      "In the March 2022 Hawkesbury-Nepean flood, combining several satellite passes tracked flooded area more closely than the model median (RMSE about 8.6 versus 18.2 km² against the gauge-based series), mainly because the satellites captured the recession, which the model simulated too slowly.",
+      "Of the uncertain model parameters, Manning roughness affected flood timing and size much more than bankfull width, and adding runoff ensembles helped the model reproduce flood peaks in hindcast tests."
+    ],
+    "relevance": "When a flood hits, the most useful product is a map of where the water is right now and how deep, not just a river level at one bridge. This study shows that the key ingredient is a very detailed terrain model: once you have it, a single water level from any source can be turned into a street-scale flood map. Korea has the same pieces available, with dense gauge networks on major rivers, national LiDAR elevation data and free Sentinel-1 radar that sees through monsoon and typhoon clouds, while small and ungauged streams remain the hard case. The paper is also an honest reminder that models can miss badly in some rivers, so combining sources and showing uncertainty matters as much as the map itself.",
+    "keywords": ["flood mapping", "Sentinel-1 SAR", "LiDAR", "HAND", "near real time", "ensemble modelling"]
+  },
+  {
     "id": "2026-11-15",
     "date": "2026-11-15",
     "theme": "Vision & Sensing",
