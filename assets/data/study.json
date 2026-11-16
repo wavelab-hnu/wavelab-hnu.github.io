@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-17",
+    "date": "2026-11-17",
+    "theme": "Hydrology",
+    "title": "What is a drought-to-flood transition? Pitfalls and recommendations for defining consecutive hydrological extreme events",
+    "authors": "Anderson, B. J., Muñoz-Castro, E., Tallaksen, L. M., Matano, A., Götte, J., Armitage, R., Magee, E., Brunner, M. I.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "29",
+    "pages": "6069-6092",
+    "year": 2025,
+    "doi": "10.5194/hess-29-6069-2025",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-17.webp",
+      "caption": "How the events are picked from a daily streamflow record. Left: the flow is smoothed before droughts are identified (a), and rivers that run dry get a special ranking so zero-flow days can be handled (b). Right: the same record analysed with a drought threshold that changes every day (c), by season (d) or stays fixed (e); brown bars are detected droughts, blue dots are floods, and each choice selects different droughts, so a 'rapid transition' appears only in some cases.",
+      "credit": "Figure 2 from Anderson et al. (2025), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "Whether a river is counted as having swung from drought to flood depends heavily on how you define drought, flood and the time gap between them, and common definitions picked up only three of eight real, well-reported drought-to-flood events.",
+    "background": "Floods that arrive right after a drought make headlines and can be especially damaging, so research on these 'whiplash' events is growing fast. But droughts and floods have traditionally been studied separately, each with its own definitions, and there is no agreed way to define the two happening back to back. If different studies use different rules, their counts and trends cannot really be compared, and events that hurt people may not even show up in the statistics.",
+    "approach": "The authors chose eight catchments in seven countries (Australia, Chile, England, Italy, Norway, Switzerland, and California and Texas in the USA) where a drought-to-flood event with real impacts was reported by media, agencies or scientists. Using observed daily streamflow, they detected droughts with three threshold styles (changing daily through the year, changing by season, or fixed) and floods with a seasonal or fixed peaks-over-threshold. Thresholds were tuned so every method gave the same event frequency, about one drought every two years and two floods per year, which makes the methods comparable. A transition was counted when a flood began less than 90 days after a drought ended, with 14 days marking a 'rapid' transition, and the gaps were fitted with a GEV distribution to estimate how likely a transition is within those windows. They then checked whether each method found the reported events and looked at the time series to understand the failures.",
+    "findings": [
+      "Only three of the eight reported drought-to-flood events were detected. In Switzerland, England, Italy and California no method combination found the transition, while in Texas and Australia every combination did.",
+      "The Norwegian event was caught only with the daily varying drought threshold and the Chilean one only with the fixed threshold, so the 'right' method differs from river to river.",
+      "Method choice mattered most in strongly seasonal rivers: in Norway the estimated chance of a flood within 14 days of a drought ending ranged from 4.1 % to 12.7 % depending on the thresholds. In weakly seasonal rivers such as the Swiss one it mattered little (14.7–19.8 %).",
+      "Daily averages can hide flash floods: in the Swiss Emme the daily flow on the flood day was not extreme, but the hourly peak reached 255 m³/s, and the river went from low flow to flood and back in under 12 hours.",
+      "The authors conclude that no single definition fits all rivers and recommend choosing methods to match the impact of interest, filtering events by season or driver, and defining transitions relative to what is normal for each catchment."
+    ],
+    "relevance": "'Drought-to-flood' or 'weather whiplash' is now a common phrase in news and research, but this paper shows that the numbers behind it depend strongly on definitions that are rarely questioned. That is a useful lesson for anyone reading or producing statistics on extremes: check how the event was defined and whether the data resolution can even see it. Korea is a natural place for these swings, with dry springs followed by the monsoon and typhoons, strongly seasonal flow, and many small, steep basins where floods rise and fall within hours, exactly the conditions where the study found thresholds and daily data most likely to mislead. For water managers who must switch reservoirs from saving water to making flood room, a clear, locally meaningful definition of such transitions is the first step toward planning for them.",
+    "keywords": ["drought-to-flood transition", "compound events", "threshold level method", "event definition", "streamflow", "hydroclimate whiplash"]
+  },
+  {
     "id": "2026-11-16",
     "date": "2026-11-16",
     "theme": "Earth Observation",
