@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-18",
+    "date": "2026-11-18",
+    "theme": "AI Forecasting",
+    "title": "Testing discharge assimilation strategies to enhance short-range AI-based operational rainfall–runoff forecasts",
+    "authors": "Saint-Fleur, B. E., Gaume, E., Surmont, F., Akil, N., Theriez, D.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "30",
+    "pages": "3497-3527",
+    "year": 2026,
+    "doi": "10.5194/hess-30-3497-2026",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-18.webp",
+      "caption": "The three ways of feeding recently observed river flow into a forecast. A small neural network (MLP) either forecasts flow on its own from weather data and past observed flow (DA1), also receives the flow simulated by an LSTM or by the SAC-SMA model (DA2), or forecasts the error of those models so that it can be corrected (DA3).",
+      "credit": "Figure 2 from Saint-Fleur et al. (2026), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "Telling a streamflow forecast what the river did in the last few days clearly improves short-range predictions, and once realistic ensemble weather forecasts are used, a simple neural network fed with recent flow can beat a much more sophisticated LSTM.",
+    "background": "Operational flood and water-supply forecasting has long relied on 'discharge assimilation': using the latest river-gauge readings to pull a running forecast back toward reality. Deep learning rainfall–runoff models, especially LSTMs, now often outperform traditional models, but most published studies run them without this step and test them with observed weather rather than real weather forecasts. That leaves an open question for forecasting centres: how much does recent observed flow add to an AI model, and do the results still hold when the weather input is uncertain?",
+    "approach": "The authors used a multilayer perceptron (MLP) as a light 'orchestrator' and tested three assimilation strategies: the MLP alone with weather data and past observed flow (DA1), the MLP plus forecasts from a pre-trained rainfall–runoff model (DA2), and an MLP that predicts and corrects that model's errors (DA3). The two benchmark models were a regional LSTM and the conceptual SAC-SMA model, evaluated on the CAMELS-US catchments, with a further test on French catchments from CAMELS-FR. Separate models were built for lead times of 1 to 7 days. Forecasts were first run with 'perfect' weather (observed values used as the forecast) and then with ensemble weather inputs, including a no-skill climatology ensemble and hindcast or archived forecast ensembles. Skill was measured with NSE, KGE and a persistence score for single forecasts, and with CRPS, rank diagrams, spread–skill ratio, Brier score and AUC for ensembles.",
+    "findings": [
+      "With perfect weather input, adding recent observed flow improved forecasts, with the size of the gain depending on how good the benchmark already was and on lead time; the benefit shrank as lead time grew.",
+      "The conceptual SAC-SMA model gained consistently, while the LSTM gained mainly at short lead times and in basins where it had performed poorly to begin with.",
+      "Combining the MLP with a rainfall–runoff model's forecast (DA2) was the most effective strategy overall, followed by error correction (DA3); both improved the benchmarks or at least did not significantly degrade them.",
+      "With ensemble weather forecasts the ranking changed: the simple MLP with observed flow (DA1) outperformed the LSTM across the tested lead times, particularly in detecting threshold exceedances (Brier score and AUC).",
+      "The LSTM's flow ensembles were too narrow (under-dispersed), even when driven by a wide climatology ensemble, and in the French catchments, which respond more slowly, assimilation stayed useful at longer lead times."
+    ],
+    "relevance": "A model that wins a benchmark with observed rainfall is not automatically the best one to run in a real forecasting room, where tomorrow's rain is uncertain; this study shows that the ranking can flip once that uncertainty is included. For flood warning it is a reminder that the river gauge itself is one of the most valuable inputs, and that even a small, cheap neural network can go a long way when it sees the latest observations. This is encouraging for places like Korea, where many basins are small and react within hours to monsoon and typhoon rain, and where agencies need forecasts that are fast, affordable and honest about their uncertainty. For students, the take-away is to evaluate forecasts the way they will actually be used: with forecast weather, with ensembles, and with checks on whether the spread is trustworthy.",
+    "keywords": ["discharge assimilation", "LSTM", "streamflow forecasting", "ensemble forecasts", "CAMELS", "multilayer perceptron"]
+  },
+  {
     "id": "2026-11-17",
     "date": "2026-11-17",
     "theme": "Hydrology",
