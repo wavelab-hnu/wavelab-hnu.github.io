@@ -7,74 +7,73 @@
   <meta name="description" content="WAVE Lab — Water Analytics for Variability with Earth Observation (지능형 수자원 연구실), Department of Civil and Environmental Engineering, Hannam University.">
   <link rel="icon" href="assets/img/logo.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611180500">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611190900">
 </head>
 <body>
   <header id="site-header"></header>
 
   <main>
     <section class="hero">
-      <!-- the logo, large: a drop whose wave leaves it as a finer and finer signal -->
-      <div class="hero-side">
-      <svg class="hero-art" viewBox="0 0 560 440" aria-hidden="true">
+      <div class="container">
+        <div class="hero-top">
+          <!-- the logo, large: a drop whose wave leaves it as a finer and finer signal -->
+          <div class="hero-side" aria-hidden="true">
+            <svg class="hero-art" viewBox="0 0 560 440" aria-hidden="true">
         <defs><clipPath id="hero-drop"><path d="M150 40C150 85 208 134.5 243.7 192.4A110 110 0 1 1 56.3 192.4C92 134.5 150 85 150 40Z"/></clipPath></defs>
         <ellipse cx="270" cy="230" rx="270" ry="92" fill="none" stroke="#5cc6d6" stroke-width="2" opacity=".28" transform="rotate(-25 270 230)"/>
-        <path d="M150 40C150 85 208 134.5 243.7 192.4A110 110 0 1 1 56.3 192.4C92 134.5 150 85 150 40Z" fill="rgba(92,198,214,.15)" stroke="rgba(92,198,214,.45)" stroke-width="2"/>
+        <path class="ha-drop" d="M150 40C150 85 208 134.5 243.7 192.4A110 110 0 1 1 56.3 192.4C92 134.5 150 85 150 40Z" fill="rgba(92,198,214,.15)" stroke="rgba(92,198,214,.45)" stroke-width="2"/>
         <path d="M80 270q25 -50 50 0q25 50 50 0q21 -42 42 0q21 42 42 0q17 -34 34 0q17 34 34 0q13.5 -27 27 0q13.5 27 27 0q10.5 -21 21 0q10.5 21 21 0q8 -16 16 0q8 16 16 0q6 -12 12 0q6 12 12 0q4.5 -9 9 0q4.5 9 9 0q3.5 -7 7 0q3.5 7 7 0q2.5 -5 5 0q2.5 5 5 0" fill="none" stroke="#5cc6d6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
         <path clip-path="url(#hero-drop)" d="M80 270q25 -50 50 0q25 50 50 0q21 -42 42 0q21 42 42 0q17 -34 34 0q17 34 34 0q13.5 -27 27 0q13.5 27 27 0q10.5 -21 21 0q10.5 21 21 0q8 -16 16 0q8 16 16 0q6 -12 12 0q6 12 12 0q4.5 -9 9 0q4.5 9 9 0q3.5 -7 7 0q3.5 7 7 0q2.5 -5 5 0q2.5 5 5 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="514" cy="116" r="9" fill="#5cc6d6"/>
       </svg>
-        <div class="hero-note">
-          <span data-ko="로고의 뜻">Our logo</span>
-          <p data-ko="물 한 방울 속 물결이 밖으로 나오며 신호가 됩니다. 우리는 그 신호를 읽어 물을 이해합니다.">A drop of water whose wave leaves it as a signal. We read that signal to understand the water.</p>
-          <a data-ko="로고 이야기 보기 →" href="#logo-story">Read the story →</a>
+          </div>
+          <span data-ko="한남대학교 · 건설환경공학과" class="eyebrow">Hannam University · Civil &amp; Environmental Engineering</span>
+          <h1><b>W</b>ater <b>A</b>nalytics for <b>V</b>ariability with <b>E</b>arth Observation</h1>
+          <div class="ko">지능형 수자원 연구실 (WAVE Lab)</div>
+          <p data-ko="한 번의 호우부터 유역 규모의 홍수와 가뭄까지, 시간과 공간에 따라 달라지는 물을 수문 모형, 극한 기후 분석, AI 예측, 위성 원격탐사로 연구합니다.">We study how water varies in space and time — from a single storm to basin-scale floods and droughts — through hydrologic modeling, climate-extreme analysis, AI-based forecasting, and satellite remote sensing.</p>
+          <div class="btn-row">
+            <a data-ko="연구 분야 보기" class="btn btn-primary" href="research.html">Explore Research</a>
+            <a data-ko="문의하기" class="btn btn-ghost" href="contact.html">Contact Us</a>
+          </div>
+          <!-- click layer over the drawing: the drop and the note both open the logo story -->
+          <div class="hero-side hero-hit">
+            <button class="hero-logo-btn" type="button" data-logo-open aria-haspopup="dialog" aria-label="What our logo means"><i aria-hidden="true"></i></button>
+            <div class="hero-note">
+              <span data-ko="로고의 뜻">Our logo</span>
+              <p data-ko="물 한 방울 속 물결이 밖으로 나오며 신호가 됩니다. 우리는 그 신호를 읽어 물을 이해합니다.">A drop of water whose wave leaves it as a signal. We read that signal to understand the water.</p>
+              <button data-ko="로고 이야기 보기 →" type="button" data-logo-open aria-haspopup="dialog">See what it means →</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="container">
-        <span data-ko="한남대학교 · 건설환경공학과" class="eyebrow">Hannam University · Civil &amp; Environmental Engineering</span>
-        <h1>Water Analytics for Variability with Earth Observation</h1>
-        <div class="ko">지능형 수자원 연구실 (WAVE Lab)</div>
-        <p data-ko="한 번의 호우부터 유역 규모의 홍수와 가뭄까지, 시간과 공간에 따라 달라지는 물을 수문 모형, 극한 기후 분석, AI 예측, 위성 원격탐사로 연구합니다.">We study how water varies in space and time — from a single storm to basin-scale floods and droughts — through hydrologic modeling, climate-extreme analysis, AI-based forecasting, and satellite remote sensing.</p>
-        <div class="btn-row">
-          <a data-ko="연구 분야 보기" class="btn btn-primary" href="research.html">Explore Research</a>
-          <a data-ko="문의하기" class="btn btn-ghost" href="contact.html">Contact Us</a>
+        <!-- what W·A·V·E stands for -->
+        <div class="hero-wave">
+          <div class="hw">
+            <b aria-hidden="true">W</b>
+            <strong data-ko="Water · 물">Water</strong>
+            <span data-ko="비, 하천, 홍수, 가뭄. 모든 연구는 물에서 시작합니다.">Rain, rivers, floods, and droughts. Everything we study begins with water.</span>
+          </div>
+          <div class="hw">
+            <b aria-hidden="true">A</b>
+            <strong data-ko="Analytics · 분석">Analytics</strong>
+            <span data-ko="수문 모형, 신호 분해, 인공지능으로 자료에서 답을 찾습니다.">Hydrologic models, signal decomposition, and AI that turn data into answers.</span>
+          </div>
+          <div class="hw" data-join="for">
+            <b aria-hidden="true">V</b>
+            <strong data-ko="Variability · 변동성">Variability</strong>
+            <span data-ko="한 번의 호우부터 기후 극한까지, 시간과 공간에 따라 달라지는 물을 봅니다.">How water changes across space and time, from a single storm to climate extremes.</span>
+          </div>
+          <div class="hw" data-join="with">
+            <b aria-hidden="true">E</b>
+            <strong data-ko="Earth Observation · 지구 관측">Earth Observation</strong>
+            <span data-ko="위성과 레이더로 우주에서 물을 관측하고, 지상 관측으로 뒷받침합니다.">Watching water from space with satellites and radar, supported by observations on the ground.</span>
+          </div>
         </div>
+        <button class="logo-chip" type="button" data-logo-open aria-haspopup="dialog"><img src="assets/img/logo.svg?v=2" alt="" width="28" height="28"><span data-ko="로고에 담긴 뜻 보기 →">What our logo means →</span></button>
       </div>
       <svg class="hero-waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
         <path d="M0 50 C 240 10, 480 90, 720 50 S 1200 10, 1440 50 L1440 90 L0 90 Z" fill="#fff" opacity=".12"/>
         <path d="M0 62 C 260 30, 520 95, 760 60 S 1220 30, 1440 62 L1440 90 L0 90 Z" fill="#fff"/>
       </svg>
-    </section>
-
-    <section class="name-sec" data-reveal>
-      <div class="container">
-        <span data-ko="이름에 담긴 뜻" class="eyebrow">Our name</span>
-        <h2 data-ko="WAVE가 뜻하는 것">What WAVE stands for</h2>
-        <p data-ko="물결(wave)은 움직이는 물이면서, 동시에 신호입니다. 연구실 이름에는 이 두 가지가 모두 담겨 있습니다." class="lead">A wave is water in motion — and it is also a signal. Our name holds both.</p>
-        <div class="wave-letters">
-          <div class="wl rv">
-            <b aria-hidden="true">W</b>
-            <h3 data-ko="Water · 물">Water</h3>
-            <p data-ko="비, 하천, 홍수, 가뭄. 모든 연구는 물에서 시작합니다.">Rain, rivers, floods, and droughts. Everything we study begins with water.</p>
-          </div>
-          <div class="wl rv">
-            <b aria-hidden="true">A</b>
-            <h3 data-ko="Analytics · 분석">Analytics</h3>
-            <p data-ko="수문 모형, 신호 분해, 인공지능으로 자료에서 답을 찾습니다.">Hydrologic models, signal decomposition, and AI that turn data into answers.</p>
-          </div>
-          <div class="wl rv" data-join="for">
-            <b aria-hidden="true">V</b>
-            <h3 data-ko="Variability · 변동성">Variability</h3>
-            <p data-ko="한 번의 호우부터 기후 극한까지, 시간과 공간에 따라 달라지는 물을 봅니다.">How water changes across space and time, from a single storm to climate extremes.</p>
-          </div>
-          <div class="wl rv" data-join="with">
-            <b aria-hidden="true">E</b>
-            <h3 data-ko="Earth Observation · 지구 관측">Earth Observation</h3>
-            <p data-ko="위성과 레이더로 우주에서 물을 관측하고, 지상 관측으로 뒷받침합니다.">Watching water from space with satellites and radar, supported by observations on the ground.</p>
-          </div>
-        </div>
-        <p class="wave-full rv"><b>W</b>ater <b>A</b>nalytics <i>for</i> <b>V</b>ariability <i>with</i> <b>E</b>arth Observation</p>
-      </div>
     </section>
 
     <section>
@@ -111,48 +110,6 @@
       </div>
     </section>
 
-    <section class="logo-story" id="logo-story" data-reveal>
-      <div class="container ls-grid">
-        <div class="logo-fig" id="logo-fig">
-          <svg viewBox="0 0 64 64" role="img" aria-label="WAVE Lab logo">
-            <defs>
-              <clipPath id="ls-in"><path d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath>
-              <clipPath id="ls-out"><path clip-rule="evenodd" d="M0 0H64V64H0ZM32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath>
-            </defs>
-            <circle class="lp-bg" cx="32" cy="32" r="30" fill="#103257" stroke="rgba(92,198,214,.4)" stroke-width=".5"/>
-            <g class="lp lp-orbit"><ellipse cx="32" cy="32" rx="26" ry="9" fill="none" stroke="#5cc6d6" stroke-width="2" transform="rotate(-25 32 32)" opacity=".7"/></g>
-            <path class="lp lp-drop" d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z" fill="#0e8a9c"/>
-            <g clip-path="url(#ls-out)"><path class="lp lp-signal ls-draw" pathLength="1" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#5cc6d6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-            <g clip-path="url(#ls-in)"><path class="lp lp-wave ls-draw" pathLength="1" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
-            <circle class="lp lp-orbit" cx="52" cy="22" r="3" fill="#5cc6d6"/>
-          </svg>
-        </div>
-        <div>
-          <span data-ko="로고 이야기" class="eyebrow">Our logo</span>
-          <h2 data-ko="물 한 방울이 신호가 되기까지">A drop of water, turned into a signal</h2>
-          <ul class="ls-list">
-            <li class="ls-item rv" data-part="drop" tabindex="0">
-              <span class="ls-mini" data-on="drop" aria-hidden="true"></span>
-              <div><h3 data-ko="물방울">The drop</h3><p data-ko="물 그 자체. 모든 관측은 빗방울 하나에서 시작합니다.">Water itself. Every measurement begins with a single raindrop.</p></div>
-            </li>
-            <li class="ls-item rv" data-part="wave" tabindex="0">
-              <span class="ls-mini" data-on="wave" aria-hidden="true"></span>
-              <div><h3 data-ko="물방울 속 물결">The wave inside</h3><p data-ko="자연 그대로의 물의 움직임. 크고 느리게 이어집니다.">Water as nature moves it: broad, slow, and continuous.</p></div>
-            </li>
-            <li class="ls-item rv" data-part="signal" tabindex="0">
-              <span class="ls-mini" data-on="signal" aria-hidden="true"></span>
-              <div><h3 data-ko="밖으로 나오는 잔물결">The ripple that leaves</h3><p data-ko="같은 물결이 신호가 됩니다. 재고, 분해하고, 분석과 AI로 읽어 냅니다. 자세히 볼수록 더 촘촘해집니다.">The same wave, now a signal: measured, decomposed, and read with analytics and AI. It grows finer the closer we look.</p></div>
-            </li>
-            <li class="ls-item rv" data-part="orbit" tabindex="0">
-              <span class="ls-mini" data-on="orbit" aria-hidden="true"></span>
-              <div><h3 data-ko="궤도와 위성">The orbit</h3><p data-ko="지구 관측. 위성이 우주에서 물을 지켜봅니다.">Earth observation: a satellite circling above, watching water from space.</p></div>
-            </li>
-          </ul>
-          <p data-ko="물결은 물이면서 신호입니다. 우리는 신호를 읽어 물을 이해합니다." class="ls-quote rv">A wave is both water and a signal. We study one by reading the other.</p>
-        </div>
-      </div>
-    </section>
-
     <section class="section-soft">
       <div class="container">
         <div class="stats" data-render="stats"></div>
@@ -184,33 +141,89 @@
     </section>
   </main>
 
+  <!-- The story in the logo: opens when the logo in the hero is clicked -->
+  <dialog class="logo-dialog" id="logo-story" aria-labelledby="ld-title">
+    <div class="ld-body">
+      <button class="ld-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="ls-grid">
+        <div class="logo-fig" id="logo-fig">
+          <svg viewBox="0 0 64 64" role="img" aria-label="WAVE Lab logo">
+            <defs>
+              <clipPath id="ls-in"><path d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath>
+              <clipPath id="ls-out"><path clip-rule="evenodd" d="M0 0H64V64H0ZM32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath>
+            </defs>
+            <circle class="lp-bg" cx="32" cy="32" r="30" fill="#103257" stroke="rgba(92,198,214,.4)" stroke-width=".5"/>
+            <g class="lp lp-orbit"><ellipse cx="32" cy="32" rx="26" ry="9" fill="none" stroke="#5cc6d6" stroke-width="2" transform="rotate(-25 32 32)" opacity=".7"/></g>
+            <path class="lp lp-drop" d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z" fill="#0e8a9c"/>
+            <g clip-path="url(#ls-out)"><path class="lp lp-signal ls-draw" pathLength="1" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#5cc6d6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g clip-path="url(#ls-in)"><path class="lp lp-wave ls-draw" pathLength="1" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <circle class="lp lp-orbit" cx="52" cy="22" r="3" fill="#5cc6d6"/>
+          </svg>
+        </div>
+        <div>
+          <span data-ko="로고 이야기" class="eyebrow">Our logo</span>
+          <h2 data-ko="물 한 방울이 신호가 되기까지" id="ld-title">A drop of water, turned into a signal</h2>
+          <ul class="ls-list">
+            <li class="ls-item" data-part="drop" tabindex="0">
+              <span class="ls-mini" data-on="drop" aria-hidden="true"></span>
+              <div><h3 data-ko="물방울">The drop</h3><p data-ko="물 그 자체. 모든 관측은 빗방울 하나에서 시작합니다.">Water itself. Every measurement begins with a single raindrop.</p></div>
+            </li>
+            <li class="ls-item" data-part="wave" tabindex="0">
+              <span class="ls-mini" data-on="wave" aria-hidden="true"></span>
+              <div><h3 data-ko="물방울 속 물결">The wave inside</h3><p data-ko="자연 그대로의 물의 움직임. 크고 느리게 이어집니다.">Water as nature moves it: broad, slow, and continuous.</p></div>
+            </li>
+            <li class="ls-item" data-part="signal" tabindex="0">
+              <span class="ls-mini" data-on="signal" aria-hidden="true"></span>
+              <div><h3 data-ko="밖으로 나오는 잔물결">The ripple that leaves</h3><p data-ko="같은 물결이 신호가 됩니다. 재고, 분해하고, 분석과 AI로 읽어 냅니다. 자세히 볼수록 더 촘촘해집니다.">The same wave, now a signal: measured, decomposed, and read with analytics and AI. It grows finer the closer we look.</p></div>
+            </li>
+            <li class="ls-item" data-part="orbit" tabindex="0">
+              <span class="ls-mini" data-on="orbit" aria-hidden="true"></span>
+              <div><h3 data-ko="궤도와 위성">The orbit</h3><p data-ko="지구 관측. 위성이 우주에서 물을 지켜봅니다.">Earth observation: a satellite circling above, watching water from space.</p></div>
+            </li>
+          </ul>
+          <p data-ko="물결은 물이면서 신호입니다. 우리는 신호를 읽어 물을 이해합니다." class="ls-quote">A wave is both water and a signal. We study one by reading the other.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611180500"></script>
-  <script src="assets/js/main.js?v=202611180500"></script>
+  <script src="assets/js/data.js?v=202611190900"></script>
+  <script src="assets/js/main.js?v=202611190900"></script>
   <script>
   (function () {
     // Logo story: each line gets a small copy of the logo with only its own part lit; pointing at a line lights that part in the big logo
     var fig = document.getElementById("logo-fig");
-    if (fig) {
-      var svg = fig.querySelector("svg");
-      document.querySelectorAll(".ls-mini").forEach(function (m) { m.appendChild(svg.cloneNode(true)); });
-      document.querySelectorAll(".ls-item").forEach(function (it) {
-        var on = function () { fig.setAttribute("data-on", it.dataset.part); };
-        var off = function () { fig.removeAttribute("data-on"); };
-        it.addEventListener("mouseenter", on); it.addEventListener("mouseleave", off);
-        it.addEventListener("focus", on); it.addEventListener("blur", off);
-      });
+    var svg = fig.querySelector("svg");
+    document.querySelectorAll(".ls-mini").forEach(function (m) { m.appendChild(svg.cloneNode(true)); });
+    document.querySelectorAll(".ls-item").forEach(function (it) {
+      var on = function () { fig.setAttribute("data-on", it.dataset.part); };
+      var off = function () { fig.removeAttribute("data-on"); };
+      it.addEventListener("mouseenter", on); it.addEventListener("mouseleave", off);
+      it.addEventListener("focus", on); it.addEventListener("blur", off);
+    });
+
+    // The story opens as a window when the logo (or its note) in the hero is clicked
+    var dlg = document.getElementById("logo-story");
+    var root = document.documentElement;
+    function lock(on) {   // keep the page behind from scrolling, without the layout jumping when the scrollbar goes
+      var w = window.innerWidth - root.clientWidth;
+      root.style.overflow = on ? "hidden" : "";
+      document.body.style.paddingRight = on && w > 0 ? w + "px" : "";
     }
-    // Sections fade in as they scroll into view (content stays visible if this script does not run)
-    var secs = document.querySelectorAll("[data-reveal]");
-    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      secs.forEach(function (s) { s.classList.add("in"); });
-      return;
+    function openStory() {
+      if (dlg.open) return;
+      lock(true);
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
     }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.2 });
-    secs.forEach(function (s) { s.classList.add("anim"); io.observe(s); });
+    function closeStory() {
+      if (dlg.close) dlg.close(); else { dlg.removeAttribute("open"); lock(false); }
+    }
+    dlg.addEventListener("close", function () { lock(false); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) closeStory(); });   // click outside the panel
+    dlg.querySelector(".ld-close").addEventListener("click", closeStory);
+    document.querySelectorAll("[data-logo-open]").forEach(function (b) { b.addEventListener("click", openStory); });
+    if (location.hash === "#logo-story") openStory();
   })();
   </script>
 </body>
