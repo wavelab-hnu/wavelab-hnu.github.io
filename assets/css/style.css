@@ -202,6 +202,76 @@ a.card:hover .more, a.card:focus-visible .more { opacity: 1; transform: none; }
 .section-head > a { font-size: .88rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; transition: border-color .15s, background .15s; }
 .section-head > a:hover { text-decoration: none; border-color: var(--teal); background: var(--teal-light); }
 
+/* ---------- Home: what W·A·V·E stands for ---------- */
+.name-sec { padding-bottom: 72px; }
+.wave-letters { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; border-top: 1px solid var(--line); }
+.wl { position: relative; padding: 30px 26px 10px; border-left: 1px solid var(--line); }
+.wl:first-child { border-left: 0; padding-left: 0; }
+.wl b {
+  display: block; font-size: clamp(4.2rem, 8.4vw, 7rem); font-weight: 900; line-height: .92; letter-spacing: -.05em; margin-left: -.04em;
+  color: var(--navy); background: linear-gradient(150deg, var(--navy) 10%, var(--teal) 62%, var(--sky) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  transition: transform .3s cubic-bezier(.2, .7, .2, 1);
+}
+.wl:hover b { transform: translateY(-6px); }
+.wl h3 { margin: 16px 0 6px; font-size: 1.2rem; }
+.wl p { margin: 0; color: var(--muted); font-size: .95rem; }
+/* the small joining words of the full name sit on the line between the letters */
+.wl[data-join]::before {
+  content: attr(data-join); position: absolute; left: 0; top: 0; transform: translate(-50%, -50%);
+  padding: 2px 10px; background: #fff; color: var(--teal); font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+}
+.wave-full { margin: 36px 0 0; font-size: 1.05rem; color: var(--muted); }
+.wave-full b { color: var(--teal); font-weight: 800; }
+.wave-full i { font-style: normal; opacity: .7; }
+@media (max-width: 860px) {
+  .wave-letters { grid-template-columns: repeat(2, 1fr); }
+  .wl { padding: 24px 18px 22px; }
+  .wl:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .wl:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .wl[data-join]::before { display: none; }
+  .wave-full { margin-top: 20px; }
+}
+
+/* ---------- Home: the story in the logo ---------- */
+.logo-story {
+  position: relative; overflow: hidden; color: #fff;
+  background:
+    radial-gradient(760px 420px at 8% 10%, rgba(14, 138, 156, .45) 0%, transparent 62%),
+    radial-gradient(700px 400px at 100% 100%, rgba(46, 140, 190, .35) 0%, transparent 60%),
+    linear-gradient(160deg, #081c33 0%, var(--navy) 50%, #133a63 100%);
+}
+.logo-story h2 { color: #fff; }
+.logo-story .eyebrow { color: var(--sky); }
+.ls-grid { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: 72px; align-items: center; }
+.logo-fig svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 26px 50px rgba(0, 0, 0, .4)); }
+.lp { transition: opacity .3s ease; }
+[data-on] .lp { opacity: .14; }
+[data-on="drop"] .lp-drop, [data-on="wave"] .lp-wave, [data-on="signal"] .lp-signal, [data-on="orbit"] .lp-orbit { opacity: 1; }
+.ls-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 4px; }
+.ls-item { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center; padding: 12px 14px; margin-left: -14px;
+  border-radius: 14px; border: 1px solid transparent; transition: background .2s, border-color .2s; }
+.ls-item:hover, .ls-item:focus-visible { background: rgba(255, 255, 255, .06); border-color: rgba(92, 198, 214, .3); outline: 0; }
+.ls-item h3 { color: #fff; margin: 0 0 2px; font-size: 1.05rem; }
+.ls-item p { margin: 0; color: rgba(255, 255, 255, .76); font-size: .95rem; }
+.ls-mini { width: 52px; height: 52px; }
+.ls-mini svg { width: 52px; height: 52px; display: block; }
+.ls-quote { margin: 26px 0 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--sky); font-size: 1.15rem; font-weight: 600; color: #d4f1f6; text-wrap: balance; }
+@media (max-width: 860px) {
+  .ls-grid { grid-template-columns: 1fr; gap: 28px; }
+  .logo-fig { width: 200px; margin: 0 auto; }
+  .ls-item { margin-left: 0; padding: 10px 0; }
+}
+
+/* scroll-in: only when the page script has marked the section (.anim) */
+.anim .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+.anim.in .rv { opacity: 1; transform: none; }
+.anim .rv:nth-child(2) { transition-delay: .08s; } .anim .rv:nth-child(3) { transition-delay: .16s; }
+.anim .rv:nth-child(4) { transition-delay: .24s; } .anim .rv:nth-child(5) { transition-delay: .32s; }
+/* the wave line draws itself, changing from water (white) to signal (sky) as it leaves the drop */
+.anim .logo-fig .ls-draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.anim.in .logo-fig .ls-draw { stroke-dashoffset: 0; transition: stroke-dashoffset 2.2s cubic-bezier(.4, 0, .2, 1) .35s; }
+
 /* ---------- News ---------- */
 .news-list { list-style: none; margin: 0; padding: 0; }
 .news-item { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }

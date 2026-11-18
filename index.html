@@ -7,7 +7,7 @@
   <meta name="description" content="WAVE Lab — Water Analytics for Variability with Earth Observation (지능형 수자원 연구실), Department of Civil and Environmental Engineering, Hannam University.">
   <link rel="icon" href="assets/img/logo.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611180100">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611180300">
 </head>
 <body>
   <header id="site-header"></header>
@@ -39,11 +39,42 @@
       </svg>
     </section>
 
+    <section class="name-sec" data-reveal>
+      <div class="container">
+        <span data-ko="이름에 담긴 뜻" class="eyebrow">Our name</span>
+        <h2 data-ko="WAVE가 뜻하는 것">What WAVE stands for</h2>
+        <p data-ko="물결(wave)은 움직이는 물이면서, 동시에 신호입니다. 연구실 이름에는 이 두 가지가 모두 담겨 있습니다." class="lead">A wave is water in motion — and it is also a signal. Our name holds both.</p>
+        <div class="wave-letters">
+          <div class="wl rv">
+            <b aria-hidden="true">W</b>
+            <h3 data-ko="Water · 물">Water</h3>
+            <p data-ko="비, 하천, 홍수, 가뭄. 모든 연구는 물에서 시작합니다.">Rain, rivers, floods, and droughts. Everything we study begins with water.</p>
+          </div>
+          <div class="wl rv">
+            <b aria-hidden="true">A</b>
+            <h3 data-ko="Analytics · 분석">Analytics</h3>
+            <p data-ko="수문 모형, 신호 분해, 인공지능으로 자료에서 답을 찾습니다.">Hydrologic models, signal decomposition, and AI that turn data into answers.</p>
+          </div>
+          <div class="wl rv" data-join="for">
+            <b aria-hidden="true">V</b>
+            <h3 data-ko="Variability · 변동성">Variability</h3>
+            <p data-ko="한 번의 호우부터 기후 극한까지, 시간과 공간에 따라 달라지는 물을 봅니다.">How water changes across space and time, from a single storm to climate extremes.</p>
+          </div>
+          <div class="wl rv" data-join="with">
+            <b aria-hidden="true">E</b>
+            <h3 data-ko="Earth Observation · 지구 관측">Earth Observation</h3>
+            <p data-ko="카메라, 소리, 레이더, 위성으로 물을 관측합니다.">Watching water with cameras, sound, radar, and satellites.</p>
+          </div>
+        </div>
+        <p class="wave-full rv"><b>W</b>ater <b>A</b>nalytics <i>for</i> <b>V</b>ariability <i>with</i> <b>E</b>arth Observation</p>
+      </div>
+    </section>
+
     <section>
       <div class="container">
         <span data-ko="연구 소개" class="eyebrow">What we do</span>
         <h2 data-ko="연구 분야">Research Areas</h2>
-        <p class="lead"><b>W</b>ater <b>A</b>nalytics for <b>V</b>ariability with <b>E</b>arth Observation — four connected themes for measuring, explaining, and forecasting how water varies, from ground sensors to satellites.</p>
+        <p data-ko="지상 센서부터 위성까지, 물의 변화를 관측하고 설명하고 예측하는 네 가지 연구 주제입니다." class="lead">Four connected themes for measuring, explaining, and forecasting how water varies, from ground sensors to satellites.</p>
         <div class="grid grid-4" style="margin-top:28px">
           <a class="card" href="research.html">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></div>
@@ -69,6 +100,48 @@
             <p data-ko="SAR/PolSAR 홍수 탐지, 위성·재분석 자료를 활용한 극한 현상 분석과 재난 모니터링을 연구합니다.">SAR/PolSAR flood detection, satellite and reanalysis data for extremes, and disaster monitoring.</p>
             <span data-ko="자세히 보기 →" class="more">Learn more →</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="logo-story" data-reveal>
+      <div class="container ls-grid">
+        <div class="logo-fig" id="logo-fig">
+          <svg viewBox="0 0 64 64" role="img" aria-label="WAVE Lab logo">
+            <defs>
+              <clipPath id="ls-in"><path d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath>
+              <clipPath id="ls-out"><path clip-rule="evenodd" d="M0 0H64V64H0ZM32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath>
+            </defs>
+            <circle class="lp-bg" cx="32" cy="32" r="30" fill="#103257" stroke="rgba(92,198,214,.4)" stroke-width=".5"/>
+            <g class="lp lp-orbit"><ellipse cx="32" cy="32" rx="26" ry="9" fill="none" stroke="#5cc6d6" stroke-width="2" transform="rotate(-25 32 32)" opacity=".7"/></g>
+            <path class="lp lp-drop" d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z" fill="#0e8a9c"/>
+            <g clip-path="url(#ls-out)"><path class="lp lp-signal ls-draw" pathLength="1" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#5cc6d6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g clip-path="url(#ls-in)"><path class="lp lp-wave ls-draw" pathLength="1" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <circle class="lp lp-orbit" cx="52" cy="22" r="3" fill="#5cc6d6"/>
+          </svg>
+        </div>
+        <div>
+          <span data-ko="로고 이야기" class="eyebrow">Our logo</span>
+          <h2 data-ko="물 한 방울이 신호가 되기까지">A drop of water, turned into a signal</h2>
+          <ul class="ls-list">
+            <li class="ls-item rv" data-part="drop" tabindex="0">
+              <span class="ls-mini" data-on="drop" aria-hidden="true"></span>
+              <div><h3 data-ko="물방울">The drop</h3><p data-ko="물 그 자체. 모든 관측은 빗방울 하나에서 시작합니다.">Water itself. Every measurement begins with a single raindrop.</p></div>
+            </li>
+            <li class="ls-item rv" data-part="wave" tabindex="0">
+              <span class="ls-mini" data-on="wave" aria-hidden="true"></span>
+              <div><h3 data-ko="물방울 속 물결">The wave inside</h3><p data-ko="자연 그대로의 물의 움직임. 크고 느리게 이어집니다.">Water as nature moves it: broad, slow, and continuous.</p></div>
+            </li>
+            <li class="ls-item rv" data-part="signal" tabindex="0">
+              <span class="ls-mini" data-on="signal" aria-hidden="true"></span>
+              <div><h3 data-ko="밖으로 나오는 잔물결">The ripple that leaves</h3><p data-ko="같은 물결이 신호가 됩니다. 재고, 분해하고, 분석과 AI로 읽어 냅니다. 자세히 볼수록 더 촘촘해집니다.">The same wave, now a signal: measured, decomposed, and read with analytics and AI. It grows finer the closer we look.</p></div>
+            </li>
+            <li class="ls-item rv" data-part="orbit" tabindex="0">
+              <span class="ls-mini" data-on="orbit" aria-hidden="true"></span>
+              <div><h3 data-ko="궤도와 위성">The orbit</h3><p data-ko="지구 관측. 위성이 우주에서 물을 지켜봅니다.">Earth observation: a satellite circling above, watching water from space.</p></div>
+            </li>
+          </ul>
+          <p data-ko="물결은 물이면서 신호입니다. 우리는 신호를 읽어 물을 이해합니다." class="ls-quote rv">A wave is both water and a signal. We study one by reading the other.</p>
         </div>
       </div>
     </section>
@@ -105,7 +178,33 @@
   </main>
 
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611180100"></script>
-  <script src="assets/js/main.js?v=202611180100"></script>
+  <script src="assets/js/data.js?v=202611180300"></script>
+  <script src="assets/js/main.js?v=202611180300"></script>
+  <script>
+  (function () {
+    // Logo story: each line gets a small copy of the logo with only its own part lit; pointing at a line lights that part in the big logo
+    var fig = document.getElementById("logo-fig");
+    if (fig) {
+      var svg = fig.querySelector("svg");
+      document.querySelectorAll(".ls-mini").forEach(function (m) { m.appendChild(svg.cloneNode(true)); });
+      document.querySelectorAll(".ls-item").forEach(function (it) {
+        var on = function () { fig.setAttribute("data-on", it.dataset.part); };
+        var off = function () { fig.removeAttribute("data-on"); };
+        it.addEventListener("mouseenter", on); it.addEventListener("mouseleave", off);
+        it.addEventListener("focus", on); it.addEventListener("blur", off);
+      });
+    }
+    // Sections fade in as they scroll into view (content stays visible if this script does not run)
+    var secs = document.querySelectorAll("[data-reveal]");
+    if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      secs.forEach(function (s) { s.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    secs.forEach(function (s) { s.classList.add("anim"); io.observe(s); });
+  })();
+  </script>
 </body>
 </html>
