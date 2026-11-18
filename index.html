@@ -7,7 +7,7 @@
   <meta name="description" content="WAVE Lab — Water Analytics for Variability with Earth Observation (지능형 수자원 연구실), Department of Civil and Environmental Engineering, Hannam University.">
   <link rel="icon" href="assets/img/logo.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611180300">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611180500">
 </head>
 <body>
   <header id="site-header"></header>
@@ -15,6 +15,7 @@
   <main>
     <section class="hero">
       <!-- the logo, large: a drop whose wave leaves it as a finer and finer signal -->
+      <div class="hero-side">
       <svg class="hero-art" viewBox="0 0 560 440" aria-hidden="true">
         <defs><clipPath id="hero-drop"><path d="M150 40C150 85 208 134.5 243.7 192.4A110 110 0 1 1 56.3 192.4C92 134.5 150 85 150 40Z"/></clipPath></defs>
         <ellipse cx="270" cy="230" rx="270" ry="92" fill="none" stroke="#5cc6d6" stroke-width="2" opacity=".28" transform="rotate(-25 270 230)"/>
@@ -23,11 +24,17 @@
         <path clip-path="url(#hero-drop)" d="M80 270q25 -50 50 0q25 50 50 0q21 -42 42 0q21 42 42 0q17 -34 34 0q17 34 34 0q13.5 -27 27 0q13.5 27 27 0q10.5 -21 21 0q10.5 21 21 0q8 -16 16 0q8 16 16 0q6 -12 12 0q6 12 12 0q4.5 -9 9 0q4.5 9 9 0q3.5 -7 7 0q3.5 7 7 0q2.5 -5 5 0q2.5 5 5 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="514" cy="116" r="9" fill="#5cc6d6"/>
       </svg>
+        <div class="hero-note">
+          <span data-ko="로고의 뜻">Our logo</span>
+          <p data-ko="물 한 방울 속 물결이 밖으로 나오며 신호가 됩니다. 우리는 그 신호를 읽어 물을 이해합니다.">A drop of water whose wave leaves it as a signal. We read that signal to understand the water.</p>
+          <a data-ko="로고 이야기 보기 →" href="#logo-story">Read the story →</a>
+        </div>
+      </div>
       <div class="container">
         <span data-ko="한남대학교 · 건설환경공학과" class="eyebrow">Hannam University · Civil &amp; Environmental Engineering</span>
         <h1>Water Analytics for Variability with Earth Observation</h1>
         <div class="ko">지능형 수자원 연구실 (WAVE Lab)</div>
-        <p>We study how water varies in space and time — from a single raindrop to basin-scale floods and droughts — by combining hydrologic analytics and AI with observations from cameras, acoustic sensors, and satellites.</p>
+        <p data-ko="한 번의 호우부터 유역 규모의 홍수와 가뭄까지, 시간과 공간에 따라 달라지는 물을 수문 모형, 극한 기후 분석, AI 예측, 위성 원격탐사로 연구합니다.">We study how water varies in space and time — from a single storm to basin-scale floods and droughts — through hydrologic modeling, climate-extreme analysis, AI-based forecasting, and satellite remote sensing.</p>
         <div class="btn-row">
           <a data-ko="연구 분야 보기" class="btn btn-primary" href="research.html">Explore Research</a>
           <a data-ko="문의하기" class="btn btn-ghost" href="contact.html">Contact Us</a>
@@ -63,7 +70,7 @@
           <div class="wl rv" data-join="with">
             <b aria-hidden="true">E</b>
             <h3 data-ko="Earth Observation · 지구 관측">Earth Observation</h3>
-            <p data-ko="카메라, 소리, 레이더, 위성으로 물을 관측합니다.">Watching water with cameras, sound, radar, and satellites.</p>
+            <p data-ko="위성과 레이더로 우주에서 물을 관측하고, 지상 관측으로 뒷받침합니다.">Watching water from space with satellites and radar, supported by observations on the ground.</p>
           </div>
         </div>
         <p class="wave-full rv"><b>W</b>ater <b>A</b>nalytics <i>for</i> <b>V</b>ariability <i>with</i> <b>E</b>arth Observation</p>
@@ -104,7 +111,7 @@
       </div>
     </section>
 
-    <section class="logo-story" data-reveal>
+    <section class="logo-story" id="logo-story" data-reveal>
       <div class="container ls-grid">
         <div class="logo-fig" id="logo-fig">
           <svg viewBox="0 0 64 64" role="img" aria-label="WAVE Lab logo">
@@ -178,8 +185,8 @@
   </main>
 
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611180300"></script>
-  <script src="assets/js/main.js?v=202611180300"></script>
+  <script src="assets/js/data.js?v=202611180500"></script>
+  <script src="assets/js/main.js?v=202611180500"></script>
   <script>
   (function () {
     // Logo story: each line gets a small copy of the logo with only its own part lit; pointing at a line lights that part in the big logo
