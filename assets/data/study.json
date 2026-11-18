@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-19",
+    "date": "2026-11-19",
+    "theme": "Vision & Sensing",
+    "title": "A 3D-Based Method for Flood Depth Estimation From Social Media Images",
+    "authors": "Shen, M., Zhang, F., Shi, Y.",
+    "journal": "Water Resources Research",
+    "volume": "62",
+    "pages": "e2025WR043163",
+    "year": 2026,
+    "doi": "10.1029/2025wr043163",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-19.webp",
+      "caption": "Workflow of the method. A flood photo from social media is matched to a 3D city model to recover where the camera was and how it was pointed, the water's edge is segmented in the photo, and the edge points are then placed in 3D space so that subtracting the ground elevation gives the flood depth.",
+      "credit": "Figure 2 from Shen et al. (2026), Water Resources Research, CC BY 4.0."
+    },
+    "tldr": "By lining up flood photos posted on social media with a 3D model of the city, water depth can be measured against the buildings themselves, to within about 0.16 m on average, even when no person, car or sign is in the picture to serve as a ruler.",
+    "background": "In a dense city, the damage a flood causes depends more on how deep the water is than on how far it spreads, yet street-level depth sensors are sparse. Photos and videos posted during a flood come from many locations and arrive quickly, but most methods for reading depth from them need a reference object of known size, such as a person, a vehicle or a traffic sign. Those objects are often missing or only partly visible, and their real size is uncertain. City-wide 3D models, which more and more cities now publish, offer a stable metric reference instead, but social media photos come without the camera position needed to align them.",
+    "approach": "The authors built a pipeline with three parts: a 2D–3D matching model called Obj-CoFi, a flood extraction step, and a depth calculation. Obj-CoFi first segments both the photo and the 3D point cloud into objects (using pre-trained models such as SAM and Mask3D), matches them coarsely object-to-object with a transformer, then refines the match to pixel level by rendering each 3D object from several viewpoints and matching those renderings to the photo; the camera pose follows from PnP-RANSAC. The water area is segmented with the pre-trained SEEM model, and the water-edge pixels are projected into 3D to read their elevation. The matching model was trained and tested on the Aachen Day-Night urban benchmark (6,381 samples), and the full method was applied to 62 geolocated images collected from X during the extreme rainstorm of 7–8 September 2023 in Hong Kong, using the city's 3D photo-realistic model. Depth estimates were compared with a reference-object geometric method (ROG) and a vision language model (GPT-5).",
+    "findings": [
+      "On the urban benchmark, Obj-CoFi clearly outperformed the 2D3D-MATR baseline: the mean fine inlier ratio rose from 9.2% to 39.6% and the registration recall from 8.6% to 24.2%.",
+      "Both design choices were needed. Object-level partitioning raised coarse matching accuracy, but pixel-level matching only improved once the rendering-based (mesh-based) fine matching was added, and using six rendered views per object worked best.",
+      "Across the Hong Kong images the method reached a mean absolute error of 0.164 m and a root mean square error of 0.212 m.",
+      "Only about 30% of the images contained a usable reference object. On those, the reference-object method was slightly better (MAE 0.145 m versus 0.152 m); on the remaining 70% it could not be applied, while the 3D-based method still reached an MAE of 0.171 m compared with 0.261 m for the vision language model, whose answers also varied between repeated runs.",
+      "Depth maps for seven districts showed the deepest and most extensive flooding in Wong Tai Sin and Wan Chai. Rainfall was similar across the districts, so the differences were attributed mainly to flat terrain, impervious commercial land use and older drainage. The flooded areas were broadly consistent with a Sentinel-1 image, but the authors note that the depths themselves still need checking against in situ measurements."
+    ],
+    "relevance": "When streets flood, the first evidence is usually a stream of phone photos, long before any survey team arrives. This study shows a way to turn those photos into actual depth numbers and maps, which can help emergency teams decide which roads and underpasses are dangerous and later give modellers the observations they need to calibrate urban flood models. The idea is relevant to Korean cities, where intense monsoon and typhoon downpours can quickly flood low-lying streets and basements and where city-scale 3D models are becoming more widely available. It is also worth keeping the limits in mind: the test used 62 images from a single event, the reference depths were annotated by hand, and the method only maps places that someone happened to photograph.",
+    "keywords": ["flood depth", "social media images", "urban 3D model", "2D–3D matching", "urban flooding", "Hong Kong"]
+  },
+  {
     "id": "2026-11-18",
     "date": "2026-11-18",
     "theme": "AI Forecasting",
