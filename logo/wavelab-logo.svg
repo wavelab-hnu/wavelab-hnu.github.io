@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><clipPath id="drop"><path d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z"/></clipPath></defs>
+  <circle cx="32" cy="32" r="30" fill="#0b2540"/>
+  <ellipse cx="32" cy="32" rx="26" ry="9" fill="none" stroke="#5cc6d6" stroke-width="2" transform="rotate(-25 32 32)" opacity=".7"/>
+  <path d="M32 14c-6 9-11 15-11 21a11 11 0 0 0 22 0c0-6-5-12-11-21z" fill="#0e8a9c"/>
+  <!-- the wave starts inside the drop (water) and leaves it as a finer and finer ripple (signal) -->
+  <path d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0q1.1-2 2.2 0q1.1 2 2.2 0q.8-1.4 1.6 0q.8 1.4 1.6 0" fill="none" stroke="#5cc6d6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path clip-path="url(#drop)" d="M24.2 37q2.3-4.6 4.6 0q2.3 4.6 4.6 0q1.85-3.7 3.7 0q1.85 3.7 3.7 0q1.45-2.8 2.9 0q1.45 2.8 2.9 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="52" cy="22" r="3" fill="#5cc6d6"/>
+</svg>

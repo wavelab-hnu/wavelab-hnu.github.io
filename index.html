@@ -5,15 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-ko="WAVE Lab | 지능형 수자원 연구실 · 한남대학교">WAVE Lab | 지능형 수자원 연구실 · Hannam University</title>
   <meta name="description" content="WAVE Lab — Water Analytics for Variability with Earth Observation (지능형 수자원 연구실), Department of Civil and Environmental Engineering, Hannam University.">
-  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/logo.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=202611120400">
+  <link rel="stylesheet" href="assets/css/style.css?v=202611180100">
 </head>
 <body>
   <header id="site-header"></header>
 
   <main>
     <section class="hero">
+      <!-- the logo, large: a drop whose wave leaves it as a finer and finer signal -->
+      <svg class="hero-art" viewBox="0 0 560 440" aria-hidden="true">
+        <defs><clipPath id="hero-drop"><path d="M150 40C150 85 208 134.5 243.7 192.4A110 110 0 1 1 56.3 192.4C92 134.5 150 85 150 40Z"/></clipPath></defs>
+        <ellipse cx="270" cy="230" rx="270" ry="92" fill="none" stroke="#5cc6d6" stroke-width="2" opacity=".28" transform="rotate(-25 270 230)"/>
+        <path d="M150 40C150 85 208 134.5 243.7 192.4A110 110 0 1 1 56.3 192.4C92 134.5 150 85 150 40Z" fill="rgba(92,198,214,.15)" stroke="rgba(92,198,214,.45)" stroke-width="2"/>
+        <path d="M80 270q25 -50 50 0q25 50 50 0q21 -42 42 0q21 42 42 0q17 -34 34 0q17 34 34 0q13.5 -27 27 0q13.5 27 27 0q10.5 -21 21 0q10.5 21 21 0q8 -16 16 0q8 16 16 0q6 -12 12 0q6 12 12 0q4.5 -9 9 0q4.5 9 9 0q3.5 -7 7 0q3.5 7 7 0q2.5 -5 5 0q2.5 5 5 0" fill="none" stroke="#5cc6d6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+        <path clip-path="url(#hero-drop)" d="M80 270q25 -50 50 0q25 50 50 0q21 -42 42 0q21 42 42 0q17 -34 34 0q17 34 34 0q13.5 -27 27 0q13.5 27 27 0q10.5 -21 21 0q10.5 21 21 0q8 -16 16 0q8 16 16 0q6 -12 12 0q6 12 12 0q4.5 -9 9 0q4.5 9 9 0q3.5 -7 7 0q3.5 7 7 0q2.5 -5 5 0q2.5 5 5 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="514" cy="116" r="9" fill="#5cc6d6"/>
+      </svg>
       <div class="container">
         <span data-ko="한남대학교 · 건설환경공학과" class="eyebrow">Hannam University · Civil &amp; Environmental Engineering</span>
         <h1>Water Analytics for Variability with Earth Observation</h1>
@@ -36,26 +45,30 @@
         <h2 data-ko="연구 분야">Research Areas</h2>
         <p class="lead"><b>W</b>ater <b>A</b>nalytics for <b>V</b>ariability with <b>E</b>arth Observation — four connected themes for measuring, explaining, and forecasting how water varies, from ground sensors to satellites.</p>
         <div class="grid grid-4" style="margin-top:28px">
-          <div class="card">
+          <a class="card" href="research.html">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M14 8h6v6"/></svg></div>
             <h3 data-ko="수문 분석">Hydrologic Analytics</h3>
             <p data-ko="수문 모형, 설계강우, 가능최대홍수량(PMF), 미계측 유역의 매개변수 추정을 연구합니다.">Hydrological modeling, design rainfall, probable maximum flood, and parameter estimation in ungauged basins.</p>
-          </div>
-          <div class="card">
+            <span data-ko="자세히 보기 →" class="more">Learn more →</span>
+          </a>
+          <a class="card" href="research.html">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg></div>
             <h3 data-ko="AI 예측">AI Forecasting</h3>
             <p data-ko="신호 분해 기반 하이브리드 머신러닝으로 강우, 증발산, 가뭄, 유입량을 예측합니다.">Hybrid machine learning with signal decomposition for rainfall, evapotranspiration, drought, and inflow forecasting.</p>
-          </div>
-          <div class="card">
+            <span data-ko="자세히 보기 →" class="more">Learn more →</span>
+          </a>
+          <a class="card" href="research.html">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
             <h3 data-ko="영상·음향 센싱">Vision &amp; Acoustic Sensing</h3>
             <p data-ko="CCTV·적외선 카메라, 빗소리, 저가 IoT 센서로 강우를 관측합니다.">Rainfall estimation from CCTV and infrared cameras, raindrop sounds, and low-cost IoT sensors.</p>
-          </div>
-          <div class="card">
+            <span data-ko="자세히 보기 →" class="more">Learn more →</span>
+          </a>
+          <a class="card" href="research.html">
             <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
             <h3 data-ko="위성 관측">Earth Observation</h3>
             <p data-ko="SAR/PolSAR 홍수 탐지, 위성·재분석 자료를 활용한 극한 현상 분석과 재난 모니터링을 연구합니다.">SAR/PolSAR flood detection, satellite and reanalysis data for extremes, and disaster monitoring.</p>
-          </div>
+            <span data-ko="자세히 보기 →" class="more">Learn more →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -92,7 +105,7 @@
   </main>
 
   <footer id="site-footer"></footer>
-  <script src="assets/js/data.js?v=202611120400"></script>
-  <script src="assets/js/main.js?v=202611120400"></script>
+  <script src="assets/js/data.js?v=202611180100"></script>
+  <script src="assets/js/main.js?v=202611180100"></script>
 </body>
 </html>

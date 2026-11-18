@@ -56,7 +56,7 @@
     header.innerHTML = `
       <div class="container nav">
         <a class="brand" href="index.html">
-          <img src="assets/img/logo.svg" alt="">
+          <img src="assets/img/logo.svg?v=2" alt="">
           <span class="brand-text"><strong>${L.name}</strong><span>${t(L.univ, "한남대학교")}</span></span>
         </a>
         <ul class="nav-links">
@@ -96,6 +96,7 @@
     footer.innerHTML = `
       <div class="container footer-inner">
         <div>
+          <div class="footer-brand"><img src="assets/img/logo.svg?v=2" alt="">${L.name}</div>
           <strong>${t(L.fullName, `${L.nameKo} (${L.name})`)}</strong><br>
           ${t(`${L.dept}, ${L.univ}`, L.deptKo)}<br>
           ${t(L.address, L.addressKo)}
