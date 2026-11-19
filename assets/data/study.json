@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-20",
+    "date": "2026-11-20",
+    "theme": "Earth Observation",
+    "title": "Diurnal variability of global precipitation: insights from hourly satellite and reanalysis datasets",
+    "authors": "Pradhan, R. K., Markonis, Y., Marra, F., Nikolopoulos, E. I., Papalexiou, S. M., Levizzani, V.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "29",
+    "pages": "4929-4949",
+    "year": 2025,
+    "doi": "10.5194/hess-29-4929-2025",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-20.webp",
+      "caption": "Average daily cycle (local solar time, 2001–2020) of precipitation (a) amount, (b) frequency and (c) intensity for the globe, land and ocean, as seen by four satellite products and the ERA5 reanalysis. The curves share a similar shape for amount but sit far apart for frequency and intensity.",
+      "credit": "Figure 5 from Pradhan et al. (2025), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "Five widely used hourly precipitation datasets agree fairly well on when and how much it rains over a day, but disagree strongly on how often and how hard it rains — ERA5 in particular rains too often and too gently.",
+    "background": "Many flood and water-resources studies now rely on gridded precipitation from satellites or reanalysis, especially where gauges are sparse. These products are known to be less reliable at sub-daily scales than at daily or monthly scales, and climate models also struggle to reproduce the daily rhythm of rainfall. Yet few studies had compared several products worldwide at the hourly scale, so users had little guidance on which features of the diurnal cycle they can trust.",
+    "approach": "The authors compared four satellite products (IMERG, GSMaP, CMORPH and PERSIANN) with the ERA5 reanalysis over 60° S–60° N for the common period 2001–2020. All data were brought to the same 0.25° hourly grid and converted from UTC to local solar time. For each grid cell they computed three quantities for every hour of the day: mean amount, frequency of wet hours (at least 0.1 mm per hour) and intensity during wet hours. They then mapped the hour of the daily peak and used k-means clustering with four clusters to group regions with similar diurnal shapes.",
+    "findings": [
+      "All five datasets show the classic pattern: rainfall over land peaks in the afternoon (mostly 15:00–18:00 local time), while rainfall over the ocean peaks in the early morning (about 02:00–06:00).",
+      "ERA5 peaks earlier than the satellite products over land — around 15:00 local time, compared with 16:00–18:00 for most of the others.",
+      "ERA5 rains far too often: its wet-hour frequency in the tropical rain belt is about 40%, roughly double that of the satellite products (below 20%), and its intensity is correspondingly the lowest over the ocean.",
+      "The size of the afternoon land peak differs widely between products, from about 0.18 mm/h in ERA5 down to less than 0.1 mm/h in GSMaP; CMORPH gives the highest intensities and GSMaP the lowest over land.",
+      "Differences between datasets are largest in the Southern Hemisphere mid-to-high latitudes, and IMERG and CMORPH agree most closely on peak timing."
+    ],
+    "relevance": "Short, intense bursts of rain are what cause flash floods and urban flooding, so the timing, frequency and intensity of hourly rainfall matter as much as the daily total. This study shows that a product can give a reasonable daily amount while still spreading it over too many gentle hours, which would make a flood model underestimate peak flows. For Korea, where summer monsoon and typhoon rain often falls in a few violent hours and many small basins have no gauge, it is a reminder to check satellite or reanalysis rainfall against local observations before using it for design or warning. Students and engineers can take away a simple habit: look at amount, frequency and intensity separately, not just the total.",
+    "keywords": ["diurnal cycle", "satellite precipitation", "IMERG", "ERA5", "sub-daily rainfall", "dataset intercomparison"]
+  },
+  {
     "id": "2026-11-19",
     "date": "2026-11-19",
     "theme": "Vision & Sensing",
