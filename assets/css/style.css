@@ -125,6 +125,7 @@ html[lang="ko"] [data-only="en"], html:not([lang="ko"]) [data-only="ko"] { displ
 .hero-side { position: absolute; z-index: -1; top: 50%; right: max(calc(-80px - max(0px, (100vw - var(--max)) / 2)), -110px);
   width: min(560px, 44vw); aspect-ratio: 560 / 440; transform: translateY(-52%); pointer-events: none; }
 .hero-hit { z-index: 2; }
+.hero-hit-area { position: relative; width: 100%; aspect-ratio: 560 / 440; }   /* the drawing's box, inside the click layer */
 .hero-art { display: block; width: 100%; height: auto; overflow: visible; }
 .ha-drop { transition: fill .25s, stroke .25s; }
 /* the drop is a button: it opens the logo story */
@@ -165,10 +166,28 @@ html[lang="ko"] [data-only="en"], html:not([lang="ko"]) [data-only="ko"] { displ
 @keyframes drift { 0%, 100% { transform: translateY(-52%); } 50% { transform: translateY(-49.5%); } }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @keyframes ping { 0% { transform: scale(1); opacity: .8; } 70%, 100% { transform: scale(2.2); opacity: 0; } }
-@media (max-width: 1240px) { .hero-note { display: none; } }
-@media (min-width: 1241px) { .logo-chip { display: none; } }
-@media (max-width: 1000px) { .hero-side { opacity: .35; width: 420px; right: -140px; } .hero-hit { display: none; } }
-@media (max-width: 700px) { .hero { padding: 64px 0 104px; } .hero-side { display: none; } .hero p { font-size: 1.02rem; } }
+@media (max-width: 1240px) and (min-width: 1001px) { .hero-note { display: none; } }
+@media (min-width: 1241px), (max-width: 1000px) { .logo-chip { display: none; } }
+/* tablets and phones: no room beside the text, so the drawing sits under the buttons with its note (beside it, or below it on a phone) */
+@media (max-width: 1000px) {
+  .hero-top { display: grid; grid-template-columns: minmax(0, 1fr); --art-w: min(400px, 100%); }
+  .hero-top > .ko { justify-self: start; }
+  .hero-top > p { margin-bottom: 0; }   /* grid items' margins do not collapse */
+  .hero-side { position: relative; top: auto; right: auto; z-index: 0; grid-row: 9; grid-column: 1; align-self: start;
+    width: var(--art-w); margin-top: 36px; transform: none; animation: none; }
+  .hero-hit { z-index: 1; width: auto; aspect-ratio: auto; display: grid; grid-template-columns: var(--art-w) minmax(0, 260px); column-gap: 28px; align-items: center; }
+  .hero-note { position: static; width: auto; }
+}
+@media (max-width: 700px) {
+  .hero { padding: 64px 0 104px; } .hero p { font-size: 1.02rem; }
+  .hero-top { --art-w: min(340px, 100%); }
+  .hero-side { margin-top: 28px; }
+  .hero-hit { grid-template-columns: minmax(0, 1fr); }
+  .hero-hit-area { width: var(--art-w); }
+  .hero-note { max-width: 340px; }
+  .hero .hero-note p { font-size: .92rem; }
+  .hero-note button { font-size: .88rem; padding: 4px 0; }
+}
 @media (max-width: 560px) { .logo-chip { margin-top: 20px; } }
 
 .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
