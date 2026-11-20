@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-21",
+    "date": "2026-11-21",
+    "theme": "Hydrology",
+    "title": "Statistical estimation of probable maximum precipitation",
+    "authors": "Martin, A., Fournier, É., Jalbert, J.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "29",
+    "pages": "4811-4824",
+    "year": 2025,
+    "doi": "10.5194/hess-29-4811-2025",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-21.webp",
+      "caption": "Simulation test with a rainfall-like (convex) distribution whose true upper bound is 50 (dashed line). Dots show the average estimate of the upper bound ψ — the PMP — over 100 synthetic samples and thin lines the 95% range, for (a) the method of moments, (b) maximum likelihood and (c) Bayesian estimation, as sample size grows. Only the method of moments stays near the truth, and even it scatters widely.",
+      "credit": "Figure 2 from Martin et al. (2025), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "Turning the official definition of probable maximum precipitation (PMP) into a proper statistical model shows that the 'upper limit' of rainfall can barely be pinned down from data — so the authors advise against their own model and recommend extreme-value analysis with stated uncertainty instead.",
+    "background": "PMP is the theoretical largest rainfall that could fall over an area, and it is used to design structures whose failure would be catastrophic, such as large dams and nuclear facilities. The usual ways of estimating it — moisture maximization of past storms and Hershfield's empirical formula — involve subjective choices (which storms to pick, how to estimate precipitable water, whether to cap the maximization ratio), rarely come with an uncertainty range, and cannot easily include climate change. There is also a basic tension: PMP assumes rainfall has an upper bound, while rainfall records usually behave as if they are heavy-tailed and unbounded.",
+    "approach": "Starting from the WMO moisture-maximization formula, the authors show that daily rainfall can be written as a fraction between 0 and 1 multiplied by the PMP. That leads naturally to the Pearson Type-I distribution (a Beta distribution stretched to the interval from 0 to the PMP), in which the PMP is simply a parameter to be estimated. They tested three estimators — method of moments, maximum likelihood and Bayesian — on synthetic samples with a known upper bound, then applied the model to May–October daily rainfall at two stations 26 km apart in Quebec, Canada: Montréal airport (1953–2024) and St. Hubert airport (1949–2024). The results were compared with moisture maximization, Hershfield's method (K = 15) and a 60 000-year return level from a peaks-over-threshold extreme-value model.",
+    "findings": [
+      "For rainfall-shaped (convex) distributions the upper bound and one shape parameter can compensate for each other, so very different PMP values fit the data almost equally well. Maximum likelihood and Bayesian estimates became unusable; they only stabilised at sample sizes around 40 000 wet days, roughly 400 years of record.",
+      "The method of moments gave realistic values on average, but for individual samples the estimate ranged from less than half to more than twice the true bound.",
+      "For real data the model gave a PMP of 270 mm at Montréal and 417 mm at St. Hubert, close to the moisture-maximization values (about 280 mm and 436 mm) but with very wide bootstrap uncertainty — and a large gap between two stations that share essentially the same climate.",
+      "The extreme-value model fitted both stations well and gave consistent 60 000-year rainfall: 185 mm (95% interval 114–363) at Montréal and 200 mm (120–385) at St. Hubert. Its shape parameter was positive at both sites, pointing to an unbounded heavy tail.",
+      "The authors therefore do not recommend the Pearson Type-I model for practice. In line with the 2024 U.S. National Academies report, they favour choosing an explicit, very low exceedance probability from extreme-value analysis and always reporting its confidence interval."
+    ],
+    "relevance": "PMP and the probable maximum flood derived from it decide how large the spillways of major dams must be, so they sit behind the safety of everyone living downstream. This paper is an honest 'negative result': it shows that a single hard number for the 'largest possible rainfall' is far more fragile than it looks, and that two nearby gauges can give very different answers for numerical rather than physical reasons. Korea also relies on PMP for dam design and for re-evaluating older dams as monsoon and typhoon rainfall intensifies, so the message applies directly: treat PMP as an estimate with a wide range, not a guaranteed ceiling. For students, it is a clear lesson in why a design value should always come with its uncertainty.",
+    "keywords": ["probable maximum precipitation", "Pearson Type-I distribution", "extreme-value theory", "uncertainty", "dam safety", "design rainfall"]
+  },
+  {
     "id": "2026-11-20",
     "date": "2026-11-20",
     "theme": "Earth Observation",
