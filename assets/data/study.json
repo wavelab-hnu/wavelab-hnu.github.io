@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-22",
+    "date": "2026-11-22",
+    "theme": "AI Forecasting",
+    "title": "A GNN routing module is all you need for LSTM Rainfall–Runoff models",
+    "authors": "Mosaffa, H., Pappenberger, F., Prudhomme, C., Chantry, M., Rüdiger, C., Cloke, H.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "30",
+    "pages": "2079-2092",
+    "year": 2026,
+    "doi": "10.5194/hess-30-2079-2026",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-22.webp",
+      "caption": "Layout of the LSTM–GAT model: an LSTM turns each station's weather history into a summary, static catchment traits are encoded and merged in, and a three-hop graph attention module passes this information along the river network before the final discharge prediction.",
+      "credit": "Figure 2 from Mosaffa et al. (2026), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "Adding a graph neural network that passes information down the river network on top of a regional LSTM makes daily streamflow predictions clearly better, especially at large downstream stations.",
+    "background": "LSTM networks are now among the best tools for rainfall–runoff modelling, but they usually treat each catchment as a single lumped unit. That means they learn how rain becomes runoff locally, yet ignore how water from upstream sub-basins travels through the river channels to a gauge. In large, connected basins this missing routing step can lead to errors in flood peaks.",
+    "approach": "The authors used 530 gauges in the Upper Danube River Basin (about 170,000 km²) from the LamaH-CE dataset, with daily data from 1987 to 2017. Each gauge received ERA5-Land precipitation, soil moisture and air temperature plus 59 static catchment attributes, and a shared two-layer LSTM read the past 180 days to build a summary for each sub-basin. These summaries were then passed between gauges by a graph neural network whose directed edges follow the river network and are weighted by inverse travel time. Four graph types (GCN, GAT, GraphSAGE and ChebNet) were compared with an otherwise identical LSTM that has no routing step, and observed streamflow was never used as an input.",
+    "findings": [
+      "All four LSTM–GNN models beat the plain LSTM on every metric; the attention-based LSTM–GAT was best with a mean NSE of 0.61 and KGE of 0.65, versus 0.46 and 0.49 for the baseline.",
+      "Median RMSE dropped from 21.24 to 13.77 m³/s with LSTM–GAT, a reduction of roughly 35%, and GAT gave a higher NSE than the baseline at 78% of stations.",
+      "Gains grew with network position: they were larger for stations with more upstream gauges, bigger drainage areas and higher centrality, and smaller in steep, high-elevation headwaters where the plain LSTM was often just as good.",
+      "Letting information travel three gauges along the network worked best (mean NSE 0.61); four hops lowered performance to 0.51, likely due to over-smoothing.",
+      "The routing module added only modest cost: about 68 s per training epoch for LSTM–GAT compared with about 56 s for the plain LSTM."
+    ],
+    "relevance": "Rivers are connected systems, and a flood at a city downstream is built from water arriving from many tributaries upstream. This study shows that AI forecasting models get noticeably better when they are told how the river network is wired, not just what the weather was. For Korea, where large rivers such as the Han and Nakdong gather monsoon and typhoon rain from many sub-basins, the idea could help sharpen downstream flood warnings. Students and engineers can take away a simple lesson: physical structure, like river connectivity, is valuable knowledge to build into data-driven models.",
+    "keywords": ["graph neural network", "LSTM", "flow routing", "streamflow prediction", "Danube"]
+  },
+  {
     "id": "2026-11-21",
     "date": "2026-11-21",
     "theme": "Hydrology",
