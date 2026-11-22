@@ -1,5 +1,42 @@
 [
   {
+    "id": "2026-11-23",
+    "date": "2026-11-23",
+    "theme": "Vision & Sensing",
+    "title": "AI image-based method for a robust automatic real-time water level monitoring: a long-term application case",
+    "authors": "Blanch, X., Grundmann, J., Hedel, R., Eltner, A.",
+    "journal": "Hydrology and Earth System Sciences",
+    "volume": "30",
+    "pages": "797-824",
+    "year": 2026,
+    "doi": "10.5194/hess-30-797-2026",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-23.webp",
+      "caption": "Workflow of the camera gauge: a 3D model of the river reach is built once, then each day or night image is processed by two AI models — one outlines the water surface, the other finds the ground control points — so that the waterline can be projected onto the 3D model and read as a water level.",
+      "credit": "Figure 1 from Blanch et al. (2026), Hydrology and Earth System Sciences, CC BY 4.0."
+    },
+    "tldr": "An ordinary surveillance camera, two neural networks and a 3D model of the riverbank can measure river water level to within a few centimetres, day and night, for more than two years.",
+    "background": "Water level is the most basic measurement in flood warning, but conventional gauges are costly to install and many small rivers have none. Cameras are cheap and contact-free, and many studies have shown that they can measure water level — but mostly over short tests of hours to weeks. What has been missing is evidence that a camera gauge keeps working reliably through years of fog, snow, darkness, growing vegetation and ageing equipment.",
+    "approach": "The authors ran camera gauges at four small-river sites in Saxony, Germany, taking an image every 15 minutes for 660 to 927 days per site; three sites sit next to official gauges used as the reference. For each site, a georeferenced 3D model of the channel and banks was built once by structure-from-motion photogrammetry with RTK-GNSS control points, including a refraction correction for the submerged bed. For every new image, a segmentation network (UPerNet with a ResNeXt50 backbone) outlines the water, and a keypoint detector locates the ground control points so that the camera pose can be re-estimated each time. The waterline is then intersected with the 3D model, and the median elevation of those water-edge points gives the water level. Blurred or unusable images are removed automatically by a sharpness filter and a check on the scatter of the water-edge elevations; infrared lamps at two sites allow night-time measurements with a separately trained night model.",
+    "findings": [
+      "Almost 218,000 images were processed, and between 86.9 % and 98.1 % of all images at each site produced a valid water level; rejected images were mostly caused by fog, heavy snow or poor light at dawn and dusk.",
+      "Against the official gauges, the mean absolute error of individual measurements was 1.26 cm at Lauenstein, 1.75 cm at Großschönau and 2.66 cm at Elbersdorf; for daily means it was 0.94, 1.56 and 2.25 cm.",
+      "At the best site, 89.1 % of individual measurements were within ±2 cm of the gauge, compared with 57.4 % at the weakest site; Nash–Sutcliffe efficiencies were 0.94 to 0.99.",
+      "Accuracy slowly degraded over time: in the first 180 days the individual-measurement error was 1.24–1.78 cm at all three sites. The main causes were damaged or lost control points, vegetation growing over the banks and markers, and an imperfect or ageing camera calibration.",
+      "Infrared illumination made true 24/7 monitoring possible, whereas the two sites without adequate night lighting lost their night-time images."
+    ],
+    "relevance": "Floods on small, steep rivers rise within hours, and many such streams — in Korea as elsewhere — have no gauge at all, even though CCTV cameras already watch countless bridges and riverside roads. This study shows that a camera can deliver gauge-like water levels over years rather than days, which is the kind of evidence water managers need before trusting a new sensor in a warning system. It is also an honest lesson for students and engineers: the AI was not the weak point — maintenance was. Trimming vegetation, protecting the markers and re-checking the calibration mattered as much as the neural networks, and lighting decides whether the system works during a night-time monsoon downpour.",
+    "keywords": [
+      "camera gauge",
+      "water level",
+      "image segmentation",
+      "photogrammetry",
+      "flood monitoring",
+      "long-term validation"
+    ]
+  },
+  {
     "id": "2026-11-22",
     "date": "2026-11-22",
     "theme": "AI Forecasting",
