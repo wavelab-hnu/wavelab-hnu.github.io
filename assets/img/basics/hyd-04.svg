@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf5f8"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#sky)"/>
+  <!-- ground -->
+  <path d="M0 330H800V436a14 14 0 0 1-14 14H14a14 14 0 0 1-14-14z" fill="#e9edf1"/>
+  <path d="M0 330H800" stroke="#0b2540" stroke-width="2.5"/>
+
+  <!-- satellite and its field of view -->
+  <path d="M400 62L250 330H550z" fill="#5cc6d6" opacity=".16"/>
+  <path d="M400 62L250 330M400 62L550 330" stroke="#5cc6d6" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/>
+  <g transform="translate(400 46)">
+    <rect x="-13" y="-11" width="26" height="22" rx="3" fill="#0b2540"/>
+    <rect x="-52" y="-8" width="34" height="16" rx="2" fill="#0e8a9c"/><rect x="18" y="-8" width="34" height="16" rx="2" fill="#0e8a9c"/>
+    <path d="M-41 -8v16M-30 -8v16M29 -8v16M40 -8v16" stroke="#ffffff" stroke-width="1"/>
+    <path d="M0 11v8" stroke="#0b2540" stroke-width="2.5"/>
+  </g>
+
+  <!-- radar beam -->
+  <path d="M640 250L320 150L320 214z" fill="#0e8a9c" opacity=".16"/>
+  <path d="M640 250L320 150M640 250L320 214" stroke="#0e8a9c" stroke-width="1.5" stroke-dasharray="5 5" fill="none"/>
+
+  <!-- cloud and rain -->
+  <g fill="#ffffff" stroke="#0b2540" stroke-width="2">
+    <path d="M312 182a26 26 0 0 1 12-48a38 38 0 0 1 70-10a30 30 0 0 1 52 16a22 22 0 0 1-2 42z"/>
+  </g>
+  <g stroke="#0e8a9c" stroke-width="2.5" stroke-linecap="round">
+    <path d="M336 198l-7 18M364 198l-7 18M392 198l-7 18M420 198l-7 18M350 230l-7 18M378 230l-7 18M406 230l-7 18M336 262l-7 18M364 262l-7 18M392 262l-7 18M350 294l-7 18M378 294l-7 18"/>
+  </g>
+
+  <!-- rain gauge -->
+  <g>
+    <path d="M343 300h34l-5 8v22h-24v-22z" fill="#ffffff" stroke="#0b2540" stroke-width="2.5" stroke-linejoin="round"/>
+    <rect x="350" y="318" width="20" height="11" fill="#5cc6d6"/>
+  </g>
+
+  <!-- radar tower -->
+  <g>
+    <path d="M628 330L636 268h8l8 62z" fill="#ffffff" stroke="#0b2540" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="640" cy="250" r="22" fill="#ffffff" stroke="#0b2540" stroke-width="2.5"/>
+    <path d="M622 250h36M640 232v36" stroke="#0b2540" stroke-width="1" opacity=".35"/>
+  </g>
+
+  <!-- labels -->
+  <g font-weight="700">
+    <text x="470" y="44">Satellite</text>
+    <text x="676" y="246">Weather radar</text>
+    <text x="244" y="306" text-anchor="end">Rain gauge</text>
+  </g>
+  <g font-size="13" fill="#5b6876">
+    <text x="470" y="62">sees clouds and microwave signals</text>
+    <text x="470" y="78">from above · global coverage</text>
+    <text x="676" y="264">echoes from drops</text>
+    <text x="676" y="280">in the air</text>
+    <text x="244" y="324" text-anchor="end">catches the rain itself</text>
+  </g>
+  <path d="M250 302L340 306" stroke="#0b2540" stroke-width="1"/>
+
+  <!-- comparison strip -->
+  <g transform="translate(0 348)" font-size="13">
+    <g transform="translate(40 0)"><rect width="226" height="84" rx="10" fill="#ffffff" stroke="#e4e9f0"/>
+      <text x="14" y="24" font-weight="700" font-size="14" fill="#0b2540">Gauge</text>
+      <text x="14" y="46" fill="#17212d">Direct, accurate at the point</text>
+      <text x="14" y="66" fill="#5b6876">Samples an area of ~0.03 m²</text></g>
+    <g transform="translate(287 0)"><rect width="226" height="84" rx="10" fill="#ffffff" stroke="#e4e9f0"/>
+      <text x="14" y="24" font-weight="700" font-size="14" fill="#0b2540">Radar</text>
+      <text x="14" y="46" fill="#17212d">Indirect (reflectivity → rain rate)</text>
+      <text x="14" y="66" fill="#5b6876">~1 km grid, every few minutes</text></g>
+    <g transform="translate(534 0)"><rect width="226" height="84" rx="10" fill="#ffffff" stroke="#e4e9f0"/>
+      <text x="14" y="24" font-weight="700" font-size="14" fill="#0b2540">Satellite</text>
+      <text x="14" y="46" fill="#17212d">Indirect (radiation → rain rate)</text>
+      <text x="14" y="66" fill="#5b6876">~10 km grid, oceans included</text></g>
+  </g>
+</svg>

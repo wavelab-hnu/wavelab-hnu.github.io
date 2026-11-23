@@ -1,0 +1,310 @@
+{
+  "courses": [
+    {
+      "key": "hyd",
+      "subject": "Hydrology",
+      "ko": "수문학",
+      "lead": "How water moves over and under the land — from a raindrop to a river. We follow the order of a first hydrology course.",
+      "outline": [
+        ["The hydrologic cycle", "물의 순환"],
+        ["The watershed", "유역"],
+        ["The water balance", "물수지"],
+        ["Measuring precipitation", "강수량 관측"],
+        ["Areal average rainfall", "면적평균강우량"],
+        ["Rainfall intensity, duration and frequency", "강우강도·지속기간·빈도"],
+        ["Evapotranspiration", "증발산"],
+        ["Infiltration", "침투"],
+        ["Effective rainfall", "유효우량"],
+        ["Measuring streamflow", "유량 측정"],
+        ["The hydrograph", "수문곡선"],
+        ["The unit hydrograph", "단위유량도"],
+        ["Time of concentration and the rational method", "도달시간과 합리식"],
+        ["Flood routing", "홍수추적"],
+        ["Frequency analysis and return period", "빈도해석과 재현기간"],
+        ["Groundwater and Darcy's law", "지하수와 Darcy 법칙"]
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "hyd-01-hydrologic-cycle",
+      "course": "hyd",
+      "unit": 1,
+      "title": "The hydrologic cycle",
+      "ko": "물의 순환",
+      "tldr": "Water is never used up. The same water keeps moving between the ocean, the air, the land surface and the ground, lifted by the sun's energy and pulled back down by gravity.",
+      "figure": {
+        "src": "assets/img/basics/hyd-01.svg",
+        "caption": "The hydrologic cycle. Orange arrows are water going up as vapour, teal arrows are liquid water moving down and sideways."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "The sun evaporates water from the ocean and from the land. Wind carries the vapour, it cools and condenses into clouds, and it falls again as **precipitation** (rain or snow)." },
+        { "p": "On land, a falling drop has several possible paths. Some is caught on leaves and evaporates again (**interception**). Some soaks into the soil (**infiltration**). What the soil cannot take in flows over the surface to a stream (**surface runoff**). Water in the soil is either taken up by roots and returned to the air through leaves (**transpiration**), or it moves further down to the groundwater (**percolation**). Groundwater moves slowly and seeps into rivers, which is why a river keeps flowing long after the rain has stopped (**baseflow**). Rivers carry the water back to the ocean, and the loop closes." },
+        { "h": "Stores and fluxes" },
+        { "p": "Hydrology is bookkeeping with two kinds of numbers. A **store** is how much water is in one place (a volume, or a depth in mm). A **flux** is how fast water moves from one store to another (a volume per time, or mm per day). Mixing the two up is the most common beginner's mistake." },
+        { "p": "The stores are very unequal. About 97% of the Earth's water is salt water in the oceans, and only about 2.5% is fresh. Of that fresh water, roughly 69% is frozen in ice sheets and glaciers and about 30% is groundwater. Rivers and lakes, the water we actually see and use, hold well under 1% of the fresh water." },
+        { "h": "The key number: residence time" },
+        { "p": "How long does a water molecule stay in a store on average? Divide the size of the store by the flux through it." },
+        { "eq": "T_r = \\frac{S}{Q}", "where": [["T_r", "residence time"], ["S", "volume of water in the store"], ["Q", "flux through the store (volume per time)"]] },
+        { "p": "Small stores with a large flux turn over fast (the atmosphere: days). Large stores with a small flux turn over slowly (deep groundwater: hundreds to thousands of years; the ocean: about 3,000 years). This is why polluted groundwater takes so long to recover, and why rainfall can change within hours." },
+        { "h": "In Korea" },
+        { "p": "Korea receives about 1,300 mm of precipitation in an average year, roughly 1.6 times the average over the world's land. But more than half of it falls between June and September, and the rivers are short and steep, so the water arrives all at once and leaves quickly. Floods in summer and shortages in spring are two sides of the same cycle." }
+      ],
+      "example": {
+        "q": "The atmosphere holds about 12,900 km³ of water at any moment. Global precipitation is about 577,000 km³ per year. How long does water stay in the air on average?",
+        "steps": [
+          "Store: $S = 12{,}900$ km³. Flux: $Q = 577{,}000$ km³/yr.",
+          "$T_r = S / Q = 12{,}900 / 577{,}000 = 0.0224$ yr.",
+          "In days: $0.0224 \\times 365 \\approx 8$ days."
+        ],
+        "a": "About 8 days. All the water in the air is replaced roughly 45 times a year."
+      },
+      "mistakes": [
+        "**Thinking of one big loop.** The cycle is many loops of different sizes. About 90% of the water that evaporates from the ocean falls straight back onto the ocean.",
+        "**Picturing groundwater as an underground river or lake.** It is water filling the small pores of soil and rock, and it usually moves metres per day or less.",
+        "**Confusing a store with a flux.** 'A lot of water' in a lake (a store) says nothing about how much flows through it (a flux)."
+      ],
+      "ours": "Floods and droughts are the two extremes of this cycle: too much water arriving too fast, or too little for too long. Our work on hydrologic modelling, climate extremes, AI-based forecasting and satellite observation is all about measuring and predicting the fluxes drawn in this figure.",
+      "check": [
+        { "q": "Where is most of the Earth's fresh water?", "a": "In ice sheets and glaciers (about 69%), then in groundwater (about 30%). Rivers and lakes together hold far less than 1%." },
+        { "q": "It has not rained for three weeks, but the river still flows. Where does the water come from?", "a": "From groundwater seeping into the channel (baseflow). Groundwater is a large, slow store that keeps releasing water between storms." }
+      ],
+      "terms": [
+        ["hydrologic cycle", "물의 순환"], ["precipitation", "강수"], ["evaporation", "증발"], ["transpiration", "증산"],
+        ["evapotranspiration", "증발산"], ["interception", "차단"], ["infiltration", "침투"], ["percolation", "침루"],
+        ["surface runoff", "지표유출"], ["groundwater", "지하수"], ["baseflow", "기저유출"], ["residence time", "체류시간"]
+      ],
+      "refs": [
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 1.",
+        "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
+      ]
+    },
+    {
+      "id": "hyd-02-watershed",
+      "course": "hyd",
+      "unit": 2,
+      "title": "The watershed",
+      "ko": "유역",
+      "tldr": "A watershed is all the land that drains to one point on a river. It is the unit in which hydrologists count water.",
+      "figure": {
+        "src": "assets/img/basics/hyd-02.svg",
+        "caption": "A watershed seen from above. Rain falling inside the dashed divide ends up at the outlet; rain falling outside flows to a neighbouring river."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Pick any point on a river and call it the **outlet**. Now ask: if it rains, from which land will the water flow downhill to this point? That land is the **watershed** of the outlet (also called a catchment or drainage basin)." },
+        { "p": "Its edge is the **drainage divide**, which follows the ridges. A drop falling just inside the divide goes to our outlet; a drop falling just outside goes to the neighbour." },
+        { "p": "A watershed is defined by its outlet. Move the outlet downstream and the watershed grows, so watersheds are nested: the watershed of a small tributary (a **sub-basin**) sits inside the watershed of the main river." },
+        { "h": "How to draw one" },
+        { "p": "On a contour map, start at the outlet and walk uphill, always crossing the contour lines at right angles, until you reach a ridge. Follow the ridges around and come back down to the outlet on the other side." },
+        { "p": "Today a computer does this from a digital elevation model (DEM): for every grid cell it finds the steepest downhill neighbour, then collects all the cells whose water eventually reaches the outlet." },
+        { "h": "Describing a watershed with numbers" },
+        { "p": "Besides the area $A$, two simple numbers say a lot about how a watershed responds to rain." },
+        { "eq": "D_d = \\frac{\\sum L}{A} \\qquad\\qquad R_f = \\frac{A}{L_b^{\\,2}}", "where": [["D_d", "drainage density (km of stream per km²)"], ["\\sum L", "total length of all streams"], ["R_f", "form factor (no units)"], ["L_b", "length of the basin along the main stream"]] },
+        { "ul": [
+          "**Area** sets the volume: the same storm on twice the area gives twice the water.",
+          "**Drainage density** sets the speed: with many streams, water has a short way to go over the slow hillslope before it reaches a fast channel.",
+          "**Shape** sets the timing: in a round basin, water from all parts arrives at the outlet at about the same time and makes a high, sharp peak. In a long, narrow basin the arrivals are spread out and the peak is lower.",
+          "**Slope** also matters: steep basins respond faster."
+        ] },
+        { "h": "In Korea" },
+        { "p": "Water in Korea is managed by river basin, not by city or province: the Han, Nakdong, Geum, Yeongsan and Seomjin rivers. Our campus in Daejeon lies in the Geum River basin; rain falling here drains through Gapcheon stream into the Geum." }
+      ],
+      "example": {
+        "q": "A watershed has an area of 120 km². The streams on the map add up to 180 km, and the basin is 20 km long along the main stream. Find the drainage density and the form factor.",
+        "steps": [
+          "$D_d = \\sum L / A = 180 / 120 = 1.5$ km/km².",
+          "$R_f = A / L_b^{\\,2} = 120 / 20^2 = 0.30$.",
+          "For comparison, a circular basin has $R_f = \\pi/4 \\approx 0.79$."
+        ],
+        "a": "Drainage density is 1.5 km/km² and the form factor is 0.30, so this basin is clearly elongated. We expect a longer, flatter flood wave than from a round basin of the same area."
+      },
+      "mistakes": [
+        "**Using an administrative boundary.** Water does not follow city limits. A water balance only works inside a real drainage divide.",
+        "**Forgetting the outlet.** 'The watershed of the Geum River' has no fixed area until you say where on the river you stand.",
+        "**The word itself.** In American English a watershed is the area; in British English it is the dividing line. In Korean, 유역 is the area and 분수계 is the line.",
+        "**Assuming groundwater follows the surface divide.** Usually it roughly does, but in some geology (limestone, for example) groundwater crosses under the ridge."
+      ],
+      "ours": "Every flood forecast or drought analysis begins by choosing a watershed. Rainfall from gauges, radar or satellites is averaged over it, a hydrologic model turns that rainfall into flow at its outlet, and the prediction is checked against the gauge at that outlet.",
+      "check": [
+        { "q": "You move the outlet downstream, past the point where a tributary joins. What happens to the watershed?", "a": "It grows: it now also includes the whole watershed of that tributary." },
+        { "q": "Two basins have the same area and receive the same storm. One is round, the other long and narrow. Which has the higher peak flow?", "a": "The round one. Water from all parts of it reaches the outlet at about the same time, so the flows add up into a sharp peak." }
+      ],
+      "terms": [
+        ["watershed, catchment, drainage basin", "유역"], ["drainage divide", "분수계"], ["outlet", "유역 출구"], ["sub-basin", "소유역"],
+        ["main stream", "본류"], ["tributary", "지류"], ["drainage density", "하계밀도"], ["form factor", "형상계수"],
+        ["digital elevation model (DEM)", "수치표고모델"]
+      ],
+      "refs": [
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 5.",
+        "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
+      ]
+    },
+    {
+      "id": "hyd-03-water-balance",
+      "course": "hyd",
+      "unit": 3,
+      "title": "The water balance",
+      "ko": "물수지",
+      "tldr": "What comes in, minus what goes out, equals the change in what is stored. It is conservation of mass applied to a watershed, and it is the most used equation in hydrology.",
+      "figure": {
+        "src": "assets/img/basics/hyd-03.svg",
+        "caption": "A watershed as a container. Precipitation is the input; evapotranspiration and streamflow are the outputs; the difference changes the storage."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Draw a boundary (a watershed) and choose a period (a storm, a month, a year). Water cannot appear or disappear, so whatever entered and did not leave must still be inside." },
+        { "eq": "P - ET - Q = \\Delta S", "where": [["P", "precipitation falling on the watershed"], ["ET", "evapotranspiration back to the air"], ["Q", "streamflow leaving at the outlet"], ["\\Delta S", "change in storage (soil water, groundwater, snow, lakes and reservoirs)"]] },
+        { "p": "If the watershed also exchanges water in other ways, such as groundwater crossing the divide, water pumped in or out, or a transfer from another basin, those terms are added in the same way." },
+        { "h": "Same units for every term" },
+        { "p": "Rain is measured as a depth (mm) and streamflow as a volume per time (m³/s). To compare them, turn everything into a **depth over the watershed area** for the chosen period:" },
+        { "eq": "\\text{runoff depth} = \\frac{Q \\cdot t}{A}", "where": [["Q", "mean streamflow (m³/s)"], ["t", "length of the period (s)"], ["A", "watershed area (m²)"]] },
+        { "p": "A handy fact: 1 mm of water over 1 km² is 1,000 m³." },
+        { "h": "Long periods and short periods" },
+        { "p": "Over many years, storage goes up and down but does not keep growing, so $\\Delta S \\approx 0$ and the balance becomes $P = Q + ET$. This gives the standard way to estimate the evapotranspiration of a whole basin, which nobody can measure directly: $ET = P - Q$." },
+        { "p": "Over a single storm or month, storage is the main character. After a dry spell the first rain mostly refills the soil and little reaches the river. The same rain on soil that is already wet becomes a flood. A drought is a long period in which storage keeps falling." },
+        { "p": "The share of precipitation that leaves as streamflow, $Q/P$, is called the **runoff ratio**." }
+      ],
+      "example": {
+        "q": "A 250 km² watershed receives 1,300 mm of precipitation in a year. The mean flow at its outlet is 4.5 m³/s. Estimate the annual evapotranspiration and the runoff ratio, assuming the storage is the same at the start and end of the year.",
+        "steps": [
+          "Volume of streamflow: $4.5 \\times 31{,}536{,}000 \\text{ s} = 1.419 \\times 10^{8}$ m³.",
+          "As a depth: $1.419 \\times 10^{8} / (250 \\times 10^{6} \\text{ m}^2) = 0.568$ m $= 568$ mm.",
+          "$ET = P - Q = 1{,}300 - 568 = 732$ mm.",
+          "Runoff ratio: $568 / 1{,}300 = 0.44$."
+        ],
+        "a": "About 730 mm of evapotranspiration and a runoff ratio of 0.44: a little under half of the precipitation becomes streamflow."
+      },
+      "mistakes": [
+        "**Mixing units.** Subtracting m³/s from mm is the classic error. Convert every term to mm over the watershed first.",
+        "**Setting ΔS = 0 for a short period.** It is a fair assumption over many years, a poor one for a single month, and wrong for a single storm.",
+        "**Forgetting people.** Dams, pumping, irrigation and transfers between basins are real terms in many balances.",
+        "**Trusting the balance more than the data.** Every term carries a measurement error, and all of those errors end up in whichever term you solve for."
+      ],
+      "ours": "A hydrologic model is a water balance repeated at every time step, with rules for how water moves between the stores. When we assess a drought or forecast a flood, we are tracking this balance, with rainfall from gauges, radar and satellites as the input.",
+      "check": [
+        { "q": "A storm drops 50 mm on a 10 km² watershed. What volume of water is that?", "a": "50 mm × 10 km² = 500 × 1,000 m³ = 500,000 m³ (using 1 mm × 1 km² = 1,000 m³)." },
+        { "q": "A basin has P = 1,200 mm and Q = 500 mm in an average year. Estimate ET.", "a": "ET = P − Q = 700 mm, taking the long-term storage change as zero." }
+      ],
+      "terms": [
+        ["water balance, water budget", "물수지"], ["storage", "저류량"], ["change in storage", "저류량 변화"], ["streamflow, discharge", "유량"],
+        ["runoff depth", "유출고"], ["runoff ratio", "유출률"], ["conservation of mass", "질량보존"], ["control volume", "검사체적"]
+      ],
+      "refs": [
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapters 1–2.",
+        "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
+      ]
+    },
+    {
+      "id": "hyd-04-measuring-precipitation",
+      "course": "hyd",
+      "unit": 4,
+      "title": "Measuring precipitation",
+      "ko": "강수량 관측",
+      "tldr": "A rain gauge measures rain directly but only at one point. Radar and satellites see rain everywhere but only indirectly. Good rainfall data combine them.",
+      "figure": {
+        "src": "assets/img/basics/hyd-04.svg",
+        "caption": "Three ways to observe the same storm. The gauge catches the water itself; radar and satellites measure a signal and convert it to a rain rate."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Rainfall is reported as a **depth**: how deep the water would stand on a flat surface if none ran off or soaked in (mm). Depth per time is the **intensity** (mm/h). Precipitation is the input to every hydrologic calculation, so an error here passes through to everything that follows." },
+        { "h": "Rain gauges" },
+        { "p": "A gauge is a funnel of known opening that collects rain. The common automatic type is the **tipping-bucket gauge**: a small bucket tips over each time it fills with a fixed amount (0.1 to 0.5 mm), and the times of the tips give the intensity." },
+        { "p": "A gauge is the most direct measurement we have, but it has two limits. First, it catches a little too little: wind carries drops past the opening (a few percent for rain, far more for snow), and a tipping bucket loses some water in very heavy rain. Second, and more important, it is a point. Rain varies a great deal over a few kilometres, especially in summer thunderstorms, and a gauge cannot see what falls between gauges." },
+        { "h": "Weather radar" },
+        { "p": "A radar sends out microwave pulses and listens for the echo from raindrops. The strength of the echo is the **reflectivity** $Z$. It is turned into a rain rate $R$ with an empirical relation:" },
+        { "eq": "Z = a\\,R^{\\,b}", "where": [["Z", "reflectivity (mm⁶/m³), usually given in dBZ = 10 log₁₀ Z"], ["R", "rain rate (mm/h)"], ["a,\\ b", "constants; the classic Marshall–Palmer values are a = 200, b = 1.6"]] },
+        { "p": "Radar gives a map of rain about every kilometre and every few minutes, out to 100–250 km. But it is indirect: $a$ and $b$ depend on the sizes of the drops, which change from storm to storm; mountains block the beam; and far from the radar the beam is high above the ground, so it sees rain that may change before it lands." },
+        { "h": "Satellites" },
+        { "p": "Satellites estimate rain from the radiation they receive: infrared sensors see how cold (how high) the cloud tops are, microwave sensors respond to the drops and ice inside the cloud, and a few satellites carry a radar. Merged products such as GPM IMERG give rain every 30 minutes on a grid of about 10 km for nearly the whole globe, including oceans and regions with no gauges. The price is a larger error at the scale of a small watershed." },
+        { "h": "Putting them together" },
+        { "p": "No single source is enough. In practice, gauges are trusted for the amount, radar and satellites for the pattern in space, and the two are merged: the remote-sensing field is corrected so that it agrees with the gauges where gauges exist." }
+      ],
+      "example": {
+        "q": "A radar measures 40 dBZ over your watershed. Using the Marshall–Palmer relation, what rain rate is that? What about 50 dBZ?",
+        "steps": [
+          "40 dBZ means $Z = 10^{40/10} = 10{,}000$ mm⁶/m³.",
+          "$R = (Z / 200)^{1/1.6} = 50^{\\,0.625} \\approx 11.5$ mm/h.",
+          "50 dBZ means $Z = 100{,}000$, so $R = 500^{\\,0.625} \\approx 49$ mm/h."
+        ],
+        "a": "About 12 mm/h at 40 dBZ and about 49 mm/h at 50 dBZ. Every extra 10 dBZ multiplies the rain rate by about 4, so a small error in reflectivity becomes a large error in rainfall."
+      },
+      "mistakes": [
+        "**Treating one gauge as the rainfall of an area.** A gauge opening about 20 cm across samples 0.03 m². With one gauge per 100 km², we measure roughly three ten-billionths of the area.",
+        "**Saying that radar measures rain.** It measures echo strength some height above the ground. The rain rate is an estimate built on assumptions.",
+        "**Expecting a radar pixel and a gauge to agree exactly.** One is an average over about 1 km² in the air, the other a point on the ground. Some disagreement is real, not an error.",
+        "**Confusing depth with intensity.** 30 mm in ten minutes and 30 mm in a day are very different events."
+      ],
+      "ours": "Rainfall is the first input of our flood and drought studies, so its quality limits everything after it. We work with gauge, radar and satellite rainfall, study how to combine them, and look at how their errors carry through hydrologic models and AI forecasts. Unusual sensors such as cameras and microphones are one more way to fill the gaps between gauges.",
+      "check": [
+        { "q": "Why does a rain gauge usually read a little less than the true rainfall?", "a": "Mainly because wind deflects drops around the opening (much more so for snow). Wetting, evaporation and missed water during very heavy rain add smaller losses." },
+        { "q": "Two radar pixels show 30 dBZ and 40 dBZ. Roughly how do their rain rates compare?", "a": "The 40 dBZ pixel has about four times the rain rate (10 dBZ more multiplies R by 10^(1/1.6) ≈ 4.2 with Marshall–Palmer)." }
+      ],
+      "terms": [
+        ["precipitation", "강수"], ["rainfall depth", "강우량"], ["rainfall intensity", "강우강도"], ["rain gauge", "우량계"],
+        ["tipping-bucket rain gauge", "전도형 우량계"], ["weather radar", "기상레이더"], ["reflectivity", "반사도"], ["Z–R relation", "Z–R 관계식"],
+        ["drop size distribution", "우적크기분포"], ["satellite precipitation", "위성 강수"]
+      ],
+      "refs": [
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapters 3 and 6.",
+        "Marshall, J. S., & Palmer, W. M. (1948). The distribution of raindrops with size. Journal of Meteorology, 5, 165–166.",
+        "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
+      ]
+    },
+    {
+      "id": "hyd-05-areal-average-rainfall",
+      "course": "hyd",
+      "unit": 5,
+      "title": "Areal average rainfall",
+      "ko": "면적평균강우량",
+      "tldr": "A water balance needs one rainfall depth for the whole watershed. We get it from point gauges by giving each gauge a weight equal to the share of the watershed it represents.",
+      "figure": {
+        "src": "assets/img/basics/hyd-05.svg",
+        "caption": "Thiessen polygons for four gauges. Gauge D stands outside the watershed but is still the nearest gauge for the eastern corner, so it gets a small weight."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Gauges give rainfall at points, but the water balance asks how much fell on the whole watershed. The answer is a weighted average of the gauges. The methods differ only in how they choose the weights." },
+        { "eq": "\\bar{P} = \\frac{\\sum A_i P_i}{\\sum A_i} = \\sum w_i P_i", "where": [["\\bar{P}", "areal average rainfall"], ["P_i", "rainfall at gauge i"], ["A_i", "part of the watershed area assigned to gauge i"], ["w_i", "weight of gauge i (the weights add up to 1)"]] },
+        { "h": "Three classic methods" },
+        { "ul": [
+          "**Arithmetic mean.** Add the gauges and divide by their number: every gauge gets the same weight. It is fine when the land is flat and the gauges are evenly spread, and poor otherwise.",
+          "**Thiessen polygons.** Every place in the watershed is assigned to its nearest gauge. Draw lines joining neighbouring gauges, then the perpendicular bisectors of those lines; the bisectors form a polygon around each gauge. The weight of a gauge is its polygon area inside the watershed divided by the watershed area. The weights depend only on where the gauges are, so they are computed once and reused for every storm.",
+          "**Isohyetal method.** Draw contour lines of equal rainfall (isohyets), and weight the average rainfall between two neighbouring isohyets by the area between them. It can follow real patterns, such as more rain on the mountains, but the map must be redrawn for every storm and depends on who draws it."
+        ] },
+        { "p": "Modern practice does the same thing on a grid: rainfall is interpolated to every cell (by inverse-distance weighting or kriging) and the cells inside the watershed are averaged. With radar or satellite rainfall the grid already exists, and the areal average is simply the mean of the cells inside the divide." }
+      ],
+      "example": {
+        "q": "A 200 km² watershed has the four gauges shown in the figure. Their Thiessen polygons cover 72, 66, 45 and 17 km², and a storm gives 42, 60, 75 and 30 mm. Find the areal average rainfall by the Thiessen method and by the arithmetic mean.",
+        "steps": [
+          "Thiessen: $\\bar{P} = (72 \\times 42 + 66 \\times 60 + 45 \\times 75 + 17 \\times 30) / 200$.",
+          "$= (3{,}024 + 3{,}960 + 3{,}375 + 510) / 200 = 10{,}869 / 200 = 54.3$ mm.",
+          "Arithmetic mean: $(42 + 60 + 75 + 30) / 4 = 51.8$ mm."
+        ],
+        "a": "54.3 mm by Thiessen and 51.8 mm by the arithmetic mean. The arithmetic mean is lower because it gives the dry outside gauge D a quarter of the weight, although D represents under a tenth of the area. The difference of 2.6 mm is about 520,000 m³ of water on this watershed."
+      },
+      "mistakes": [
+        "**Using the arithmetic mean with clustered gauges.** Gauges are usually where people live, in the valleys. In mountain basins a plain average then underestimates the rain.",
+        "**Ignoring gauges outside the watershed.** As the figure shows, an outside gauge can be the nearest one for part of the basin.",
+        "**Keeping the old weights when a gauge is missing.** If one gauge fails during a storm, the polygons of its neighbours change and the weights must be recomputed.",
+        "**Reading an areal average as a point value.** Averaging smooths the peaks: the basin-average intensity is lower than the highest intensity at any single gauge, and more so for large basins."
+      ],
+      "ours": "The same weighted average sits behind every basin rainfall series we use, whether it comes from a handful of gauges or from thousands of radar and satellite cells. Comparing these areal estimates with each other is one of the first checks we make before a rainfall product goes into a hydrologic model.",
+      "check": [
+        { "q": "Can a gauge that stands outside the watershed have a Thiessen weight?", "a": "Yes. If some part of the watershed is closer to that gauge than to any other, that part belongs to its polygon." },
+        { "q": "Two gauges have Thiessen weights of 0.7 and 0.3 and record 20 mm and 50 mm. What is the areal average?", "a": "0.7 × 20 + 0.3 × 50 = 14 + 15 = 29 mm." }
+      ],
+      "terms": [
+        ["areal average rainfall", "면적평균강우량"], ["arithmetic mean method", "산술평균법"], ["Thiessen polygon method", "티센 다각형법"], ["isohyetal method", "등우선법"],
+        ["isohyet", "등우선"], ["weight", "가중값"], ["inverse-distance weighting", "역거리가중법"], ["kriging", "크리깅"]
+      ],
+      "refs": [
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Section 3.4.",
+        "Thiessen, A. H. (1911). Precipitation averages for large areas. Monthly Weather Review, 39(7), 1082–1084.",
+        "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
+      ]
+    }
+  ]
+}

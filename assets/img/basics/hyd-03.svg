@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+  <defs>
+    <marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker>
+    <marker id="aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2540"/></marker>
+    <marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d98a1f"/></marker>
+    <marker id="aS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#12355b"/></marker>
+  </defs>
+  <rect width="800" height="400" rx="14" fill="#f5f8fb"/>
+
+  <!-- the watershed as a control volume -->
+  <rect x="150" y="150" width="330" height="170" rx="12" fill="#ffffff" stroke="#0b2540" stroke-width="2.5" stroke-dasharray="9 6"/>
+  <path d="M152 236q28-12 55 0t55 0t55 0t55 0t55 0t51 0V308a10 10 0 0 1-10 10H162a10 10 0 0 1-10-10z" fill="#cfe9ef"/>
+  <path d="M152 236q28-12 55 0t55 0t55 0t55 0t55 0t51 0" fill="none" stroke="#0e8a9c" stroke-width="2"/>
+  <text x="315" y="178" text-anchor="middle" font-size="13" fill="#5b6876">Watershed boundary</text>
+  <text x="290" y="276" text-anchor="middle" font-weight="700">Storage  S</text>
+  <text x="290" y="297" text-anchor="middle" font-size="13" fill="#5b6876">soil water · groundwater · snow · lakes</text>
+  <path d="M420 262V214" stroke="#12355b" stroke-width="2.5" marker-start="url(#aS)" marker-end="url(#aS)"/>
+  <text x="432" y="262" font-weight="700" fill="#12355b" font-size="14">ΔS</text>
+
+  <!-- P in -->
+  <path d="M230 44V136" stroke="#0e8a9c" stroke-width="9" marker-end="url(#aT)" stroke-linecap="butt"/>
+  <text x="294" y="74" font-weight="800" font-size="22" fill="#0e8a9c">P</text>
+  <text x="294" y="96" font-size="14">Precipitation in</text>
+  <!-- ET out -->
+  <path d="M440 140V52" stroke="#d98a1f" stroke-width="6" marker-end="url(#aO)"/>
+  <text x="470" y="74" font-weight="800" font-size="22" fill="#d98a1f">ET</text>
+  <text x="470" y="96" font-size="14">Evapotranspiration out</text>
+  <!-- Q out -->
+  <path d="M484 290H580" stroke="#0b2540" stroke-width="6" marker-end="url(#aN)"/>
+  <text x="596" y="286" font-weight="800" font-size="22">Q</text>
+  <text x="596" y="308" font-size="14">Streamflow out</text>
+  <text x="596" y="326" font-size="13" fill="#5b6876">at the outlet</text>
+
+  <!-- equation -->
+  <rect x="150" y="340" width="330" height="40" rx="10" fill="#0b2540"/>
+  <text x="315" y="366" text-anchor="middle" font-weight="700" font-size="18" fill="#ffffff">P − ET − Q = ΔS</text>
+
+  <!-- unit note -->
+  <g transform="translate(596 150)">
+    <rect x="0" y="0" width="180" height="84" rx="10" fill="#e6f4f6"/>
+    <text x="14" y="24" font-size="13" fill="#5b6876">All terms as a depth</text>
+    <text x="14" y="42" font-size="13" fill="#5b6876">over the basin area:</text>
+    <text x="14" y="68" font-weight="700" font-size="14">1 mm × 1 km² = 1,000 m³</text>
+  </g>
+  <text x="44" y="240" font-size="13" fill="#5b6876" transform="rotate(-90 44 240)" text-anchor="middle">one watershed, one time period</text>
+</svg>

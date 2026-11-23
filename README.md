@@ -38,7 +38,7 @@
 게임 배경음악과 효과음은 모두 이 게임용으로 새로 만든 것이며, 음악 파일 없이 `play.html` 코드가 직접 연주합니다(8비트 오락실 스타일).
 멜로디는 `play.html`의 `BARS` 목록(한 마디에 8칸: 음 이름, `-` 늘이기, `.` 쉼표)에서 고칠 수 있습니다.
 
-## Study 탭 (매일 논문 한 편)
+## Study 탭 (논문 노트와 기본 개념)
 
 `study.html`은 `assets/data/study.json`의 글을 게시판 형태로 보여줍니다(그림은 `assets/img/study/`).
 매일 자동으로 논문 한 편을 골라 요약해 올리며, 절차는 `tools/STUDY_ROUTINE.md`에 있습니다.
@@ -50,6 +50,12 @@ Study 안의 **Our Papers** 탭(`study.html#our`)은 연구실 논문(국제 31�
 같은 형식이고(`id`는 `our-`로 시작, `date` 없음), 그림은 `assets/img/study/our-*.webp`입니다.
 CC 논문은 라이선스대로, 구독형 논문은 저자 재사용 권한으로 저자 PDF에서 잘라 넣고 출판사 저작권을 표시했습니다.
 새 논문이 나오면 같은 형식으로 항목을 추가하면 됩니다(자동 일일 작업은 이 파일을 건드리지 않습니다).
+
+Study 탭 순서는 **Our Papers**(첫 화면, `study.html`) → **Daily Papers**(`study.html#daily`) → **Fundamentals**(`study.html#basics`)입니다.
+
+**Fundamentals** 탭은 기본 개념 노트이며 `assets/data/basics.json`에 있습니다(그림은 `assets/img/basics/*.svg`, 직접 그린 그림).
+`courses`에 과목과 전체 목차(`outline`)가, `notes`에 작성된 노트가 들어 있고, 목차 중 아직 노트가 없는 단원은 "Coming up"으로 표시됩니다.
+노트 본문에서 `$...$`는 수식(KaTeX), `**...**`는 굵은 글씨입니다. 새 노트는 같은 형식으로 `notes`에 추가하면 됩니다(`id`는 `hyd-06-…`처럼 과목 3글자-단원 번호-이름).
 
 ## 방문자 수 (모든 페이지 하단)
 

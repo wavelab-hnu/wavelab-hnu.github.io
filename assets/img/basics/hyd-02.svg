@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+  <defs>
+    <marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b6876"/></marker>
+    <marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="#f5f8fb"/>
+
+  <!-- streams of the neighbouring watersheds (flow away from the divide) -->
+  <g fill="none" stroke="#b9d9e0" stroke-width="3" stroke-linecap="round">
+    <path d="M196 150Q150 190 120 250Q104 290 60 318"/><path d="M150 196Q110 190 78 160"/>
+    <path d="M606 138Q660 170 688 230Q704 280 760 300"/><path d="M660 176Q700 160 730 120"/>
+  </g>
+
+  <!-- watershed -->
+  <path d="M400 404C352 392 300 372 262 330C226 290 212 236 226 186C240 136 286 92 340 70C380 54 430 52 470 70C524 94 566 140 580 196C592 246 574 300 540 336C504 374 448 394 400 404z"
+        fill="#e6f4f6" stroke="#0b2540" stroke-width="2.5" stroke-dasharray="10 6" stroke-linejoin="round"/>
+  <!-- a sub-basin -->
+  <path d="M398 272C340 268 270 250 246 214C236 170 262 124 310 96C340 110 362 150 364 196C366 226 382 252 398 272z" fill="#d3ecf1" stroke="#12355b" stroke-width="1.5" stroke-dasharray="3 5"/>
+
+  <!-- stream network -->
+  <g fill="none" stroke="#0e8a9c" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M420 92Q436 140 414 184Q396 226 404 268Q412 320 400 400" stroke-width="5"/>
+    <path d="M286 136Q312 178 330 214Q346 250 402 272" stroke-width="3.5"/>
+    <path d="M262 214Q296 216 328 212" stroke-width="2.5"/>
+    <path d="M338 112Q336 150 316 184" stroke-width="2.5"/>
+    <path d="M532 160Q494 180 470 214Q446 244 408 252" stroke-width="3.5"/>
+    <path d="M548 250Q510 240 478 206" stroke-width="2.5"/>
+    <path d="M480 108Q478 150 496 178" stroke-width="2.5"/>
+    <path d="M500 330Q452 326 406 318" stroke-width="2.5"/>
+    <path d="M300 330Q350 334 402 340" stroke-width="2.5"/>
+  </g>
+
+  <!-- overland flow arrows (downhill, towards the streams) -->
+  <g fill="none" stroke="#5b6876" stroke-width="1.5">
+    <path d="M250 262L282 294" marker-end="url(#aG)"/>
+    <path d="M556 300L524 318" marker-end="url(#aG)"/>
+    <path d="M380 82L392 116" marker-end="url(#aG)"/>
+    <path d="M556 206L528 222" marker-end="url(#aG)"/>
+    <!-- outside the divide: the other way -->
+    <path d="M214 250L184 268" marker-end="url(#aG)"/>
+    <path d="M596 258L628 268" marker-end="url(#aG)"/>
+  </g>
+
+  <!-- outlet -->
+  <circle cx="400" cy="404" r="9" fill="#0b2540" stroke="#ffffff" stroke-width="3"/>
+  <path d="M400 404V436" stroke="#0e8a9c" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- labels with leader lines -->
+  <g fill="none" stroke="#0b2540" stroke-width="1"><path d="M560 96L524 110"/><path d="M186 104L282 112"/><path d="M632 364L412 404"/><path d="M640 196L420 196"/></g>
+  <g font-weight="700">
+    <text x="566" y="92">Drainage divide</text>
+    <text x="640" y="192" fill="#0e8a9c">Main stream</text>
+    <text x="638" y="360">Outlet</text>
+    <text x="180" y="100" text-anchor="end">Sub-basin</text>
+    <text x="400" y="36" text-anchor="middle" font-size="16">Watershed  ·  area A</text>
+  </g>
+  <g font-size="13" fill="#5b6876">
+    <text x="566" y="110">(follows the ridges)</text>
+    <text x="640" y="210">with its tributaries</text>
+    <text x="638" y="378">the point that defines</text>
+    <text x="638" y="394">the watershed</text>
+    <text x="180" y="118" text-anchor="end">of one tributary</text>
+    <text x="70" y="352" text-anchor="middle">Neighbouring</text><text x="70" y="368" text-anchor="middle">watershed</text>
+    <text x="728" y="336" text-anchor="middle">Neighbouring</text><text x="728" y="352" text-anchor="middle">watershed</text>
+  </g>
+</svg>

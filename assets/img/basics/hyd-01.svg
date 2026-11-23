@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef8fa"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker>
+    <marker id="aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2540"/></marker>
+    <marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d98a1f"/></marker>
+  </defs>
+  <rect width="800" height="450" rx="14" fill="url(#sky)"/>
+
+  <!-- sun -->
+  <circle cx="74" cy="66" r="26" fill="#f6c453"/>
+  <g stroke="#f6c453" stroke-width="3" stroke-linecap="round"><path d="M74 26v-10M74 116v-10M34 66h-10M124 66h-10M46 38l-7-7M102 94l7 7M46 94l-7 7M102 38l7-7"/></g>
+
+  <!-- ground, groundwater zone, ocean -->
+  <path d="M0 430L120 400L250 330L330 302L400 286L424 300L446 284L470 266L560 190L640 120L720 170L800 205V450H0z" fill="#e9edf1"/>
+  <path d="M250 330L330 314L424 300L560 280L700 262L800 256V450H0V430L120 400z" fill="#cfe9ef"/>
+  <path d="M250 330L330 314L424 300L560 280L700 262L800 256" fill="none" stroke="#0e8a9c" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <path d="M0 330H250L120 400L0 430z" fill="#5cc6d6"/>
+  <path d="M0 330H250" stroke="#0e8a9c" stroke-width="2"/>
+  <path d="M250 330L330 302L400 286L424 300L446 284L470 266L560 190L640 120L720 170L800 205" fill="none" stroke="#0b2540" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- river in the valley -->
+  <path d="M408 291L424 300L440 289z" fill="#5cc6d6" stroke="#0e8a9c" stroke-width="1"/>
+
+  <!-- trees -->
+  <g fill="#3f9b7a"><circle cx="350" cy="283" r="11"/><circle cx="372" cy="279" r="9"/><circle cx="326" cy="290" r="9"/></g>
+  <g stroke="#0b2540" stroke-width="2"><path d="M350 294v6M372 288v6M326 299v5"/></g>
+
+  <!-- cloud and rain -->
+  <g fill="#ffffff" stroke="#0b2540" stroke-width="2">
+    <path d="M520 92a24 24 0 0 1 14-44a34 34 0 0 1 62-8a28 28 0 0 1 46 16a20 20 0 0 1-4 38z"/>
+  </g>
+  <g stroke="#0e8a9c" stroke-width="2.5" stroke-linecap="round"><path d="M548 106l-6 16M576 106l-6 16M604 106l-6 16M632 106l-6 16M562 132l-6 16M590 132l-6 16"/></g>
+
+  <!-- fluxes -->
+  <g fill="none" stroke-width="2.5" stroke-linecap="round">
+    <path d="M110 318V226" stroke="#d98a1f" marker-end="url(#aO)"/>
+    <path d="M150 318V246" stroke="#d98a1f" marker-end="url(#aO)"/>
+    <path d="M178 160Q330 72 496 84" stroke="#0b2540" marker-end="url(#aN)"/>
+    <path d="M362 262V208" stroke="#d98a1f" marker-end="url(#aO)"/>
+    <path d="M546 180L482 234" stroke="#0e8a9c" marker-end="url(#aT)"/>
+    <path d="M610 152V214" stroke="#0e8a9c" marker-end="url(#aT)"/>
+    <path d="M610 232V268" stroke="#0e8a9c" stroke-dasharray="2 6" marker-end="url(#aT)"/>
+    <path d="M690 318Q560 336 452 318" stroke="#0e8a9c" marker-end="url(#aT)"/>
+    <path d="M404 312Q330 330 268 344" stroke="#0e8a9c" marker-end="url(#aT)"/>
+  </g>
+
+  <!-- labels -->
+  <g font-weight="700">
+    <text x="92" y="212" text-anchor="start">Evaporation</text>
+    <text x="330" y="38" text-anchor="middle">Moisture transport</text>
+    <text x="662" y="64">Precipitation</text>
+    <text x="330" y="196" text-anchor="middle">Evapotranspiration</text>
+    <text x="470" y="204" text-anchor="end">Surface</text>
+    <text x="470" y="222" text-anchor="end">runoff</text>
+    <text x="624" y="200">Infiltration</text>
+    <text x="570" y="356" text-anchor="middle">Groundwater flow</text>
+    <text x="428" y="340" text-anchor="middle" font-size="13">River</text>
+    <text x="96" y="368" text-anchor="middle" fill="#ffffff">Ocean</text>
+  </g>
+  <g font-size="13" fill="#5b6876">
+    <text x="624" y="254">Percolation</text>
+    <text x="700" y="286">Water table</text>
+    <text x="570" y="374" text-anchor="middle">(slow; feeds rivers as baseflow)</text>
+    <text x="330" y="56" text-anchor="middle">(wind carries water vapour)</text>
+    <text x="662" y="82">(rain, snow)</text>
+  </g>
+</svg>

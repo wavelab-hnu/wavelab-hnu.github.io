@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-ko="스터디 | WAVE Lab">Study | WAVE Lab</title>
-  <meta name="description" content="Paper notes from WAVE Lab — one open-access paper a day, plus plain-language summaries of our own publications.">
+  <meta name="description" content="Study notes from WAVE Lab — plain-language summaries of our own papers, one open-access paper a day, and the basic concepts of hydrology explained step by step.">
   <link rel="icon" href="assets/img/logo.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="assets/css/style.css?v=202611191700">
   <style>
-    /* Collection switch: Daily Papers / Our Papers */
+    /* Collection switch: Our Papers / Daily Papers / Fundamentals */
     .coll { display: flex; gap: 0; border-bottom: 2px solid var(--line); margin-bottom: 20px; }
     .coll a { white-space: nowrap; padding: 10px 18px; margin-bottom: -2px; border-bottom: 3px solid transparent; font-weight: 700; color: var(--muted); }
     .coll a:hover { color: var(--navy); text-decoration: none; }
@@ -67,7 +67,65 @@
     .post-nav small { display: block; color: var(--muted); font-size: .78rem; }
     .post-nav .next { text-align: right; }
 
+    /* Fundamentals: course list */
+    .course { margin: 30px 0 10px; }
+    .course-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--navy); padding-bottom: 8px; }
+    .course-head h2 { font-size: 1.35rem; margin: 0; }
+    .course-head h2 span { font-weight: 600; font-size: 1rem; color: var(--teal); margin-left: 8px; letter-spacing: 0; }
+    .course-count { margin-left: auto; color: var(--muted); font-size: .9rem; }
+    .course-lead { color: var(--muted); font-size: .92rem; margin: 10px 0 2px; }
+    .units { list-style: none; margin: 0; padding: 0; }
+    .unit { display: grid; grid-template-columns: 40px 132px 1fr; gap: 16px; align-items: center; padding: 14px 6px; border-bottom: 1px solid var(--line); color: inherit; }
+    .unit:hover { background: var(--bg-soft); text-decoration: none; }
+    .u-no { font-weight: 800; font-size: 1.15rem; color: var(--teal); text-align: center; font-variant-numeric: tabular-nums; }
+    .unit .thumb { width: 132px; height: 76px; }
+    .u-tt { min-width: 0; }
+    .u-tt strong { display: block; color: var(--navy); font-size: 1.05rem; line-height: 1.35; }
+    .u-tt em { font-style: normal; font-weight: 600; font-size: .9rem; color: var(--teal); margin-left: 8px; white-space: nowrap; }
+    .u-tt > span { margin-top: 3px; color: var(--muted); font-size: .9rem; line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .upnext { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .upnext span { font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+    .upnext i { font-style: normal; font-size: .82rem; padding: 4px 10px; border-radius: 999px; border: 1px dashed #cfd8e3; color: var(--muted); }
+
+    /* Fundamentals: concept note */
+    .note h2 .ko-term { display: inline-block; font-size: 1rem; font-weight: 600; color: var(--teal); margin-left: 10px; letter-spacing: 0; }
+    .note .tldr { margin-top: 14px; }
+    .note p.body { margin: 0 0 10px; }
+    .note .fig img { width: 100%; }
+    .eqbox { margin: 12px 0 14px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-soft); }
+    .eqbox .eq { text-align: center; font-size: 1.08rem; min-height: 1.6em; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+    .where { margin: 10px 0 0; padding-top: 10px; border-top: 1px dashed #cfd8e3; font-size: .9rem; display: grid; gap: 4px; }
+    .where div { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: baseline; }
+    .where dt { text-align: right; }
+    .where dd { margin: 0; color: var(--muted); }
+    .ex { margin-top: 26px; border: 1px solid var(--line); border-left: 4px solid var(--navy); border-radius: 10px; padding: 2px 20px 16px; background: #fff; }
+    .post .ex h3 { color: var(--navy); margin-top: 14px; }
+    .ex p { margin: 0; }
+    .ex ol { margin: 10px 0; padding-left: 1.3em; }
+    .ex li { margin-bottom: 5px; }
+    .ex .ans { padding-top: 10px; border-top: 1px dashed #cfd8e3; }
+    .note details { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; }
+    .note details[open] { background: var(--bg-soft); }
+    .note summary { cursor: pointer; font-weight: 600; color: var(--navy); }
+    .note details p { margin: 8px 0 0; }
+    .terms { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin: 0; }
+    .terms div { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: .92rem; }
+    .terms dd { margin: 0; color: var(--teal); font-weight: 600; white-space: nowrap; }
+    .refs { margin: 0; padding-left: 1.2em; font-size: .9rem; color: var(--muted); }
+    .refs li { margin-bottom: 4px; }
+    /* equations stay hidden until KaTeX has drawn them (shown as plain text if it cannot load) */
+    .tex, .eq { visibility: hidden; }
+    .tex.done, .eq.done, .no-math .tex, .no-math .eq { visibility: visible; }
+    .no-math .tex, .no-math .eq { font-family: ui-monospace, Consolas, monospace; font-size: .9em; }
+
     @media (max-width: 760px) {
+      .unit { grid-template-columns: 26px 88px 1fr; gap: 10px; padding: 12px 2px; }
+      .unit .thumb { width: 88px; height: 52px; }
+      .u-tt em { display: block; margin-left: 0; }
+      .course-count { margin-left: 0; }
+      .terms { grid-template-columns: 1fr; }
+      .ex { padding: 2px 14px 14px; }
       .board-head { display: none; }
       .board-row { grid-template-columns: 88px 1fr; grid-template-areas: "th tt" "th meta"; gap: 4px 12px; padding: 12px 2px; }
       .board-row .no { display: none; }
@@ -91,8 +149,8 @@
     <section class="page-hero">
       <div class="container">
         <span data-ko="스터디" class="eyebrow">Study</span>
-        <h1 data-ko="논문 노트">Paper Notes</h1>
-        <p data-ko="매일 한 편씩 소개하는 오픈액세스 논문과, 우리 연구실 논문을 쉽게 풀어 쓴 요약">A new open-access paper every day, plus plain-language summaries of our own publications</p>
+        <h1 data-ko="논문과 기본 개념">Papers &amp; Fundamentals</h1>
+        <p data-ko="쉽게 풀어 쓴 우리 연구실 논문, 매일 한 편의 오픈액세스 논문, 그리고 그 바탕이 되는 기본 개념">Our own papers in plain language, a new open-access paper every day, and the basic concepts behind them</p>
       </div>
     </section>
 
@@ -115,21 +173,26 @@
     const THEME_KO = { All: "전체", Hydrology: "수문", "AI Forecasting": "AI 예측", "Vision & Sensing": "영상·음향 센싱", "Earth Observation": "위성 관측" };
     const themeName = (x) => T(x, THEME_KO[x]);
     const PER_PAGE = 15;
-    // Two collections share the same board/post layout
+    // Our Papers and Daily Papers share the board/post layout; Fundamentals has its own course list and note layout
     const COLL = {
-      daily: { label: T("Daily Papers", "오늘의 논문"), file: "assets/data/study.json", hash: "",
+      our:   { label: T("Our Papers", "우리 연구실 논문"), file: "assets/data/our-papers.json", hash: "",
+               lead: T("Our own journal papers, explained in plain language — each with a key figure and its DOI.", "우리 연구실 논문을 핵심 그림, DOI와 함께 쉽게 풀어 소개합니다. 요약은 영어로 제공됩니다."),
+               sort: (a, b) => (b.year - a.year) || 0, when: (p) => String(p.year), whenHead: T("Year", "연도") },
+      daily: { label: T("Daily Papers", "오늘의 논문"), file: "assets/data/study.json", hash: "daily",
                lead: T("One open-access paper a day on hydrology, AI forecasting, rainfall sensing and Earth observation — summarized, with a key figure and its DOI.", "수문, AI 예측, 강우 센싱, 위성 관측 분야의 오픈액세스 논문을 매일 한 편씩 핵심 그림, DOI와 함께 요약합니다. 요약은 영어로 제공됩니다."),
                sort: (a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id), when: (p) => p.date, whenHead: T("Date", "날짜") },
-      our:   { label: T("Our Papers", "우리 연구실 논문"), file: "assets/data/our-papers.json", hash: "our",
-               lead: T("Our own journal papers, explained in plain language — each with a key figure and its DOI.", "우리 연구실 논문을 핵심 그림, DOI와 함께 쉽게 풀어 소개합니다. 요약은 영어로 제공됩니다."),
-               sort: (a, b) => (b.year - a.year) || 0, when: (p) => String(p.year), whenHead: T("Year", "연도") }
+      basics: { label: T("Fundamentals", "기본 개념"), file: "assets/data/basics.json", hash: "basics",
+               lead: T("The basic concepts behind our research, one idea at a time. Every note has a diagram, the key equation, a worked example and a quick self-check.", "연구의 바탕이 되는 기본 개념을 하나씩 정리합니다. 노트마다 그림, 핵심 식, 풀이 예제, 확인 문제가 있습니다. 본문은 영어로 제공됩니다.") }
     };
     const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-    const safeSrc = (s) => (/^assets\/img\/study\/[\w.-]+$/.test(s || "") ? s : "");
+    const safeSrc = (s) => (/^assets\/img\/(study|basics)\/[\w.-]+$/.test(s || "") ? s : "");
+    // inline markup of the concept notes: $…$ is an equation (KaTeX), **…** is bold
+    const rich = (s) => esc(s).replace(/\$([^$]+)\$/g, (m, t) => `<span class="tex" data-tex="${t}">${t}</span>`).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
     const boldPI = (s) => s.replace(/Lee, J\.\*?(?!\s?[A-Z]\.)/g, (m) => `<b>${m}</b>`); // PI's name (applied after escaping)
     const ext = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="vertical-align:-2px"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>`;
 
     const data = {};      // collection key -> sorted posts (loaded on demand)
+    let courses = [];     // Fundamentals: the subjects, each with its outline
     const state = { daily: { theme: "All", query: "", page: 1 }, our: { theme: "All", query: "", page: 1 } };
 
     function load(key) {
@@ -137,6 +200,12 @@
       return fetch(COLL[key].file, { cache: "no-cache" })
         .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then((list) => {
+          if (key === "basics") {
+            courses = list.courses;
+            const order = (n) => courses.findIndex((c) => c.key === n.course) * 1000 + n.unit;
+            data[key] = list.notes.slice().sort((a, b) => order(a) - order(b));
+            return data[key];
+          }
           // stable sort keeps the file's order within a year
           data[key] = list.map((p, i) => [p, i]).sort((a, b) => COLL[key].sort(a[0], b[0]) || a[1] - b[1]).map((x) => x[0]);
           return data[key];
@@ -148,9 +217,12 @@
 
     function route() {
       const h = decodeURIComponent(location.hash.slice(1));
-      const key = h === "our" || h.startsWith("our-") ? "our" : "daily";
+      // "" and "our…" = Our Papers (the first tab), dates = Daily Papers, "hyd-01-…" = Fundamentals
+      const key = h === "basics" || /^[a-z]{3}-\d\d-/.test(h) ? "basics"
+                : h === "daily" || /^\d{4}-\d\d-\d\d/.test(h) ? "daily" : "our";
       load(key).then((posts) => {
         const i = posts.findIndex((p) => p.id === h);
+        if (key === "basics") { if (i >= 0) showNote(i); else showCourses(); return; }
         if (i >= 0) showPost(key, i); else showBoard(key);
       }).catch(() => { root.innerHTML = collTabs(key) + `<p class="empty">${T("Couldn't load the paper notes. Please try again later.", "논문 노트를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.")}</p>`; });
     }
@@ -249,6 +321,98 @@
             ${newer ? `<a class="next" href="#${encodeURIComponent(newer.id)}"><small>${T("Next", "다음 글")} →</small>${esc(newer.title)}</a>` : "<span></span>"}
           </nav>
         </article>`;
+    }
+
+    /* ---------- Fundamentals: course list ---------- */
+    function showCourses() {
+      const c = COLL.basics, notes = data.basics;
+      document.title = `${c.label} | ${T("Study", "스터디")} | WAVE Lab`;
+      root.innerHTML = collTabs("basics") + `<p class="coll-lead">${c.lead}</p>` + courses.map((co) => {
+        const mine = notes.filter((n) => n.course === co.key);
+        const done = new Set(mine.map((n) => n.unit));
+        const next = co.outline.map((o, k) => [k + 1, o[0]]).filter((x) => !done.has(x[0]));
+        return `
+        <div class="course">
+          <header class="course-head">
+            <h2>${esc(co.subject)}<span lang="ko">${esc(co.ko)}</span></h2>
+            <span class="course-count">${T(`${mine.length} of ${co.outline.length} units`, `${co.outline.length}개 중 ${mine.length}개`)}</span>
+          </header>
+          <p class="course-lead">${esc(co.lead)}</p>
+          <ol class="units">${mine.map((n) => {
+            const src = safeSrc(n.figure && n.figure.src);
+            return `
+            <li><a class="unit" href="#${encodeURIComponent(n.id)}">
+              <span class="u-no">${n.unit}</span>
+              <span class="thumb${src ? "" : " none"}" style="${src ? `background-image:url('${src}')` : ""}"></span>
+              <span class="u-tt"><strong>${esc(n.title)}<em lang="ko">${esc(n.ko)}</em></strong><span>${esc(n.tldr)}</span></span>
+            </a></li>`;
+          }).join("")}</ol>
+          ${next.length ? `<div class="upnext"><span>${T("Coming up", "다음 순서")}</span>${next.map((x) => `<i>${x[0]}. ${esc(x[1])}</i>`).join("")}</div>` : ""}
+        </div>`;
+      }).join("");
+    }
+
+    /* ---------- Fundamentals: concept note ---------- */
+    function showNote(i) {
+      const notes = data.basics, n = notes[i];
+      const co = courses.find((c) => c.key === n.course) || { subject: "", outline: [] };
+      const same = notes.filter((x) => x.course === n.course), j = same.indexOf(n);
+      const prev = same[j - 1], next = same[j + 1];
+      const src = safeSrc(n.figure && n.figure.src);
+      const block = (b) =>
+        b.h ? `<h3>${esc(b.h)}</h3>` :
+        b.p ? `<p class="body">${rich(b.p)}</p>` :
+        b.ul ? `<ul class="findings">${b.ul.map((x) => `<li>${rich(x)}</li>`).join("")}</ul>` :
+        b.eq ? `<div class="eqbox"><div class="eq" data-tex="${esc(b.eq)}">${esc(b.eq)}</div>${(b.where || []).length ? `<dl class="where">${b.where.map((w) => `<div><dt><span class="tex" data-tex="${esc(w[0])}">${esc(w[0])}</span></dt><dd>${esc(w[1])}</dd></div>`).join("")}</dl>` : ""}</div>` : "";
+      const ex = n.example;
+      document.title = `${n.title} | ${T("Study", "스터디")} | WAVE Lab`;
+      root.innerHTML = `
+        ${collTabs("basics")}
+        <article class="post note">
+          <a class="back" href="#basics">← ${T("All fundamentals", "기본 개념 목록")}</a>
+          <div class="post-meta"><span class="theme">${esc(co.subject)}</span><span>${T(`Unit ${n.unit} of ${co.outline.length}`, `${co.outline.length}개 중 ${n.unit}번째`)}</span></div>
+          <h2>${esc(n.title)}<span class="ko-term" lang="ko">${esc(n.ko)}</span></h2>
+          ${n.tldr ? `<p class="tldr">${rich(n.tldr)}</p>` : ""}
+          ${src ? `
+          <figure class="fig">
+            <a href="${src}" target="_blank" rel="noopener"><img src="${src}" alt="${esc(n.figure.caption || n.title)}"></a>
+            <figcaption>${esc(n.figure.caption)}</figcaption>
+          </figure>` : ""}
+          ${(n.blocks || []).map(block).join("")}
+          ${ex ? `
+          <section class="ex">
+            <h3>${T("Worked example", "풀이 예제")}</h3>
+            <p>${rich(ex.q)}</p>
+            <ol>${(ex.steps || []).map((x) => `<li>${rich(x)}</li>`).join("")}</ol>
+            <p class="ans"><b>${T("Answer.", "답.")}</b> ${rich(ex.a)}</p>
+          </section>` : ""}
+          ${(n.mistakes || []).length ? `<h3>${T("Common mistakes", "자주 하는 실수")}</h3><ul class="findings">${n.mistakes.map((x) => `<li>${rich(x)}</li>`).join("")}</ul>` : ""}
+          ${n.ours ? `<h3>${T("Where we use it", "우리 연구에서는")}</h3><p class="body">${rich(n.ours)}</p>` : ""}
+          ${(n.check || []).length ? `<h3>${T("Check yourself", "확인 문제")}</h3>${n.check.map((x) => `<details><summary>${rich(x.q)}</summary><p>${rich(x.a)}</p></details>`).join("")}` : ""}
+          ${(n.terms || []).length ? `<h3>${T("Key terms", "핵심 용어")}</h3><dl class="terms">${n.terms.map((x) => `<div><dt>${esc(x[0])}</dt><dd lang="ko">${esc(x[1])}</dd></div>`).join("")}</dl>` : ""}
+          ${(n.refs || []).length ? `<h3>${T("Further reading", "더 읽을거리")}</h3><ul class="refs">${n.refs.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          <nav class="post-nav">
+            ${prev ? `<a href="#${encodeURIComponent(prev.id)}"><small>← ${T("Previous", "이전 글")}</small>${prev.unit}. ${esc(prev.title)}</a>` : "<span></span>"}
+            ${next ? `<a class="next" href="#${encodeURIComponent(next.id)}"><small>${T("Next", "다음 글")} →</small>${next.unit}. ${esc(next.title)}</a>` : "<span></span>"}
+          </nav>
+        </article>`;
+      typeset();
+    }
+
+    // Equations: KaTeX is loaded only when a concept note is opened
+    let mathLoad;
+    function typeset() {
+      const K = "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min";
+      if (!mathLoad) mathLoad = new Promise((ok, fail) => {
+        const css = document.createElement("link"); css.rel = "stylesheet"; css.href = K + ".css"; document.head.appendChild(css);
+        const js = document.createElement("script"); js.src = K + ".js"; js.onload = ok; js.onerror = fail; document.head.appendChild(js);
+      });
+      mathLoad.then(() => {
+        root.querySelectorAll("[data-tex]").forEach((el) => {
+          window.katex.render(el.dataset.tex, el, { displayMode: el.classList.contains("eq"), throwOnError: false });
+          el.classList.add("done");
+        });
+      }).catch(() => root.classList.add("no-math"));
     }
   })();
   </script>
