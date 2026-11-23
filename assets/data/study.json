@@ -1,5 +1,42 @@
 [
   {
+    "id": "2026-11-24",
+    "date": "2026-11-24",
+    "theme": "Earth Observation",
+    "title": "Empowering multi-source SAR Flood mapping with unsupervised learning",
+    "authors": "Jiang, X., Zeng, Z.",
+    "journal": "Environmental Research Letters",
+    "volume": "20",
+    "pages": "014006",
+    "year": 2024,
+    "doi": "10.1088/1748-9326/ad9491",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-24.webp",
+      "caption": "How the method learns without labels: a small CNN turns the radar image into a pixel-wise classification, superpixels group neighbouring pixels with similar texture, each superpixel takes its most common class, and the mismatch between the two is fed back to retrain the CNN.",
+      "credit": "Figure 2 from Jiang et al. (2024), Environmental Research Letters, CC BY 4.0."
+    },
+    "tldr": "An unsupervised method that pairs superpixels with a self-training CNN maps floods from three different radar satellites without any labelled training data, and it beats simple thresholding, clustering and a supervised CNN in most tests.",
+    "background": "Synthetic aperture radar (SAR) sees through clouds and works at night, so it is often the only way to map a flood while the rain is still falling. New commercial SAR constellations now deliver metre-scale images every few hours, but most flood-mapping algorithms are tuned to one sensor or need many hand-labelled images to train. Simple unlabelled methods, such as a single brightness threshold, struggle with the grainy speckle noise that gets worse at high resolution.",
+    "approach": "The authors combine two ideas. First, the Felzenszwalb algorithm splits the image into superpixels, small patches of pixels with similar radar texture. Second, a light CNN with 3 x 3 kernels produces a pixel-wise class map; each superpixel is assigned its most frequent class, and the network is retrained by stochastic gradient descent to agree with that patch-level result, repeating until the map settles. They tested it on three floods: Hebi and Xinxiang in Henan, China, in July 2021 (HISEA-1 at 3 m and Gaofen-3 at 5 m) and northeastern Bangladesh in June 2022 (Sentinel-1 at 10 m). Accuracy was checked against water/non-water points read from PlanetScope optical images and compared with K-means, Otsu thresholding and a supervised CNN from the AI-Earth platform.",
+    "findings": [
+      "The same algorithm, with no sensor-specific tuning, reached F1-scores of 0.94 (HISEA-1), 0.91 (Gaofen-3) and 0.97 (Sentinel-1).",
+      "In the side-by-side test against K-means and Otsu it won clearly in Hebi (overall accuracy 94.5% vs. 67.6% and 69.0%) and Xinxiang (93.8% vs. about 84%), but in Bangladesh Otsu was essentially as accurate (91.6% vs. 91.5%).",
+      "On Sentinel-1 over Bangladesh it outperformed the supervised CNN (overall accuracy 0.97 vs. 0.87), and the supervised model also transferred less well to Gaofen-3 and HISEA-1 (0.85 and 0.82 vs. 0.91 and 0.94).",
+      "Pixel-based methods got noisier as resolution became finer, while the superpixel approach suppressed speckle and still traced narrow irrigation channels missed by the 30 m JRC water map.",
+      "The Bangladesh map put about 1931 square kilometres of farmland under water in Sunamganj alone; dense vegetation, which weakens the radar water signal, remains a known limitation."
+    ],
+    "relevance": "When a typhoon or monsoon downpour hits, clouds block optical satellites exactly when emergency teams most need a map of where the water is. A method that works on any radar satellite without first collecting training labels could turn the growing number of SAR images into rapid flood maps for disaster response, insurance and recovery planning. For Korea, where floods often strike small, densely used river valleys and farmland, the ability to pick out narrow flooded channels at metre resolution is especially useful. Readers should also note the honest caveat: a simple threshold was nearly as good in one case, so new methods should always be compared with easy baselines.",
+    "keywords": [
+      "SAR",
+      "flood mapping",
+      "unsupervised learning",
+      "superpixels",
+      "Sentinel-1",
+      "disaster response"
+    ]
+  },
+  {
     "id": "2026-11-23",
     "date": "2026-11-23",
     "theme": "Vision & Sensing",
