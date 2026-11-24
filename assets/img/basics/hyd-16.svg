@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+<defs><marker id="aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2540"/></marker><marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker><marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d98a1f"/></marker><marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6876"/></marker><clipPath id="card"><rect width="800" height="450" rx="14"/></clipPath></defs>
+<rect width="800" height="450" rx="14" fill="#f5f8fb"/>
+<g clip-path="url(#card)">
+<rect x="0" y="396" width="800" height="54" fill="#c9d1da"/>
+<rect x="0" y="326" width="800" height="70" fill="#b3dde5"/>
+<rect x="0" y="300" width="800" height="26" fill="#7d8996"/>
+<path d="M0 150.0L690 204.0L700 204H750L800 204V300H0z" fill="#cfe9ef"/>
+<path d="M0 100.0L660 140.0L700 204L690 204.0L0 150.0z" fill="#efe6cf"/>
+<path d="M750 204L784 150H800V204z" fill="#efe6cf"/>
+<path d="M700 204L684 180H766L750 204z" fill="#5cc6d6"/>
+</g>
+<path d="M0 100.0L660 140.0L700 204H750L784 150H800" fill="none" stroke="#8a7a52" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M684 180H766" stroke="#0e8a9c" stroke-width="2.5"/>
+<path d="M0 150.0L684 203.5" stroke="#0e8a9c" stroke-width="2.5" stroke-dasharray="9 5"/>
+<rect x="193" y="98.1" width="14" height="163.9" fill="#ffffff" stroke="#0b2540" stroke-width="2"/>
+<rect x="194" y="165.7" width="12" height="95.3" fill="#5cc6d6"/>
+<rect x="473" y="115.1" width="14" height="146.9" fill="#ffffff" stroke="#0b2540" stroke-width="2"/>
+<rect x="474" y="187.6" width="12" height="73.4" fill="#5cc6d6"/>
+<path d="M207 165.7H520" stroke="#0b2540" stroke-width="1.2" stroke-dasharray="4 4"/><path d="M487 187.6H520" stroke="#0b2540" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M512 168.7V184.6" stroke="#0b2540" stroke-width="1.5" marker-start="url(#aN)" marker-end="url(#aN)"/>
+<text x="526.0" y="181.6" font-size="13" font-weight="700">Δh = 2 m</text>
+<text x="200.0" y="90.1" text-anchor="middle" font-size="13" font-weight="700">Well 1:  h<tspan dy="4" font-size="0.75em">1</tspan><tspan dy="-4"> = 32 m</tspan></text>
+<text x="480.0" y="107.1" text-anchor="middle" font-size="13" font-weight="700">Well 2:  h<tspan dy="4" font-size="0.75em">2</tspan><tspan dy="-4"> = 30 m</tspan></text>
+<path d="M203 282H477" stroke="#0b2540" stroke-width="1.5" marker-start="url(#aN)" marker-end="url(#aN)"/>
+<text x="340.0" y="276.0" text-anchor="middle" font-size="13" font-weight="700">L = 500 m</text>
+<path d="M236 236H284" stroke="#0e8a9c" stroke-width="4" marker-end="url(#aT)"/>
+<path d="M316 236H364" stroke="#0e8a9c" stroke-width="4" marker-end="url(#aT)"/>
+<path d="M396 236H444" stroke="#0e8a9c" stroke-width="4" marker-end="url(#aT)"/>
+<text x="340.0" y="222.0" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0e8a9c">groundwater flow</text>
+<path d="M560 250Q640 250 690 214" fill="none" stroke="#0e8a9c" stroke-width="4" marker-end="url(#aT)"/>
+<text x="604.0" y="272.0" text-anchor="middle" font-size="12.5" fill="#0b2540">seeps into the river</text><text x="604.0" y="288.0" text-anchor="middle" font-size="12.5" fill="#0b2540">(baseflow)</text>
+<text x="226.0" y="146.0" font-size="12.5" fill="#6b5d3a">Unsaturated zone</text>
+<text x="18.0" y="138.0" font-size="13" font-weight="700" fill="#0e8a9c" transform="rotate(4.5 18 138)">Water table</text>
+<text x="16.0" y="222.0" font-size="13.5" font-weight="700">Unconfined aquifer</text><text x="16.0" y="240.0" font-size="12.5" fill="#5b6876">saturated sand</text><text x="16.0" y="256.0" font-size="12.5" fill="#5b6876">and gravel</text>
+<text x="16.0" y="318.0" font-size="12.5" font-weight="700" fill="#ffffff">Confining layer (clay): almost no flow</text>
+<text x="16.0" y="356.0" font-size="13.5" font-weight="700">Confined aquifer</text><text x="16.0" y="374.0" font-size="12.5" fill="#12355b">water held under pressure</text>
+<text x="16.0" y="428.0" font-size="12.5" fill="#5b6876">Bedrock</text>
+<text x="725.0" y="138.0" text-anchor="middle" font-size="13" font-weight="700">River</text>
+<rect x="470" y="342" width="314" height="40" rx="10" fill="#0b2540"/>
+<text x="627.0" y="368.0" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff" xml:space="preserve">Q = K · i · A        i = Δh / L</text>
+</svg>

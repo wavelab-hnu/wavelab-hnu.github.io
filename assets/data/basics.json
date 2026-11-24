@@ -76,6 +76,8 @@
         ["surface runoff", "지표유출"], ["groundwater", "지하수"], ["baseflow", "기저유출"], ["residence time", "체류시간"]
       ],
       "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 1.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 1.",
         "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 1.",
         "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
       ]
@@ -133,10 +135,12 @@
       ],
       "terms": [
         ["watershed, catchment, drainage basin", "유역"], ["drainage divide", "분수계"], ["outlet", "유역 출구"], ["sub-basin", "소유역"],
-        ["main stream", "본류"], ["tributary", "지류"], ["drainage density", "하계밀도"], ["form factor", "형상계수"],
+        ["main stream", "본류"], ["tributary", "지류"], ["drainage density", "하천밀도"], ["form factor", "형상계수"],
         ["digital elevation model (DEM)", "수치표고모델"]
       ],
       "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 7.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 3.",
         "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 5.",
         "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
       ]
@@ -192,6 +196,8 @@
         ["runoff depth", "유출고"], ["runoff ratio", "유출률"], ["conservation of mass", "질량보존"], ["control volume", "검사체적"]
       ],
       "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 1.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Section 1.3.",
         "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapters 1–2.",
         "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
       ]
@@ -248,6 +254,8 @@
         ["drop size distribution", "우적크기분포"], ["satellite precipitation", "위성 강수"]
       ],
       "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 3.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 4.",
         "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapters 3 and 6.",
         "Marshall, J. S., & Palmer, W. M. (1948). The distribution of raindrops with size. Journal of Meteorology, 5, 165–166.",
         "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
@@ -301,9 +309,703 @@
         ["isohyet", "등우선"], ["weight", "가중값"], ["inverse-distance weighting", "역거리가중법"], ["kriging", "크리깅"]
       ],
       "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 3.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 4.",
         "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Section 3.4.",
         "Thiessen, A. H. (1911). Precipitation averages for large areas. Monthly Weather Review, 39(7), 1082–1084.",
         "Dingman, S. L. (2015). Physical Hydrology (3rd ed.). Waveland Press."
+      ]
+    },
+    {
+      "id": "hyd-06-rainfall-idf",
+      "course": "hyd",
+      "unit": 6,
+      "title": "Rainfall intensity, duration and frequency",
+      "ko": "강우강도·지속기간·빈도",
+      "tldr": "A storm is described by three numbers at once: how hard it rains, for how long, and how rarely such a storm happens. The IDF curve ties the three together, and it is where every design storm comes from.",
+      "figure": {
+        "src": "assets/img/basics/hyd-06.svg",
+        "caption": "Intensity–duration–frequency (IDF) curves for one site. Each curve is one return period. The marked point is the storm used in the worked example."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "\"It rained 60 mm\" does not say much. 60 mm in one hour floods a city; 60 mm in a day is an ordinary wet day. So rainfall always needs a **duration**, and depth divided by duration is the average **intensity** (mm/h)." },
+        { "p": "Two regular patterns show up in every rainfall record. For a longer duration, the average intensity is lower, because the heaviest burst never lasts long. And the rarer the storm, the higher the intensity. A plot of intensity against duration, with one curve for each level of rarity, is the **intensity–duration–frequency (IDF) curve**." },
+        { "h": "Reading a rainfall record" },
+        { "p": "Two simple plots come first. A **hyetograph** is a bar chart of rainfall in each time step. A **mass curve** is the running total since the storm began; its slope at any moment is the intensity. To get the worst 60 minutes of a storm, slide a 60-minute window along the record and keep the largest total." },
+        { "h": "Return period" },
+        { "p": "Rarity is expressed as a **return period** $T$: the average time between years in which a value is reached or exceeded. It is just another way to write a probability." },
+        { "eq": "p = \\frac{1}{T}", "where": [["p", "probability that the value is equalled or exceeded in any one year"], ["T", "return period (years)"]] },
+        { "p": "A 100-year rainfall has a 1% chance of being exceeded in each year. It does not arrive every 100 years on schedule. Unit 15 shows how these values are estimated from the record." },
+        { "h": "A formula for the curve" },
+        { "p": "For calculations the curve is fitted with a simple formula. A common one is the Talbot type:" },
+        { "eq": "I = \\frac{a}{t + b}", "where": [["I", "average rainfall intensity (mm/h)"], ["t", "duration (min)"], ["a,\\ b", "constants for one site and one return period"]] },
+        { "p": "Korean textbooks list several such forms: the Talbot type above, the Sherman type $I = c/t^{\\,n}$ and the Japanese type $I = d/(\\sqrt{t} + e)$. The rainfall depth for a given duration and return period is called the **probable rainfall** (확률강우량). In Korea these values are published for stations across the country and are the starting point of every flood design." }
+      ],
+      "example": {
+        "q": "At one site the 10-year rainfall follows $I = 5{,}400 / (t + 30)$, with $I$ in mm/h and $t$ in minutes. Find the intensity and the depth for storms lasting 10, 60 and 120 minutes.",
+        "steps": [
+          "10 min: $I = 5{,}400 / 40 = 135$ mm/h. Depth $= 135 \\times 10/60 = 22.5$ mm.",
+          "60 min: $I = 5{,}400 / 90 = 60$ mm/h. Depth $= 60$ mm.",
+          "120 min: $I = 5{,}400 / 150 = 36$ mm/h. Depth $= 36 \\times 2 = 72$ mm."
+        ],
+        "a": "135, 60 and 36 mm/h, or 22.5, 60 and 72 mm. As the storm gets longer the intensity falls but the total depth still grows. Which duration matters depends on the watershed: a small, fast basin reacts to the short, intense burst, a large one to the long storm (Unit 13)."
+      },
+      "mistakes": [
+        "**Reading the return period as a schedule.** Two 100-year storms can fall in two years running. The return period is an average over a very long time.",
+        "**Stretching a short intensity.** 135 mm/h for 10 minutes does not mean 135 mm in an hour. Each duration has its own intensity.",
+        "**Using a point value for a large area.** IDF curves come from single gauges. The average over a watershed is lower, so the point rainfall is multiplied by an areal reduction factor (면적우량환산계수).",
+        "**Assuming the climate stands still.** The curves are fitted to past records. If heavy rain is becoming more frequent, yesterday's 100-year storm is no longer today's."
+      ],
+      "ours": "Design rainfall is where climate and engineering meet. A large part of our work on climate extremes asks how these curves are shifting, and how to estimate them when the record is short or changing, using long gauge records together with radar, satellite and climate-model rainfall.",
+      "check": [
+        { "q": "What is the chance that a 50-year rainfall is exceeded in any one year?", "a": "p = 1/T = 1/50 = 0.02, or 2% in every year." },
+        { "q": "With I = 5,400 / (t + 30), what are the intensity and the depth of a 30-minute storm?", "a": "I = 5,400 / 60 = 90 mm/h, so the depth is 90 × 30/60 = 45 mm." }
+      ],
+      "terms": [
+        ["rainfall intensity", "강우강도"], ["duration", "지속기간"], ["return period", "재현기간"], ["exceedance probability", "초과확률"],
+        ["IDF curve", "강우강도-지속기간-빈도 곡선"], ["rainfall intensity formula", "강우강도식"], ["probable rainfall", "확률강우량"], ["hyetograph", "우량주상도"],
+        ["mass curve", "누가우량곡선"], ["design rainfall", "설계강우"], ["areal reduction factor", "면적우량환산계수"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 3.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapters 4 and 15.",
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 14."
+      ]
+    },
+    {
+      "id": "hyd-07-evapotranspiration",
+      "course": "hyd",
+      "unit": 7,
+      "title": "Evapotranspiration",
+      "ko": "증발산",
+      "tldr": "Evapotranspiration is the water that goes back to the air, from open water, wet soil and the leaves of plants. It takes close to half of the rain, and it is the term of the water balance we can measure least directly.",
+      "figure": {
+        "src": "assets/img/basics/hyd-07.svg",
+        "caption": "Where the water leaves the land. Orange arrows are vapour; all of them need energy from the sun and air that can carry the vapour away."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "**Evaporation** turns liquid water into vapour at a surface: a lake, wet soil, or rain caught on leaves. **Transpiration** is water that roots take from the soil and that leaves through small openings in the leaves. In the field we cannot separate the two, so we measure and model their sum, **evapotranspiration (ET)**." },
+        { "h": "What controls it" },
+        { "ul": [
+          "**Energy.** Turning water into vapour takes a great deal of heat, about 2.45 MJ for every kilogram. Almost all of it comes from the sun, so ET is high in summer and around midday.",
+          "**Dry, moving air.** Evaporation stops when the air above the surface is full of vapour. Dry air and wind keep carrying the vapour away. The measure of dryness is the gap between the vapour the air could hold and the vapour it holds now (the vapour pressure deficit).",
+          "**Available water.** A lake can always supply water. Soil cannot: when it dries, plants close their leaf openings and ET falls, however sunny the day."
+        ] },
+        { "h": "Potential and actual" },
+        { "p": "**Potential evapotranspiration** is what would go up if water were never short; it depends only on the weather. **Actual evapotranspiration** is what really goes up, and it is equal to or less than the potential. In a wet month the two are close. In a drought the potential is high while the actual is low, and that gap is a useful sign of water stress." },
+        { "h": "How we get numbers" },
+        { "ul": [
+          "**Evaporation pan.** A shallow open pan of water (the standard Class A pan is about 1.2 m across); the daily drop in water level is read. A small pan heats up more than a lake, so it evaporates more, and the reading is multiplied by a **pan coefficient** of about 0.7.",
+          "**Water balance.** For a basin over many years, $ET = P - Q$ (Unit 3). For a block of soil with plants set on a balance (a lysimeter), the same idea works day by day.",
+          "**Energy balance.** The energy used for evaporation cannot exceed what the surface receives.",
+          "**Combination equations.** The Penman equation, and its successor the Penman–Monteith equation, combine the energy supply with the drying power of the air. They need only standard weather data: radiation, temperature, humidity and wind."
+        ] },
+        { "h": "Two equations to remember" },
+        { "p": "The pan gives the evaporation of a lake:" },
+        { "eq": "E_{lake} = K_p \\, E_{pan}", "where": [["E_{pan}", "evaporation measured in the pan"], ["K_p", "pan coefficient (about 0.7)"]] },
+        { "p": "And the energy supply sets an upper limit:" },
+        { "eq": "E_{max} = \\frac{R_n}{\\lambda \\, \\rho_w}", "where": [["R_n", "net radiation received by the surface (energy per area per time)"], ["\\lambda", "latent heat of vaporisation (2.45 MJ/kg)"], ["\\rho_w", "density of water (1,000 kg/m³)"]] },
+        { "p": "1 mm of evaporation over 1 m² is 1 kg of water, so it uses 2.45 MJ." }
+      ],
+      "example": {
+        "q": "(a) A reservoir has a water surface of 3 km². A pan beside it loses 160 mm in July. Estimate the evaporation from the reservoir. (b) On a clear summer day the net radiation averages 150 W/m². What is the most that could evaporate?",
+        "steps": [
+          "(a) Depth: $E_{lake} = 0.7 \\times 160 = 112$ mm.",
+          "Volume: $112 \\text{ mm} \\times 3 \\text{ km}^2 = 336 \\times 1{,}000 \\text{ m}^3 = 336{,}000$ m³.",
+          "(b) Energy in one day: $150 \\text{ W/m}^2 \\times 86{,}400 \\text{ s} = 12.96$ MJ/m².",
+          "$E_{max} = 12.96 / 2.45 = 5.3$ kg/m² $= 5.3$ mm/day."
+        ],
+        "a": "(a) About 112 mm, or 336,000 m³ in one month. (b) At most about 5.3 mm/day. Real values are a little lower, because part of the energy heats the air and the ground instead."
+      },
+      "mistakes": [
+        "**Taking the pan reading as the lake evaporation.** The pan is small, shallow and warm. Without the coefficient the estimate is about 40% too high.",
+        "**Confusing potential with actual.** Formulas driven by weather give the potential value. On dry soil the actual value can be far lower.",
+        "**Treating ET as a small loss.** In Korea something like 40 to 55% of the annual precipitation returns to the air, and in a dry year the share is larger still.",
+        "**Expecting a direct measurement.** There is no gauge for the ET of a watershed. Every number is an estimate from a balance or a model, with an error to match."
+      ],
+      "ours": "Because ET cannot be gauged over an area, it is one of the things we estimate from satellites and models. It also decides how fast soil dries between storms, which is why it sits inside every hydrologic model we run and behind our drought analyses.",
+      "check": [
+        { "q": "A pan loses 6 mm in a day. Roughly how much evaporates from the nearby lake?", "a": "About 0.7 × 6 = 4.2 mm." },
+        { "q": "The potential ET is 5 mm/day but the soil is very dry. Is the actual ET higher or lower than 5 mm/day?", "a": "Lower. Actual ET cannot exceed the potential, and when water is short the plants cut their water use." }
+      ],
+      "terms": [
+        ["evaporation", "증발"], ["transpiration", "증산"], ["evapotranspiration", "증발산"], ["potential evapotranspiration", "잠재증발산량"],
+        ["actual evapotranspiration", "실제증발산량"], ["evaporation pan", "증발접시"], ["pan coefficient", "증발접시 계수"], ["lysimeter", "증발산계"],
+        ["latent heat of vaporisation", "증발잠열"], ["net radiation", "순복사"], ["vapour pressure", "증기압"], ["interception", "차단"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 4.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 5.",
+        "Allen, R. G., Pereira, L. S., Raes, D., & Smith, M. (1998). Crop Evapotranspiration. FAO Irrigation and Drainage Paper 56."
+      ]
+    },
+    {
+      "id": "hyd-08-infiltration",
+      "course": "hyd",
+      "unit": 8,
+      "title": "Infiltration",
+      "ko": "침투",
+      "tldr": "Infiltration is rain soaking into the soil through the ground surface. It decides how rain is split: what soaks in feeds soil and groundwater, and what cannot soak in runs off and makes the flood.",
+      "figure": {
+        "src": "assets/img/basics/hyd-08.svg",
+        "caption": "Infiltration capacity during a steady, heavy rain. The capacity falls as the soil wets up; the rain above the curve has nowhere to go but over the surface."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Soil is full of small pores. Water enters them at the surface, pulled by gravity and by the suction of dry soil. The fastest rate at which a soil can take in water is its **infiltration capacity** $f$ (mm/h)." },
+        { "p": "The actual rate depends on the rain as well. If the rain is lighter than the capacity, all of it soaks in. If it is heavier, the soil takes in water at its capacity and the rest collects on the surface and runs off." },
+        { "eq": "\\text{infiltration rate} = \\min(i,\\ f)", "where": [["i", "rainfall intensity (mm/h)"], ["f", "infiltration capacity (mm/h)"]] },
+        { "h": "Capacity falls during a storm" },
+        { "p": "Dry soil drinks fast: the pores are empty and the suction is strong. As the upper soil fills, the suction fades, and the capacity falls towards a steady value set by how easily water moves through the wet soil. Horton described this with an exponential curve:" },
+        { "eq": "f(t) = f_c + (f_0 - f_c)\\,e^{-kt}", "where": [["f_0", "initial capacity, at the start of the rain"], ["f_c", "final capacity, reached after a long rain"], ["k", "decay constant (per hour)"], ["t", "time since the rain began"]] },
+        { "p": "The area under this curve is the **cumulative infiltration**, the total depth that has entered the soil:" },
+        { "eq": "F(t) = f_c\\,t + \\frac{f_0 - f_c}{k}\\left(1 - e^{-kt}\\right)", "where": [["F", "cumulative infiltration (mm)"]] },
+        { "h": "What changes the capacity" },
+        { "ul": [
+          "**Soil texture.** Sand has large pores and a final capacity of tens of mm/h; clay may take only about 1 mm/h.",
+          "**Wetness before the storm.** The same soil takes in far less on the second day of rain than on the first.",
+          "**Land cover.** Forest soil is loose and protected by litter. Bare soil is sealed by the impact of raindrops. Pavement and roofs take in nothing.",
+          "**Compaction and frost.** Machinery, footpaths and frozen ground all close the pores."
+        ] },
+        { "p": "In the field the capacity is measured with an infiltrometer: a ring pressed into the soil and kept filled with water, while the rate of supply is recorded. Besides Horton's curve, the Philip and Green–Ampt equations are widely used; they are derived from the physics of flow in soil." }
+      ],
+      "example": {
+        "q": "A soil has $f_0 = 60$ mm/h, $f_c = 10$ mm/h and $k = 2$ per hour. It rains steadily at 60 mm/h for one hour. Find the capacity after one hour, the depth that infiltrates and the depth that runs off.",
+        "steps": [
+          "Capacity at $t = 1$ h: $f = 10 + 50\\,e^{-2} = 10 + 6.8 = 16.8$ mm/h.",
+          "The rain is at least as heavy as the capacity for the whole hour, so the soil takes in water at its capacity throughout.",
+          "$F = 10 \\times 1 + \\frac{50}{2}(1 - e^{-2}) = 10 + 25 \\times 0.865 = 31.6$ mm.",
+          "Runoff: $60 - 31.6 = 28.4$ mm."
+        ],
+        "a": "The capacity drops from 60 to 16.8 mm/h within the hour. Of the 60 mm of rain, 31.6 mm soaks in and 28.4 mm runs off. Had the soil been wet at the start, with a capacity near 10 mm/h all along, about 50 mm would have run off."
+      },
+      "mistakes": [
+        "**Confusing capacity with rate.** Capacity is the most the soil can take. The actual rate is the smaller of the capacity and the rainfall intensity.",
+        "**Using Horton's curve in light rain.** The curve assumes water is always waiting at the surface. If the rain is lighter than the capacity, the soil wets more slowly and the capacity falls more slowly than the curve says.",
+        "**Treating infiltration as a constant.** The same field gives very different runoff on dry and on wet soil.",
+        "**Mixing up infiltration and percolation.** Infiltration is entry through the surface. Percolation is the movement further down, towards the groundwater."
+      ],
+      "ours": "The wetness of the soil before a storm is one of the largest sources of error in flood forecasting. Our hydrologic models track it between storms, satellites observe it from space, and it is one of the main reasons the same rainfall can give very different floods.",
+      "check": [
+        { "q": "It rains at 5 mm/h on a soil whose capacity is 20 mm/h. How fast does water infiltrate, and is there surface runoff?", "a": "At 5 mm/h: all the rain soaks in, because the rain is lighter than the capacity. There is no surface runoff." },
+        { "q": "Why does the same 50 mm storm cause a larger flood in the middle of the rainy season than after a dry month?", "a": "The soil is already wet, so its infiltration capacity is close to the low final value. Less rain soaks in and more runs off." }
+      ],
+      "terms": [
+        ["infiltration", "침투"], ["infiltration capacity", "침투능"], ["infiltration rate", "침투율"], ["cumulative infiltration", "누가침투량"],
+        ["initial infiltration capacity", "초기침투능"], ["final infiltration capacity", "종기침투능"], ["percolation", "침루"], ["soil moisture", "토양수분"],
+        ["infiltrometer", "침투계"], ["Horton's equation", "Horton 공식"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 5.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 6.",
+        "Horton, R. E. (1940). An approach toward a physical interpretation of infiltration capacity. Soil Science Society of America Proceedings, 5, 399–417."
+      ]
+    },
+    {
+      "id": "hyd-09-effective-rainfall",
+      "course": "hyd",
+      "unit": 9,
+      "title": "Effective rainfall",
+      "ko": "유효우량",
+      "tldr": "Only part of a storm becomes a flood. Effective rainfall is that part: total rainfall minus the losses. Getting it right matters more than almost any later step of a flood calculation.",
+      "figure": {
+        "src": "assets/img/basics/hyd-09.svg",
+        "caption": "Two common ways to find the effective rainfall. Left: the Φ-index removes a constant loss rate from each hour. Right: the curve number method gives the runoff depth from the total storm rainfall."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "When it rains, some water is caught on leaves, some fills small hollows in the ground, and much of it infiltrates. Together these are the **losses**. What is left reaches the stream quickly and is called the **effective rainfall** (also excess rainfall)." },
+        { "p": "The key fact is a volume balance: the depth of effective rainfall, spread over the watershed, equals the volume of **direct runoff** in the flood hydrograph (Unit 11)." },
+        { "h": "Method 1: the Φ-index" },
+        { "p": "If the streamflow was measured, we know the depth of direct runoff. The Φ-index is the constant loss rate that makes the rainfall above it add up to that depth. It is found by trial: guess Φ, sum the rainfall above it, and adjust." },
+        { "eq": "\\sum (i - \\Phi)\\,\\Delta t = Q_d", "where": [["i", "rainfall intensity in each time step (mm/h); only the steps with i larger than Φ are summed"], ["\\Phi", "constant loss rate (mm/h)"], ["\\Delta t", "length of the time step (h)"], ["Q_d", "depth of direct runoff (mm)"]] },
+        { "p": "In the figure the hourly rain is 10, 30, 20 and 5 mm and the measured direct runoff is 26 mm. With Φ = 12 mm/h the rain above the line is 18 + 8 = 26 mm, so Φ = 12 mm/h. Hours with less rain than Φ give no runoff at all." },
+        { "h": "Method 2: the curve number" },
+        { "p": "For a watershed with no flow record, the most widely used tool is the curve number method of the US Soil Conservation Service (SCS, now NRCS). The whole watershed is summed up in one number, the **curve number** CN, between 0 and 100." },
+        { "eq": "Q = \\frac{(P - 0.2\\,S)^2}{P + 0.8\\,S}", "where": [["Q", "direct runoff, equal to the effective rainfall (mm)"], ["P", "total storm rainfall (mm)"], ["S", "potential maximum retention of the watershed (mm)"], ["0.2\\,S", "initial loss: rain that falls before any runoff begins"]] },
+        { "p": "The retention $S$ follows from the curve number:" },
+        { "eq": "S = \\frac{25{,}400}{CN} - 254" },
+        { "p": "If $P$ is smaller than $0.2\\,S$ there is no runoff. CN is read from tables, and it depends on three things:" },
+        { "ul": [
+          "**Soil.** Four hydrologic soil groups, from A (sand, low runoff) to D (clay, high runoff).",
+          "**Land use and cover.** Forest and pasture have low values; paved city surfaces are close to 100.",
+          "**Wetness before the storm.** The antecedent moisture condition: AMC-I for dry, AMC-II for average and AMC-III for wet soil."
+        ] }
+      ],
+      "example": {
+        "q": "A storm drops 120 mm on a watershed. Find the effective rainfall when the watershed is mostly farmland and forest (CN = 75), and again after it has been built over (CN = 90).",
+        "steps": [
+          "CN = 75: $S = 25{,}400/75 - 254 = 84.67$ mm, and the initial loss is $0.2\\,S = 16.93$ mm.",
+          "$Q = (120 - 16.93)^2 / (120 + 0.8 \\times 84.67) = 10{,}623 / 187.73 = 56.6$ mm.",
+          "CN = 90: $S = 25{,}400/90 - 254 = 28.22$ mm, and $0.2\\,S = 5.64$ mm.",
+          "$Q = (120 - 5.64)^2 / (120 + 0.8 \\times 28.22) = 13{,}078 / 142.58 = 91.7$ mm."
+        ],
+        "a": "56.6 mm before and 91.7 mm after: the same storm gives about 60% more runoff from the built-up watershed. This is the main reason floods grow when a basin is urbanised."
+      },
+      "mistakes": [
+        "**Putting total rainfall into the unit hydrograph.** The unit hydrograph (Unit 12) works on effective rainfall only.",
+        "**Subtracting Φ from every hour.** In hours with less rain than Φ, the loss is the whole rain of that hour, not Φ. The effective rainfall cannot be negative.",
+        "**Reading CN as a measured property.** It is an empirical index. A change of a few points changes the runoff a great deal, so the choice has to be argued, not just looked up.",
+        "**Forgetting the wetness before the storm.** The same land has a higher CN after a week of rain."
+      ],
+      "ours": "Curve numbers come from soil and land-cover maps, and those maps now come largely from satellites. In our modelling work this step, deciding how much of the rain becomes runoff, is also where data-driven methods are often compared with the classical rules.",
+      "check": [
+        { "q": "Hourly rainfall is 10, 30, 20 and 5 mm and the Φ-index is 12 mm/h. What is the effective rainfall in each hour?", "a": "0, 18, 8 and 0 mm, which is 26 mm in total. The first and last hours are below Φ and give nothing." },
+        { "q": "A watershed has CN = 75. Does a 15 mm storm produce direct runoff?", "a": "No. The initial loss is 0.2 S = 16.9 mm, which is more than the 15 mm of rain." }
+      ],
+      "terms": [
+        ["effective rainfall", "유효우량"], ["excess rainfall", "초과강우"], ["losses", "손실우량"], ["initial loss", "초기손실"],
+        ["direct runoff", "직접유출"], ["Φ-index method", "Φ-지수법"], ["runoff curve number (CN)", "유출곡선지수"], ["potential maximum retention", "최대잠재보유수량"],
+        ["hydrologic soil group", "수문학적 토양군"], ["antecedent moisture condition (AMC)", "선행토양함수조건"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 5.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Sections 6.7 and 9.4.",
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 5."
+      ]
+    },
+    {
+      "id": "hyd-10-measuring-streamflow",
+      "course": "hyd",
+      "unit": 10,
+      "title": "Measuring streamflow",
+      "ko": "유량 측정",
+      "tldr": "We cannot measure the flow of a river all the time. We record the water level all the time, measure the flow now and then, and link the two with a rating curve.",
+      "figure": {
+        "src": "assets/img/basics/hyd-10.svg",
+        "caption": "Left: one discharge measurement by the velocity–area method, with the numbers of the worked example. Right: many such measurements make a rating curve, which turns a water level into a discharge."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "**Discharge** $Q$ is the volume of water passing a cross-section per second (m³/s). It is the product of the flow area and the mean velocity. Measuring it takes people, instruments and time, so it is done only occasionally. The **stage** $h$, the height of the water surface above a fixed mark, is easy to record every few minutes. Streamflow data are therefore built in three steps." },
+        { "ul": [
+          "**Record the stage continuously**, with a staff gauge read by eye, a float, a pressure sensor or a radar looking down from a bridge.",
+          "**Measure the discharge from time to time**, at low, medium and high water.",
+          "**Fit a rating curve** through the pairs of stage and discharge, and use it to turn the whole stage record into a discharge record."
+        ] },
+        { "h": "One discharge measurement" },
+        { "p": "In the **velocity–area method** the cross-section is cut into vertical strips. In each strip we measure the width $w$, the depth $d$ and the mean velocity $v$, and add up the flows of the strips." },
+        { "eq": "Q = \\sum_i w_i \\, d_i \\, v_i", "where": [["w_i", "width of strip i (m)"], ["d_i", "depth at its measuring vertical (m)"], ["v_i", "mean velocity in that vertical (m/s)"]] },
+        { "p": "Velocity changes with depth: it is slow near the bed and fastest just below the surface. A current meter therefore samples fixed points. In shallow water one reading at 0.6 of the depth below the surface is taken as the mean. In deeper water the mean of the readings at 0.2 and 0.8 of the depth is used." },
+        { "p": "Other methods follow the same logic. An acoustic Doppler profiler (ADCP) on a small boat measures velocities over the whole section in a few minutes. In floods, when nobody can enter the river, the surface velocity is taken from floats, a hand-held radar or video from the bank, and reduced by a factor of about 0.85 to get the mean." },
+        { "h": "The rating curve" },
+        { "eq": "Q = a\\,(h - h_0)^{\\,b}", "where": [["h", "stage (m)"], ["h_0", "stage at which the flow is zero"], ["a,\\ b", "constants fitted to the measurements"]] },
+        { "p": "The curve is only as good as the measurements behind it, and they are scarce exactly where they matter most. Large floods are rare and dangerous to measure, so the top of the curve is usually an extrapolation. The curve also changes when the channel does: a flood can scour or fill the bed, and weeds grow in summer. It has to be checked every year." }
+      ],
+      "example": {
+        "q": "A stream 6 m wide is divided into three strips of 2 m. The depths at the three verticals are 0.5, 1.2 and 0.8 m. The current meter gives 0.30 m/s at 0.6 of the depth in the first vertical, 0.70 and 0.50 m/s at 0.2 and 0.8 of the depth in the second, and 0.40 m/s at 0.6 of the depth in the third. Find the discharge.",
+        "steps": [
+          "Mean velocity in the second vertical: $(0.70 + 0.50)/2 = 0.60$ m/s.",
+          "Strip 1: $2 \\times 0.5 \\times 0.30 = 0.30$ m³/s.",
+          "Strip 2: $2 \\times 1.2 \\times 0.60 = 1.44$ m³/s.",
+          "Strip 3: $2 \\times 0.8 \\times 0.40 = 0.64$ m³/s.",
+          "$Q = 0.30 + 1.44 + 0.64 = 2.38$ m³/s."
+        ],
+        "a": "About 2.4 m³/s. The middle strip carries 60% of the flow, which is why real measurements use 20 or more verticals, placed closer together where the water is deep and fast."
+      },
+      "mistakes": [
+        "**Thinking the flow itself is recorded.** Almost every discharge value in a database was computed from a stage through a rating curve.",
+        "**Trusting flood peaks too much.** They come from the extrapolated part of the curve. An error of 20% or more in a flood peak is common.",
+        "**Using an old rating curve.** After a large flood the bed has moved, and the same stage no longer means the same discharge.",
+        "**Using the surface velocity as the mean.** The surface is the fastest part of the flow."
+      ],
+      "ours": "Observed discharge is what every model and every AI forecast is trained on and judged against, so its uncertainty sets the limit of what we can claim. Part of our work is finding better ways to observe rivers when gauging is difficult, from satellites and with cameras on the bank during floods.",
+      "check": [
+        { "q": "A rating curve is Q = 20 (h − 0.5)², with Q in m³/s and h in m. What is the discharge at a stage of 1.5 m, and at 2.5 m?", "a": "At 1.5 m: 20 × 1.0² = 20 m³/s. At 2.5 m: 20 × 2.0² = 80 m³/s. One more metre of water gives four times the flow." },
+        { "q": "A vertical is 2.0 m deep. At which depths below the surface is the velocity measured with the two-point method?", "a": "At 0.2 × 2.0 = 0.4 m and 0.8 × 2.0 = 1.6 m. The mean of the two readings is used." }
+      ],
+      "terms": [
+        ["discharge, streamflow", "유량"], ["stage, water level", "수위"], ["staff gauge", "수위표"], ["current meter", "유속계"],
+        ["mean velocity", "평균유속"], ["velocity–area method", "유속-면적법"], ["midsection method", "중간단면적법"], ["float", "부자"],
+        ["rating curve", "수위-유량 관계곡선"], ["acoustic Doppler current profiler (ADCP)", "초음파 도플러 유속계"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 7.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 8.",
+        "Herschy, R. W. (2009). Streamflow Measurement (3rd ed.). CRC Press."
+      ]
+    },
+    {
+      "id": "hyd-11-hydrograph",
+      "course": "hyd",
+      "unit": 11,
+      "title": "The hydrograph",
+      "ko": "수문곡선",
+      "tldr": "A hydrograph is the flow of a river plotted against time. Its shape is the watershed's answer to a storm, and reading it is the first skill of flood hydrology.",
+      "figure": {
+        "src": "assets/img/basics/hyd-11.svg",
+        "caption": "A flood hydrograph and its parts, with the numbers of the worked example. The bar at the top is the effective rainfall that caused it."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Stand at the outlet of a watershed during a storm and write down the flow every hour. The plot of those values is the **hydrograph**. It rises when the fast water arrives, reaches a peak, and falls back slowly as the watershed drains." },
+        { "h": "The parts of a flood hydrograph" },
+        { "ul": [
+          "**Rising limb.** The flow climbs as water from more and more of the watershed reaches the outlet. Its steepness depends mostly on the storm.",
+          "**Peak.** The largest flow, the number that decides whether a levee holds.",
+          "**Recession (falling limb).** After the rain stops, the water stored on the slopes, in the channels and in the soil drains away. Its shape depends on the watershed, not on the storm, so it looks much the same after every flood."
+        ] },
+        { "p": "Three times describe the shape. The **lag time** runs from the centre of the effective rainfall to the peak. The **time to peak** runs from the start of the effective rainfall to the peak. The **time base** is how long the direct runoff lasts." },
+        { "h": "Two kinds of water" },
+        { "p": "The flow is split into two parts. **Direct runoff** is the fast response to this storm: water that ran over the surface or through the top of the soil. **Baseflow** is the slow, steady supply from groundwater, which would be there without the storm." },
+        { "p": "The split cannot be measured, so it is drawn by rule. The simplest rule is a straight horizontal line from the point where the hydrograph starts to rise. Others let the line rise slowly to a point some time after the peak (the N-day methods). For a large flood the choice hardly matters, because baseflow is a small part of the total." },
+        { "h": "The volume under the curve" },
+        { "p": "The area under a hydrograph is a volume of water. For the direct runoff, that volume divided by the watershed area is a depth, and this depth is the effective rainfall of Unit 9." },
+        { "eq": "V_d = \\sum Q_d \\,\\Delta t", "where": [["V_d", "volume of direct runoff (m³)"], ["Q_d", "direct runoff in each time step: total flow minus baseflow (m³/s)"], ["\\Delta t", "time step (s)"]] },
+        { "p": "Dividing by the watershed area $A$ (in m²) gives the depth: $V_d / A$." },
+        { "h": "What shapes it" },
+        { "p": "A short, intense storm gives a sharp peak; a long, gentle rain gives a broad one. Steep, round or paved watersheds respond fast and high. Flat, elongated or forested ones respond slowly and low. A storm moving downstream along the river piles the water up and raises the peak." }
+      ],
+      "example": {
+        "q": "The flow at the outlet of an 18 km² watershed, read every hour from the start of the rise, is 4, 12, 30, 36, 24, 14, 8 and 4 m³/s. The baseflow is a steady 4 m³/s. Find the volume of direct runoff and the depth of effective rainfall.",
+        "steps": [
+          "Direct runoff, subtracting 4 from each value: 0, 8, 26, 32, 20, 10, 4 and 0 m³/s.",
+          "Sum: $8 + 26 + 32 + 20 + 10 + 4 = 100$ m³/s.",
+          "Volume: $V_d = 100 \\times 3{,}600 \\text{ s} = 360{,}000$ m³.",
+          "Depth: $360{,}000 / (18 \\times 10^{6}) = 0.020$ m $= 20$ mm."
+        ],
+        "a": "360,000 m³ of direct runoff, which is 20 mm (2 cm) of effective rainfall over the watershed. The peak is 36 m³/s, three hours after the rain began, and the time base is 7 hours."
+      },
+      "mistakes": [
+        "**Confusing the hydrograph with the hyetograph.** One is flow against time, the other is rainfall against time.",
+        "**Taking lag time and time of concentration as the same.** They are related but defined differently (Unit 13).",
+        "**Forgetting to remove the baseflow.** The effective rainfall equals the volume of direct runoff, not of the total flow.",
+        "**Treating the peak flow as the size of a flood.** Two floods with the same peak can carry very different volumes, and a reservoir cares about the volume."
+      ],
+      "ours": "The hydrograph is the target of nearly everything we do: hydrologic models and AI models are both judged by how well they reproduce its peak, its timing and its volume. Under a changing climate we also ask how its shape shifts, towards sharper floods and longer low flows.",
+      "check": [
+        { "q": "After many floods on the same river, which part of the hydrograph looks most alike, and why?", "a": "The recession. It shows how the watershed drains its stored water, which depends on the watershed and not on the storm." },
+        { "q": "A 10 km² watershed gives 150,000 m³ of direct runoff. What was the effective rainfall?", "a": "150,000 m³ / 10,000,000 m² = 0.015 m = 15 mm." }
+      ],
+      "terms": [
+        ["hydrograph", "수문곡선"], ["rising limb", "상승부"], ["peak discharge", "첨두유량"], ["recession curve, falling limb", "감수곡선, 하강부"],
+        ["direct runoff", "직접유출"], ["baseflow", "기저유출"], ["baseflow separation", "기저유출 분리"], ["lag time", "지체시간"],
+        ["time to peak", "첨두발생시간"], ["time base", "기저시간"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 8.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 9.",
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 5."
+      ]
+    },
+    {
+      "id": "hyd-12-unit-hydrograph",
+      "course": "hyd",
+      "unit": 12,
+      "title": "The unit hydrograph",
+      "ko": "단위유량도",
+      "tldr": "The unit hydrograph is the flood that one unit of effective rainfall produces at the outlet. Once we have it, the flood from any storm is found by scaling, shifting and adding.",
+      "figure": {
+        "src": "assets/img/basics/hyd-12.svg",
+        "caption": "Building a flood from a unit hydrograph. Each hour of effective rainfall gives its own scaled copy, delayed by one hour; the flood is their sum."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Every watershed turns rain into flow in its own way, but for one watershed that way is fairly stable. The **unit hydrograph** captures it: it is the direct runoff hydrograph caused by one unit depth of effective rainfall, falling evenly over the watershed at a steady rate for a stated duration. Sherman proposed it in 1932." },
+        { "p": "In Korean textbooks the unit depth is 1 cm. A unit hydrograph always carries its duration: a 1-hour unit hydrograph and a 3-hour unit hydrograph of the same watershed are different curves." },
+        { "h": "Three assumptions" },
+        { "ul": [
+          "**Constant time base.** Effective rainfalls of the same duration give direct runoff of the same length, whatever their depth.",
+          "**Proportionality.** Twice the effective rainfall gives twice the flow at every moment.",
+          "**Superposition.** The flows from separate bursts of rain can simply be added."
+        ] },
+        { "p": "Together these say that the watershed behaves as a linear system that does not change with time. This is not exactly true, but it is close enough to have been the main tool of flood calculation for ninety years." },
+        { "h": "Using it" },
+        { "p": "Split the effective rainfall into blocks of the unit duration. Each block gives a copy of the unit hydrograph, multiplied by its depth and delayed until the block begins. Adding the copies gives the direct runoff:" },
+        { "eq": "Q_n = \\sum_{m=1}^{n} P_m \\, U_{n-m+1}", "where": [["Q_n", "direct runoff at time step n"], ["P_m", "effective rainfall in block m, in units of the unit depth"], ["U_j", "ordinate j of the unit hydrograph"]] },
+        { "h": "Where it comes from" },
+        { "p": "From a measured flood: take a storm of short, even rain, remove the baseflow, find the depth of direct runoff (Unit 11) and divide every ordinate by that depth. Averaging several storms gives a more reliable curve. To change the duration, the S-curve method is used: the unit hydrograph is added to itself again and again to give the response to rain that never stops, and two such curves are subtracted." },
+        { "p": "For a watershed with no flow record, a **synthetic unit hydrograph** is built from its area, length and slope. The methods of Snyder, the SCS, Clark and Nakayasu are the ones in common use in Korea." }
+      ],
+      "example": {
+        "q": "The flood of Unit 11 came from 2 cm of effective rainfall in one hour and had direct runoff of 0, 8, 26, 32, 20, 10, 4 and 0 m³/s. (a) Find the 1-hour unit hydrograph. (b) Find the direct runoff from a storm with 1 cm of effective rainfall in the first hour and 3 cm in the second.",
+        "steps": [
+          "(a) Divide by 2 cm: $U$ = 0, 4, 13, 16, 10, 5, 2 and 0 m³/s for each cm.",
+          "Check: $50 \\times 3{,}600 = 180{,}000$ m³, and $180{,}000 / (18 \\times 10^{6}) = 0.01$ m $= 1$ cm.",
+          "(b) First hour, $1 \\times U$: 0, 4, 13, 16, 10, 5, 2, 0.",
+          "Second hour, $3 \\times U$ one hour later: 0, 0, 12, 39, 48, 30, 15, 6, 0.",
+          "Sum: 0, 4, 25, 55, 58, 35, 17, 6 and 0 m³/s."
+        ],
+        "a": "The peak is 58 m³/s, four hours after the storm begins. The direct runoff adds up to 200 m³/s, four times that of the unit hydrograph, as it must for 4 cm of effective rainfall."
+      },
+      "mistakes": [
+        "**Applying it to total rainfall.** Remove the losses first (Unit 9), and add the baseflow back at the end.",
+        "**Ignoring the duration.** A 1-hour unit hydrograph must be used with rainfall in 1-hour blocks.",
+        "**Mixing units of depth.** Korean textbooks use 1 cm; others use 1 mm or 1 inch. Check before multiplying.",
+        "**Trusting linearity too far.** In extreme floods water moves faster, and the real peak comes earlier and higher than the unit hydrograph says. On large watersheds the rain is not even, so they are split into sub-basins first."
+      ],
+      "ours": "The unit hydrograph is the simplest rainfall–runoff model: one fixed response curve for a watershed. It is the baseline we keep in mind when we use distributed hydrologic models or train AI models on rainfall and flow, which learn a response that can change with the storm and with the state of the watershed.",
+      "check": [
+        { "q": "A 1-hour unit hydrograph (for 1 cm) has a peak of 16 m³/s. What is the peak of direct runoff from 2.5 cm of effective rainfall falling in one hour?", "a": "2.5 × 16 = 40 m³/s, by proportionality." },
+        { "q": "A unit hydrograph for 1 cm on an 18 km² watershed must contain what volume of water?", "a": "0.01 m × 18,000,000 m² = 180,000 m³." }
+      ],
+      "terms": [
+        ["unit hydrograph", "단위유량도 (단위도)"], ["effective rainfall", "유효우량"], ["duration", "지속기간"], ["constant time base", "일정 기저시간 가정"],
+        ["proportionality", "비례 가정"], ["superposition", "중첩 가정"], ["S-curve", "S-곡선"], ["synthetic unit hydrograph", "합성단위도"],
+        ["instantaneous unit hydrograph", "순간단위도"], ["direct runoff hydrograph", "직접유출 수문곡선"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 8.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 10.",
+        "Sherman, L. K. (1932). Streamflow from rainfall by the unit-graph method. Engineering News-Record, 108, 501–505."
+      ]
+    },
+    {
+      "id": "hyd-13-time-of-concentration",
+      "course": "hyd",
+      "unit": 13,
+      "title": "Time of concentration and the rational method",
+      "ko": "도달시간과 합리식",
+      "tldr": "The time of concentration is how long the farthest drop needs to reach the outlet. It tells us which storm duration is the worst for a watershed, and with the rational method it gives a quick estimate of the peak flow.",
+      "figure": {
+        "src": "assets/img/basics/hyd-13.svg",
+        "caption": "Left: zones of equal travel time to the outlet. Right: under steady rain the flow rises until the whole watershed contributes, at the time of concentration, and then stays level."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Rain falling close to the outlet arrives within minutes. Rain falling on the far ridge has to cross a hillslope and then travel down the whole channel. The longest of these travel times is the **time of concentration** $t_c$." },
+        { "p": "It is usually split in two: the **inlet time**, spent flowing over the land to the nearest channel or drain, and the **travel time** along the channel to the outlet." },
+        { "h": "Why it matters" },
+        { "p": "Imagine rain of a steady intensity. At first only the nearby land feeds the outlet. As time passes, water from farther away joins in and the flow rises. At $t = t_c$ the whole watershed contributes, and from then on the flow stays level." },
+        { "p": "So a storm shorter than $t_c$ never gets the whole watershed working at once. A storm much longer than $t_c$ does, but by the IDF curve (Unit 6) it has a lower intensity. The worst case lies in between: **a storm that lasts just as long as the time of concentration**." },
+        { "h": "Estimating it" },
+        { "p": "The time of concentration is rarely measured. It is estimated from the length and slope of the channel with empirical formulas. The one used most for small basins is the Kirpich formula:" },
+        { "eq": "t_c = 3.976\\,\\frac{L^{0.77}}{S^{0.385}}", "where": [["t_c", "time of concentration, taken here as the travel time along the channel (min)"], ["L", "length of the channel (km)"], ["S", "average slope of the channel (m/m)"]] },
+        { "p": "Korean textbooks give two more for natural rivers, in the same units:" },
+        { "ul": [
+          "**Rziha formula**, for upper reaches (slope of 1/200 or steeper): $t_c = 0.833\\,L / S^{0.6}$.",
+          "**Kraven formula**, for middle and lower reaches (slope of 1/200 or gentler): $t_c = 0.444\\,L / S^{0.515}$."
+        ] },
+        { "p": "These formulas can differ by a factor of two for the same channel. Choosing one is a judgment, and the result should be read as a rough number." },
+        { "h": "The rational method" },
+        { "p": "If the rain lasts at least $t_c$, the peak flow is simply the rate at which rain falls on the watershed, reduced by a factor for the losses:" },
+        { "eq": "Q_p = \\frac{1}{3.6}\\,C\\,I\\,A = 0.2778\\,C\\,I\\,A", "where": [["Q_p", "peak flow (m³/s)"], ["C", "runoff coefficient, between 0 and 1"], ["I", "rainfall intensity for a duration equal to the time of concentration (mm/h)"], ["A", "watershed area (km²)"]] },
+        { "p": "The number 1/3.6 only converts the units. The **runoff coefficient** $C$ is the share of the rain that becomes peak flow: about 0.1 to 0.3 for forest and parks, and 0.7 to 0.95 for roofs and pavement. The method is used for small watersheds, above all for city storm drains." }
+      ],
+      "example": {
+        "q": "A 2.0 km² urban watershed has a main channel 2.5 km long with an average slope of 0.02, and a runoff coefficient of 0.6. The 10-year rainfall is $I = 5{,}400/(t + 30)$ (Unit 6). Estimate the 10-year peak flow, using the Kirpich formula.",
+        "steps": [
+          "$t_c = 3.976 \\times 2.5^{0.77} / 0.02^{0.385} = 3.976 \\times 2.025 / 0.2218 = 36.3$ min.",
+          "Design intensity for that duration: $I = 5{,}400 / (36.3 + 30) = 81.4$ mm/h.",
+          "$Q_p = 0.2778 \\times 0.6 \\times 81.4 \\times 2.0 = 27.1$ m³/s."
+        ],
+        "a": "About 27 m³/s. If the same watershed is paved further, $C$ rises and water also arrives sooner, so $t_c$ falls and the design intensity rises. With $C = 0.8$ and $t_c = 20$ min the peak becomes 48 m³/s."
+      },
+      "mistakes": [
+        "**Dropping the unit factor.** With $I$ in mm/h and $A$ in km², the result needs the factor 1/3.6 to come out in m³/s.",
+        "**Using the wrong duration.** The intensity must be read from the IDF curve at a duration equal to $t_c$, not at one hour or one day.",
+        "**Using it on a large watershed.** The method assumes even, steady rain over the whole area and ignores storage. It suits small basins of a few km²; larger ones need a hydrograph method.",
+        "**Expecting a hydrograph.** The rational method gives the peak only, not the volume or the timing."
+      ],
+      "ours": "Small, fast watersheds are where flood warning is hardest: the time of concentration is the longest lead time that observed rainfall alone can give. This is why our work on urban and flash floods leans on rainfall nowcasting from radar and on AI models that forecast ahead of the rain gauge.",
+      "check": [
+        { "q": "A storm lasts 10 minutes on a watershed with a time of concentration of 40 minutes. Does the whole watershed contribute to the peak?", "a": "No. Water from the far end is still on its way when the rain stops, so only part of the watershed feeds the outlet at any one time." },
+        { "q": "C = 0.5, I = 72 mm/h and A = 1 km². What is the peak flow?", "a": "Q = 0.2778 × 0.5 × 72 × 1 = 10 m³/s." }
+      ],
+      "terms": [
+        ["time of concentration", "도달시간 (집중시간)"], ["inlet time", "유입시간"], ["travel time", "유하시간"], ["rational method", "합리식"],
+        ["runoff coefficient", "유출계수"], ["peak flow", "첨두홍수량"], ["isochrone", "등시간선"], ["design rainfall intensity", "설계강우강도"],
+        ["storm drain", "우수관거"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 7.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Sections 9.6 and 9.7.",
+        "Kirpich, Z. P. (1940). Time of concentration of small agricultural watersheds. Civil Engineering, 10(6), 362."
+      ]
+    },
+    {
+      "id": "hyd-14-flood-routing",
+      "course": "hyd",
+      "unit": 14,
+      "title": "Flood routing",
+      "ko": "홍수추적",
+      "tldr": "Flood routing follows a flood wave down a river or through a reservoir. Storage on the way makes the peak lower and later, and routing calculates by how much.",
+      "figure": {
+        "src": "assets/img/basics/hyd-14.svg",
+        "caption": "A flood entering and leaving a river reach, with the numbers of the worked example. While inflow exceeds outflow the reach stores water; afterwards it gives the water back."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "We know the hydrograph at an upstream point. What will it look like some way downstream, or below a dam? Between the two points the water needs room: the river rises, the flood plain fills, the reservoir level climbs. That room is **storage**, and it changes the wave in two ways. The peak becomes lower (**attenuation**) and it arrives later (**lag**)." },
+        { "h": "The storage equation" },
+        { "p": "Routing is the water balance of Unit 3 applied to a river reach or a reservoir, over short time steps. Inflow minus outflow is the rate at which storage changes." },
+        { "eq": "\\frac{I_1 + I_2}{2} - \\frac{O_1 + O_2}{2} = \\frac{S_2 - S_1}{\\Delta t}", "where": [["I_1,\\ I_2", "inflow at the start and end of the time step"], ["O_1,\\ O_2", "outflow at the start and end"], ["S_1,\\ S_2", "storage at the start and end"], ["\\Delta t", "length of the time step"]] },
+        { "p": "The inflows are known, and so are the starting outflow and storage. Two unknowns remain, $O_2$ and $S_2$, so one more relation between storage and flow is needed. Where that relation comes from is the difference between the two cases below." },
+        { "h": "Reservoir routing" },
+        { "p": "In a reservoir the water surface is nearly level. Both the storage and the outflow over the spillway depend only on the water level, so storage is a function of outflow alone. One useful result follows: the outflow peaks at the moment it equals the inflow, so the outflow peak always lies on the falling limb of the inflow hydrograph." },
+        { "h": "Channel routing: the Muskingum method" },
+        { "p": "In a river the water surface slopes. While the flood rises, more water enters the reach than leaves it, and the surface is steeper than usual. The storage is then seen as two parts: **prism storage** under a line parallel to the bed, which depends on the outflow, and **wedge storage** on top of it, which depends on the difference between inflow and outflow." },
+        { "eq": "S = K\\,[\\,x\\,I + (1 - x)\\,O\\,]", "where": [["K", "storage constant, close to the travel time of the wave through the reach"], ["x", "weighting factor between 0 and 0.5; about 0.2 to 0.3 in natural rivers"]] },
+        { "p": "Putting this into the storage equation gives a rule that is applied step by step:" },
+        { "eq": "O_2 = C_0\\,I_2 + C_1\\,I_1 + C_2\\,O_1", "where": [["C_0", "(0.5Δt − Kx) / (K − Kx + 0.5Δt)"], ["C_1", "(0.5Δt + Kx) / (K − Kx + 0.5Δt)"], ["C_2", "(K − Kx − 0.5Δt) / (K − Kx + 0.5Δt)"]] },
+        { "p": "The three coefficients always add up to 1. $K$ and $x$ are found from a past flood measured at both ends of the reach." },
+        { "h": "Hydrologic and hydraulic routing" },
+        { "p": "The methods above use only the water balance and are called hydrologic routing. Hydraulic routing also solves the equation of motion of the water (the Saint-Venant equations). It is needed where a downstream level holds the water back: at river junctions, in tidal reaches and on flood plains." }
+      ],
+      "example": {
+        "q": "A river reach has $K = 2$ h and $x = 0.25$. The inflow, read every 2 hours, is 10, 40, 100, 70, 40, 20, 10 and 10 m³/s, and the outflow starts at 10 m³/s. Route the flood with the Muskingum method.",
+        "steps": [
+          "With $\\Delta t = 2$ h: $Kx = 0.5$ and $K - Kx + 0.5\\Delta t = 2 - 0.5 + 1 = 2.5$.",
+          "$C_0 = (1 - 0.5)/2.5 = 0.2$, $C_1 = (1 + 0.5)/2.5 = 0.6$, $C_2 = (2 - 0.5 - 1)/2.5 = 0.2$. They add up to 1.",
+          "$O$ at 2 h: $0.2 \\times 40 + 0.6 \\times 10 + 0.2 \\times 10 = 16.0$ m³/s.",
+          "$O$ at 4 h: $0.2 \\times 100 + 0.6 \\times 40 + 0.2 \\times 16.0 = 47.2$ m³/s.",
+          "$O$ at 6 h: $0.2 \\times 70 + 0.6 \\times 100 + 0.2 \\times 47.2 = 83.4$ m³/s.",
+          "Continuing: 66.7, 41.3, 22.3 and 12.5 m³/s."
+        ],
+        "a": "The peak falls from 100 to 83 m³/s and arrives 2 hours later. Nothing is lost: the volume under both curves is the same, and the reach only holds the water for a while."
+      },
+      "mistakes": [
+        "**Expecting the outflow peak of a reservoir at the same time as the inflow peak.** It comes later, where the two hydrographs cross.",
+        "**Choosing the time step freely.** For the Muskingum method it should lie between $2Kx$ and $2K(1 - x)$, or a coefficient turns negative and the result can swing below zero.",
+        "**Thinking that routing removes water.** It reshapes the hydrograph. If the outflow volume differs from the inflow volume, there is a mistake in the arithmetic.",
+        "**Using hydrologic routing where water backs up.** Near junctions, tides and gates the flow depends on the level downstream, and a hydraulic model is needed."
+      ],
+      "ours": "Routing is how a forecast at one point becomes a forecast for a whole river, and how the effect of a dam release is judged before the gates open. In large-scale modelling, routing through thousands of river reaches is also what turns gridded runoff, from a land model or from satellite rainfall, into streamflow that can be compared with gauges.",
+      "check": [
+        { "q": "A reservoir receives a flood with a peak of 500 m³/s. Is the peak outflow over an uncontrolled spillway larger, equal or smaller, and when does it occur?", "a": "Smaller, and later: it occurs when the outflow equals the inflow, on the falling limb of the inflow hydrograph." },
+        { "q": "With C₀ = 0.2, C₁ = 0.6 and C₂ = 0.2, find O₂ when I₁ = 50, I₂ = 80 and O₁ = 40 m³/s.", "a": "O₂ = 0.2 × 80 + 0.6 × 50 + 0.2 × 40 = 16 + 30 + 8 = 54 m³/s." }
+      ],
+      "terms": [
+        ["flood routing", "홍수추적"], ["reservoir routing", "저수지 홍수추적"], ["channel routing", "하도 홍수추적"], ["storage equation", "저류방정식"],
+        ["Muskingum method", "Muskingum 방법"], ["storage constant", "저류상수"], ["weighting factor", "가중인자"], ["prism storage", "대상저류"],
+        ["wedge storage", "쐐기저류"], ["hydraulic routing", "수리학적 홍수추적"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapters 9 and 10.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 11.",
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 8."
+      ]
+    },
+    {
+      "id": "hyd-15-frequency-analysis",
+      "course": "hyd",
+      "unit": 15,
+      "title": "Frequency analysis and return period",
+      "ko": "빈도해석과 재현기간",
+      "tldr": "How large is the flood we should design for? Frequency analysis answers with a probability: it fits a distribution to the largest value of each year and reads off the value that is exceeded, on average, once in T years.",
+      "figure": {
+        "src": "assets/img/basics/hyd-15.svg",
+        "caption": "Thirty annual maxima and a fitted Gumbel distribution, with the numbers of the worked example. Beyond the length of the record the line is an extrapolation."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Nobody can say when the next great flood will come. What a long record can tell us is how often floods of a given size have occurred. Frequency analysis turns that into a rule: a magnitude for each probability. Structures are then designed for a chosen probability, not for the largest flood imaginable." },
+        { "h": "Steps" },
+        { "ul": [
+          "**Build the series.** Take the largest value of each year: the annual maximum daily rainfall, or the annual peak flow. One value per year keeps the values independent of each other.",
+          "**Give each value a probability.** Rank the $n$ values from largest ($m = 1$) to smallest. The Weibull plotting position estimates the probability that rank $m$ is exceeded as $m/(n+1)$.",
+          "**Fit a distribution.** Extreme values are not bell-shaped; they have a long tail towards large values. The Gumbel distribution is the classic choice; the GEV and log-Pearson type III distributions are also widely used.",
+          "**Check the fit**, with a probability plot and a goodness-of-fit test.",
+          "**Read off the design value** for the return period wanted."
+        ] },
+        { "h": "Return period and risk" },
+        { "p": "As in Unit 6, the return period is the inverse of the exceedance probability in one year, $T = 1/p$. Over the life of a structure the chances add up. The probability that the design value is exceeded at least once in $n$ years is the **risk**:" },
+        { "eq": "R = 1 - \\left(1 - \\frac{1}{T}\\right)^{n}", "where": [["R", "risk: probability of at least one exceedance in n years"], ["T", "return period of the design value (years)"], ["n", "design life (years)"]] },
+        { "h": "The frequency factor" },
+        { "p": "For many distributions the value with return period $T$ can be written as the mean plus a number of standard deviations:" },
+        { "eq": "x_T = \\bar{x} + K_T\\,s", "where": [["x_T", "value with return period T"], ["\\bar{x},\\ s", "mean and standard deviation of the annual maxima"], ["K_T", "frequency factor, which depends on the distribution and on T"]] },
+        { "p": "For the Gumbel distribution the frequency factor is:" },
+        { "eq": "K_T = -0.7797\\,\\big[\\,0.5772 + \\ln \\ln \\tfrac{T}{T-1}\\,\\big]" },
+        { "p": "This gives $K_T$ = 1.30 for 10 years, 2.59 for 50 years and 3.14 for 100 years." }
+      ],
+      "example": {
+        "q": "The annual maximum daily rainfall at a station has a mean of 150 mm and a standard deviation of 50 mm. Assuming a Gumbel distribution, find the 10-year and 100-year rainfall. What is the risk that the 100-year value is exceeded during a 30-year design life?",
+        "steps": [
+          "$T = 10$: $\\ln(\\ln(10/9)) = -2.250$, so $K_T = -0.7797 \\times (0.5772 - 2.250) = 1.30$.",
+          "$x_{10} = 150 + 1.30 \\times 50 = 215$ mm.",
+          "$T = 100$: $\\ln(\\ln(100/99)) = -4.600$, so $K_T = -0.7797 \\times (0.5772 - 4.600) = 3.14$.",
+          "$x_{100} = 150 + 3.14 \\times 50 = 307$ mm.",
+          "Risk: $R = 1 - 0.99^{30} = 1 - 0.740 = 0.26$."
+        ],
+        "a": "215 mm for 10 years and 307 mm for 100 years. A structure designed for the 100-year rainfall still has a 26% chance, about one in four, of seeing it exceeded within 30 years."
+      },
+      "mistakes": [
+        "**'A 100-year flood comes once every 100 years.'** It has a 1% chance every year. Over 100 years the chance of at least one is 63%, not 100%.",
+        "**Extrapolating far beyond the record.** Thirty years of data say little about the 500-year event; small changes in the data move the estimate a great deal. Always ask how long the record is.",
+        "**Trusting one distribution.** Different distributions fit the observed range equally well and still disagree in the tail, which is exactly where the design value lies.",
+        "**Assuming yesterday's statistics hold tomorrow.** The method takes the climate and the watershed as unchanging. With a warming climate and growing cities, neither is."
+      ],
+      "ours": "This is the centre of our work on climate extremes. We study how design rainfall and floods change when the statistics are no longer stable, how to pool information from many stations, from long reanalysis records and from climate-model ensembles when one record is too short, and how to state the uncertainty honestly.",
+      "check": [
+        { "q": "A levee is designed for the 50-year flood. What is the chance that it is overtopped at least once in 50 years?", "a": "R = 1 − (1 − 1/50)^50 = 1 − 0.98^50 = 0.64, or about 64%." },
+        { "q": "In a 30-year record, what return period does the Weibull plotting position give to the largest value?", "a": "The exceedance probability is m/(n + 1) = 1/31, so T = 31 years." }
+      ],
+      "terms": [
+        ["frequency analysis", "빈도해석"], ["return period", "재현기간"], ["exceedance probability", "초과확률"], ["non-exceedance probability", "비초과확률"],
+        ["annual maximum series", "연최대치 계열"], ["probability distribution", "확률분포"], ["Gumbel distribution", "Gumbel 분포"], ["frequency factor", "빈도계수"],
+        ["plotting position formula", "도시위치공식"], ["risk", "위험도"], ["goodness-of-fit test", "적합도 검정"], ["design flood", "설계홍수량"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 13.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapters 13 and 14.",
+        "Chow, V. T., Maidment, D. R., & Mays, L. W. (1988). Applied Hydrology. McGraw-Hill. Chapter 12."
+      ]
+    },
+    {
+      "id": "hyd-16-groundwater-darcy",
+      "course": "hyd",
+      "unit": 16,
+      "title": "Groundwater and Darcy's law",
+      "ko": "지하수와 Darcy 법칙",
+      "tldr": "Groundwater is the water that fills the pores of soil and rock below the water table. It moves slowly from high head to low head, and Darcy's law says how fast.",
+      "figure": {
+        "src": "assets/img/basics/hyd-16.svg",
+        "caption": "A section through the ground, with the numbers of the worked example. Groundwater flows down the slope of the water table and seeps into the river."
+      },
+      "blocks": [
+        { "h": "The idea" },
+        { "p": "Dig a hole and at some depth water collects in it. The level it settles at is the **water table**. Above it, in the **unsaturated zone**, the pores hold both air and water. Below it, in the **saturated zone**, every pore is full. That water is groundwater." },
+        { "p": "A layer that stores water and lets it move easily enough to supply a well is an **aquifer**: sand, gravel, or fractured rock. There are two kinds." },
+        { "ul": [
+          "**Unconfined aquifer.** Its top is the water table, which rises and falls freely with recharge from rain.",
+          "**Confined aquifer.** It lies under a layer that hardly lets water through, such as clay, and its water is under pressure. In a well drilled into it the water rises above the top of the aquifer, sometimes above the ground."
+        ] },
+        { "h": "Head: what drives the flow" },
+        { "p": "Water in the ground does not simply flow downhill, nor from high pressure to low pressure. It flows from high **head** to low head. Head is the level to which water rises in a well: its elevation plus its pressure expressed as a height of water. The drop in head per distance along the flow is the **hydraulic gradient** $i$." },
+        { "h": "Darcy's law" },
+        { "p": "In 1856 Henry Darcy passed water through columns of sand and found that the flow is proportional to the gradient and to the area of the column:" },
+        { "eq": "Q = K\\,i\\,A \\qquad\\qquad i = \\frac{\\Delta h}{L}", "where": [["Q", "flow through the cross-section (m³/day)"], ["K", "hydraulic conductivity (m/day)"], ["i", "hydraulic gradient (no units)"], ["A", "cross-section at right angles to the flow (m²)"], ["\\Delta h", "difference in head between two points (m)"], ["L", "distance between them along the flow (m)"]] },
+        { "p": "The **hydraulic conductivity** $K$ says how easily water passes through the material. It covers a huge range: 100 m/day or more for gravel, about 1 to 100 m/day for sand, and less than a millimetre a day for clay." },
+        { "p": "$Q/A = K\\,i$ is called the Darcy velocity, but water moves only through the pores, not through the grains. The real average speed is higher:" },
+        { "eq": "v_s = \\frac{K\\,i}{n_e}", "where": [["v_s", "seepage velocity: the real average speed of the water"], ["n_e", "effective porosity: the share of the volume through which water can move"]] },
+        { "h": "Groundwater and rivers" },
+        { "p": "Where the water table is higher than the river, groundwater seeps into the channel. This is the baseflow of Units 1 and 11, and it keeps rivers flowing through dry weeks. Where pumping pulls the water table below the river, the direction reverses and the river loses water into the ground. The two are one resource." }
+      ],
+      "example": {
+        "q": "Two wells stand 500 m apart along the direction of flow in a sand aquifer with $K = 20$ m/day. Their water levels are 32.0 m and 30.0 m. The aquifer is 15 m thick, and we look at a strip 200 m wide. The effective porosity is 0.25. Find the flow, and the time the water needs to travel between the wells.",
+        "steps": [
+          "Gradient: $i = (32.0 - 30.0)/500 = 0.004$.",
+          "Area: $A = 15 \\times 200 = 3{,}000$ m².",
+          "Flow: $Q = 20 \\times 0.004 \\times 3{,}000 = 240$ m³/day.",
+          "Darcy velocity: $K\\,i = 20 \\times 0.004 = 0.08$ m/day.",
+          "Seepage velocity: $v_s = 0.08 / 0.25 = 0.32$ m/day.",
+          "Travel time: $500 / 0.32 = 1{,}560$ days, about 4.3 years."
+        ],
+        "a": "240 m³/day flows through the strip, and the water takes more than four years to cover 500 m. A river covers the same distance in minutes. This slowness is why groundwater is a reliable reserve in a drought, and why a polluted aquifer takes decades to clean."
+      },
+      "mistakes": [
+        "**Picturing underground rivers and lakes.** Except in caves, groundwater sits in pores and cracks and creeps through them.",
+        "**Using the Darcy velocity as the speed of the water.** Divide by the effective porosity; the real speed is several times higher.",
+        "**Thinking water flows from high pressure to low pressure.** It flows from high head to low head. Deep groundwater is under high pressure and can still flow upwards.",
+        "**Treating K as a precise number.** It changes by orders of magnitude over short distances. A value from one test describes only the ground around that well."
+      ],
+      "ours": "Groundwater is the slow store that carries a region through a drought, and the hardest one to observe. Satellites that measure changes in the Earth's gravity now show how much water a region has gained or lost in total, and we combine such data with models to follow storage through dry years.",
+      "check": [
+        { "q": "K = 5 m/day, the head falls 1 m over 200 m, and the cross-section is 1,000 m². What is the flow?", "a": "i = 1/200 = 0.005, so Q = 5 × 0.005 × 1,000 = 25 m³/day." },
+        { "q": "It has not rained for a month. Is the river near a high water table gaining or losing water?", "a": "Gaining. Groundwater seeps from the higher water table into the channel, and this baseflow is the river's whole flow in dry weather." }
+      ],
+      "terms": [
+        ["groundwater", "지하수"], ["water table", "지하수면"], ["saturated zone", "포화대"], ["unsaturated zone", "통기대"],
+        ["aquifer", "대수층"], ["unconfined aquifer", "비피압대수층 (자유대수층)"], ["confined aquifer", "피압대수층"], ["head", "수두"],
+        ["hydraulic gradient", "동수경사"], ["hydraulic conductivity", "투수계수"], ["Darcy's law", "Darcy 법칙"], ["effective porosity", "유효공극률"],
+        ["seepage velocity", "공극유속"]
+      ],
+      "refs": [
+        "Yoon, Y. N. (2007). 수문학: 기초와 응용 [Hydrology: Fundamentals and Applications]. Cheongmungak. Chapter 6.",
+        "Lee, J. S. (2015). 수문학 [Hydrology] (2nd ed.). Gumi Seogwan. Chapter 7.",
+        "Freeze, R. A., & Cherry, J. A. (1979). Groundwater. Prentice-Hall."
       ]
     }
   ]

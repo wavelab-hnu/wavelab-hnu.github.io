@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+<defs><marker id="aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2540"/></marker><marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker><marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d98a1f"/></marker><marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6876"/></marker><clipPath id="card"><rect width="800" height="450" rx="14"/></clipPath></defs>
+<rect width="800" height="450" rx="14" fill="#f5f8fb"/>
+<g clip-path="url(#card)"><path d="M0 290H60Q180 384 300 290H800V450H0z" fill="#e8dfc8"/></g>
+<path d="M60 290Q180 384 300 290z" fill="#cfe9ef"/><path d="M60 290H300" stroke="#0e8a9c" stroke-width="2.5"/>
+<path d="M0 290H60M300 290H800" stroke="#b9a981" stroke-width="2"/>
+<circle cx="74" cy="70" r="28" fill="#f6c453"/>
+<path d="M96 102L128 262" stroke="#e0a83a" stroke-width="5" stroke-linecap="round" marker-end="url(#aO)"/>
+<text x="116.0" y="62.0" font-size="13" font-weight="700" fill="#9a5d0c">Energy from the sun</text><text x="116.0" y="80.0" font-size="12.5" fill="#5b6876">net radiation R<tspan dy="4" font-size="0.75em">n</tspan><tspan dy="-4"></tspan></text>
+<g stroke="#8a7a52" stroke-width="1.6" fill="none"><path d="M420 290V322M420 300L404 318M420 300L436 320M480 290V316M480 298L468 312M480 298L494 314"/></g>
+<rect x="414" y="238" width="12" height="52" fill="#8a6a3c"/><circle cx="420" cy="218" r="32" fill="#3f9b7a"/>
+<rect x="475" y="250" width="10" height="40" fill="#8a6a3c"/><circle cx="480" cy="236" r="24" fill="#57b08f"/>
+<text x="450.0" y="348.0" text-anchor="middle" font-size="12.5" fill="#6b5d3a">roots take up soil water</text>
+<path d="M180 276V206" stroke="#d98a1f" stroke-width="6" marker-end="url(#aO)"/><text x="180.0" y="172.0" text-anchor="middle" font-size="15" font-weight="700" fill="#d98a1f">Evaporation</text><text x="180.0" y="190.0" text-anchor="middle" font-size="12.5" fill="#5b6876">open water</text>
+<path d="M450 180V132" stroke="#d98a1f" stroke-width="6" marker-end="url(#aO)"/><text x="450.0" y="98.0" text-anchor="middle" font-size="15" font-weight="700" fill="#d98a1f">Transpiration</text><text x="450.0" y="116.0" text-anchor="middle" font-size="12.5" fill="#5b6876">through the leaves</text>
+<path d="M590 280V216" stroke="#d98a1f" stroke-width="6" marker-end="url(#aO)"/><text x="590.0" y="182.0" text-anchor="middle" font-size="15" font-weight="700" fill="#d98a1f">Evaporation</text><text x="590.0" y="200.0" text-anchor="middle" font-size="12.5" fill="#5b6876">wet soil and leaves</text>
+<path d="M556 58q16-12 32 0t32 0t32 0t32 0h18" fill="none" stroke="#5b6876" stroke-width="2.5" marker-end="url(#aG)"/>
+<text x="632.0" y="36.0" text-anchor="middle" font-size="13" font-weight="700" fill="#5b6876">Wind and dry air</text><text x="632.0" y="84.0" text-anchor="middle" font-size="12.5" fill="#5b6876">carry the vapour away</text>
+<path d="M690 276V290M754 276V290M684 290H760" stroke="#8a6a3c" stroke-width="3"/>
+<rect x="680" y="260" width="84" height="16" rx="2" fill="#cfe9ef" stroke="#0b2540" stroke-width="2"/>
+<text x="722.0" y="226.0" text-anchor="middle" font-size="13" font-weight="700">Evaporation pan</text><text x="722.0" y="244.0" text-anchor="middle" font-size="12.5" fill="#5b6876">lake ≈ 0.7 × pan</text>
+<rect x="150" y="384" width="330" height="42" rx="10" fill="#0b2540"/>
+<text x="315.0" y="411.0" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">ET = Evaporation + Transpiration</text>
+<rect x="500" y="384" width="230" height="42" rx="10" fill="#ffffff"/>
+<text x="615.0" y="402.0" text-anchor="middle" font-size="12.5" fill="#5b6876">1 mm of evaporation over 1 m²</text><text x="615.0" y="419.0" text-anchor="middle" font-size="12.5" font-weight="700">uses about 2.45 MJ of energy</text>
+</svg>

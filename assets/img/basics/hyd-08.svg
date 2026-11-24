@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+<defs><marker id="aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2540"/></marker><marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker><marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d98a1f"/></marker><marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6876"/></marker><clipPath id="card"><rect width="800" height="450" rx="14"/></clipPath></defs>
+<rect width="800" height="450" rx="14" fill="#f5f8fb"/>
+<rect x="80" y="60" width="490" height="320" fill="#ffffff"/>
+<path d="M80 380.0H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="384.0" text-anchor="end" font-size="12" fill="#5b6876">0</text>
+<path d="M80 334.3H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="338.3" text-anchor="end" font-size="12" fill="#5b6876">10</text>
+<path d="M80 288.6H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="292.6" text-anchor="end" font-size="12" fill="#5b6876">20</text>
+<path d="M80 242.9H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="246.9" text-anchor="end" font-size="12" fill="#5b6876">30</text>
+<path d="M80 197.1H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="201.1" text-anchor="end" font-size="12" fill="#5b6876">40</text>
+<path d="M80 151.4H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="155.4" text-anchor="end" font-size="12" fill="#5b6876">50</text>
+<path d="M80 105.7H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="109.7" text-anchor="end" font-size="12" fill="#5b6876">60</text>
+<path d="M80 60.0H570" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="64.0" text-anchor="end" font-size="12" fill="#5b6876">70</text>
+<path d="M80.0 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="80.0" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">0</text>
+<path d="M161.7 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="161.7" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">0.25</text>
+<path d="M243.3 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="243.3" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">0.5</text>
+<path d="M325.0 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="325.0" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">0.75</text>
+<path d="M406.7 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="406.7" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">1.0</text>
+<path d="M488.3 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="488.3" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">1.25</text>
+<path d="M570.0 380V385" stroke="#0b2540" stroke-width="1.2"/>
+<text x="570.0" y="399.0" text-anchor="middle" font-size="12" fill="#5b6876">1.5</text>
+<path d="M80 60V380H570" fill="none" stroke="#0b2540" stroke-width="1.5"/>
+<text x="325.0" y="420.0" text-anchor="middle" font-size="13" fill="#5b6876">Time since the rain began (h)</text>
+<text x="34.0" y="220.0" text-anchor="middle" font-size="13" fill="#5b6876" transform="rotate(-90 34.0 220.0)">Rate (mm/h)</text>
+<polygon points="80.0,380.0 80.0,105.7 83.3,110.2 86.5,114.7 89.8,119.0 93.1,123.3 96.3,127.5 99.6,131.6 102.9,135.6 106.1,139.5 109.4,143.4 112.7,147.1 115.9,150.9 119.2,154.5 122.5,158.0 125.7,161.5 129.0,165.0 132.3,168.3 135.5,171.6 138.8,174.8 142.1,178.0 145.3,181.1 148.6,184.1 151.9,187.1 155.1,190.0 158.4,192.8 161.7,195.7 164.9,198.4 168.2,201.1 171.5,203.7 174.7,206.3 178.0,208.8 181.3,211.3 184.5,213.8 187.8,216.1 191.1,218.5 194.3,220.8 197.6,223.0 200.9,225.2 204.1,227.4 207.4,229.5 210.7,231.6 213.9,233.6 217.2,235.6 220.5,237.6 223.7,239.5 227.0,241.4 230.3,243.2 233.5,245.0 236.8,246.8 240.1,248.5 243.3,250.2 246.6,251.9 249.9,253.5 253.1,255.1 256.4,256.7 259.7,258.2 262.9,259.7 266.2,261.2 269.5,262.6 272.7,264.1 276.0,265.4 279.3,266.8 282.5,268.1 285.8,269.5 289.1,270.7 292.3,272.0 295.6,273.2 298.9,274.4 302.1,275.6 305.4,276.8 308.7,277.9 311.9,279.0 315.2,280.1 318.5,281.2 321.7,282.3 325.0,283.3 328.3,284.3 331.5,285.3 334.8,286.3 338.1,287.2 341.3,288.1 344.6,289.1 347.9,289.9 351.1,290.8 354.4,291.7 357.7,292.5 360.9,293.4 364.2,294.2 367.5,295.0 370.7,295.7 374.0,296.5 377.3,297.3 380.5,298.0 383.8,298.7 387.1,299.4 390.3,300.1 393.6,300.8 396.9,301.4 400.1,302.1 403.4,302.7 406.7,303.4 406.7,380.0" fill="#cfe9ef" opacity="1"/>
+<polygon points="80.0,105.7 83.3,110.2 86.5,114.7 89.8,119.0 93.1,123.3 96.3,127.5 99.6,131.6 102.9,135.6 106.1,139.5 109.4,143.4 112.7,147.1 115.9,150.9 119.2,154.5 122.5,158.0 125.7,161.5 129.0,165.0 132.3,168.3 135.5,171.6 138.8,174.8 142.1,178.0 145.3,181.1 148.6,184.1 151.9,187.1 155.1,190.0 158.4,192.8 161.7,195.7 164.9,198.4 168.2,201.1 171.5,203.7 174.7,206.3 178.0,208.8 181.3,211.3 184.5,213.8 187.8,216.1 191.1,218.5 194.3,220.8 197.6,223.0 200.9,225.2 204.1,227.4 207.4,229.5 210.7,231.6 213.9,233.6 217.2,235.6 220.5,237.6 223.7,239.5 227.0,241.4 230.3,243.2 233.5,245.0 236.8,246.8 240.1,248.5 243.3,250.2 246.6,251.9 249.9,253.5 253.1,255.1 256.4,256.7 259.7,258.2 262.9,259.7 266.2,261.2 269.5,262.6 272.7,264.1 276.0,265.4 279.3,266.8 282.5,268.1 285.8,269.5 289.1,270.7 292.3,272.0 295.6,273.2 298.9,274.4 302.1,275.6 305.4,276.8 308.7,277.9 311.9,279.0 315.2,280.1 318.5,281.2 321.7,282.3 325.0,283.3 328.3,284.3 331.5,285.3 334.8,286.3 338.1,287.2 341.3,288.1 344.6,289.1 347.9,289.9 351.1,290.8 354.4,291.7 357.7,292.5 360.9,293.4 364.2,294.2 367.5,295.0 370.7,295.7 374.0,296.5 377.3,297.3 380.5,298.0 383.8,298.7 387.1,299.4 390.3,300.1 393.6,300.8 396.9,301.4 400.1,302.1 403.4,302.7 406.7,303.4 406.7,105.7 80.0,105.7" fill="#f7e3c2" opacity="1"/>
+<polyline points="80.0,105.7 406.7,105.7 406.7,380.0" fill="none" stroke="#0b2540" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="80.0,334.3 570.0,334.3" fill="none" stroke="#5b6876" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<polyline points="80.0,105.7 83.3,110.2 86.5,114.7 89.8,119.0 93.1,123.3 96.3,127.5 99.6,131.6 102.9,135.6 106.1,139.5 109.4,143.4 112.7,147.1 115.9,150.9 119.2,154.5 122.5,158.0 125.7,161.5 129.0,165.0 132.3,168.3 135.5,171.6 138.8,174.8 142.1,178.0 145.3,181.1 148.6,184.1 151.9,187.1 155.1,190.0 158.4,192.8 161.7,195.7 164.9,198.4 168.2,201.1 171.5,203.7 174.7,206.3 178.0,208.8 181.3,211.3 184.5,213.8 187.8,216.1 191.1,218.5 194.3,220.8 197.6,223.0 200.9,225.2 204.1,227.4 207.4,229.5 210.7,231.6 213.9,233.6 217.2,235.6 220.5,237.6 223.7,239.5 227.0,241.4 230.3,243.2 233.5,245.0 236.8,246.8 240.1,248.5 243.3,250.2 246.6,251.9 249.9,253.5 253.1,255.1 256.4,256.7 259.7,258.2 262.9,259.7 266.2,261.2 269.5,262.6 272.7,264.1 276.0,265.4 279.3,266.8 282.5,268.1 285.8,269.5 289.1,270.7 292.3,272.0 295.6,273.2 298.9,274.4 302.1,275.6 305.4,276.8 308.7,277.9 311.9,279.0 315.2,280.1 318.5,281.2 321.7,282.3 325.0,283.3 328.3,284.3 331.5,285.3 334.8,286.3 338.1,287.2 341.3,288.1 344.6,289.1 347.9,289.9 351.1,290.8 354.4,291.7 357.7,292.5 360.9,293.4 364.2,294.2 367.5,295.0 370.7,295.7 374.0,296.5 377.3,297.3 380.5,298.0 383.8,298.7 387.1,299.4 390.3,300.1 393.6,300.8 396.9,301.4 400.1,302.1 403.4,302.7 406.7,303.4 409.9,304.0 413.2,304.6 416.5,305.2 419.7,305.7 423.0,306.3 426.3,306.8 429.5,307.4 432.8,307.9 436.1,308.4 439.3,309.0 442.6,309.5 445.9,310.0 449.1,310.4 452.4,310.9 455.7,311.4 458.9,311.8 462.2,312.3 465.5,312.7 468.7,313.1 472.0,313.6 475.3,314.0 478.5,314.4 481.8,314.8 485.1,315.1 488.3,315.5 491.6,315.9 494.9,316.3 498.1,316.6 501.4,317.0 504.7,317.3 507.9,317.6 511.2,318.0 514.5,318.3 517.7,318.6 521.0,318.9 524.3,319.2 527.5,319.5 530.8,319.8 534.1,320.1 537.3,320.4 540.6,320.7 543.9,320.9 547.1,321.2 550.4,321.5 553.7,321.7 556.9,322.0 560.2,322.2 563.5,322.4 566.7,322.7 570.0,322.9" fill="none" stroke="#0e8a9c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="243.3" y="96.7" text-anchor="middle" font-size="13" font-weight="700">Rain: 60 mm/h for one hour</text>
+<text x="295.6" y="188.0" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5d0c">Runs off</text><text x="295.6" y="206.0" text-anchor="middle" font-size="13" fill="#9a5d0c">28.4 mm</text>
+<text x="217.2" y="279.4" text-anchor="middle" font-size="14" font-weight="700" fill="#0e8a9c">Soaks in</text><text x="217.2" y="297.4" text-anchor="middle" font-size="13" fill="#0e8a9c">31.6 mm</text>
+<path d="M458.9 309.6L472.0 256.6" stroke="#0b2540" stroke-width="1"/>
+<text x="429.5" y="242.9" font-size="12.5" font-weight="700" fill="#0e8a9c">infiltration capacity f(t)</text>
+<text x="566.7" y="351.3" text-anchor="end" font-size="12.5" fill="#5b6876">final capacity f<tspan dy="4" font-size="0.75em">c</tspan><tspan dy="-4"></tspan></text>
+<rect x="596" y="60" width="190" height="150" rx="10" fill="#e6f4f6"/>
+<text x="610.0" y="84.0" font-size="13" font-weight="700">Horton's equation</text>
+<text x="610.0" y="110.0" font-size="14" font-weight="700">f = f<tspan dy="4" font-size="0.75em">c</tspan><tspan dy="-4"> + (f<tspan dy="4" font-size="0.75em">0</tspan><tspan dy="-4"> − f<tspan dy="4" font-size="0.75em">c</tspan><tspan dy="-4">) e</tspan></tspan></tspan><tspan dy="-6" font-size="0.75em">−kt</tspan></text>
+<text x="610.0" y="142.0" font-size="12.5" fill="#5b6876">f<tspan dy="4" font-size="0.75em">0</tspan><tspan dy="-4"> = 60 mm/h at the start</tspan></text>
+<text x="610.0" y="162.0" font-size="12.5" fill="#5b6876">f<tspan dy="4" font-size="0.75em">c</tspan><tspan dy="-4"> = 10 mm/h in the end</tspan></text>
+<text x="610.0" y="182.0" font-size="12.5" fill="#5b6876">k = 2 per hour</text>
+<text x="610.0" y="198.0" font-size="12.5"></text>
+<rect x="600" y="239" width="14" height="14" rx="3" fill="#f7e3c2"/><text x="622.0" y="250.0" font-size="12.5">rain the soil cannot take in</text>
+<rect x="600" y="265" width="14" height="14" rx="3" fill="#cfe9ef"/><text x="622.0" y="276.0" font-size="12.5">rain that infiltrates</text>
+</svg>

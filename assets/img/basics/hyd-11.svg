@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Pretendard, 'Segoe UI', 'Malgun Gothic', Arial, sans-serif" font-size="15" fill="#0b2540">
+<defs><marker id="aN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b2540"/></marker><marker id="aT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e8a9c"/></marker><marker id="aO" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d98a1f"/></marker><marker id="aG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6876"/></marker><clipPath id="card"><rect width="800" height="450" rx="14"/></clipPath></defs>
+<rect width="800" height="450" rx="14" fill="#f5f8fb"/>
+<rect x="80" y="150" width="520" height="224" fill="#ffffff"/>
+<path d="M80 374.0H600" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="378.0" text-anchor="end" font-size="12" fill="#5b6876">0</text>
+<path d="M80 318.0H600" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="322.0" text-anchor="end" font-size="12" fill="#5b6876">10</text>
+<path d="M80 262.0H600" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="266.0" text-anchor="end" font-size="12" fill="#5b6876">20</text>
+<path d="M80 206.0H600" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="210.0" text-anchor="end" font-size="12" fill="#5b6876">30</text>
+<path d="M80 150.0H600" stroke="#e4e9f0" stroke-width="1"/>
+<text x="72.0" y="154.0" text-anchor="end" font-size="12" fill="#5b6876">40</text>
+<path d="M80.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="80.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">-1</text>
+<path d="M132.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="132.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">0</text>
+<path d="M184.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="184.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">1</text>
+<path d="M236.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="236.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">2</text>
+<path d="M288.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="288.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">3</text>
+<path d="M340.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="340.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">4</text>
+<path d="M392.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="392.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">5</text>
+<path d="M444.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="444.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">6</text>
+<path d="M496.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="496.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">7</text>
+<path d="M548.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="548.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">8</text>
+<path d="M600.0 374V379" stroke="#0b2540" stroke-width="1.2"/>
+<text x="600.0" y="393.0" text-anchor="middle" font-size="12" fill="#5b6876">9</text>
+<path d="M80 150V374H600" fill="none" stroke="#0b2540" stroke-width="1.5"/>
+<text x="34.0" y="262.0" text-anchor="middle" font-size="13" fill="#5b6876" transform="rotate(-90 34.0 262.0)">Streamflow (m³/s)</text>
+<text x="600.0" y="432.0" text-anchor="end" font-size="13" fill="#5b6876">Time (h)</text>
+<polygon points="80.0,374.0 80.0,351.6 600.0,351.6 600.0,374.0" fill="#c5d3e0" opacity="1"/>
+<polygon points="132.0,351.6 134.2,351.5 136.3,351.1 138.5,350.5 140.7,349.7 142.8,348.7 145.0,347.5 147.2,346.1 149.3,344.6 151.5,342.9 153.7,341.0 155.8,339.1 158.0,337.0 160.2,334.7 162.3,332.4 164.5,330.1 166.7,327.6 168.8,325.1 171.0,322.5 173.2,319.9 175.3,317.3 177.5,314.7 179.7,312.0 181.8,309.4 184.0,306.8 186.2,304.0 188.3,300.8 190.5,297.2 192.7,293.3 194.8,289.1 197.0,284.7 199.2,280.0 201.3,275.2 203.5,270.2 205.7,265.2 207.8,260.1 210.0,254.9 212.2,249.8 214.3,244.8 216.5,239.8 218.7,235.0 220.8,230.4 223.0,225.9 225.2,221.8 227.3,217.9 229.5,214.3 231.7,211.1 233.8,208.3 236.0,206.0 238.2,203.9 240.3,201.8 242.5,199.7 244.7,197.7 246.8,195.7 249.0,193.7 251.2,191.7 253.3,189.8 255.5,188.0 257.7,186.2 259.8,184.5 262.0,182.9 264.2,181.4 266.3,179.9 268.5,178.6 270.7,177.4 272.8,176.3 275.0,175.3 277.2,174.4 279.3,173.7 281.5,173.2 283.7,172.7 285.8,172.5 288.0,172.4 290.2,172.6 292.3,173.3 294.5,174.5 296.7,176.0 298.8,177.8 301.0,180.0 303.2,182.5 305.3,185.3 307.5,188.3 309.7,191.5 311.8,194.9 314.0,198.4 316.2,202.0 318.3,205.7 320.5,209.4 322.7,213.1 324.8,216.8 327.0,220.5 329.2,224.1 331.3,227.6 333.5,230.9 335.7,234.0 337.8,236.9 340.0,239.6 342.2,242.2 344.3,244.7 346.5,247.3 348.7,249.8 350.8,252.4 353.0,255.0 355.2,257.5 357.3,260.1 359.5,262.6 361.7,265.1 363.8,267.5 366.0,270.0 368.2,272.4 370.3,274.8 372.5,277.1 374.7,279.4 376.8,281.6 379.0,283.8 381.2,285.9 383.3,288.0 385.5,290.0 387.7,291.9 389.8,293.8 392.0,295.6 394.2,297.3 396.3,299.0 398.5,300.7 400.7,302.3 402.8,303.9 405.0,305.5 407.2,307.0 409.3,308.5 411.5,310.0 413.7,311.5 415.8,312.9 418.0,314.3 420.2,315.7 422.3,317.0 424.5,318.3 426.7,319.6 428.8,320.9 431.0,322.1 433.2,323.4 435.3,324.6 437.5,325.8 439.7,326.9 441.8,328.1 444.0,329.2 446.2,330.3 448.3,331.5 450.5,332.7 452.7,334.0 454.8,335.2 457.0,336.5 459.2,337.7 461.3,339.0 463.5,340.2 465.7,341.4 467.8,342.6 470.0,343.8 472.2,344.9 474.3,345.9 476.5,346.9 478.7,347.8 480.8,348.6 483.0,349.4 485.2,350.0 487.3,350.6 489.5,351.0 491.7,351.3 493.8,351.5 496.0,351.6 496.0,351.6 132.0,351.6" fill="#cfe9ef" opacity="1"/>
+<polyline points="132.0,351.6 496.0,351.6" fill="none" stroke="#0b2540" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 4"/>
+<polyline points="80.0,351.6 82.2,351.6 84.3,351.6 86.5,351.6 88.7,351.6 90.8,351.6 93.0,351.6 95.2,351.6 97.3,351.6 99.5,351.6 101.7,351.6 103.8,351.6 106.0,351.6 108.2,351.6 110.3,351.6 112.5,351.6 114.7,351.6 116.8,351.6 119.0,351.6 121.2,351.6 123.3,351.6 125.5,351.6 127.7,351.6 129.8,351.6 132.0,351.6 134.2,351.5 136.3,351.1 138.5,350.5 140.7,349.7 142.8,348.7 145.0,347.5 147.2,346.1 149.3,344.6 151.5,342.9 153.7,341.0 155.8,339.1 158.0,337.0 160.2,334.7 162.3,332.4 164.5,330.1 166.7,327.6 168.8,325.1 171.0,322.5 173.2,319.9 175.3,317.3 177.5,314.7 179.7,312.0 181.8,309.4 184.0,306.8 186.2,304.0 188.3,300.8 190.5,297.2 192.7,293.3 194.8,289.1 197.0,284.7 199.2,280.0 201.3,275.2 203.5,270.2 205.7,265.2 207.8,260.1 210.0,254.9 212.2,249.8 214.3,244.8 216.5,239.8 218.7,235.0 220.8,230.4 223.0,225.9 225.2,221.8 227.3,217.9 229.5,214.3 231.7,211.1 233.8,208.3 236.0,206.0 238.2,203.9 240.3,201.8 242.5,199.7 244.7,197.7 246.8,195.7 249.0,193.7 251.2,191.7 253.3,189.8 255.5,188.0 257.7,186.2 259.8,184.5 262.0,182.9 264.2,181.4 266.3,179.9 268.5,178.6 270.7,177.4 272.8,176.3 275.0,175.3 277.2,174.4 279.3,173.7 281.5,173.2 283.7,172.7 285.8,172.5 288.0,172.4 290.2,172.6 292.3,173.3 294.5,174.5 296.7,176.0 298.8,177.8 301.0,180.0 303.2,182.5 305.3,185.3 307.5,188.3 309.7,191.5 311.8,194.9 314.0,198.4 316.2,202.0 318.3,205.7 320.5,209.4 322.7,213.1 324.8,216.8 327.0,220.5 329.2,224.1 331.3,227.6 333.5,230.9 335.7,234.0 337.8,236.9 340.0,239.6 342.2,242.2 344.3,244.7 346.5,247.3 348.7,249.8 350.8,252.4 353.0,255.0 355.2,257.5 357.3,260.1 359.5,262.6 361.7,265.1 363.8,267.5 366.0,270.0 368.2,272.4 370.3,274.8 372.5,277.1 374.7,279.4 376.8,281.6 379.0,283.8 381.2,285.9 383.3,288.0 385.5,290.0 387.7,291.9 389.8,293.8 392.0,295.6 394.2,297.3 396.3,299.0 398.5,300.7 400.7,302.3 402.8,303.9 405.0,305.5 407.2,307.0 409.3,308.5 411.5,310.0 413.7,311.5 415.8,312.9 418.0,314.3 420.2,315.7 422.3,317.0 424.5,318.3 426.7,319.6 428.8,320.9 431.0,322.1 433.2,323.4 435.3,324.6 437.5,325.8 439.7,326.9 441.8,328.1 444.0,329.2 446.2,330.3 448.3,331.5 450.5,332.7 452.7,334.0 454.8,335.2 457.0,336.5 459.2,337.7 461.3,339.0 463.5,340.2 465.7,341.4 467.8,342.6 470.0,343.8 472.2,344.9 474.3,345.9 476.5,346.9 478.7,347.8 480.8,348.6 483.0,349.4 485.2,350.0 487.3,350.6 489.5,351.0 491.7,351.3 493.8,351.5 496.0,351.6 498.2,351.6 500.3,351.6 502.5,351.6 504.7,351.6 506.8,351.6 509.0,351.6 511.2,351.6 513.3,351.6 515.5,351.6 517.7,351.6 519.8,351.6 522.0,351.6 524.2,351.6 526.3,351.6 528.5,351.6 530.7,351.6 532.8,351.6 535.0,351.6 537.2,351.6 539.3,351.6 541.5,351.6 543.7,351.6 545.8,351.6 548.0,351.6 550.2,351.6 552.3,351.6 554.5,351.6 556.7,351.6 558.8,351.6 561.0,351.6 563.2,351.6 565.3,351.6 567.5,351.6 569.7,351.6 571.8,351.6 574.0,351.6 576.2,351.6 578.3,351.6 580.5,351.6 582.7,351.6 584.8,351.6 587.0,351.6 589.2,351.6 591.3,351.6 593.5,351.6 595.7,351.6 597.8,351.6 600.0,351.6" fill="none" stroke="#0e8a9c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M80 52H600" stroke="#0b2540" stroke-width="1.2"/>
+<rect x="132.0" y="52" width="52.0" height="44" fill="#0e8a9c"/>
+<text x="194.0" y="70.0" font-size="13" font-weight="700">Effective rainfall</text><text x="194.0" y="88.0" font-size="12.5" fill="#5b6876">20 mm in 1 hour</text>
+<path d="M158.0 96V128M288.0 166.4V128" stroke="#5b6876" stroke-width="1.2" stroke-dasharray="4 4"/>
+<path d="M161.0 128H285.0" stroke="#0b2540" stroke-width="1.5" marker-start="url(#aN)" marker-end="url(#aN)"/>
+<text x="223.0" y="121.0" text-anchor="middle" font-size="12.5" font-weight="700" paint-order="stroke" stroke="#f5f8fb" stroke-width="4" stroke-linejoin="round">Lag time</text>
+<circle cx="288.0" cy="172.4" r="5" fill="#d98a1f" stroke="#ffffff" stroke-width="2"/>
+<text x="300.0" y="170.4" font-size="13" font-weight="700" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Peak  36 m³/s</text>
+<text x="212.6" y="228.4" text-anchor="end" font-size="13" font-weight="700" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Rising limb</text>
+<text x="379.0" y="250.8" font-size="13" font-weight="700" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">Recession</text><text x="379.0" y="266.8" font-size="12" fill="#5b6876" paint-order="stroke" stroke="#ffffff" stroke-width="4" stroke-linejoin="round">(falling limb)</text>
+<text x="298.4" y="301.2" text-anchor="middle" font-size="14" font-weight="700" fill="#12355b">Direct runoff</text>
+<text x="298.4" y="318.2" text-anchor="middle" font-size="12.5" fill="#12355b">360,000 m³</text>
+<text x="548.0" y="367.3" text-anchor="middle" font-size="12.5" font-weight="700">Baseflow</text>
+<path d="M135.0 410H493.0" stroke="#0b2540" stroke-width="1.5" marker-start="url(#aN)" marker-end="url(#aN)"/>
+<rect x="262.0" y="400" width="104" height="20" fill="#f5f8fb"/><text x="314.0" y="414.0" text-anchor="middle" font-size="12.5" font-weight="700">Time base  7 h</text>
+<rect x="616" y="150" width="170" height="150" rx="10" fill="#e6f4f6"/>
+<rect x="628" y="165" width="14" height="14" rx="3" fill="#cfe9ef"/><text x="650.0" y="176.0" font-size="12.5">direct runoff</text><rect x="628" y="189" width="14" height="14" rx="3" fill="#c5d3e0"/><text x="650.0" y="200.0" font-size="12.5">baseflow</text>
+<text x="628.0" y="232.0" font-size="12.5" fill="#5b6876">The area under the</text>
+<text x="628.0" y="249.0" font-size="12.5" fill="#5b6876">direct-runoff curve</text>
+<text x="628.0" y="266.0" font-size="12.5" fill="#5b6876">is the volume of</text>
+<text x="628.0" y="283.0" font-size="12.5" fill="#5b6876">effective rainfall.</text>
+</svg>
