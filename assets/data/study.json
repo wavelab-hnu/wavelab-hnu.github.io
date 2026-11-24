@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-25",
+    "date": "2026-11-25",
+    "theme": "Hydrology",
+    "title": "Human-induced climate change amplification on storm dynamics in Valencia’s 2024 catastrophic flash flood",
+    "authors": "Calvo-Sancho, C., Díaz-Fernández, J., González-Alemán, J. J., Halifa-Marín, A., Miglietta, M. M., Azorin-Molina, C., Prein, A. F., Montoro-Mendoza, A., Bolgiani, P., Morata, A., Martín, M. L.",
+    "journal": "Nature Communications",
+    "volume": "17",
+    "pages": "1492",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-68929-9",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-25.webp",
+      "caption": "Present-day (factual, black) versus pre-industrial-like (counterfactual, orange) simulations of the Valencia storm: (a) hourly rainfall quantiles, (b) rainfall change per degree of warming against the 7 % per °C Clausius–Clapeyron line, (c) change in the area above 24-h rainfall thresholds, and (d) maps and distributions of 6-h rainfall.",
+      "credit": "Figure 2 from Calvo-Sancho et al. (2026), Nature Communications, CC BY 4.0."
+    },
+    "tldr": "Re-running the October 2024 Valencia flash-flood storm in a pre-industrial-like climate shows that today's warmer, moister air made its hourly rainfall more intense than simple thermodynamics would predict and spread the heaviest rain over a larger area.",
+    "background": "On 29 October 2024 a slow-moving storm under a cut-off low dropped 771.8 mm in 16 hours at Turís and set a Spanish one-hour record of 184.6 mm, causing flash floods that killed 230 people around Valencia. Quick statistical attribution studies had already linked the event to climate change, but they mostly look at daily totals. The authors wanted a physics-based answer at the sub-daily scale, where convective processes decide how much rain falls and where.",
+    "approach": "The team simulated the storm with the WRF model at 1-km grid spacing (nested inside a 3-km domain), driven by ECMWF-IFS analyses; this 'factual' run was checked against hourly data from 256 rain gauges. They then used a pseudo-global-warming storyline: temperature, humidity and surface temperatures in the boundary conditions were shifted by the warming signal (1850–1879 versus 2009–2038) from each of 15 CMIP6 models and their ensemble mean, and greenhouse-gas levels were set to pre-industrial values, while the large-scale winds were left unchanged. Comparing the factual run with these counterfactual runs (about 1.08 °C cooler before the event) isolates the thermodynamic effect of human-caused warming on rainfall, moisture, instability and cloud processes.",
+    "findings": [
+      "Hourly rainfall intensity rose by about 20 % per °C of warming, well above the roughly 7 % per °C expected from the Clausius–Clapeyron relation, with the largest gains for the most extreme rates.",
+      "Compared with the pre-industrial-like climate, 6-h rainfall rates were about 21 % higher, the area receiving more than 180 mm (the national red-warning level) grew by about 55 %, and total rain volume over the Júcar catchment rose by 19 %.",
+      "Warmer seas supplied more moisture: precipitable water rose by a median 11.9 % and low-level water-vapour flux by 8.5 %, while wind speeds barely changed, so moisture rather than circulation drove the increase.",
+      "The storm itself became more vigorous: instability (MUCAPE) rose by 22.2 %, latent heating by 29.5 %, maximum updrafts by 11.9 %, graupel by 32.4 % and precipitation efficiency by 12.6 %.",
+      "The signal is less certain at the very highest thresholds (P99), where results vary widely between the 15 climate-model forcings."
+    ],
+    "relevance": "This study shows how a single degree of warming can turn an already dangerous storm into a far more destructive one, because short, intense bursts of rain can grow faster than the familiar 7 % per °C rule of thumb. Korea faces similar set-ups—warm seas, moist inflow during the monsoon and typhoon season, and small steep catchments that respond within hours—so design rainfall, urban drainage and flash-flood warnings based on past records may underestimate today's risk. The storyline method is also a useful tool for explaining 'how much worse did climate change make this event?' to the public and decision-makers after a disaster.",
+    "keywords": ["flash flood", "climate attribution", "pseudo-global warming", "Clausius–Clapeyron scaling", "convection-permitting model", "Valencia 2024"]
+  },
+  {
     "id": "2026-11-24",
     "date": "2026-11-24",
     "theme": "Earth Observation",
