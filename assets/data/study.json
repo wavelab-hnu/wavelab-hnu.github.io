@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-11-26",
+    "date": "2026-11-26",
+    "theme": "AI Forecasting",
+    "title": "The Value of Forecasters-in-the-Loop in Real-Time Flood Forecasting in the Age of Machine Learning",
+    "authors": "Tran, V. N., Xu, D., Le, P., Kim, J., Nguyen, T. V., Nguyen, G. T., Restrepo, P. J., Ivanov, V. Y.",
+    "journal": "Geophysical Research Letters",
+    "volume": "53",
+    "pages": "e2025GL118317",
+    "year": 2026,
+    "doi": "10.1029/2025GL118317",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-26.webp",
+      "caption": "Operational CNRFC forecasts (CHPS, with human forecasters) versus two LSTM models at 50 gauges in California and Nevada: maps of which approach scores higher NSE at a 48-h lead time (a, b), one-to-one NSE comparisons at lead times of 1–72 h (c–l), and the difference in annual flood-peak error across lead times (m).",
+      "credit": "Figure 1 from Tran et al. (2026), Geophysical Research Letters, CC BY 4.0."
+    },
+    "tldr": "When machine-learning flood models are tested against a real operational river forecast centre instead of simple benchmarks, the human-guided forecasts win at almost every lead time that matters for warnings, even though the ML models were given observed rather than forecast rainfall.",
+    "background": "Many papers report that deep-learning models such as LSTMs predict streamflow better than traditional hydrological models, but they usually compare against generic retrospective simulations, not against the forecasts that agencies actually issue. In real forecast centres, hydrologists ('forecasters-in-the-loop') inspect and adjust model outputs every day using local knowledge. The authors asked how fully automated ML compares with this human-guided operational system under real-world conditions.",
+    "approach": "The study used 2012–2022 hourly forecasts of river stage from the California Nevada River Forecast Center (CNRFC) at 50 locations, with lead times of 1–96 h; these come from the CHPS system (SAC-SMA and Snow-17 models) with forecaster adjustments, and were converted to discharge with year-by-year rating curves. A regional multi-frequency LSTM was trained on the hourly CAMELSH dataset (training 1981–2007, validation 2008–2011) in two versions: MLNaive, driven only by weather and basin attributes, and MLDI, which also takes the latest observed streamflow as input and then feeds its own predictions forward. Both ML models were run with observed NLDAS-2 forcing, which gives them an advantage over CHPS, which relied on real precipitation forecasts. Skill was compared with NSE, peak error on annual floods, and flood-alert scores (POD, CSI, FAR) using official action and flood stage thresholds.",
+    "findings": [
+      "At a 1-h lead time MLDI was best, beating CHPS on NSE at 34 of 50 locations, but its skill faded quickly: CHPS was better at 80 %, 86 %, 90 % and 92 % of locations at 12, 24, 48 and 72 h.",
+      "At 96 h, CHPS still kept NSE above 0.5 at 38 locations, while MLDI managed this at only 4; for annual flood peaks CHPS had smaller errors in 418 of 527 events at 48 h.",
+      "MLNaive caught up slowly with lead time (better NSE at 3 locations at 1 h and 18 at 72 h) and only matched or slightly beat CHPS on peak error beyond about 54 h.",
+      "For 48-h flood alerts, CHPS had higher detection rates than MLNaive at 16 (action stage) and 12 (flood stage) locations, and fewer false alarms at the flood stage at 15 locations versus 8 where it had more.",
+      "CNRFC streamflow skill often stayed good even when its rainfall forecasts were poor, and the same advantage over ML held for both 22 natural and 28 regulated basins."
+    ],
+    "relevance": "Flood warnings are only useful if they are reliable a day or two ahead, which is the time people need to evacuate, close roads or release water from dams. This study is a reminder that impressive ML benchmark scores do not automatically mean better real-world warnings, and that experienced forecasters who know their rivers remain a key part of public safety. For Korea, where monsoon and typhoon floods hit small, fast-responding basins, the message is to test new AI tools against the forecasts agencies actually issue and to design them so that human experts can still check and correct them.",
+    "keywords": ["operational flood forecasting", "forecasters-in-the-loop", "LSTM", "lead time", "flood alerts", "benchmarking"]
+  },
+  {
     "id": "2026-11-25",
     "date": "2026-11-25",
     "theme": "Hydrology",
