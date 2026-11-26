@@ -1,5 +1,34 @@
 [
   {
+    "id": "2026-11-27",
+    "date": "2026-11-27",
+    "theme": "Vision & Sensing",
+    "title": "Simulation of regional rainfall observation using urban surveillance camera networks",
+    "authors": "Wang, X., Zhou, A., Zhao, K., Chen, H.",
+    "journal": "Environmental Research Letters",
+    "volume": "20",
+    "pages": "054022",
+    "year": 2025,
+    "doi": "10.1088/1748-9326/adc825",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-27.webp",
+      "caption": "Study workflow: virtual camera networks (SRNs) get simulated rainfall estimates from gauge and calibrated-radar data, both gauge and camera point values are interpolated into maps, and these maps are compared with real-time and calibrated radar rainfall maps.",
+      "credit": "Figure 6 from Wang et al. (2025), Environmental Research Letters, CC BY 4.0."
+    },
+    "tldr": "A simulation of CCTV-based rain gauges over a US county suggests that a few hundred moderately accurate cameras could map regional rainfall about as well as a 33-gauge network, but adding ever more cameras does not keep helping.",
+    "background": "Rain gauges are accurate but sparse, and radar or satellite rainfall still needs ground data for correction. Cities already host huge numbers of surveillance cameras, and several studies have shown that a single camera can estimate rainfall from rain streaks in the video. What has been missing is evidence on how a whole network of such cameras would perform for regional rainfall maps, because large collections of real surveillance video are hard to obtain for privacy and security reasons.",
+    "approach": "The authors worked in Allegheny County, Pennsylvania (1930 km²), where 33 rain gauges and both real-time and gauge-calibrated NEXRAD radar rainfall at 1 km and 15-minute resolution are available. They built virtual camera networks of 100 to 1900 cameras, placing 70% in urban areas and along roads, and gave each camera a rainfall estimate equal to the nearby gauge value (within 2 km) or the calibrated radar value, plus a modelled error with five accuracy levels (within 10% up to within 50%), an extra visibility error for heavy rain and a random term. Point values from cameras and gauges were turned into maps with four interpolation methods (IDW, ordinary and universal kriging, spline), producing about 1.21 million simulated maps per comparison. Six rainfall events from drizzle to violent rain were evaluated using correlation and mean relative error (MAD) against the radar maps.",
+    "findings": [
+      "Camera networks gave clearly higher correlation with both real-time and calibrated radar maps than the gauge network, thanks to their much denser coverage.",
+      "Against calibrated radar, camera networks matched or beat the gauge network with about 300 cameras when each camera's error was within 10%, or about 700 cameras when the error was within 20%.",
+      "Relative differences from radar were about 0.5–8% for light-to-moderate events but about 8–25% for heavy events, because single-camera accuracy drops in intense rain.",
+      "Performance levelled off at around 900 cameras (about 0.47 per km²), and in some events even more cameras increased the error, so camera selection matters more than sheer numbers."
+    ],
+    "relevance": "Cities everywhere, including Korea's, already have dense CCTV networks that watch roads, rivers and neighbourhoods, while rain gauges remain far apart compared with the scale of a sudden summer downpour. This study gives a first estimate of how many cameras, and how accurate each one must be, before such networks become a trustworthy rainfall source for urban flood warning. It also gives a practical message for engineers and city managers: improving each camera's accuracy in heavy rain and choosing which cameras to use is more important than simply adding more feeds. Because the cameras are simulated rather than real, the results are a guide for planning, not a final proof.",
+    "keywords": ["surveillance cameras", "CCTV rainfall", "rain gauge network", "weather radar", "urban flooding", "spatial interpolation"]
+  },
+  {
     "id": "2026-11-26",
     "date": "2026-11-26",
     "theme": "AI Forecasting",
