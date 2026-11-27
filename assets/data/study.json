@@ -1,5 +1,34 @@
 [
   {
+    "id": "2026-11-28",
+    "date": "2026-11-28",
+    "theme": "Earth Observation",
+    "title": "Flood Inundation Modeling Using the Surface Water Ocean Topography Mission",
+    "authors": "Neal, J. C., Chuter, S. J., Archer, L., Hawker, L. P., Bates, P. D., Savage, J., Wilkinson, H., Rougier, J.",
+    "journal": "Water Resources Research",
+    "volume": "62",
+    "pages": "e2025WR041527",
+    "year": 2026,
+    "doi": "10.1029/2025WR041527",
+    "license": "CC BY 4.0",
+    "figure": {
+      "src": "assets/img/study/2026-11-28.webp",
+      "caption": "Flooding near Upton-upon-Severn on 8 November 2000: (a) the flood outline traced from airborne SAR imagery, (b) depths simulated by the benchmark model built on sonar-surveyed river bathymetry, and (c) depths simulated by the model whose river bed was estimated from SWOT satellite water heights. Panels b and c are almost identical.",
+      "credit": "Figure 8 from Neal et al. (2026), Water Resources Research, CC BY 4.0."
+    },
+    "tldr": "Repeated SWOT satellite measurements of river water height can be turned into an estimate of the hidden river bed, and a flood model built on that estimate reproduced a past flood on a narrow UK river almost as well as one built on a costly sonar survey.",
+    "background": "Detailed flood maps need to know the shape of the river bed (bathymetry), but this lies under water, cannot be seen by most satellites, and is surveyed for only a small share of the world's rivers. Without it, large-scale flood models often miss water levels by far more than the decimetre accuracy that damage assessment needs. The SWOT satellite, launched in December 2022, is the first mission to map water surface heights of rivers down to roughly 50 m wide from space, opening the door to inferring the bed from how the water surface behaves.",
+    "approach": "The authors took SWOT node-level water heights (about every 200 m along the river) from 92 daily calibration passes and 38 regular 21-day passes over the River Severn, UK, a 40–70 m wide river that is narrower than SWOT's design target. They first checked SWOT heights against Environment Agency gauges under three quality-flag thresholds. They then searched for the river-bed profile that lets a simple 1D steady-flow model (rectangular channel, gauged discharge) best match all SWOT water surfaces, using a new 'Tulip' misfit function that is quadratic for small errors but only logarithmic for large ones, so bad SWOT points cannot dominate. The estimated bed was placed in a LISFLOOD-FP flood model and compared with a benchmark model built on LiDAR plus multibeam sonar, for the November 2000 flood observed by high-resolution airborne SAR.",
+    "findings": [
+      "With the strictest quality filter, SWOT node heights differed from gauge levels by 0.16 ± 0.43 m on average (R² = 0.94), close to the mission accuracy target that was set for much larger water bodies; looser filters kept more data but let in large outliers, mostly biased high.",
+      "The Tulip misfit function clearly beat the usual squared-error fit: water-level RMSE at gauges stayed around 0.6–0.8 m, whereas the squared-error version always exceeded 1 m and passed 4 m when degraded data were included.",
+      "Estimated bed elevations were physically plausible, with an RMSE of just over 1 m against sonar; spacing bed points at about half the river's backwater length was enough, and adding more mainly risked overfitting noisy SWOT data.",
+      "For the 2000 flood, the SWOT-based model reached a Critical Success Index of 0.88 against airborne SAR (hit rate 98%, false alarms 10%), compared with 0.97 for the calibrated sonar-based model, and its gauge water levels were within 0.14–0.31 m on average."
+    ],
+    "relevance": "Flood hazard maps depend on knowing the river bed, but bed surveys are costly, so many smaller rivers have sparse or outdated ones — a familiar gap for small basins in Korea too. This study shows that a freely available satellite product can stand in for an expensive survey when building a flood model, even on a river smaller than the satellite was designed for. It also gives practical lessons for anyone using SWOT data: filter by quality flags, use an error measure that tolerates outliers, and focus on high-flow passes when the goal is flood mapping. Readers should note that the test used gauged discharge on a single river, so applying it to ungauged basins still needs more validation.",
+    "keywords": ["SWOT", "river bathymetry", "flood inundation", "satellite altimetry", "LISFLOOD-FP", "airborne SAR"]
+  },
+  {
     "id": "2026-11-27",
     "date": "2026-11-27",
     "theme": "Vision & Sensing",
